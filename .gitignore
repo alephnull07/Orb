@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 data/leakdb/raw/*.zip
 
+ui/.next/
+ui/node_modules/
+node_modules/
