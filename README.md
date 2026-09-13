@@ -2,7 +2,6 @@
 
 **Resilient state estimation for resource distribution networks under corrupted, unstructured reports.**
 
-East v. West 72-Hour Hackathon — Defense Track — September 2026
 Aarav & Parth, UCLA CS
 
 ---
