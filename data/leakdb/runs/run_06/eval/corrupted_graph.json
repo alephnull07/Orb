@@ -1,0 +1,841 @@
+{
+  "scenario": "leakdb_hanoi_cmh_scenario_6_corrupted",
+  "network": "Hanoi_CMH",
+  "source": "KIOS LeakDB Hanoi_CMH.zip",
+  "scenario_id": 6,
+  "timestamp": "2017-10-04 17:30:00",
+  "window": {
+    "commodity": "potable_water",
+    "unit": "m3/h",
+    "time_step": "30 min"
+  },
+  "model_uncertainty": {
+    "topology": "NO",
+    "length_pct": "10.0",
+    "diameter_pct": "15.0",
+    "roughness_pct": "15.0"
+  },
+  "notes": "Graph assembled only from the official EPANET .inp and official Flows/Leaks CSVs at 2017-10-04 17:30:00. No synthetic reports.",
+  "leaks": [
+    {
+      "node": "18",
+      "node_name": "Junction 18",
+      "leak_cmh": 619.2,
+      "leak_type": "incipient",
+      "start": "2017-10-04 18:30:00",
+      "end": "2017-11-08 16:30:00",
+      "diameter": "0.0919537878688"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "J_10",
+      "nato": "10",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 10",
+      "aliases": [
+        "Junction 10",
+        "J10",
+        "J-10",
+        "10"
+      ],
+      "demand_cmh": 144.357145883
+    },
+    {
+      "id": "J_11",
+      "nato": "11",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 11",
+      "aliases": [
+        "Junction 11",
+        "J11",
+        "J-11",
+        "11"
+      ],
+      "demand_cmh": 143.853839874
+    },
+    {
+      "id": "J_12",
+      "nato": "12",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 12",
+      "aliases": [
+        "Junction 12",
+        "J12",
+        "J-12",
+        "12"
+      ],
+      "demand_cmh": 148.867386338
+    },
+    {
+      "id": "J_13",
+      "nato": "13",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 13",
+      "aliases": [
+        "Junction 13",
+        "J13",
+        "J-13",
+        "13"
+      ],
+      "demand_cmh": 261.728483275
+    },
+    {
+      "id": "J_14",
+      "nato": "14",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 14",
+      "aliases": [
+        "Junction 14",
+        "J14",
+        "J-14",
+        "14"
+      ],
+      "demand_cmh": 176.527241027
+    },
+    {
+      "id": "J_15",
+      "nato": "15",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 15",
+      "aliases": [
+        "Junction 15",
+        "J15",
+        "J-15",
+        "15"
+      ],
+      "demand_cmh": 75.048034341
+    },
+    {
+      "id": "J_16",
+      "nato": "16",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 16",
+      "aliases": [
+        "Junction 16",
+        "J16",
+        "J-16",
+        "16"
+      ],
+      "demand_cmh": 89.8821121385
+    },
+    {
+      "id": "J_17",
+      "nato": "17",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 17",
+      "aliases": [
+        "Junction 17",
+        "J17",
+        "J-17",
+        "17"
+      ],
+      "demand_cmh": 230.132709312
+    },
+    {
+      "id": "J_18",
+      "nato": "18",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 18",
+      "aliases": [
+        "Junction 18",
+        "J18",
+        "J-18",
+        "18"
+      ],
+      "demand_cmh": 358.790191264
+    },
+    {
+      "id": "J_19",
+      "nato": "19",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 19",
+      "aliases": [
+        "Junction 19",
+        "J19",
+        "J-19",
+        "19"
+      ],
+      "demand_cmh": 16.9228594008
+    },
+    {
+      "id": "J_2",
+      "nato": "2",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 2",
+      "aliases": [
+        "Junction 2",
+        "J2",
+        "J-2",
+        "2"
+      ],
+      "demand_cmh": 235.672973802
+    },
+    {
+      "id": "J_20",
+      "nato": "20",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 20",
+      "aliases": [
+        "Junction 20",
+        "J20",
+        "J-20",
+        "20"
+      ],
+      "demand_cmh": 351.849996291
+    },
+    {
+      "id": "J_21",
+      "nato": "21",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 21",
+      "aliases": [
+        "Junction 21",
+        "J21",
+        "J-21",
+        "21"
+      ],
+      "demand_cmh": 256.980818526
+    },
+    {
+      "id": "J_22",
+      "nato": "22",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 22",
+      "aliases": [
+        "Junction 22",
+        "J22",
+        "J-22",
+        "22"
+      ],
+      "demand_cmh": 131.971914416
+    },
+    {
+      "id": "J_23",
+      "nato": "23",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 23",
+      "aliases": [
+        "Junction 23",
+        "J23",
+        "J-23",
+        "23"
+      ],
+      "demand_cmh": 301.158168987
+    },
+    {
+      "id": "J_24",
+      "nato": "24",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 24",
+      "aliases": [
+        "Junction 24",
+        "J24",
+        "J-24",
+        "24"
+      ],
+      "demand_cmh": 236.326093538
+    },
+    {
+      "id": "J_25",
+      "nato": "25",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 25",
+      "aliases": [
+        "Junction 25",
+        "J25",
+        "J-25",
+        "25"
+      ],
+      "demand_cmh": 46.4583928961
+    },
+    {
+      "id": "J_26",
+      "nato": "26",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 26",
+      "aliases": [
+        "Junction 26",
+        "J26",
+        "J-26",
+        "26"
+      ],
+      "demand_cmh": 243.695393384
+    },
+    {
+      "id": "J_27",
+      "nato": "27",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 27",
+      "aliases": [
+        "Junction 27",
+        "J27",
+        "J-27",
+        "27"
+      ],
+      "demand_cmh": 98.8666236212
+    },
+    {
+      "id": "J_28",
+      "nato": "28",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 28",
+      "aliases": [
+        "Junction 28",
+        "J28",
+        "J-28",
+        "28"
+      ],
+      "demand_cmh": 83.751351789
+    },
+    {
+      "id": "J_29",
+      "nato": "29",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 29",
+      "aliases": [
+        "Junction 29",
+        "J29",
+        "J-29",
+        "29"
+      ],
+      "demand_cmh": 96.0885801983
+    },
+    {
+      "id": "J_3",
+      "nato": "3",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 3",
+      "aliases": [
+        "Junction 3",
+        "J3",
+        "J-3",
+        "3"
+      ],
+      "demand_cmh": 239.112912672
+    },
+    {
+      "id": "J_30",
+      "nato": "30",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 30",
+      "aliases": [
+        "Junction 30",
+        "J30",
+        "J-30",
+        "30"
+      ],
+      "demand_cmh": 100.304100332
+    },
+    {
+      "id": "J_31",
+      "nato": "31",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 31",
+      "aliases": [
+        "Junction 31",
+        "J31",
+        "J-31",
+        "31"
+      ],
+      "demand_cmh": 30.184806431
+    },
+    {
+      "id": "J_32",
+      "nato": "32",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 32",
+      "aliases": [
+        "Junction 32",
+        "J32",
+        "J-32",
+        "32"
+      ],
+      "demand_cmh": 234.290295103
+    },
+    {
+      "id": "J_4",
+      "nato": "4",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 4",
+      "aliases": [
+        "Junction 4",
+        "J4",
+        "J-4",
+        "4"
+      ],
+      "demand_cmh": 36.0367928949
+    },
+    {
+      "id": "J_5",
+      "nato": "5",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 5",
+      "aliases": [
+        "Junction 5",
+        "J5",
+        "J-5",
+        "5"
+      ],
+      "demand_cmh": 207.110530848
+    },
+    {
+      "id": "J_6",
+      "nato": "6",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 6",
+      "aliases": [
+        "Junction 6",
+        "J6",
+        "J-6",
+        "6"
+      ],
+      "demand_cmh": 265.626384309
+    },
+    {
+      "id": "J_7",
+      "nato": "7",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 7",
+      "aliases": [
+        "Junction 7",
+        "J7",
+        "J-7",
+        "7"
+      ],
+      "demand_cmh": 358.92543473
+    },
+    {
+      "id": "J_8",
+      "nato": "8",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 8",
+      "aliases": [
+        "Junction 8",
+        "J8",
+        "J-8",
+        "8"
+      ],
+      "demand_cmh": 151.571842332
+    },
+    {
+      "id": "J_9",
+      "nato": "9",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction 9",
+      "aliases": [
+        "Junction 9",
+        "J9",
+        "J-9",
+        "9"
+      ],
+      "demand_cmh": 140.225133734
+    },
+    {
+      "id": "RES_1",
+      "nato": "1",
+      "type": "source",
+      "kind": "reservoir",
+      "display": "Reservoir 1",
+      "aliases": [
+        "Reservoir 1",
+        "R1",
+        "1"
+      ],
+      "demand_cmh": 0.0
+    },
+    {
+      "id": "SINK_LEAK",
+      "nato": "LEAK",
+      "type": "sink",
+      "kind": "leak discharge",
+      "display": "Leak discharge",
+      "aliases": [
+        "Leak discharge"
+      ],
+      "demand_cmh": 619.2
+    }
+  ],
+  "edges": [
+    {
+      "source": "RES_1",
+      "target": "J_2",
+      "value_lb": 5860.8,
+      "source_name": "Reservoir 1",
+      "target_name": "Junction 2",
+      "pipe_id": "1",
+      "length_m": 105.926854239,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_10",
+      "target": "J_11",
+      "value_lb": 590.4,
+      "source_name": "Junction 10",
+      "target_name": "Junction 11",
+      "pipe_id": "10",
+      "length_m": 924.125188225,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_11",
+      "target": "J_12",
+      "value_lb": 424.8,
+      "source_name": "Junction 11",
+      "target_name": "Junction 12",
+      "pipe_id": "11",
+      "length_m": 1151.16633047,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_12",
+      "target": "J_13",
+      "value_lb": 262.8,
+      "source_name": "Junction 12",
+      "target_name": "Junction 13",
+      "pipe_id": "12",
+      "length_m": 3535.85359378,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_10",
+      "target": "J_14",
+      "value_lb": 316.8,
+      "source_name": "Junction 10",
+      "target_name": "Junction 14",
+      "pipe_id": "13",
+      "length_m": 741.686448691,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_14",
+      "target": "J_15",
+      "value_lb": 129.6,
+      "source_name": "Junction 14",
+      "target_name": "Junction 15",
+      "pipe_id": "14",
+      "length_m": 526.16930427,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_15",
+      "target": "J_16",
+      "value_lb": 43.2,
+      "source_name": "Junction 15",
+      "target_name": "Junction 16",
+      "pipe_id": "15",
+      "length_m": 591.051651048,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_17",
+      "target": "J_16",
+      "value_lb": 122.4,
+      "source_name": "Junction 17",
+      "target_name": "Junction 16",
+      "pipe_id": "16",
+      "length_m": 2965.02228962,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_18",
+      "target": "J_17",
+      "value_lb": 345.6,
+      "source_name": "Junction 18",
+      "target_name": "Junction 17",
+      "pipe_id": "17",
+      "length_m": 1858.91343832,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_19",
+      "target": "J_18",
+      "value_lb": 748.8,
+      "source_name": "Junction 19",
+      "target_name": "Junction 18",
+      "pipe_id": "18",
+      "length_m": 829.912075798,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_3",
+      "target": "J_19",
+      "value_lb": 766.8,
+      "source_name": "Junction 3",
+      "target_name": "Junction 19",
+      "pipe_id": "19",
+      "length_m": 382.533735507,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_2",
+      "target": "J_3",
+      "value_lb": 5616.0,
+      "source_name": "Junction 2",
+      "target_name": "Junction 3",
+      "pipe_id": "2",
+      "length_m": 1417.51924698,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_3",
+      "target": "J_20",
+      "value_lb": 2343.6,
+      "source_name": "Junction 3",
+      "target_name": "Junction 20",
+      "pipe_id": "20",
+      "length_m": 2212.31373374,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_20",
+      "target": "J_21",
+      "value_lb": 410.4,
+      "source_name": "Junction 20",
+      "target_name": "Junction 21",
+      "pipe_id": "21",
+      "length_m": 1599.67789735,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_21",
+      "target": "J_22",
+      "value_lb": 151.2,
+      "source_name": "Junction 21",
+      "target_name": "Junction 22",
+      "pipe_id": "22",
+      "length_m": 507.986696892,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_20",
+      "target": "J_23",
+      "value_lb": 1573.2,
+      "source_name": "Junction 20",
+      "target_name": "Junction 23",
+      "pipe_id": "23",
+      "length_m": 2786.85166746,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_23",
+      "target": "J_24",
+      "value_lb": 979.2,
+      "source_name": "Junction 23",
+      "target_name": "Junction 24",
+      "pipe_id": "24",
+      "length_m": 1172.72977036,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_24",
+      "target": "J_25",
+      "value_lb": 712.8,
+      "source_name": "Junction 24",
+      "target_name": "Junction 25",
+      "pipe_id": "25",
+      "length_m": 1249.59693015,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_25",
+      "target": "J_26",
+      "value_lb": 306.0,
+      "source_name": "Junction 25",
+      "target_name": "Junction 26",
+      "pipe_id": "26",
+      "length_m": 776.171259778,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_26",
+      "target": "J_27",
+      "value_lb": 32.4,
+      "source_name": "Junction 26",
+      "target_name": "Junction 27",
+      "pipe_id": "27",
+      "length_m": 285.152762175,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_16",
+      "target": "J_27",
+      "value_lb": 68.4,
+      "source_name": "Junction 16",
+      "target_name": "Junction 27",
+      "pipe_id": "28",
+      "length_m": 717.352663978,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_23",
+      "target": "J_28",
+      "value_lb": 252.0,
+      "source_name": "Junction 23",
+      "target_name": "Junction 28",
+      "pipe_id": "29",
+      "length_m": 1611.7970881,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_3",
+      "target": "J_4",
+      "value_lb": 2260.8,
+      "source_name": "Junction 3",
+      "target_name": "Junction 4",
+      "pipe_id": "3",
+      "length_m": 916.421476276,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_28",
+      "target": "J_29",
+      "value_lb": 158.4,
+      "source_name": "Junction 28",
+      "target_name": "Junction 29",
+      "pipe_id": "30",
+      "length_m": 1821.16001831,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_29",
+      "target": "J_30",
+      "value_lb": 46.8,
+      "source_name": "Junction 29",
+      "target_name": "Junction 30",
+      "pipe_id": "31",
+      "length_m": 1483.50801651,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_31",
+      "target": "J_30",
+      "value_lb": 61.2,
+      "source_name": "Junction 31",
+      "target_name": "Junction 30",
+      "pipe_id": "32",
+      "length_m": 159.454729619,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_32",
+      "target": "J_31",
+      "value_lb": 93.6,
+      "source_name": "Junction 32",
+      "target_name": "Junction 31",
+      "pipe_id": "33",
+      "length_m": 842.70058894,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_25",
+      "target": "J_32",
+      "value_lb": 356.4,
+      "source_name": "Junction 25",
+      "target_name": "Junction 32",
+      "pipe_id": "34",
+      "length_m": 955.002645847,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_4",
+      "target": "J_5",
+      "value_lb": 2221.2,
+      "source_name": "Junction 4",
+      "target_name": "Junction 5",
+      "pipe_id": "4",
+      "length_m": 1054.40301992,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_5",
+      "target": "J_6",
+      "value_lb": 1994.4,
+      "source_name": "Junction 5",
+      "target_name": "Junction 6",
+      "pipe_id": "5",
+      "length_m": 1499.04956798,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_6",
+      "target": "J_7",
+      "value_lb": 1735.2,
+      "source_name": "Junction 6",
+      "target_name": "Junction 7",
+      "pipe_id": "6",
+      "length_m": 473.225472733,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_7",
+      "target": "J_8",
+      "value_lb": 1346.4,
+      "source_name": "Junction 7",
+      "target_name": "Junction 8",
+      "pipe_id": "7",
+      "length_m": 800.693816469,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_8",
+      "target": "J_9",
+      "value_lb": 1191.6,
+      "source_name": "Junction 8",
+      "target_name": "Junction 9",
+      "pipe_id": "8",
+      "length_m": 826.787394913,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_9",
+      "target": "J_10",
+      "value_lb": 1054.8,
+      "source_name": "Junction 9",
+      "target_name": "Junction 10",
+      "pipe_id": "9",
+      "length_m": 812.687110548,
+      "kind": "pipe"
+    },
+    {
+      "source": "J_18",
+      "target": "SINK_LEAK",
+      "value_lb": 619.2,
+      "source_name": "Junction 18",
+      "target_name": "Leak discharge",
+      "pipe_id": "LEAK_18",
+      "kind": "leak"
+    }
+  ]
+}

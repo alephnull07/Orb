@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "VICTOR_FOB_DEPOT",
@@ -165,9 +165,10 @@
       "target_display": "Mike transfer yard",
       "value_lb": 105,
       "evidence": [
+        "MSG-003",
         "MSG-003"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -179,9 +180,10 @@
       "target_display": "Copper ridge hub",
       "value_lb": 25,
       "evidence": [
+        "MSG-004",
         "MSG-004"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -193,9 +195,10 @@
       "target_display": "November ridge hub",
       "value_lb": 55,
       "evidence": [
+        "MSG-005",
         "MSG-005"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -207,9 +210,10 @@
       "target_display": "Mike transfer yard",
       "value_lb": 160,
       "evidence": [
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -221,9 +225,10 @@
       "target_display": "Yankee quarry",
       "value_lb": 40,
       "evidence": [
+        "MSG-009",
         "MSG-009"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -235,9 +240,10 @@
       "target_display": "Foxtrot well",
       "value_lb": 20,
       "evidence": [
+        "MSG-010",
         "MSG-010"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -249,9 +255,10 @@
       "target_display": "Lima forward cache",
       "value_lb": 25,
       "evidence": [
+        "MSG-012",
         "MSG-012"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -263,9 +270,10 @@
       "target_display": "Hotel orchard",
       "value_lb": 1,
       "evidence": [
+        "MSG-015",
         "MSG-015"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -277,9 +285,10 @@
       "target_display": "India mosque courtyard",
       "value_lb": 2,
       "evidence": [
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -291,9 +300,10 @@
       "target_display": "Bravo orchard",
       "value_lb": 4,
       "evidence": [
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -305,9 +315,10 @@
       "target_display": "Harbor mill",
       "value_lb": 2,
       "evidence": [
+        "MSG-022",
         "MSG-022"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -319,9 +330,10 @@
       "target_display": "Kilo mill",
       "value_lb": 5,
       "evidence": [
+        "MSG-024",
         "MSG-024"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -333,9 +345,10 @@
       "target_display": "Oscar farm",
       "value_lb": 5,
       "evidence": [
+        "MSG-025",
         "MSG-025"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -347,9 +360,10 @@
       "target_display": "Sierra mosque courtyard",
       "value_lb": 20,
       "evidence": [
+        "MSG-027",
         "MSG-027"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -361,9 +375,10 @@
       "target_display": "Zulu tent city",
       "value_lb": 1,
       "evidence": [
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -375,9 +390,10 @@
       "target_display": "Harbor mill",
       "value_lb": 5,
       "evidence": [
+        "MSG-031",
         "MSG-031"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -389,9 +405,10 @@
       "target_display": "Oscar farm",
       "value_lb": 35,
       "evidence": [
+        "MSG-033",
         "MSG-033"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -403,9 +420,10 @@
       "target_display": "Granite crossroads",
       "value_lb": 15,
       "evidence": [
+        "MSG-036",
         "MSG-036"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -417,9 +435,10 @@
       "target_display": "Alpha crossroads",
       "value_lb": 220,
       "evidence": [
+        "MSG-037",
         "MSG-037"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -431,9 +450,10 @@
       "target_display": "Juliet market",
       "value_lb": 2,
       "evidence": [
+        "MSG-039",
         "MSG-039"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -445,9 +465,10 @@
       "target_display": "Sierra mosque courtyard",
       "value_lb": 3,
       "evidence": [
+        "MSG-040",
         "MSG-040"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -459,9 +480,10 @@
       "target_display": "Hotel orchard",
       "value_lb": 5,
       "evidence": [
+        "MSG-043",
         "MSG-043"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -473,9 +495,10 @@
       "target_display": "Bravo orchard",
       "value_lb": 35,
       "evidence": [
+        "MSG-047",
         "MSG-047"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -487,9 +510,10 @@
       "target_display": "Juliet market",
       "value_lb": 15,
       "evidence": [
+        "MSG-048",
         "MSG-048"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -501,9 +525,10 @@
       "target_display": "Foxtrot well",
       "value_lb": 35,
       "evidence": [
+        "MSG-052",
         "MSG-052"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     }
   ]

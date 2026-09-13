@@ -21,7 +21,7 @@ from pathlib import Path
 from . import agent_auditor, agent_receiver, agent_scout
 from .consensus import merge
 from .llm import extract_llm, get_api_key
-from .textutil import load_messages
+from .textutil import load_messages, load_topology
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "supply_drops"
@@ -45,17 +45,19 @@ def run_dataset(
     dataset_dir = data_root / name
     out_dir = data_root / "graphs"
     messages = load_messages(dataset_dir)
+    topology = load_topology(dataset_dir)
     graphs = {}
 
     def job(agent_name: str):
         # Base regex extraction as baseline / fallback
-        regex_graph = AGENTS[agent_name](messages)
+        regex_graph = AGENTS[agent_name](messages, topology=topology)
         if use_llm:
             llm_graph = extract_llm(
                 agent_name,
                 messages,
                 model=model,
                 api_key=api_key,
+                topology=topology,
             )
             if llm_graph:
                 # Scout regex is the topology gate so Claude cannot add Watchtower / person hops.

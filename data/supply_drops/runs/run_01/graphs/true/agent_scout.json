@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "QUARRY_AIRDROP_LZ",
@@ -213,9 +213,10 @@
       "target_display": "Tango ridge hub",
       "value_lb": 10,
       "evidence": [
+        "MSG-001",
         "MSG-001"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -227,9 +228,10 @@
       "target_display": "Juliet ridge hub",
       "value_lb": 5,
       "evidence": [
+        "MSG-005",
         "MSG-005"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -241,9 +243,10 @@
       "target_display": "Golf forward cache",
       "value_lb": 195,
       "evidence": [
+        "MSG-006",
         "MSG-006"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -255,9 +258,10 @@
       "target_display": "Juliet ridge hub",
       "value_lb": 110,
       "evidence": [
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -269,9 +273,10 @@
       "target_display": "Foxtrot helipad",
       "value_lb": 20,
       "evidence": [
+        "MSG-010",
         "MSG-010"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -283,9 +288,10 @@
       "target_display": "Alpha water point",
       "value_lb": 20,
       "evidence": [
+        "MSG-011",
         "MSG-011"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -297,9 +303,10 @@
       "target_display": "Maple mill",
       "value_lb": 20,
       "evidence": [
+        "MSG-012",
         "MSG-012"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -311,9 +318,10 @@
       "target_display": "Charlie forward cache",
       "value_lb": 50,
       "evidence": [
+        "MSG-016",
         "MSG-016"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -325,9 +333,10 @@
       "target_display": "Kilo schoolhouse",
       "value_lb": 30,
       "evidence": [
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -339,9 +348,10 @@
       "target_display": "Sierra water point",
       "value_lb": 25,
       "evidence": [
+        "MSG-019",
         "MSG-019"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -353,9 +363,10 @@
       "target_display": "Victor farm",
       "value_lb": 40,
       "evidence": [
+        "MSG-023",
         "MSG-023"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -367,9 +378,10 @@
       "target_display": "Papa crossroads",
       "value_lb": 40,
       "evidence": [
+        "MSG-024",
         "MSG-024"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -381,9 +393,10 @@
       "target_display": "Echo well",
       "value_lb": 45,
       "evidence": [
+        "MSG-026",
         "MSG-026"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -395,9 +408,10 @@
       "target_display": "Mike mosque courtyard",
       "value_lb": 25,
       "evidence": [
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -409,9 +423,10 @@
       "target_display": "Bravo water point",
       "value_lb": 155,
       "evidence": [
+        "MSG-030",
         "MSG-030"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -423,9 +438,10 @@
       "target_display": "Copper mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-032",
         "MSG-032"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -437,9 +453,10 @@
       "target_display": "Romeo water point",
       "value_lb": 15,
       "evidence": [
+        "MSG-033",
         "MSG-033"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -451,9 +468,10 @@
       "target_display": "Lima farm",
       "value_lb": 40,
       "evidence": [
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -465,9 +483,10 @@
       "target_display": "Romeo water point",
       "value_lb": 25,
       "evidence": [
+        "MSG-038",
         "MSG-038"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -479,9 +498,10 @@
       "target_display": "Hotel farm",
       "value_lb": 10,
       "evidence": [
+        "MSG-039",
         "MSG-039"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -493,9 +513,10 @@
       "target_display": "Willow helipad",
       "value_lb": 10,
       "evidence": [
+        "MSG-040",
         "MSG-040"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -507,9 +528,10 @@
       "target_display": "Lima farm",
       "value_lb": 5,
       "evidence": [
+        "MSG-042",
         "MSG-042"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -521,9 +543,10 @@
       "target_display": "Cedar crossroads",
       "value_lb": 5,
       "evidence": [
+        "MSG-045",
         "MSG-045"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -535,9 +558,10 @@
       "target_display": "Harbor quarry",
       "value_lb": 50,
       "evidence": [
+        "MSG-046",
         "MSG-046"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -549,9 +573,10 @@
       "target_display": "Whiskey bridge",
       "value_lb": 5,
       "evidence": [
+        "MSG-047",
         "MSG-047"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -563,9 +588,10 @@
       "target_display": "November mosque courtyard",
       "value_lb": 25,
       "evidence": [
+        "MSG-051",
         "MSG-051"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -577,9 +603,10 @@
       "target_display": "Mike mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-057",
         "MSG-057"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -591,9 +618,10 @@
       "target_display": "Echo well",
       "value_lb": 5,
       "evidence": [
+        "MSG-058",
         "MSG-058"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -605,9 +633,10 @@
       "target_display": "Echo well",
       "value_lb": 15,
       "evidence": [
+        "MSG-060",
         "MSG-060"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -619,9 +648,10 @@
       "target_display": "Copper mosque courtyard",
       "value_lb": 40,
       "evidence": [
+        "MSG-061",
         "MSG-061"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -633,9 +663,10 @@
       "target_display": "Alpha water point",
       "value_lb": 5,
       "evidence": [
+        "MSG-066",
         "MSG-066"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -647,9 +678,10 @@
       "target_display": "Kilo schoolhouse",
       "value_lb": 10,
       "evidence": [
+        "MSG-067",
         "MSG-067"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -661,9 +693,10 @@
       "target_display": "Hotel farm",
       "value_lb": 30,
       "evidence": [
+        "MSG-068",
         "MSG-068"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -675,9 +708,10 @@
       "target_display": "Kilo schoolhouse",
       "value_lb": 30,
       "evidence": [
+        "MSG-070",
         "MSG-070"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -689,9 +723,10 @@
       "target_display": "Willow helipad",
       "value_lb": 20,
       "evidence": [
+        "MSG-071",
         "MSG-071"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -703,9 +738,10 @@
       "target_display": "Mike mosque courtyard",
       "value_lb": 25,
       "evidence": [
+        "MSG-074",
         "MSG-074"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -717,9 +753,10 @@
       "target_display": "Papa crossroads",
       "value_lb": 5,
       "evidence": [
+        "MSG-077",
         "MSG-077"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -731,9 +768,10 @@
       "target_display": "Papa crossroads",
       "value_lb": 20,
       "evidence": [
+        "MSG-078",
         "MSG-078"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -745,9 +783,10 @@
       "target_display": "November mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-081",
         "MSG-081"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -759,9 +798,10 @@
       "target_display": "Foxtrot helipad",
       "value_lb": 10,
       "evidence": [
+        "MSG-082",
         "MSG-082"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -773,9 +813,10 @@
       "target_display": "Alpha water point",
       "value_lb": 5,
       "evidence": [
+        "MSG-083",
         "MSG-083"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -787,9 +828,10 @@
       "target_display": "Copper mosque courtyard",
       "value_lb": 50,
       "evidence": [
+        "MSG-084",
         "MSG-084"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     }
   ]

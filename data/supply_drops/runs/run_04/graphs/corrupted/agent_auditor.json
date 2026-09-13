@@ -198,9 +198,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-001",
+        "MSG-006",
         "MSG-006"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -213,9 +214,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-002",
+        "MSG-004",
         "MSG-004"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -228,9 +230,10 @@
       "value_lb": 130,
       "evidence": [
         "MSG-003",
+        "MSG-008",
         "MSG-008"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -243,9 +246,10 @@
       "value_lb": 135,
       "evidence": [
         "MSG-005",
+        "MSG-005",
         "MSG-007"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -258,9 +262,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-009",
+        "MSG-016",
         "MSG-016"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -273,9 +278,10 @@
       "value_lb": 60,
       "evidence": [
         "MSG-010",
+        "MSG-014",
         "MSG-014"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -288,9 +294,10 @@
       "value_lb": 70,
       "evidence": [
         "MSG-011",
+        "MSG-015",
         "MSG-015"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -303,9 +310,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-012",
+        "MSG-013",
         "MSG-013"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -318,9 +326,10 @@
       "value_lb": 30,
       "evidence": [
         "MSG-017",
+        "MSG-017",
         "MSG-020"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -333,9 +342,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-018",
+        "MSG-018",
         "MSG-024"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -348,9 +358,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-019",
+        "MSG-019",
         "MSG-023"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": true
     },
     {
@@ -363,9 +374,10 @@
       "value_lb": 45,
       "evidence": [
         "MSG-021",
+        "MSG-022",
         "MSG-022"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -378,9 +390,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-025",
+        "MSG-025",
         "MSG-026"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -393,9 +406,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-027",
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -408,9 +422,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-029",
+        "MSG-030",
         "MSG-030"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -423,9 +438,10 @@
       "value_lb": 235,
       "evidence": [
         "MSG-031",
+        "MSG-036",
         "MSG-036"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -438,9 +454,10 @@
       "value_lb": 30,
       "evidence": [
         "MSG-032",
+        "MSG-032",
         "MSG-034"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": true
     },
     {
@@ -453,9 +470,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-033",
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -468,9 +486,10 @@
       "value_lb": 80,
       "evidence": [
         "MSG-037",
+        "MSG-037",
         "MSG-038"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -483,9 +502,10 @@
       "value_lb": 95,
       "evidence": [
         "MSG-039",
+        "MSG-039",
         "MSG-041"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -498,9 +518,10 @@
       "value_lb": 105,
       "evidence": [
         "MSG-040",
+        "MSG-040",
         "MSG-046"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -513,9 +534,10 @@
       "value_lb": 75,
       "evidence": [
         "MSG-042",
+        "MSG-044",
         "MSG-044"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -528,9 +550,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-043",
+        "MSG-045",
         "MSG-045"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -543,9 +566,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-047",
+        "MSG-048",
         "MSG-048"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -558,9 +582,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-051",
+        "MSG-051",
         "MSG-054"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -573,9 +598,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-052",
+        "MSG-055",
         "MSG-055"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -588,9 +614,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-053",
+        "MSG-057",
         "MSG-057"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -603,9 +630,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-056",
+        "MSG-056",
         "MSG-058"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -618,9 +646,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-059",
+        "MSG-064",
         "MSG-064"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -633,9 +662,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-060",
+        "MSG-060",
         "MSG-062"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -648,9 +678,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-061",
+        "MSG-065",
         "MSG-065"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -663,9 +694,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-063",
+        "MSG-066",
         "MSG-066"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -678,9 +710,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-067",
+        "MSG-067",
         "MSG-074"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -693,9 +726,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-068",
+        "MSG-068",
         "MSG-069"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -708,9 +742,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-070",
+        "MSG-070",
         "MSG-072"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -723,9 +758,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-071",
+        "MSG-073",
         "MSG-073"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -738,9 +774,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-075",
+        "MSG-081",
         "MSG-081"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -753,9 +790,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-076",
+        "MSG-076",
         "MSG-082"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -768,9 +806,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-077",
+        "MSG-077",
         "MSG-078"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -783,9 +822,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-079",
+        "MSG-080",
         "MSG-080"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -798,9 +838,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-083",
+        "MSG-084",
         "MSG-084"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -814,7 +855,7 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "also_sent",
       "from_corrupted": true
     }
   ],

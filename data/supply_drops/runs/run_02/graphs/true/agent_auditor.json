@@ -166,9 +166,10 @@
       "value_lb": 55,
       "evidence": [
         "MSG-001",
+        "MSG-005",
         "MSG-005"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -181,9 +182,10 @@
       "value_lb": 160,
       "evidence": [
         "MSG-002",
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -196,9 +198,10 @@
       "value_lb": 105,
       "evidence": [
         "MSG-003",
+        "MSG-003",
         "MSG-008"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -211,9 +214,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-004",
+        "MSG-004",
         "MSG-006"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -226,9 +230,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-009",
+        "MSG-009",
         "MSG-011"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -241,9 +246,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-010",
+        "MSG-010",
         "MSG-014"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -256,9 +262,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-012",
+        "MSG-012",
         "MSG-013"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -271,9 +278,10 @@
       "value_lb": 1,
       "evidence": [
         "MSG-015",
+        "MSG-015",
         "MSG-018"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -286,9 +294,10 @@
       "value_lb": 2,
       "evidence": [
         "MSG-016",
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -301,9 +310,10 @@
       "value_lb": 4,
       "evidence": [
         "MSG-019",
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -316,9 +326,10 @@
       "value_lb": 2,
       "evidence": [
         "MSG-021",
+        "MSG-022",
         "MSG-022"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -331,9 +342,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-023",
+        "MSG-024",
         "MSG-024"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -346,9 +358,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-025",
+        "MSG-025",
         "MSG-030"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -361,9 +374,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-026",
+        "MSG-027",
         "MSG-027"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -376,9 +390,10 @@
       "value_lb": 1,
       "evidence": [
         "MSG-028",
+        "MSG-028",
         "MSG-029"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -391,9 +406,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-031",
+        "MSG-031",
         "MSG-035"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -406,9 +422,10 @@
       "value_lb": 35,
       "evidence": [
         "MSG-032",
+        "MSG-033",
         "MSG-033"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -421,9 +438,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-034",
+        "MSG-036",
         "MSG-036"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -436,9 +454,10 @@
       "value_lb": 220,
       "evidence": [
         "MSG-037",
+        "MSG-037",
         "MSG-038"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -451,9 +470,10 @@
       "value_lb": 2,
       "evidence": [
         "MSG-039",
+        "MSG-039",
         "MSG-042"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -466,9 +486,10 @@
       "value_lb": 3,
       "evidence": [
         "MSG-040",
+        "MSG-040",
         "MSG-044"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -481,9 +502,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-041",
+        "MSG-043",
         "MSG-043"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -496,9 +518,10 @@
       "value_lb": 35,
       "evidence": [
         "MSG-047",
+        "MSG-047",
         "MSG-049"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -511,9 +534,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-048",
+        "MSG-048",
         "MSG-050"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -526,9 +550,10 @@
       "value_lb": 35,
       "evidence": [
         "MSG-051",
+        "MSG-052",
         "MSG-052"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     }
   ],

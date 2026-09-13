@@ -1,0 +1,34 @@
+{
+  "source": "KIOS LeakDB Hanoi_CMH",
+  "scenario": 6,
+  "true_timestamp": "2017-10-04 17:30:00",
+  "corrupted_timestamp": "2017-10-04 18:30:00",
+  "has_leak": true,
+  "leaks": [
+    {
+      "node": "18",
+      "area": "0.00664092785708",
+      "diameter": "0.0919537878688",
+      "type": "incipient",
+      "start": "2017-10-04 18:30:00",
+      "end": "2017-11-08 16:30:00",
+      "peak": "2017-11-05 08:00:00",
+      "demand_at_ts": 619.2
+    }
+  ],
+  "attacks": [
+    {
+      "id": "leak_discharge",
+      "source_name": "Junction 18",
+      "target_name": "Leak discharge",
+      "reported_lb": 619.2,
+      "true_lb": 0
+    }
+  ],
+  "model_uncertainty": {
+    "topology": "NO",
+    "length_pct": "10.0",
+    "diameter_pct": "15.0",
+    "roughness_pct": "15.0"
+  }
+}

@@ -183,7 +183,7 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -197,7 +197,7 @@
       "evidence": [
         "MSG-005"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -211,7 +211,7 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -225,7 +225,7 @@
       "evidence": [
         "MSG-008"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -239,7 +239,7 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -253,7 +253,7 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -267,7 +267,7 @@
       "evidence": [
         "MSG-011"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -281,7 +281,7 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -295,7 +295,7 @@
       "evidence": [
         "MSG-017"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -309,7 +309,7 @@
       "evidence": [
         "MSG-019"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -323,7 +323,7 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -337,7 +337,7 @@
       "evidence": [
         "MSG-023"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -351,7 +351,7 @@
       "evidence": [
         "MSG-024"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -365,7 +365,7 @@
       "evidence": [
         "MSG-025"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -379,7 +379,7 @@
       "evidence": [
         "MSG-030"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -393,7 +393,7 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -407,7 +407,7 @@
       "evidence": [
         "MSG-034"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -421,7 +421,7 @@
       "evidence": [
         "MSG-036"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -435,7 +435,7 @@
       "evidence": [
         "MSG-037"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -449,7 +449,7 @@
       "evidence": [
         "MSG-041"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -463,7 +463,7 @@
       "evidence": [
         "MSG-042"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -477,7 +477,7 @@
       "evidence": [
         "MSG-044"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -491,7 +491,7 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -505,7 +505,7 @@
       "evidence": [
         "MSG-048"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -519,7 +519,7 @@
       "evidence": [
         "MSG-051"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -533,7 +533,7 @@
       "evidence": [
         "MSG-053"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -547,7 +547,7 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -561,7 +561,7 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -575,7 +575,7 @@
       "evidence": [
         "MSG-060"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -589,7 +589,7 @@
       "evidence": [
         "MSG-062"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -603,7 +603,7 @@
       "evidence": [
         "MSG-063"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -617,7 +617,7 @@
       "evidence": [
         "MSG-065"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -631,7 +631,7 @@
       "evidence": [
         "MSG-067"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -645,7 +645,7 @@
       "evidence": [
         "MSG-069"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -659,7 +659,7 @@
       "evidence": [
         "MSG-070"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -673,7 +673,7 @@
       "evidence": [
         "MSG-074"
       ],
-      "channel_bias": "receipt",
+      "channel_bias": "got",
       "from_corrupted": false
     }
   ]

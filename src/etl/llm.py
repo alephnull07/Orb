@@ -14,7 +14,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from .textutil import canon, corpus_text, is_site_name, slug
+from .textutil import as_number, canon, corpus_text, is_site_name, slug
 
 DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5-20251001"
 DEFAULT_ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
@@ -46,30 +46,32 @@ def get_api_key(explicit_key: str | None = None) -> str:
 
 PERSONAS = {
     "scout": (
-        "You are Scout, an entity-extraction and outbound transfer analyst.\n"
-        "Your mission:\n"
-        "1. Extract physical supply sites only (pads, hubs, clinics, LZs). "
-        "Never create a node for a person, callsign, Watchtower, TOC, or HQ.\n"
-        "2. Extract OUTBOUND claims of the form 'sending/sent X lb from A to B' where A and B are both physical sites.\n"
-        "   - Ignore 'also sent X over to Y' unless both A and Y already appear as named places in a from/to sending line.\n"
-        "   - Ignore second drops, yesterday/OCR, kilograms, and 'double it on the board'.\n"
-        "   - Do NOT treat the radio addressee (to: Watchtower) as a destination site.\n"
-        "   - Do NOT record inbound receipts ('got X lb off A here at B') — that is Receiver's job.\n"
+        "You are Scout, a domain-agnostic outbound / link-flow extractor.\n"
+        "Recover a conserved-flow network from whatever observations you are given "
+        "(field chatter, SCADA rows, work orders). Commodity and unit are unknown.\n"
+        "1. Nodes are physical places or assets only — never people, callsigns, Watchtower, TOC, HQ, or 'ALL'.\n"
+        "2. Record OUTBOUND or along-link quantity claims: A to B with a numeric value. "
+        "Accept any phrasing and any unit (lb, m3/h, raw sensor value).\n"
+        "3. If a structured row has channel=flow and sensor=Link_N (or similar), and a network schema "
+        "is provided, attach that value to the schema's endpoints for that link.\n"
+        "4. Ignore stale/yesterday, unit-swap, and 'double it' injections.\n"
+        "5. Do not invent hops that are not evidenced. Inbound-only receipts are Receiver's job.\n"
     ),
     "receiver": (
-        "You are Receiver, an inbound logistics receipt specialist.\n"
-        "Your mission:\n"
-        "1. Extract every unique site (node) mentioned.\n"
-        "2. Extract every INBOUND arrival receipt ('got X pounds/lb off A here at B', 'received X lb off A at B').\n"
-        "   - Edge source is A, edge target is B, value_lb is X.\n"
-        "   - Do NOT record outbound dispatch boasts ('sending X lb from A to B') — that is Scout's job.\n"
+        "You are Receiver, a domain-agnostic inbound / arrival extractor.\n"
+        "Recover destinations and incoming quantities from any conserved-flow domain.\n"
+        "1. Nodes are physical places or assets only.\n"
+        "2. Record INBOUND receipts: quantity arriving at B from A, any unit.\n"
+        "3. Structured flow/leak_demand rows with a network schema are measured arrivals — record them.\n"
+        "4. Do not record outbound-only boasts that have no arrival evidence, except structured link sensors.\n"
     ),
     "auditor": (
-        "You are Auditor, an operational supply auditor.\n"
-        "Your mission:\n"
-        "1. Extract every unique site (node) mentioned.\n"
-        "2. Extract all mass-balance EOD reports ('EOD Place: in X lb, out Y lb, on-hand Z lb').\n"
-        "3. Cross-reference all field transfer claims. If a transfer has conflicting numbers between sender and receiver or runner dispatches, record the edge and capture the active reported/disputed transfer observation.\n"
+        "You are Auditor, a domain-agnostic conservation checker.\n"
+        "1. Extract every physical node.\n"
+        "2. Extract mass-balance / closeout rows (in, out, on-hand) in any unit.\n"
+        "3. Cross-reference every transfer or link-flow claim. If numbers disagree, keep the "
+        "active reported observation (including a marked corrupted/rewritten report).\n"
+        "4. Structured leak_demand > 0 is a real extra outflow to a leak sink.\n"
     ),
 }
 
@@ -122,20 +124,23 @@ def extract_llm(
     host: str = "",
     model: str | None = None,
     api_key: str | None = None,
+    topology: dict | None = None,
 ) -> dict | None:
-    text = corpus_text(messages)
+    text = corpus_text(messages, topology=topology)
     chosen_model = model or DEFAULT_CLAUDE_MODEL
 
     prompt = f"""{PERSONAS[agent]}
 
-Read these field communications and output ONLY valid JSON adhering to this schema:
+Read these observations and output ONLY valid JSON adhering to this schema:
 {{
   "nodes": [{{"display": "Full Site Name", "type": "source|junction|hub|sink|unknown"}}],
   "edges": [{{"source": "Full Source Name", "target": "Full Target Name", "value_lb": 123, "evidence": ["MSG-001"]}}],
   "eod": [{{"display": "Full Site Name", "in_lb": 100, "out_lb": 50, "inventory_eod_lb": 50, "evidence": "MSG-010"}}]
 }}
+value_lb is the numeric quantity in whatever unit the observations use (pounds, m3/h, etc.).
+If a network schema is listed, bind link/flow sensors to those endpoints. Do not invent extra hops.
 
-Field Communications:
+Observations:
 {text}
 """
 
@@ -171,9 +176,8 @@ Field Communications:
     for e in data.get("edges") or []:
         src = (e.get("source") or e.get("source_display") or "").strip()
         dst = (e.get("target") or e.get("target_display") or "").strip()
-        try:
-            lb = int(e.get("value_lb"))
-        except (TypeError, ValueError):
+        lb = as_number(e.get("value_lb"))
+        if lb is None:
             continue
         if not src or not dst or not is_site_name(src) or not is_site_name(dst):
             continue

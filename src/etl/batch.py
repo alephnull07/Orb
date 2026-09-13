@@ -42,6 +42,31 @@ def _compact(score: dict | None) -> dict | None:
     }
 
 
+def score_runs(n: int = 10, use_llm: bool = False) -> list[dict]:
+    existing = []
+    manifest_path = RUNS_DIR / "manifest.json"
+    if manifest_path.exists():
+        existing = json.loads(manifest_path.read_text(encoding="utf-8"))
+    by_id = {row.get("run_id"): row for row in existing}
+    summary: list[dict] = []
+    for i in range(1, n + 1):
+        run_id = f"run_{i:02d}"
+        out_root = RUNS_DIR / run_id
+        if not (out_root / "true" / "messages.jsonl").exists():
+            print(f"skip {run_id}: no generated corpus")
+            continue
+        print(f"\n======== {run_id} ========")
+        scores = run_sources(data_root=out_root, source="both", use_llm=use_llm)
+        row = dict(by_id.get(run_id) or {"run_id": run_id, "out_root": str(out_root)})
+        row["true_vs_truth"] = _compact(scores.get("true_vs_truth"))
+        row["corrupted_vs_corrupted"] = _compact(scores.get("corrupted_vs_corrupted"))
+        row["corrupted_vs_truth"] = _compact(scores.get("corrupted_vs_truth"))
+        summary.append(row)
+    manifest_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    print(f"\nWrote scores for {len(summary)} runs + {manifest_path}")
+    return summary
+
+
 def generate_and_run(
     n: int = 10,
     seeds: list[int] | None = None,
@@ -82,8 +107,12 @@ def main() -> int:
     p = argparse.ArgumentParser(description="Generate extra corpora and run ETL agents")
     p.add_argument("--n", type=int, default=10, help="How many extra datasets to generate")
     p.add_argument("--llm", action="store_true", help="Use Claude if an API key is present")
+    p.add_argument("--score-only", action="store_true", help="Run agents on already-generated runs")
     args = p.parse_args()
-    generate_and_run(n=args.n, fallback=True, use_llm=args.llm)
+    if args.score_only:
+        score_runs(n=args.n, use_llm=args.llm)
+    else:
+        generate_and_run(n=args.n, fallback=True, use_llm=args.llm)
     return 0
 
 

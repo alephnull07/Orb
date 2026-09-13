@@ -1,0 +1,657 @@
+{
+  "scenario": "l1_recovered",
+  "nodes": [
+    {
+      "id": "CEDAR_AIRDROP_LZ",
+      "key": "cedar airdrop lz",
+      "display": "Cedar airdrop LZ",
+      "aliases": [
+        "Cedar airdrop LZ"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "COPPER_RIDGE_HUB",
+      "key": "copper ridge hub",
+      "display": "Copper ridge hub",
+      "aliases": [
+        "Copper ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "XRAY_TRANSFER_YARD",
+      "key": "xray transfer yard",
+      "display": "Xray transfer yard",
+      "aliases": [
+        "Xray transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "CHARLIE_TRANSFER_YARD",
+      "key": "charlie transfer yard",
+      "display": "Charlie transfer yard",
+      "aliases": [
+        "Charlie transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "ZULU_PORT_DUMP",
+      "key": "zulu port dump",
+      "display": "Zulu port dump",
+      "aliases": [
+        "Zulu port dump"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "GRANITE_TENT_CITY",
+      "key": "granite tent city",
+      "display": "Granite tent city",
+      "aliases": [
+        "Granite tent city"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "INDIA_BRIDGE",
+      "key": "india bridge",
+      "display": "India bridge",
+      "aliases": [
+        "India bridge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "SIERRA_FOB_DEPOT",
+      "key": "sierra fob depot",
+      "display": "Sierra FOB depot",
+      "aliases": [
+        "Sierra FOB depot"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "TANGO_HELIPAD",
+      "key": "tango helipad",
+      "display": "Tango helipad",
+      "aliases": [
+        "Tango helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "KILO_PAD",
+      "key": "kilo pad",
+      "display": "Kilo pad",
+      "aliases": [
+        "Kilo pad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "PAPA_SCHOOLHOUSE",
+      "key": "papa schoolhouse",
+      "display": "Papa schoolhouse",
+      "aliases": [
+        "Papa schoolhouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "IRON_WAREHOUSE",
+      "key": "iron warehouse",
+      "display": "Iron warehouse",
+      "aliases": [
+        "Iron warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "NOVEMBER_AID_CAGE",
+      "key": "november aid cage",
+      "display": "November aid cage",
+      "aliases": [
+        "November aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "OVERLOOK_WAREHOUSE",
+      "key": "overlook warehouse",
+      "display": "Overlook warehouse",
+      "aliases": [
+        "Overlook warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "HOTEL_QUARRY",
+      "key": "hotel quarry",
+      "display": "Hotel quarry",
+      "aliases": [
+        "Hotel quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "HARBOR_HELIPAD",
+      "key": "harbor helipad",
+      "display": "Harbor helipad",
+      "aliases": [
+        "Harbor helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "MAPLE_AID_CAGE",
+      "key": "maple aid cage",
+      "display": "Maple aid cage",
+      "aliases": [
+        "Maple aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "GOLF_MOSQUE_COURTYARD",
+      "key": "golf mosque courtyard",
+      "display": "Golf mosque courtyard",
+      "aliases": [
+        "Golf mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "QUARRY_MOSQUE_COURTYARD",
+      "key": "quarry mosque courtyard",
+      "display": "Quarry mosque courtyard",
+      "aliases": [
+        "Quarry mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "LIMA_HELIPAD",
+      "key": "lima helipad",
+      "display": "Lima helipad",
+      "aliases": [
+        "Lima helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "WILLOW_WATER_POINT",
+      "key": "willow water point",
+      "display": "Willow water point",
+      "aliases": [
+        "Willow water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "QUEBEC_MOSQUE_COURTYARD",
+      "key": "quebec mosque courtyard",
+      "display": "Quebec mosque courtyard",
+      "aliases": [
+        "Quebec mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ECHO_WELL",
+      "key": "echo well",
+      "display": "Echo well",
+      "aliases": [
+        "Echo well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Copper ridge hub",
+      "value_lb": 50.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "XRAY_TRANSFER_YARD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Xray transfer yard",
+      "value_lb": 135.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "CHARLIE_TRANSFER_YARD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Charlie transfer yard",
+      "value_lb": 15.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "XRAY_TRANSFER_YARD",
+      "source_display": "Zulu port dump",
+      "target_display": "Xray transfer yard",
+      "value_lb": 130.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Granite tent city",
+      "value_lb": 25.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "INDIA_BRIDGE",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "India bridge",
+      "value_lb": 45.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "CHARLIE_TRANSFER_YARD",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Charlie transfer yard",
+      "value_lb": 70.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Copper ridge hub",
+      "value_lb": 10.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "TANGO_HELIPAD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Tango helipad",
+      "value_lb": 30.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "KILO_PAD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Kilo pad",
+      "value_lb": 25.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "PAPA_SCHOOLHOUSE",
+      "source_display": "Zulu port dump",
+      "target_display": "Papa schoolhouse",
+      "value_lb": 35.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Iron warehouse",
+      "value_lb": 45.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "NOVEMBER_AID_CAGE",
+      "source_display": "Zulu port dump",
+      "target_display": "November aid cage",
+      "value_lb": 20.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "OVERLOOK_WAREHOUSE",
+      "source_display": "Zulu port dump",
+      "target_display": "Overlook warehouse",
+      "value_lb": 40.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "HOTEL_QUARRY",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Hotel quarry",
+      "value_lb": 15.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Xray transfer yard",
+      "target_display": "Harbor helipad",
+      "value_lb": 10.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CHARLIE_TRANSFER_YARD",
+      "target": "MAPLE_AID_CAGE",
+      "source_display": "Charlie transfer yard",
+      "target_display": "Maple aid cage",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Xray transfer yard",
+      "target_display": "Copper ridge hub",
+      "value_lb": 235.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "CHARLIE_TRANSFER_YARD",
+      "target": "GOLF_MOSQUE_COURTYARD",
+      "source_display": "Charlie transfer yard",
+      "target_display": "Golf mosque courtyard",
+      "value_lb": 80.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "QUARRY_MOSQUE_COURTYARD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Quarry mosque courtyard",
+      "value_lb": 95.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Lima helipad",
+      "value_lb": 105.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Copper ridge hub",
+      "target_display": "Willow water point",
+      "value_lb": 75.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "QUEBEC_MOSQUE_COURTYARD",
+      "source_display": "Xray transfer yard",
+      "target_display": "Quebec mosque courtyard",
+      "value_lb": 15.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "ECHO_WELL",
+      "source_display": "Copper ridge hub",
+      "target_display": "Echo well",
+      "value_lb": 20.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "OVERLOOK_WAREHOUSE",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Overlook warehouse",
+      "target_display": "Iron warehouse",
+      "value_lb": 10.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "PAPA_SCHOOLHOUSE",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Papa schoolhouse",
+      "target_display": "Lima helipad",
+      "value_lb": 25.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "PAPA_SCHOOLHOUSE",
+      "target": "OVERLOOK_WAREHOUSE",
+      "source_display": "Papa schoolhouse",
+      "target_display": "Overlook warehouse",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "IRON_WAREHOUSE",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Iron warehouse",
+      "target_display": "Willow water point",
+      "value_lb": 15.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "LIMA_HELIPAD",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Lima helipad",
+      "target_display": "Harbor helipad",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "KILO_PAD",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Kilo pad",
+      "target_display": "Willow water point",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "TANGO_HELIPAD",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Tango helipad",
+      "target_display": "Iron warehouse",
+      "value_lb": 10.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "KILO_PAD",
+      "target": "NOVEMBER_AID_CAGE",
+      "source_display": "Kilo pad",
+      "target_display": "November aid cage",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "WILLOW_WATER_POINT",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "Willow water point",
+      "target_display": "Granite tent city",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "GRANITE_TENT_CITY",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Granite tent city",
+      "target_display": "Iron warehouse",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "GRANITE_TENT_CITY",
+      "target": "QUARRY_MOSQUE_COURTYARD",
+      "source_display": "Granite tent city",
+      "target_display": "Quarry mosque courtyard",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "WILLOW_WATER_POINT",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Willow water point",
+      "target_display": "Harbor helipad",
+      "value_lb": 55.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "INDIA_BRIDGE",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "India bridge",
+      "target_display": "Willow water point",
+      "value_lb": 25.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "QUARRY_MOSQUE_COURTYARD",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Quarry mosque courtyard",
+      "target_display": "Lima helipad",
+      "value_lb": 50.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "GOLF_MOSQUE_COURTYARD",
+      "target": "KILO_PAD",
+      "source_display": "Golf mosque courtyard",
+      "target_display": "Kilo pad",
+      "value_lb": 20.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "GOLF_MOSQUE_COURTYARD",
+      "target": "PAPA_SCHOOLHOUSE",
+      "source_display": "Golf mosque courtyard",
+      "target_display": "Papa schoolhouse",
+      "value_lb": 20.0,
+      "method": "l1_recovered"
+    },
+    {
+      "source": "INDIA_BRIDGE",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "India bridge",
+      "target_display": "Granite tent city",
+      "value_lb": 5.0,
+      "method": "l1_recovered"
+    }
+  ]
+}

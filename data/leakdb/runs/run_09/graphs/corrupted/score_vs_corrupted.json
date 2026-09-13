@@ -1,0 +1,10 @@
+{
+  "target_file": "corrupted_graph.json",
+  "target_edges": 34,
+  "consensus_edges": 34,
+  "matched_hops": 34,
+  "exact_weight_matches": 34,
+  "mean_abs_weight_error_on_matches": 0.0,
+  "differences": [],
+  "extra_hops": []
+}

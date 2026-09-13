@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "UNIFORM_FOB_DEPOT",
@@ -149,9 +149,10 @@
       "target_display": "Hotel transfer yard",
       "value_lb": 125,
       "evidence": [
+        "MSG-001",
         "MSG-001"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -163,9 +164,10 @@
       "target_display": "Tango transfer yard",
       "value_lb": 290,
       "evidence": [
+        "MSG-004",
         "MSG-004"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -177,9 +179,10 @@
       "target_display": "Foxtrot ridge hub",
       "value_lb": 55,
       "evidence": [
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -191,9 +194,10 @@
       "target_display": "Oscar junction",
       "value_lb": 275,
       "evidence": [
+        "MSG-008",
         "MSG-008"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -205,9 +209,10 @@
       "target_display": "Mike quarry",
       "value_lb": 85,
       "evidence": [
+        "MSG-009",
         "MSG-009"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -219,9 +224,10 @@
       "target_display": "Golf bridge",
       "value_lb": 20,
       "evidence": [
+        "MSG-010",
         "MSG-010"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -233,9 +239,10 @@
       "target_display": "Cedar checkpoint",
       "value_lb": 35,
       "evidence": [
+        "MSG-014",
         "MSG-014"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -247,9 +254,10 @@
       "target_display": "Echo warehouse",
       "value_lb": 35,
       "evidence": [
+        "MSG-015",
         "MSG-015"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -261,9 +269,10 @@
       "target_display": "November well",
       "value_lb": 80,
       "evidence": [
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -275,9 +284,10 @@
       "target_display": "Sierra warehouse",
       "value_lb": 105,
       "evidence": [
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -289,9 +299,10 @@
       "target_display": "Quebec crossroads",
       "value_lb": 30,
       "evidence": [
+        "MSG-021",
         "MSG-021"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -303,9 +314,10 @@
       "target_display": "Kilo farm",
       "value_lb": 10,
       "evidence": [
+        "MSG-022",
         "MSG-022"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -317,9 +329,10 @@
       "target_display": "India checkpoint",
       "value_lb": 10,
       "evidence": [
+        "MSG-026",
         "MSG-026"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -331,9 +344,10 @@
       "target_display": "Xray warehouse",
       "value_lb": 5,
       "evidence": [
+        "MSG-027",
         "MSG-027"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -345,9 +359,10 @@
       "target_display": "Yankee bridge",
       "value_lb": 25,
       "evidence": [
+        "MSG-029",
         "MSG-029"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -359,9 +374,10 @@
       "target_display": "Kilo farm",
       "value_lb": 75,
       "evidence": [
+        "MSG-031",
         "MSG-031"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -373,9 +389,10 @@
       "target_display": "India checkpoint",
       "value_lb": 5,
       "evidence": [
+        "MSG-033",
         "MSG-033"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -387,9 +404,10 @@
       "target_display": "Xray warehouse",
       "value_lb": 95,
       "evidence": [
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -401,9 +419,10 @@
       "target_display": "Xray warehouse",
       "value_lb": 130,
       "evidence": [
+        "MSG-036",
         "MSG-036"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -415,9 +434,10 @@
       "target_display": "India checkpoint",
       "value_lb": 150,
       "evidence": [
+        "MSG-038",
         "MSG-038"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -429,9 +449,10 @@
       "target_display": "Kilo farm",
       "value_lb": 25,
       "evidence": [
+        "MSG-044",
         "MSG-044"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -443,9 +464,10 @@
       "target_display": "Cedar checkpoint",
       "value_lb": 30,
       "evidence": [
+        "MSG-045",
         "MSG-045"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -457,9 +479,10 @@
       "target_display": "November well",
       "value_lb": 15,
       "evidence": [
+        "MSG-046",
         "MSG-046"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {

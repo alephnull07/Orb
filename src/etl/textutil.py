@@ -20,6 +20,18 @@ ALSO_SENT_RE = re.compile(
     r"also sent\s+(\d+)\s*(?:lbs|lb|pounds|kg)\s+over to\s+(.+?)(?:,|\.|$)",
     re.IGNORECASE,
 )
+# Domain-agnostic transfer language (any unit, any conserved commodity).
+TRANSFER_RE = re.compile(
+    r"(?:sending|sent|shipping|pumping|moving|transfer(?:red|ring)?|flowing)\s+"
+    r"(\d+(?:\.\d+)?)\s*(?:lb|lbs|pounds|kg|m3/?h|cmh|gpm|lps)?\s+"
+    r"from\s+(.+?)\s+to\s+(.+?)(?:\.|,|count|;|$)",
+    re.IGNORECASE,
+)
+FLOW_ARROW_RE = re.compile(
+    r"(\d+(?:\.\d+)?)\s*(?:m3/?h|cmh|lb|lbs|pounds|kg)?\s+"
+    r"(.+?)\s*(?:-->|->|→)\s+(.+?)(?:\.|,|;|$)",
+    re.IGNORECASE,
+)
 SUSPICIOUS = re.compile(
     r"(yesterday|smudged|second drop|double it|\bkg\b|do not know if this is today)",
     re.IGNORECASE,
@@ -94,7 +106,50 @@ def load_messages(dataset_dir: Path) -> list[dict]:
     return rows
 
 
-def pick_reported_weight(mentions: list[dict]) -> tuple[int, bool]:
+def load_topology(dataset_dir: Path) -> dict:
+    path = dataset_dir / "topology.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {"links": {}, "nodes": []}
+
+
+def as_number(value):
+    if value is None or value == "":
+        return None
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value) if value.is_integer() else value
+    try:
+        n = float(str(value).strip())
+    except (TypeError, ValueError):
+        return None
+    return int(n) if n.is_integer() else n
+
+
+def resolve_sensor_edge(sensor: str, topology: dict, channel: str) -> tuple[str, str] | None:
+    """Map a dataset sensor id onto a directed hop using official topology."""
+    raw = (sensor or "").strip()
+    if not raw:
+        return None
+    ch = (channel or "").lower()
+    nodes = {str(n.get("nato")): n for n in (topology.get("nodes") or [])}
+    if ch == "leak_demand":
+        nid = raw.split("_")[-1]
+        node = nodes.get(nid)
+        display = node["display"] if node else f"Junction {nid}"
+        return display, "Leak discharge"
+    links = topology.get("links") or {}
+    for key in (raw, raw.replace("Link_", "").replace("link_", ""), raw.replace("Pipe_", "").replace("P-", "")):
+        if key in links:
+            rec = links[key]
+            return rec["source_name"], rec["target_name"]
+    return None
+
+
+def pick_reported_weight(mentions: list[dict]) -> tuple[int | float, bool]:
     """Choose a hop weight from extracted mentions.
 
     A mutated field report is marked ``corrupted`` on the message. That
@@ -106,19 +161,39 @@ def pick_reported_weight(mentions: list[dict]) -> tuple[int, bool]:
         return 0, False
     flagged = [m for m in mentions if m.get("corrupted")]
     if flagged:
-        return int(flagged[-1]["value_lb"]), True
-    vals = [int(m["value_lb"]) for m in mentions]
+        return as_number(flagged[-1]["value_lb"]) or 0, True
+    vals = [as_number(m["value_lb"]) for m in mentions]
+    vals = [v for v in vals if v is not None]
+    if not vals:
+        return 0, False
     if len(set(vals)) == 1:
         return vals[0], False
     return sorted(vals)[len(vals) // 2], False
 
 
-def corpus_text(messages: list[dict]) -> str:
+def corpus_text(messages: list[dict], topology: dict | None = None) -> str:
     parts = []
     for m in messages:
-        parts.append(
+        extra = []
+        if m.get("sensor") is not None:
+            extra.append(f"sensor={m.get('sensor')}")
+        if m.get("value") is not None:
+            extra.append(f"value={m.get('value')}")
+        head = (
             f"[{m.get('message_id')}] ({m.get('channel')}) "
-            f"{m.get('from_name')} / {m.get('callsign')} -> {m.get('to')}\n"
-            f"{m.get('raw_text')}\n"
+            f"{m.get('from_name') or ''} / {m.get('callsign') or ''} -> {m.get('to') or ''}"
         )
+        if extra:
+            head += " " + " ".join(extra)
+        parts.append(head + "\n" + (m.get("raw_text") or "") + "\n")
+    if topology and topology.get("links"):
+        parts.append("Official network schema (links):")
+        seen = set()
+        for key, rec in topology["links"].items():
+            pair = (rec["source_name"], rec["target_name"], rec.get("pipe_id"))
+            if pair in seen:
+                continue
+            seen.add(pair)
+            parts.append(f"  {rec.get('pipe_id') or key}: {rec['source_name']} -> {rec['target_name']}")
+        parts.append("")
     return "\n".join(parts)

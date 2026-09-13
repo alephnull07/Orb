@@ -1,0 +1,740 @@
+{
+  "agent": "scout",
+  "role": "entity extraction / outbound and link-flow claims",
+  "nodes": [
+    {
+      "id": "RESERVOIR_1",
+      "display": "Reservoir 1",
+      "aliases": [
+        "Reservoir 1"
+      ],
+      "key": "reservoir 1"
+    },
+    {
+      "id": "JUNCTION_2",
+      "display": "Junction 2",
+      "aliases": [
+        "Junction 2"
+      ],
+      "key": "junction 2"
+    },
+    {
+      "id": "JUNCTION_10",
+      "display": "Junction 10",
+      "aliases": [
+        "Junction 10"
+      ],
+      "key": "junction 10"
+    },
+    {
+      "id": "JUNCTION_11",
+      "display": "Junction 11",
+      "aliases": [
+        "Junction 11"
+      ],
+      "key": "junction 11"
+    },
+    {
+      "id": "JUNCTION_12",
+      "display": "Junction 12",
+      "aliases": [
+        "Junction 12"
+      ],
+      "key": "junction 12"
+    },
+    {
+      "id": "JUNCTION_13",
+      "display": "Junction 13",
+      "aliases": [
+        "Junction 13"
+      ],
+      "key": "junction 13"
+    },
+    {
+      "id": "JUNCTION_14",
+      "display": "Junction 14",
+      "aliases": [
+        "Junction 14"
+      ],
+      "key": "junction 14"
+    },
+    {
+      "id": "JUNCTION_15",
+      "display": "Junction 15",
+      "aliases": [
+        "Junction 15"
+      ],
+      "key": "junction 15"
+    },
+    {
+      "id": "JUNCTION_16",
+      "display": "Junction 16",
+      "aliases": [
+        "Junction 16"
+      ],
+      "key": "junction 16"
+    },
+    {
+      "id": "JUNCTION_17",
+      "display": "Junction 17",
+      "aliases": [
+        "Junction 17"
+      ],
+      "key": "junction 17"
+    },
+    {
+      "id": "JUNCTION_18",
+      "display": "Junction 18",
+      "aliases": [
+        "Junction 18"
+      ],
+      "key": "junction 18"
+    },
+    {
+      "id": "JUNCTION_19",
+      "display": "Junction 19",
+      "aliases": [
+        "Junction 19"
+      ],
+      "key": "junction 19"
+    },
+    {
+      "id": "JUNCTION_3",
+      "display": "Junction 3",
+      "aliases": [
+        "Junction 3"
+      ],
+      "key": "junction 3"
+    },
+    {
+      "id": "JUNCTION_20",
+      "display": "Junction 20",
+      "aliases": [
+        "Junction 20"
+      ],
+      "key": "junction 20"
+    },
+    {
+      "id": "JUNCTION_21",
+      "display": "Junction 21",
+      "aliases": [
+        "Junction 21"
+      ],
+      "key": "junction 21"
+    },
+    {
+      "id": "JUNCTION_22",
+      "display": "Junction 22",
+      "aliases": [
+        "Junction 22"
+      ],
+      "key": "junction 22"
+    },
+    {
+      "id": "JUNCTION_23",
+      "display": "Junction 23",
+      "aliases": [
+        "Junction 23"
+      ],
+      "key": "junction 23"
+    },
+    {
+      "id": "JUNCTION_24",
+      "display": "Junction 24",
+      "aliases": [
+        "Junction 24"
+      ],
+      "key": "junction 24"
+    },
+    {
+      "id": "JUNCTION_25",
+      "display": "Junction 25",
+      "aliases": [
+        "Junction 25"
+      ],
+      "key": "junction 25"
+    },
+    {
+      "id": "JUNCTION_26",
+      "display": "Junction 26",
+      "aliases": [
+        "Junction 26"
+      ],
+      "key": "junction 26"
+    },
+    {
+      "id": "JUNCTION_27",
+      "display": "Junction 27",
+      "aliases": [
+        "Junction 27"
+      ],
+      "key": "junction 27"
+    },
+    {
+      "id": "JUNCTION_28",
+      "display": "Junction 28",
+      "aliases": [
+        "Junction 28"
+      ],
+      "key": "junction 28"
+    },
+    {
+      "id": "JUNCTION_4",
+      "display": "Junction 4",
+      "aliases": [
+        "Junction 4"
+      ],
+      "key": "junction 4"
+    },
+    {
+      "id": "JUNCTION_29",
+      "display": "Junction 29",
+      "aliases": [
+        "Junction 29"
+      ],
+      "key": "junction 29"
+    },
+    {
+      "id": "JUNCTION_30",
+      "display": "Junction 30",
+      "aliases": [
+        "Junction 30"
+      ],
+      "key": "junction 30"
+    },
+    {
+      "id": "JUNCTION_31",
+      "display": "Junction 31",
+      "aliases": [
+        "Junction 31"
+      ],
+      "key": "junction 31"
+    },
+    {
+      "id": "JUNCTION_32",
+      "display": "Junction 32",
+      "aliases": [
+        "Junction 32"
+      ],
+      "key": "junction 32"
+    },
+    {
+      "id": "JUNCTION_5",
+      "display": "Junction 5",
+      "aliases": [
+        "Junction 5"
+      ],
+      "key": "junction 5"
+    },
+    {
+      "id": "JUNCTION_6",
+      "display": "Junction 6",
+      "aliases": [
+        "Junction 6"
+      ],
+      "key": "junction 6"
+    },
+    {
+      "id": "JUNCTION_7",
+      "display": "Junction 7",
+      "aliases": [
+        "Junction 7"
+      ],
+      "key": "junction 7"
+    },
+    {
+      "id": "JUNCTION_8",
+      "display": "Junction 8",
+      "aliases": [
+        "Junction 8"
+      ],
+      "key": "junction 8"
+    },
+    {
+      "id": "JUNCTION_9",
+      "display": "Junction 9",
+      "aliases": [
+        "Junction 9"
+      ],
+      "key": "junction 9"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "reservoir 1",
+      "target_key": "junction 2",
+      "source": "RESERVOIR_1",
+      "target": "JUNCTION_2",
+      "source_display": "Reservoir 1",
+      "target_display": "Junction 2",
+      "value_lb": 6382.8,
+      "evidence": [
+        "flow-Link_1-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 10",
+      "target_key": "junction 11",
+      "source": "JUNCTION_10",
+      "target": "JUNCTION_11",
+      "source_display": "Junction 10",
+      "target_display": "Junction 11",
+      "value_lb": 644.4,
+      "evidence": [
+        "flow-Link_10-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 11",
+      "target_key": "junction 12",
+      "source": "JUNCTION_11",
+      "target": "JUNCTION_12",
+      "source_display": "Junction 11",
+      "target_display": "Junction 12",
+      "value_lb": 464.4,
+      "evidence": [
+        "flow-Link_11-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 12",
+      "target_key": "junction 13",
+      "source": "JUNCTION_12",
+      "target": "JUNCTION_13",
+      "source_display": "Junction 12",
+      "target_display": "Junction 13",
+      "value_lb": 298.8,
+      "evidence": [
+        "flow-Link_12-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 10",
+      "target_key": "junction 14",
+      "source": "JUNCTION_10",
+      "target": "JUNCTION_14",
+      "source_display": "Junction 10",
+      "target_display": "Junction 14",
+      "value_lb": 237.6,
+      "evidence": [
+        "flow-Link_13-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 14",
+      "target_key": "junction 15",
+      "source": "JUNCTION_14",
+      "target": "JUNCTION_15",
+      "source_display": "Junction 14",
+      "target_display": "Junction 15",
+      "value_lb": 46.8,
+      "evidence": [
+        "flow-Link_14-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 16",
+      "target_key": "junction 15",
+      "source": "JUNCTION_16",
+      "target": "JUNCTION_15",
+      "source_display": "Junction 16",
+      "target_display": "Junction 15",
+      "value_lb": 36,
+      "evidence": [
+        "flow-Link_15-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 17",
+      "target_key": "junction 16",
+      "source": "JUNCTION_17",
+      "target": "JUNCTION_16",
+      "source_display": "Junction 17",
+      "target_display": "Junction 16",
+      "value_lb": 241.2,
+      "evidence": [
+        "flow-Link_16-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 18",
+      "target_key": "junction 17",
+      "source": "JUNCTION_18",
+      "target": "JUNCTION_17",
+      "source_display": "Junction 18",
+      "target_display": "Junction 17",
+      "value_lb": 522,
+      "evidence": [
+        "flow-Link_17-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 19",
+      "target_key": "junction 18",
+      "source": "JUNCTION_19",
+      "target": "JUNCTION_18",
+      "source_display": "Junction 19",
+      "target_display": "Junction 18",
+      "value_lb": 946.8,
+      "evidence": [
+        "flow-Link_18-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 3",
+      "target_key": "junction 19",
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_19",
+      "source_display": "Junction 3",
+      "target_display": "Junction 19",
+      "value_lb": 964.8,
+      "evidence": [
+        "flow-Link_19-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 2",
+      "target_key": "junction 3",
+      "source": "JUNCTION_2",
+      "target": "JUNCTION_3",
+      "source_display": "Junction 2",
+      "target_display": "Junction 3",
+      "value_lb": 6091.2,
+      "evidence": [
+        "flow-Link_2-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 3",
+      "target_key": "junction 20",
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_20",
+      "source_display": "Junction 3",
+      "target_display": "Junction 20",
+      "value_lb": 2509.2,
+      "evidence": [
+        "flow-Link_20-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 20",
+      "target_key": "junction 21",
+      "source": "JUNCTION_20",
+      "target": "JUNCTION_21",
+      "source_display": "Junction 20",
+      "target_display": "Junction 21",
+      "value_lb": 446.4,
+      "evidence": [
+        "flow-Link_21-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 21",
+      "target_key": "junction 22",
+      "source": "JUNCTION_21",
+      "target": "JUNCTION_22",
+      "source_display": "Junction 21",
+      "target_display": "Junction 22",
+      "value_lb": 136.8,
+      "evidence": [
+        "flow-Link_22-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 20",
+      "target_key": "junction 23",
+      "source": "JUNCTION_20",
+      "target": "JUNCTION_23",
+      "source_display": "Junction 20",
+      "target_display": "Junction 23",
+      "value_lb": 1616.4,
+      "evidence": [
+        "flow-Link_23-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 23",
+      "target_key": "junction 24",
+      "source": "JUNCTION_23",
+      "target": "JUNCTION_24",
+      "source_display": "Junction 23",
+      "target_display": "Junction 24",
+      "value_lb": 1026,
+      "evidence": [
+        "flow-Link_24-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 24",
+      "target_key": "junction 25",
+      "source": "JUNCTION_24",
+      "target": "JUNCTION_25",
+      "source_display": "Junction 24",
+      "target_display": "Junction 25",
+      "value_lb": 741.6,
+      "evidence": [
+        "flow-Link_25-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 25",
+      "target_key": "junction 26",
+      "source": "JUNCTION_25",
+      "target": "JUNCTION_26",
+      "source_display": "Junction 25",
+      "target_display": "Junction 26",
+      "value_lb": 338.4,
+      "evidence": [
+        "flow-Link_26-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 26",
+      "target_key": "junction 27",
+      "source": "JUNCTION_26",
+      "target": "JUNCTION_27",
+      "source_display": "Junction 26",
+      "target_display": "Junction 27",
+      "value_lb": 18,
+      "evidence": [
+        "flow-Link_27-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 16",
+      "target_key": "junction 27",
+      "source": "JUNCTION_16",
+      "target": "JUNCTION_27",
+      "source_display": "Junction 16",
+      "target_display": "Junction 27",
+      "value_lb": 104.4,
+      "evidence": [
+        "flow-Link_28-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 23",
+      "target_key": "junction 28",
+      "source": "JUNCTION_23",
+      "target": "JUNCTION_28",
+      "source_display": "Junction 23",
+      "target_display": "Junction 28",
+      "value_lb": 252,
+      "evidence": [
+        "flow-Link_29-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 3",
+      "target_key": "junction 4",
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_4",
+      "source_display": "Junction 3",
+      "target_display": "Junction 4",
+      "value_lb": 2354.4,
+      "evidence": [
+        "flow-Link_3-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 28",
+      "target_key": "junction 29",
+      "source": "JUNCTION_28",
+      "target": "JUNCTION_29",
+      "source_display": "Junction 28",
+      "target_display": "Junction 29",
+      "value_lb": 154.8,
+      "evidence": [
+        "flow-Link_30-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 29",
+      "target_key": "junction 30",
+      "source": "JUNCTION_29",
+      "target": "JUNCTION_30",
+      "source_display": "Junction 29",
+      "target_display": "Junction 30",
+      "value_lb": 36,
+      "evidence": [
+        "flow-Link_31-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 31",
+      "target_key": "junction 30",
+      "source": "JUNCTION_31",
+      "target": "JUNCTION_30",
+      "source_display": "Junction 31",
+      "target_display": "Junction 30",
+      "value_lb": 61.2,
+      "evidence": [
+        "flow-Link_32-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 32",
+      "target_key": "junction 31",
+      "source": "JUNCTION_32",
+      "target": "JUNCTION_31",
+      "source_display": "Junction 32",
+      "target_display": "Junction 31",
+      "value_lb": 90,
+      "evidence": [
+        "flow-Link_33-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 25",
+      "target_key": "junction 32",
+      "source": "JUNCTION_25",
+      "target": "JUNCTION_32",
+      "source_display": "Junction 25",
+      "target_display": "Junction 32",
+      "value_lb": 352.8,
+      "evidence": [
+        "flow-Link_34-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 4",
+      "target_key": "junction 5",
+      "source": "JUNCTION_4",
+      "target": "JUNCTION_5",
+      "source_display": "Junction 4",
+      "target_display": "Junction 5",
+      "value_lb": 2311.2,
+      "evidence": [
+        "flow-Link_4-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 5",
+      "target_key": "junction 6",
+      "source": "JUNCTION_5",
+      "target": "JUNCTION_6",
+      "source_display": "Junction 5",
+      "target_display": "Junction 6",
+      "value_lb": 2052,
+      "evidence": [
+        "flow-Link_5-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 6",
+      "target_key": "junction 7",
+      "source": "JUNCTION_6",
+      "target": "JUNCTION_7",
+      "source_display": "Junction 6",
+      "target_display": "Junction 7",
+      "value_lb": 1749.6,
+      "evidence": [
+        "flow-Link_6-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 7",
+      "target_key": "junction 8",
+      "source": "JUNCTION_7",
+      "target": "JUNCTION_8",
+      "source_display": "Junction 7",
+      "target_display": "Junction 8",
+      "value_lb": 1389.6,
+      "evidence": [
+        "flow-Link_7-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 8",
+      "target_key": "junction 9",
+      "source": "JUNCTION_8",
+      "target": "JUNCTION_9",
+      "source_display": "Junction 8",
+      "target_display": "Junction 9",
+      "value_lb": 1245.6,
+      "evidence": [
+        "flow-Link_8-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "junction 9",
+      "target_key": "junction 10",
+      "source": "JUNCTION_9",
+      "target": "JUNCTION_10",
+      "source_display": "Junction 9",
+      "target_display": "Junction 10",
+      "value_lb": 1069.2,
+      "evidence": [
+        "flow-Link_9-2017-03-15T22:00:00"
+      ],
+      "channel_bias": "flow",
+      "from_corrupted": false
+    }
+  ]
+}

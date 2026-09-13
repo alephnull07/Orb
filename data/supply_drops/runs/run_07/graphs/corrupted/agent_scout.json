@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "BRAVO_AIRDROP_LZ",
@@ -141,9 +141,10 @@
       "target_display": "Tango ridge hub",
       "value_lb": 55,
       "evidence": [
+        "MSG-001",
         "MSG-001"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -155,9 +156,10 @@
       "target_display": "Xray junction",
       "value_lb": 35,
       "evidence": [
+        "MSG-003",
         "MSG-003"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -169,9 +171,10 @@
       "target_display": "Sandpit forward cache",
       "value_lb": 60,
       "evidence": [
+        "MSG-004",
         "MSG-004"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -183,9 +186,10 @@
       "target_display": "India forward cache",
       "value_lb": 400,
       "evidence": [
+        "MSG-006",
         "MSG-006"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -197,9 +201,10 @@
       "target_display": "Lima ridge hub",
       "value_lb": 50,
       "evidence": [
+        "MSG-010",
         "MSG-010"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -211,9 +216,10 @@
       "target_display": "Cedar orchard",
       "value_lb": 25,
       "evidence": [
+        "MSG-012",
         "MSG-012"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -225,9 +231,10 @@
       "target_display": "Willow bridge",
       "value_lb": 5,
       "evidence": [
+        "MSG-013",
         "MSG-013"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -239,9 +246,10 @@
       "target_display": "Delta water point",
       "value_lb": 20,
       "evidence": [
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -253,9 +261,10 @@
       "target_display": "Juliet warehouse",
       "value_lb": 15,
       "evidence": [
+        "MSG-018",
         "MSG-018"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -267,9 +276,10 @@
       "target_display": "Charlie checkpoint",
       "value_lb": 5,
       "evidence": [
+        "MSG-019",
         "MSG-019"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -281,9 +291,10 @@
       "target_display": "Golf well",
       "value_lb": 85,
       "evidence": [
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -295,9 +306,10 @@
       "target_display": "Charlie checkpoint",
       "value_lb": 5,
       "evidence": [
+        "MSG-024",
         "MSG-024"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -309,9 +321,10 @@
       "target_display": "Granite market",
       "value_lb": 5,
       "evidence": [
+        "MSG-026",
         "MSG-026"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -323,9 +336,10 @@
       "target_display": "Zulu junction",
       "value_lb": 20,
       "evidence": [
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -337,9 +351,10 @@
       "target_display": "Delta water point",
       "value_lb": 5,
       "evidence": [
+        "MSG-031",
         "MSG-031"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -351,9 +366,10 @@
       "target_display": "Willow bridge",
       "value_lb": 25,
       "evidence": [
+        "MSG-032",
         "MSG-032"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -365,9 +381,10 @@
       "target_display": "Granite market",
       "value_lb": 5,
       "evidence": [
+        "MSG-034",
         "MSG-034"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -379,9 +396,10 @@
       "target_display": "Delta water point",
       "value_lb": 10,
       "evidence": [
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -393,9 +411,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-038",
         "MSG-038"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -407,9 +426,10 @@
       "target_display": "Willow bridge",
       "value_lb": 255,
       "evidence": [
+        "MSG-039",
         "MSG-039"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -421,9 +441,10 @@
       "target_display": "India forward cache",
       "value_lb": 5,
       "evidence": [
+        "MSG-042",
         "MSG-042"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -435,9 +456,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 15,
       "evidence": [
+        "MSG-044",
         "MSG-044"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -449,9 +471,10 @@
       "target_display": "Golf well",
       "value_lb": 5,
       "evidence": [
+        "MSG-045",
         "MSG-045"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -463,9 +486,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 75,
       "evidence": [
+        "MSG-046",
         "MSG-046"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -477,9 +501,10 @@
       "target_display": "Golf well",
       "value_lb": 70,
       "evidence": [
+        "MSG-050",
         "MSG-050"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -491,9 +516,10 @@
       "target_display": "Cedar orchard",
       "value_lb": 15,
       "evidence": [
+        "MSG-051",
         "MSG-051"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -505,9 +531,10 @@
       "target_display": "Delta water point",
       "value_lb": 1,
       "evidence": [
+        "MSG-055",
         "MSG-055"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -519,9 +546,10 @@
       "target_display": "Golf well",
       "value_lb": 60,
       "evidence": [
+        "MSG-057",
         "MSG-057"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -533,9 +561,10 @@
       "target_display": "Juliet warehouse",
       "value_lb": 4,
       "evidence": [
+        "MSG-059",
         "MSG-059"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -547,9 +576,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 10,
       "evidence": [
+        "MSG-062",
         "MSG-062"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {

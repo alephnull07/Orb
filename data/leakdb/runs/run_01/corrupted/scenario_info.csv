@@ -1,0 +1,8 @@
+Description , Value
+Network_Name , Hanoi_CMH
+Duration , 8760 hours
+Time_Step , 30 min
+Uncertainty_Topology_(%) , NO
+Uncertainty_Length_(%) , 5.0
+Uncertainty_Diameter_(%) , 10.0
+Uncertainty_Roughness_(%) , 10.0

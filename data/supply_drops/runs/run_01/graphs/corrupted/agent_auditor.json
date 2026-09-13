@@ -214,9 +214,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-001",
+        "MSG-001",
         "MSG-002"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -229,9 +230,10 @@
       "value_lb": 95,
       "evidence": [
         "MSG-003",
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -244,9 +246,10 @@
       "value_lb": 195,
       "evidence": [
         "MSG-004",
+        "MSG-006",
         "MSG-006"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -259,9 +262,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-005",
+        "MSG-005",
         "MSG-008"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -274,9 +278,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-009",
+        "MSG-010",
         "MSG-010"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -289,9 +294,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-011",
+        "MSG-011",
         "MSG-015"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": true
     },
     {
@@ -304,9 +310,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-012",
+        "MSG-012",
         "MSG-014"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -319,9 +326,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-013",
+        "MSG-016",
         "MSG-016"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -334,9 +342,10 @@
       "value_lb": 30,
       "evidence": [
         "MSG-017",
+        "MSG-017",
         "MSG-022"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -349,9 +358,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-018",
+        "MSG-023",
         "MSG-023"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -364,9 +374,10 @@
       "value_lb": 65,
       "evidence": [
         "MSG-019",
+        "MSG-019",
         "MSG-021"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": true
     },
     {
@@ -379,9 +390,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-020",
+        "MSG-024",
         "MSG-024"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -394,9 +406,10 @@
       "value_lb": 60,
       "evidence": [
         "MSG-025",
+        "MSG-026",
         "MSG-026"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -409,9 +422,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-027",
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -424,9 +438,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-029",
+        "MSG-032",
         "MSG-032"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -439,9 +454,10 @@
       "value_lb": 155,
       "evidence": [
         "MSG-030",
+        "MSG-030",
         "MSG-036"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -454,9 +470,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-031",
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -469,9 +486,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-033",
+        "MSG-033",
         "MSG-034"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -484,9 +502,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-037",
+        "MSG-038",
         "MSG-038"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -499,9 +518,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-039",
+        "MSG-039",
         "MSG-041"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -514,9 +534,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-040",
+        "MSG-040",
         "MSG-044"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -529,9 +550,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-042",
+        "MSG-042",
         "MSG-043"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -544,9 +566,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-045",
+        "MSG-045",
         "MSG-052"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -559,9 +582,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-046",
+        "MSG-046",
         "MSG-048"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -574,9 +598,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-047",
+        "MSG-047",
         "MSG-050"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -589,9 +614,10 @@
       "value_lb": 65,
       "evidence": [
         "MSG-049",
+        "MSG-051",
         "MSG-051"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -604,9 +630,10 @@
       "value_lb": 40,
       "evidence": [
         "MSG-055",
+        "MSG-061",
         "MSG-061"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -619,9 +646,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-056",
+        "MSG-057",
         "MSG-057"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -634,9 +662,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-058",
+        "MSG-058",
         "MSG-059"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -649,9 +678,10 @@
       "value_lb": 15,
       "evidence": [
         "MSG-060",
+        "MSG-060",
         "MSG-062"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -664,9 +694,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-063",
+        "MSG-066",
         "MSG-066"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -679,9 +710,10 @@
       "value_lb": 30,
       "evidence": [
         "MSG-064",
+        "MSG-068",
         "MSG-068"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -694,9 +726,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-065",
+        "MSG-067",
         "MSG-067"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -709,9 +742,10 @@
       "value_lb": 30,
       "evidence": [
         "MSG-069",
+        "MSG-070",
         "MSG-070"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -724,9 +758,10 @@
       "value_lb": 20,
       "evidence": [
         "MSG-071",
+        "MSG-071",
         "MSG-076"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -739,9 +774,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-072",
+        "MSG-077",
         "MSG-077"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -754,9 +790,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-073",
+        "MSG-078",
         "MSG-078"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -769,9 +806,10 @@
       "value_lb": 25,
       "evidence": [
         "MSG-074",
+        "MSG-074",
         "MSG-075"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -784,9 +822,10 @@
       "value_lb": 10,
       "evidence": [
         "MSG-079",
+        "MSG-082",
         "MSG-082"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -799,9 +838,10 @@
       "value_lb": 50,
       "evidence": [
         "MSG-080",
+        "MSG-084",
         "MSG-084"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -814,9 +854,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-081",
+        "MSG-081",
         "MSG-086"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -829,9 +870,10 @@
       "value_lb": 5,
       "evidence": [
         "MSG-083",
+        "MSG-083",
         "MSG-085"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "got",
       "from_corrupted": false
     },
     {
@@ -845,7 +887,7 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "audited",
+      "channel_bias": "also_sent",
       "from_corrupted": true
     }
   ],

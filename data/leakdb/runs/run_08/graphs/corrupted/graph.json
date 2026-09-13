@@ -1,0 +1,1551 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "RESERVOIR_1",
+      "key": "reservoir 1",
+      "display": "Reservoir 1",
+      "aliases": [
+        "Reservoir 1"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "JUNCTION_2",
+      "key": "junction 2",
+      "display": "Junction 2",
+      "aliases": [
+        "Junction 2"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_10",
+      "key": "junction 10",
+      "display": "Junction 10",
+      "aliases": [
+        "Junction 10"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_11",
+      "key": "junction 11",
+      "display": "Junction 11",
+      "aliases": [
+        "Junction 11"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_12",
+      "key": "junction 12",
+      "display": "Junction 12",
+      "aliases": [
+        "Junction 12"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_13",
+      "key": "junction 13",
+      "display": "Junction 13",
+      "aliases": [
+        "Junction 13"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "JUNCTION_14",
+      "key": "junction 14",
+      "display": "Junction 14",
+      "aliases": [
+        "Junction 14"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_15",
+      "key": "junction 15",
+      "display": "Junction 15",
+      "aliases": [
+        "Junction 15"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "JUNCTION_16",
+      "key": "junction 16",
+      "display": "Junction 16",
+      "aliases": [
+        "Junction 16"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_17",
+      "key": "junction 17",
+      "display": "Junction 17",
+      "aliases": [
+        "Junction 17"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_18",
+      "key": "junction 18",
+      "display": "Junction 18",
+      "aliases": [
+        "Junction 18"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_19",
+      "key": "junction 19",
+      "display": "Junction 19",
+      "aliases": [
+        "Junction 19"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_3",
+      "key": "junction 3",
+      "display": "Junction 3",
+      "aliases": [
+        "Junction 3"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_20",
+      "key": "junction 20",
+      "display": "Junction 20",
+      "aliases": [
+        "Junction 20"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_21",
+      "key": "junction 21",
+      "display": "Junction 21",
+      "aliases": [
+        "Junction 21"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_22",
+      "key": "junction 22",
+      "display": "Junction 22",
+      "aliases": [
+        "Junction 22"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "JUNCTION_23",
+      "key": "junction 23",
+      "display": "Junction 23",
+      "aliases": [
+        "Junction 23"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_24",
+      "key": "junction 24",
+      "display": "Junction 24",
+      "aliases": [
+        "Junction 24"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_25",
+      "key": "junction 25",
+      "display": "Junction 25",
+      "aliases": [
+        "Junction 25"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_26",
+      "key": "junction 26",
+      "display": "Junction 26",
+      "aliases": [
+        "Junction 26"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_27",
+      "key": "junction 27",
+      "display": "Junction 27",
+      "aliases": [
+        "Junction 27"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "JUNCTION_28",
+      "key": "junction 28",
+      "display": "Junction 28",
+      "aliases": [
+        "Junction 28"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_4",
+      "key": "junction 4",
+      "display": "Junction 4",
+      "aliases": [
+        "Junction 4"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_29",
+      "key": "junction 29",
+      "display": "Junction 29",
+      "aliases": [
+        "Junction 29"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "JUNCTION_30",
+      "key": "junction 30",
+      "display": "Junction 30",
+      "aliases": [
+        "Junction 30"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_31",
+      "key": "junction 31",
+      "display": "Junction 31",
+      "aliases": [
+        "Junction 31"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_32",
+      "key": "junction 32",
+      "display": "Junction 32",
+      "aliases": [
+        "Junction 32"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_5",
+      "key": "junction 5",
+      "display": "Junction 5",
+      "aliases": [
+        "Junction 5"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_6",
+      "key": "junction 6",
+      "display": "Junction 6",
+      "aliases": [
+        "Junction 6"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_7",
+      "key": "junction 7",
+      "display": "Junction 7",
+      "aliases": [
+        "Junction 7"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_8",
+      "key": "junction 8",
+      "display": "Junction 8",
+      "aliases": [
+        "Junction 8"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JUNCTION_9",
+      "key": "junction 9",
+      "display": "Junction 9",
+      "aliases": [
+        "Junction 9"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "LEAK_DISCHARGE",
+      "key": "leak discharge",
+      "display": "Leak discharge",
+      "aliases": [
+        "Leak discharge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "RESERVOIR_1",
+      "target": "JUNCTION_2",
+      "source_display": "Reservoir 1",
+      "target_display": "Junction 2",
+      "value_lb": 4539.6,
+      "agent_values": {
+        "scout": 4539.6,
+        "receiver": 4539.6,
+        "auditor": 4539.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_1-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_10",
+      "target": "JUNCTION_11",
+      "source_display": "Junction 10",
+      "target_display": "Junction 11",
+      "value_lb": 471.6,
+      "agent_values": {
+        "scout": 471.6,
+        "receiver": 471.6,
+        "auditor": 471.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_10-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_11",
+      "target": "JUNCTION_12",
+      "source_display": "Junction 11",
+      "target_display": "Junction 12",
+      "value_lb": 374.4,
+      "agent_values": {
+        "scout": 374.4,
+        "receiver": 374.4,
+        "auditor": 374.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_11-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_12",
+      "target": "JUNCTION_13",
+      "source_display": "Junction 12",
+      "target_display": "Junction 13",
+      "value_lb": 226.8,
+      "agent_values": {
+        "scout": 226.8,
+        "receiver": 226.8,
+        "auditor": 226.8
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_12-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_10",
+      "target": "JUNCTION_14",
+      "source_display": "Junction 10",
+      "target_display": "Junction 14",
+      "value_lb": 226.8,
+      "agent_values": {
+        "scout": 226.8,
+        "receiver": 226.8,
+        "auditor": 226.8
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_13-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_14",
+      "target": "JUNCTION_15",
+      "source_display": "Junction 14",
+      "target_display": "Junction 15",
+      "value_lb": 57.6,
+      "agent_values": {
+        "scout": 57.6,
+        "receiver": 57.6,
+        "auditor": 57.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_14-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_16",
+      "target": "JUNCTION_15",
+      "source_display": "Junction 16",
+      "target_display": "Junction 15",
+      "value_lb": 10.8,
+      "agent_values": {
+        "scout": 10.8,
+        "receiver": 10.8,
+        "auditor": 10.8
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_15-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_17",
+      "target": "JUNCTION_16",
+      "source_display": "Junction 17",
+      "target_display": "Junction 16",
+      "value_lb": 126,
+      "agent_values": {
+        "scout": 126,
+        "receiver": 126,
+        "auditor": 126
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_16-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_18",
+      "target": "JUNCTION_17",
+      "source_display": "Junction 18",
+      "target_display": "Junction 17",
+      "value_lb": 342,
+      "agent_values": {
+        "scout": 342,
+        "receiver": 342,
+        "auditor": 342
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_17-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_19",
+      "target": "JUNCTION_18",
+      "source_display": "Junction 19",
+      "target_display": "Junction 18",
+      "value_lb": 594,
+      "agent_values": {
+        "scout": 594,
+        "receiver": 594,
+        "auditor": 594
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_18-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_19",
+      "source_display": "Junction 3",
+      "target_display": "Junction 19",
+      "value_lb": 608.4,
+      "agent_values": {
+        "scout": 608.4,
+        "receiver": 608.4,
+        "auditor": 608.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_19-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_2",
+      "target": "JUNCTION_3",
+      "source_display": "Junction 2",
+      "target_display": "Junction 3",
+      "value_lb": 4370.4,
+      "agent_values": {
+        "scout": 4370.4,
+        "receiver": 4370.4,
+        "auditor": 4370.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_2-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_20",
+      "source_display": "Junction 3",
+      "target_display": "Junction 20",
+      "value_lb": 1688.4,
+      "agent_values": {
+        "scout": 1688.4,
+        "receiver": 1688.4,
+        "auditor": 1688.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_20-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_20",
+      "target": "JUNCTION_21",
+      "source_display": "Junction 20",
+      "target_display": "Junction 21",
+      "value_lb": 270,
+      "agent_values": {
+        "scout": 270,
+        "receiver": 270,
+        "auditor": 270
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_21-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_21",
+      "target": "JUNCTION_22",
+      "source_display": "Junction 21",
+      "target_display": "Junction 22",
+      "value_lb": 93.6,
+      "agent_values": {
+        "scout": 93.6,
+        "receiver": 93.6,
+        "auditor": 93.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_22-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_20",
+      "target": "JUNCTION_23",
+      "source_display": "Junction 20",
+      "target_display": "Junction 23",
+      "value_lb": 1152,
+      "agent_values": {
+        "scout": 1152,
+        "receiver": 1152,
+        "auditor": 1152
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_23-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_23",
+      "target": "JUNCTION_24",
+      "source_display": "Junction 23",
+      "target_display": "Junction 24",
+      "value_lb": 763.2,
+      "agent_values": {
+        "scout": 763.2,
+        "receiver": 763.2,
+        "auditor": 763.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_24-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_24",
+      "target": "JUNCTION_25",
+      "source_display": "Junction 24",
+      "target_display": "Junction 25",
+      "value_lb": 561.6,
+      "agent_values": {
+        "scout": 561.6,
+        "receiver": 561.6,
+        "auditor": 561.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_25-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_25",
+      "target": "JUNCTION_26",
+      "source_display": "Junction 25",
+      "target_display": "Junction 26",
+      "value_lb": 237.6,
+      "agent_values": {
+        "scout": 237.6,
+        "receiver": 237.6,
+        "auditor": 237.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_26-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_26",
+      "target": "JUNCTION_27",
+      "source_display": "Junction 26",
+      "target_display": "Junction 27",
+      "value_lb": 43.2,
+      "agent_values": {
+        "scout": 43.2,
+        "receiver": 43.2,
+        "auditor": 43.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_27-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_16",
+      "target": "JUNCTION_27",
+      "source_display": "Junction 16",
+      "target_display": "Junction 27",
+      "value_lb": 39.6,
+      "agent_values": {
+        "scout": 39.6,
+        "receiver": 39.6,
+        "auditor": 39.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_28-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_23",
+      "target": "JUNCTION_28",
+      "source_display": "Junction 23",
+      "target_display": "Junction 28",
+      "value_lb": 133.2,
+      "agent_values": {
+        "scout": 133.2,
+        "receiver": 133.2,
+        "auditor": 133.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_29-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_3",
+      "target": "JUNCTION_4",
+      "source_display": "Junction 3",
+      "target_display": "Junction 4",
+      "value_lb": 1861.2,
+      "agent_values": {
+        "scout": 1861.2,
+        "receiver": 1861.2,
+        "auditor": 1861.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_3-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_28",
+      "target": "JUNCTION_29",
+      "source_display": "Junction 28",
+      "target_display": "Junction 29",
+      "value_lb": 64.8,
+      "agent_values": {
+        "scout": 64.8,
+        "receiver": 64.8,
+        "auditor": 64.8
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_30-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_30",
+      "target": "JUNCTION_29",
+      "source_display": "Junction 30",
+      "target_display": "Junction 29",
+      "value_lb": 18,
+      "agent_values": {
+        "scout": 18,
+        "receiver": 18,
+        "auditor": 18
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_31-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_31",
+      "target": "JUNCTION_30",
+      "source_display": "Junction 31",
+      "target_display": "Junction 30",
+      "value_lb": 93.6,
+      "agent_values": {
+        "scout": 93.6,
+        "receiver": 93.6,
+        "auditor": 93.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_32-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_32",
+      "target": "JUNCTION_31",
+      "source_display": "Junction 32",
+      "target_display": "Junction 31",
+      "value_lb": 122.4,
+      "agent_values": {
+        "scout": 122.4,
+        "receiver": 122.4,
+        "auditor": 122.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_33-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_25",
+      "target": "JUNCTION_32",
+      "source_display": "Junction 25",
+      "target_display": "Junction 32",
+      "value_lb": 284.4,
+      "agent_values": {
+        "scout": 284.4,
+        "receiver": 284.4,
+        "auditor": 284.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_34-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_4",
+      "target": "JUNCTION_5",
+      "source_display": "Junction 4",
+      "target_display": "Junction 5",
+      "value_lb": 1832.4,
+      "agent_values": {
+        "scout": 1832.4,
+        "receiver": 1832.4,
+        "auditor": 1832.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_4-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_5",
+      "target": "JUNCTION_6",
+      "source_display": "Junction 5",
+      "target_display": "Junction 6",
+      "value_lb": 1681.2,
+      "agent_values": {
+        "scout": 1681.2,
+        "receiver": 1681.2,
+        "auditor": 1681.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_5-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_6",
+      "target": "JUNCTION_7",
+      "source_display": "Junction 6",
+      "target_display": "Junction 7",
+      "value_lb": 1479.6,
+      "agent_values": {
+        "scout": 1479.6,
+        "receiver": 1479.6,
+        "auditor": 1479.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_6-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_7",
+      "target": "JUNCTION_8",
+      "source_display": "Junction 7",
+      "target_display": "Junction 8",
+      "value_lb": 1112.4,
+      "agent_values": {
+        "scout": 1112.4,
+        "receiver": 1112.4,
+        "auditor": 1112.4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_7-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_8",
+      "target": "JUNCTION_9",
+      "source_display": "Junction 8",
+      "target_display": "Junction 9",
+      "value_lb": 943.2,
+      "agent_values": {
+        "scout": 943.2,
+        "receiver": 943.2,
+        "auditor": 943.2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_8-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_9",
+      "target": "JUNCTION_10",
+      "source_display": "Junction 9",
+      "target_display": "Junction 10",
+      "value_lb": 820.8,
+      "agent_values": {
+        "scout": 820.8,
+        "receiver": 820.8,
+        "auditor": 820.8
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "flow-Link_9-2017-07-18T05:00:00"
+      ]
+    },
+    {
+      "source": "JUNCTION_17",
+      "target": "LEAK_DISCHARGE",
+      "source_display": "Junction 17",
+      "target_display": "Leak discharge",
+      "value_lb": 453.6,
+      "agent_values": {
+        "scout": 453.6,
+        "receiver": 453.6,
+        "auditor": 453.6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "leak_demand-Leak_17-2017-07-18T05:00:00"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "RESERVOIR_1",
+      "display": "Reservoir 1",
+      "law": "mass_balance",
+      "in_lb": 4539.6,
+      "out_lb": 4539.6,
+      "inventory_eod_lb": 0.0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_2",
+      "display": "Junction 2",
+      "law": "mass_balance",
+      "in_lb": 4539.6,
+      "out_lb": 4370.4,
+      "inventory_eod_lb": 169.20000000000073,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_10",
+      "display": "Junction 10",
+      "law": "mass_balance",
+      "in_lb": 820.8,
+      "out_lb": 698.4000000000001,
+      "inventory_eod_lb": 122.39999999999986,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_11",
+      "display": "Junction 11",
+      "law": "mass_balance",
+      "in_lb": 471.6,
+      "out_lb": 374.4,
+      "inventory_eod_lb": 97.20000000000005,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_12",
+      "display": "Junction 12",
+      "law": "mass_balance",
+      "in_lb": 374.4,
+      "out_lb": 226.8,
+      "inventory_eod_lb": 147.59999999999997,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_13",
+      "display": "Junction 13",
+      "law": "mass_balance",
+      "in_lb": 226.8,
+      "out_lb": 0,
+      "inventory_eod_lb": 226.8,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_14",
+      "display": "Junction 14",
+      "law": "mass_balance",
+      "in_lb": 226.8,
+      "out_lb": 57.6,
+      "inventory_eod_lb": 169.20000000000002,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_15",
+      "display": "Junction 15",
+      "law": "mass_balance",
+      "in_lb": 68.4,
+      "out_lb": 0,
+      "inventory_eod_lb": 68.4,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_16",
+      "display": "Junction 16",
+      "law": "mass_balance",
+      "in_lb": 126,
+      "out_lb": 50.400000000000006,
+      "inventory_eod_lb": 75.6,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_17",
+      "display": "Junction 17",
+      "law": "mass_balance",
+      "in_lb": 342,
+      "out_lb": 579.6,
+      "inventory_eod_lb": -237.60000000000002,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_18",
+      "display": "Junction 18",
+      "law": "mass_balance",
+      "in_lb": 594,
+      "out_lb": 342,
+      "inventory_eod_lb": 252,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_19",
+      "display": "Junction 19",
+      "law": "mass_balance",
+      "in_lb": 608.4,
+      "out_lb": 594,
+      "inventory_eod_lb": 14.399999999999977,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_3",
+      "display": "Junction 3",
+      "law": "mass_balance",
+      "in_lb": 4370.4,
+      "out_lb": 4158.0,
+      "inventory_eod_lb": 212.39999999999964,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_20",
+      "display": "Junction 20",
+      "law": "mass_balance",
+      "in_lb": 1688.4,
+      "out_lb": 1422,
+      "inventory_eod_lb": 266.4000000000001,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_21",
+      "display": "Junction 21",
+      "law": "mass_balance",
+      "in_lb": 270,
+      "out_lb": 93.6,
+      "inventory_eod_lb": 176.4,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_22",
+      "display": "Junction 22",
+      "law": "mass_balance",
+      "in_lb": 93.6,
+      "out_lb": 0,
+      "inventory_eod_lb": 93.6,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_23",
+      "display": "Junction 23",
+      "law": "mass_balance",
+      "in_lb": 1152,
+      "out_lb": 896.4000000000001,
+      "inventory_eod_lb": 255.5999999999999,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_24",
+      "display": "Junction 24",
+      "law": "mass_balance",
+      "in_lb": 763.2,
+      "out_lb": 561.6,
+      "inventory_eod_lb": 201.60000000000002,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_25",
+      "display": "Junction 25",
+      "law": "mass_balance",
+      "in_lb": 561.6,
+      "out_lb": 522.0,
+      "inventory_eod_lb": 39.60000000000002,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_26",
+      "display": "Junction 26",
+      "law": "mass_balance",
+      "in_lb": 237.6,
+      "out_lb": 43.2,
+      "inventory_eod_lb": 194.39999999999998,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_27",
+      "display": "Junction 27",
+      "law": "mass_balance",
+      "in_lb": 82.80000000000001,
+      "out_lb": 0,
+      "inventory_eod_lb": 82.80000000000001,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_28",
+      "display": "Junction 28",
+      "law": "mass_balance",
+      "in_lb": 133.2,
+      "out_lb": 64.8,
+      "inventory_eod_lb": 68.39999999999999,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_4",
+      "display": "Junction 4",
+      "law": "mass_balance",
+      "in_lb": 1861.2,
+      "out_lb": 1832.4,
+      "inventory_eod_lb": 28.799999999999955,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_29",
+      "display": "Junction 29",
+      "law": "mass_balance",
+      "in_lb": 82.8,
+      "out_lb": 0,
+      "inventory_eod_lb": 82.8,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_30",
+      "display": "Junction 30",
+      "law": "mass_balance",
+      "in_lb": 93.6,
+      "out_lb": 18,
+      "inventory_eod_lb": 75.6,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_31",
+      "display": "Junction 31",
+      "law": "mass_balance",
+      "in_lb": 122.4,
+      "out_lb": 93.6,
+      "inventory_eod_lb": 28.80000000000001,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_32",
+      "display": "Junction 32",
+      "law": "mass_balance",
+      "in_lb": 284.4,
+      "out_lb": 122.4,
+      "inventory_eod_lb": 161.99999999999997,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_5",
+      "display": "Junction 5",
+      "law": "mass_balance",
+      "in_lb": 1832.4,
+      "out_lb": 1681.2,
+      "inventory_eod_lb": 151.20000000000005,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_6",
+      "display": "Junction 6",
+      "law": "mass_balance",
+      "in_lb": 1681.2,
+      "out_lb": 1479.6,
+      "inventory_eod_lb": 201.60000000000014,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_7",
+      "display": "Junction 7",
+      "law": "mass_balance",
+      "in_lb": 1479.6,
+      "out_lb": 1112.4,
+      "inventory_eod_lb": 367.1999999999998,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_8",
+      "display": "Junction 8",
+      "law": "mass_balance",
+      "in_lb": 1112.4,
+      "out_lb": 943.2,
+      "inventory_eod_lb": 169.20000000000005,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "JUNCTION_9",
+      "display": "Junction 9",
+      "law": "mass_balance",
+      "in_lb": 943.2,
+      "out_lb": 820.8,
+      "inventory_eod_lb": 122.40000000000009,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "LEAK_DISCHARGE",
+      "display": "Leak discharge",
+      "law": "mass_balance",
+      "in_lb": 453.6,
+      "out_lb": 0,
+      "inventory_eod_lb": 453.6,
+      "source": "consensus_flow"
+    }
+  ],
+  "disagreements": [],
+  "stats": {
+    "nodes": 33,
+    "edges": 35,
+    "outvoted_edges": 0,
+    "discrepancies": 0
+  },
+  "by_id": {
+    "RESERVOIR_1": "Reservoir 1",
+    "JUNCTION_2": "Junction 2",
+    "JUNCTION_10": "Junction 10",
+    "JUNCTION_11": "Junction 11",
+    "JUNCTION_12": "Junction 12",
+    "JUNCTION_13": "Junction 13",
+    "JUNCTION_14": "Junction 14",
+    "JUNCTION_15": "Junction 15",
+    "JUNCTION_16": "Junction 16",
+    "JUNCTION_17": "Junction 17",
+    "JUNCTION_18": "Junction 18",
+    "JUNCTION_19": "Junction 19",
+    "JUNCTION_3": "Junction 3",
+    "JUNCTION_20": "Junction 20",
+    "JUNCTION_21": "Junction 21",
+    "JUNCTION_22": "Junction 22",
+    "JUNCTION_23": "Junction 23",
+    "JUNCTION_24": "Junction 24",
+    "JUNCTION_25": "Junction 25",
+    "JUNCTION_26": "Junction 26",
+    "JUNCTION_27": "Junction 27",
+    "JUNCTION_28": "Junction 28",
+    "JUNCTION_4": "Junction 4",
+    "JUNCTION_29": "Junction 29",
+    "JUNCTION_30": "Junction 30",
+    "JUNCTION_31": "Junction 31",
+    "JUNCTION_32": "Junction 32",
+    "JUNCTION_5": "Junction 5",
+    "JUNCTION_6": "Junction 6",
+    "JUNCTION_7": "Junction 7",
+    "JUNCTION_8": "Junction 8",
+    "JUNCTION_9": "Junction 9",
+    "LEAK_DISCHARGE": "Leak discharge"
+  }
+}

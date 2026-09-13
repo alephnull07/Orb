@@ -1,0 +1,15 @@
+{
+  "source": "KIOS LeakDB Hanoi_CMH",
+  "scenario": 2,
+  "true_timestamp": "2017-01-01 00:00:00",
+  "corrupted_timestamp": "2017-01-01 00:00:00",
+  "has_leak": false,
+  "leaks": [],
+  "attacks": [],
+  "model_uncertainty": {
+    "topology": "NO",
+    "length_pct": "15.0",
+    "diameter_pct": "5.0",
+    "roughness_pct": "15.0"
+  }
+}

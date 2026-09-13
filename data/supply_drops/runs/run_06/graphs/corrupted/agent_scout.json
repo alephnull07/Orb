@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "UNIFORM_AIRDROP_LZ",
@@ -173,9 +173,10 @@
       "target_display": "Yankee forward cache",
       "value_lb": 310,
       "evidence": [
+        "MSG-001",
         "MSG-001"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -187,9 +188,10 @@
       "target_display": "Kilo market",
       "value_lb": 75,
       "evidence": [
+        "MSG-002",
         "MSG-002"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -201,9 +203,10 @@
       "target_display": "Iron forward cache",
       "value_lb": 40,
       "evidence": [
+        "MSG-004",
         "MSG-004"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -215,9 +218,10 @@
       "target_display": "Quebec transfer yard",
       "value_lb": 340,
       "evidence": [
+        "MSG-008",
         "MSG-008"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -229,9 +233,10 @@
       "target_display": "Overlook water point",
       "value_lb": 40,
       "evidence": [
+        "MSG-012",
         "MSG-012"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": true
     },
     {
@@ -243,9 +248,10 @@
       "target_display": "November crossroads",
       "value_lb": 20,
       "evidence": [
+        "MSG-013",
         "MSG-013"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -257,9 +263,10 @@
       "target_display": "Echo mosque courtyard",
       "value_lb": 30,
       "evidence": [
+        "MSG-014",
         "MSG-014"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -271,9 +278,10 @@
       "target_display": "Papa farm",
       "value_lb": 25,
       "evidence": [
+        "MSG-015",
         "MSG-015"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -285,9 +293,10 @@
       "target_display": "Copper aid cage",
       "value_lb": 30,
       "evidence": [
+        "MSG-019",
         "MSG-019"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -299,9 +308,10 @@
       "target_display": "Oscar warehouse",
       "value_lb": 95,
       "evidence": [
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -313,9 +323,10 @@
       "target_display": "Maple well",
       "value_lb": 140,
       "evidence": [
+        "MSG-021",
         "MSG-021"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -327,9 +338,10 @@
       "target_display": "Zulu pad",
       "value_lb": 75,
       "evidence": [
+        "MSG-022",
         "MSG-022"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -341,9 +353,10 @@
       "target_display": "Golf orchard",
       "value_lb": 6,
       "evidence": [
+        "MSG-025",
         "MSG-025"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -355,9 +368,10 @@
       "target_display": "Granite quarry",
       "value_lb": 2,
       "evidence": [
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -369,9 +383,10 @@
       "target_display": "Mike orchard",
       "value_lb": 25,
       "evidence": [
+        "MSG-029",
         "MSG-029"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -383,9 +398,10 @@
       "target_display": "Mike orchard",
       "value_lb": 2,
       "evidence": [
+        "MSG-031",
         "MSG-031"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -397,9 +413,10 @@
       "target_display": "Charlie orchard",
       "value_lb": 50,
       "evidence": [
+        "MSG-034",
         "MSG-034"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -411,9 +428,10 @@
       "target_display": "Granite quarry",
       "value_lb": 45,
       "evidence": [
+        "MSG-038",
         "MSG-038"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -425,9 +443,10 @@
       "target_display": "Romeo aid cage",
       "value_lb": 35,
       "evidence": [
+        "MSG-039",
         "MSG-039"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -439,9 +458,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 150,
       "evidence": [
+        "MSG-040",
         "MSG-040"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -453,9 +473,10 @@
       "target_display": "Charlie orchard",
       "value_lb": 30,
       "evidence": [
+        "MSG-043",
         "MSG-043"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -467,9 +488,10 @@
       "target_display": "Granite quarry",
       "value_lb": 5,
       "evidence": [
+        "MSG-046",
         "MSG-046"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -481,9 +503,10 @@
       "target_display": "Alpha mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-049",
         "MSG-049"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -495,9 +518,10 @@
       "target_display": "Charlie orchard",
       "value_lb": 5,
       "evidence": [
+        "MSG-050",
         "MSG-050"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -509,9 +533,10 @@
       "target_display": "Papa farm",
       "value_lb": 15,
       "evidence": [
+        "MSG-052",
         "MSG-052"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {

@@ -1,6 +1,6 @@
 {
   "agent": "scout",
-  "role": "entity extraction / outbound transfer claims",
+  "role": "entity extraction / outbound and link-flow claims",
   "nodes": [
     {
       "id": "PAPA_FOB_DEPOT",
@@ -253,9 +253,10 @@
       "target_display": "Xray transfer yard",
       "value_lb": 390,
       "evidence": [
+        "MSG-001",
         "MSG-001"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -267,9 +268,10 @@
       "target_display": "Harbor transfer yard",
       "value_lb": 330,
       "evidence": [
+        "MSG-002",
         "MSG-002"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -281,9 +283,10 @@
       "target_display": "Delta transfer yard",
       "value_lb": 75,
       "evidence": [
+        "MSG-007",
         "MSG-007"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -295,9 +298,10 @@
       "target_display": "Lima forward cache",
       "value_lb": 340,
       "evidence": [
+        "MSG-008",
         "MSG-008"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -309,9 +313,10 @@
       "target_display": "Hotel schoolhouse",
       "value_lb": 25,
       "evidence": [
+        "MSG-011",
         "MSG-011"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -323,9 +328,10 @@
       "target_display": "Sierra forward cache",
       "value_lb": 25,
       "evidence": [
+        "MSG-012",
         "MSG-012"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -337,9 +343,10 @@
       "target_display": "Uniform ridge hub",
       "value_lb": 75,
       "evidence": [
+        "MSG-013",
         "MSG-013"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -351,9 +358,10 @@
       "target_display": "Echo orchard",
       "value_lb": 15,
       "evidence": [
+        "MSG-014",
         "MSG-014"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -365,9 +373,10 @@
       "target_display": "Oscar clinic",
       "value_lb": 25,
       "evidence": [
+        "MSG-017",
         "MSG-017"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -379,9 +388,10 @@
       "target_display": "Sandpit quarry",
       "value_lb": 40,
       "evidence": [
+        "MSG-020",
         "MSG-020"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -393,9 +403,10 @@
       "target_display": "Golf mill",
       "value_lb": 20,
       "evidence": [
+        "MSG-021",
         "MSG-021"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -407,9 +418,10 @@
       "target_display": "Victor checkpoint",
       "value_lb": 20,
       "evidence": [
+        "MSG-023",
         "MSG-023"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -421,9 +433,10 @@
       "target_display": "Zulu tent city",
       "value_lb": 25,
       "evidence": [
+        "MSG-026",
         "MSG-026"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -435,9 +448,10 @@
       "target_display": "Yankee farm",
       "value_lb": 25,
       "evidence": [
+        "MSG-028",
         "MSG-028"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -449,9 +463,10 @@
       "target_display": "Foxtrot helipad",
       "value_lb": 40,
       "evidence": [
+        "MSG-032",
         "MSG-032"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -463,9 +478,10 @@
       "target_display": "Maple orchard",
       "value_lb": 100,
       "evidence": [
+        "MSG-034",
         "MSG-034"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -477,9 +493,10 @@
       "target_display": "Tango crossroads",
       "value_lb": 185,
       "evidence": [
+        "MSG-035",
         "MSG-035"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -491,9 +508,10 @@
       "target_display": "Willow orchard",
       "value_lb": 15,
       "evidence": [
+        "MSG-036",
         "MSG-036"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -505,9 +523,10 @@
       "target_display": "Granite mill",
       "value_lb": 35,
       "evidence": [
+        "MSG-039",
         "MSG-039"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -519,9 +538,10 @@
       "target_display": "Whiskey checkpoint",
       "value_lb": 5,
       "evidence": [
+        "MSG-041",
         "MSG-041"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -533,9 +553,10 @@
       "target_display": "Bravo schoolhouse",
       "value_lb": 5,
       "evidence": [
+        "MSG-042",
         "MSG-042"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -547,9 +568,10 @@
       "target_display": "Quarry water point",
       "value_lb": 40,
       "evidence": [
+        "MSG-043",
         "MSG-043"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -561,9 +583,10 @@
       "target_display": "India helipad",
       "value_lb": 5,
       "evidence": [
+        "MSG-045",
         "MSG-045"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -575,9 +598,10 @@
       "target_display": "Alpha warehouse",
       "value_lb": 5,
       "evidence": [
+        "MSG-046",
         "MSG-046"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -589,9 +613,10 @@
       "target_display": "Kilo well",
       "value_lb": 5,
       "evidence": [
+        "MSG-048",
         "MSG-048"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -603,9 +628,10 @@
       "target_display": "Mike schoolhouse",
       "value_lb": 45,
       "evidence": [
+        "MSG-052",
         "MSG-052"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -617,9 +643,10 @@
       "target_display": "India helipad",
       "value_lb": 130,
       "evidence": [
+        "MSG-056",
         "MSG-056"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -631,9 +658,10 @@
       "target_display": "Granite mill",
       "value_lb": 200,
       "evidence": [
+        "MSG-058",
         "MSG-058"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -645,9 +673,10 @@
       "target_display": "Cedar mosque courtyard",
       "value_lb": 305,
       "evidence": [
+        "MSG-059",
         "MSG-059"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -659,9 +688,10 @@
       "target_display": "Tango crossroads",
       "value_lb": 30,
       "evidence": [
+        "MSG-060",
         "MSG-060"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -673,9 +703,10 @@
       "target_display": "Mike schoolhouse",
       "value_lb": 85,
       "evidence": [
+        "MSG-062",
         "MSG-062"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -687,9 +718,10 @@
       "target_display": "Mike schoolhouse",
       "value_lb": 30,
       "evidence": [
+        "MSG-065",
         "MSG-065"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -701,9 +733,10 @@
       "target_display": "Foxtrot helipad",
       "value_lb": 60,
       "evidence": [
+        "MSG-069",
         "MSG-069"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -715,9 +748,10 @@
       "target_display": "Tango crossroads",
       "value_lb": 5,
       "evidence": [
+        "MSG-070",
         "MSG-070"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -729,9 +763,10 @@
       "target_display": "Cedar mosque courtyard",
       "value_lb": 5,
       "evidence": [
+        "MSG-072",
         "MSG-072"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -743,9 +778,10 @@
       "target_display": "Hotel schoolhouse",
       "value_lb": 25,
       "evidence": [
+        "MSG-074",
         "MSG-074"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -757,9 +793,10 @@
       "target_display": "Yankee farm",
       "value_lb": 45,
       "evidence": [
+        "MSG-075",
         "MSG-075"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -771,9 +808,10 @@
       "target_display": "Victor checkpoint",
       "value_lb": 20,
       "evidence": [
+        "MSG-077",
         "MSG-077"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -785,9 +823,10 @@
       "target_display": "Yankee farm",
       "value_lb": 10,
       "evidence": [
+        "MSG-080",
         "MSG-080"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -799,9 +838,10 @@
       "target_display": "Hotel schoolhouse",
       "value_lb": 20,
       "evidence": [
+        "MSG-082",
         "MSG-082"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     },
     {
@@ -813,9 +853,10 @@
       "target_display": "Echo orchard",
       "value_lb": 5,
       "evidence": [
+        "MSG-084",
         "MSG-084"
       ],
-      "channel_bias": "send",
+      "channel_bias": "transfer",
       "from_corrupted": false
     }
   ]

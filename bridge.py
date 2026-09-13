@@ -36,6 +36,39 @@ def load_json(path):
         return json.load(f)
 
 
+def constraints_from_true_graph(true_graph, consensus_nodes):
+    """Independent node books from the hidden true graph, keyed to consensus ids."""
+    inn = {}
+    out = {}
+    for e in true_graph.get("edges") or []:
+        s = (e.get("source_name") or e.get("source_display") or "").strip().lower()
+        t = (e.get("target_name") or e.get("target_display") or "").strip().lower()
+        v = float(e["value_lb"])
+        out[s] = out.get(s, 0.0) + v
+        inn[t] = inn.get(t, 0.0) + v
+    rows = []
+    for n in consensus_nodes:
+        key = (n.get("display") or "").strip().lower()
+        if key not in inn and key not in out:
+            continue
+        rows.append({
+            "node": n["id"],
+            "display": n.get("display"),
+            "in_lb": inn.get(key, 0.0),
+            "out_lb": out.get(key, 0.0),
+            "inventory_eod_lb": inn.get(key, 0.0) - out.get(key, 0.0),
+            "source": "auditor_eod",
+        })
+    return rows
+
+
+def has_auditor_eod(graph: dict) -> bool:
+    return any(
+        r.get("source") == "auditor_eod"
+        for r in graph.get("trusted_constraint_rows") or []
+    )
+
+
 def build_flow_problem(consensus_graph, use_true_constraints=None):
     """
     Build H matrix and y vector from consensus graph.
@@ -145,7 +178,7 @@ def build_flow_problem(consensus_graph, use_true_constraints=None):
         else:
             # Non-source nodes: auditor counted total arrivals and departures.
             # These are independent of the individual transfer claims.
-            conf = 1.2 if src == "auditor_eod" else 0.7
+            conf = 1.2 if src in ("auditor_eod", "true_ground_truth") else 0.7
 
             # Inflow claim: Σ(entering edges) = in_lb
             if node_entering[node_id]:
@@ -291,7 +324,7 @@ def save_l1_graph(recovered_flows, edges, nodes, out_path):
     }
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)
-    print(f"\n  L1 graph saved → {out_path}")
+    print(f"\n  L1 graph saved -> {out_path}")
 
 
 def main(run_dir=None):
@@ -305,7 +338,7 @@ def main(run_dir=None):
     corruption_labels = load_json(base / "eval/corruption_labels.json")
 
     print("\n" + "="*60)
-    print("  ORB — READER PIPELINE + L1 INTEGRATION")
+    print("  ORB - READER PIPELINE + L1 INTEGRATION")
     print(f"  {len(corrupted_graph['edges'])} consensus edges, "
           f"{len(true_graph['edges'])} true edges")
     print("="*60)
@@ -316,18 +349,24 @@ def main(run_dir=None):
     print(f"    Edges matched:     {consensus_score['matched_hops']} / {consensus_score['target_edges']}")
     print(f"    Exact matches:     {consensus_score['exact_weight_matches']}")
     print(f"    Mean weight error: {consensus_score['mean_abs_weight_error_on_matches']:.2f} lb")
-    print(f"    Ghost edges:       {len(consensus_score['extra_hops'])}")
+    print(f"    Extra hops vs hidden truth: {len(consensus_score['extra_hops'])}")
 
-    # Build the L1 problem
-    weights = None  # placeholder for confidence weighting (set below)
-
-    H, y, claims, edges = build_flow_problem(corrupted_graph)
+    # Supply drops already carry auditor EOD. LeakDB uses the nearby true
+    # graph (hour before the leak) as the same kind of independent book.
+    true_constraints = None
+    if not has_auditor_eod(corrupted_graph):
+        true_constraints = constraints_from_true_graph(
+            true_graph, corrupted_graph.get("nodes") or []
+        )
+    H, y, claims, edges = build_flow_problem(
+        corrupted_graph, use_true_constraints=true_constraints
+    )
     weights = np.array([c["confidence"] for c in claims])
 
     print(f"\n  H shape: {H.shape} ({H.shape[0]} claims, {H.shape[1]} edges)")
     print(f"  Rank of H: {np.linalg.matrix_rank(H)}")
     print(f"  Flow claims: {sum(1 for c in claims if c['type'] == 'flow')}")
-    print(f"  Conservation claims: {sum(1 for c in claims if c['type'] == 'conservation')}")
+    print(f"  Conservation claims: {sum(1 for c in claims if c['type'] in ('conservation', 'inflow', 'outflow'))}")
 
     # --- Least squares ---
     x_ls, res_ls = least_squares(H, y)
