@@ -1,0 +1,43 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 36,
+  "consensus_edges": 37,
+  "matched_hops": 36,
+  "exact_weight_matches": 33,
+  "mean_abs_weight_error_on_matches": 1.81,
+  "differences": [
+    {
+      "hop": [
+        "november port dump",
+        "whiskey forward cache"
+      ],
+      "target_lb": 60,
+      "consensus_lb": 85,
+      "delta": 25
+    },
+    {
+      "hop": [
+        "copper transfer yard",
+        "cedar checkpoint"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 35,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "zulu tent city",
+        "willow market"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 45,
+      "delta": 25
+    }
+  ],
+  "extra_hops": [
+    [
+      "willow market",
+      "kilo transfer yard"
+    ]
+  ]
+}

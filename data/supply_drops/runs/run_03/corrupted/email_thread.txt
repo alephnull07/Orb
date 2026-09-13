@@ -1,0 +1,52 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:18:55Z] (email) CPT Nina Ortiz / Delta-Actual -> Watchtower
+got 115 pounds off Papa FOB depot here at Delta transfer yard. logged. ortiz
+
+[2026-09-12T06:40:29Z] (email) CPT Sam Hassan / Anchor-H6 -> Watchtower
+got 25 pounds off Romeo port dump here at Hotel schoolhouse. logged. hassan
+
+[2026-09-12T06:55:47Z] (email) PFC Noah Singh / Anchor-V3 -> Watchtower
+got 20 pounds off November airdrop LZ here at Victor checkpoint. logged. singh
+
+[2026-09-12T09:00:00Z] (email) SFC Leo Berg / Anchor-T9 -> Watchtower
+got 185 pounds off Lima forward cache here at Tango crossroads. logged. berg
+
+[2026-09-12T09:25:29Z] (email) SSG Noah Ruiz / Anchor-W6 -> Watchtower
+got 5 pounds off Sierra forward cache here at Whiskey checkpoint. logged. ruiz
+
+[2026-09-12T09:41:34Z] (email) SGT Amelia Volkov / Anchor-M6 -> Watchtower
+got 45 pounds off Uniform ridge hub here at Mike schoolhouse. logged. volkov
+
+[2026-09-12T10:01:34Z] (email) SGT Nina Nguyen / Anchor-C3 -> Watchtower
+got 305 pounds off Xray transfer yard here at Cedar mosque courtyard. logged. nguyen
+
+[2026-09-12T13:00:47Z] (email) SGT Nina Nguyen / Anchor-C3 -> Watchtower
+got 5 pounds off Oscar clinic here at Cedar mosque courtyard. logged. nguyen
+
+[2026-09-12T13:20:00Z] (email) CPT Sam Hassan / Anchor-H6 -> Watchtower
+got 25 pounds off Quarry water point here at Hotel schoolhouse. logged. hassan
+
+[2026-09-12T16:00:47Z] (email) SGT Priya Hassan / Sierra-Actual -> Watchtower
+EOD Sierra forward cache: in 25 lb, out 25 lb, on-hand 0 lb. Sierra-Actual closing books.
+
+[2026-09-12T16:03:08Z] (email) CPT Riley Diaz / Harbor-Actual -> Watchtower
+EOD Harbor transfer yard: in 330 lb, out 330 lb, on-hand 0 lb. Harbor-Actual closing books.
+
+[2026-09-12T16:15:00Z] (email) SGT Amelia Volkov / Anchor-M6 -> Watchtower
+EOD Mike schoolhouse: in 160 lb, out 0 lb, on-hand 160 lb. Anchor-M6 closing books.
+
+[2026-09-12T16:18:55Z] (email) SPC Yusuf Singh / Anchor-S6 -> Watchtower
+EOD Sandpit quarry: in 40 lb, out 30 lb, on-hand 10 lb. Anchor-S6 closing books.
+
+[2026-09-12T16:30:47Z] (email) PFC Noah Singh / Anchor-V3 -> Watchtower
+EOD Victor checkpoint: in 40 lb, out 0 lb, on-hand 40 lb. Anchor-V3 closing books.
+
+[2026-09-12T16:33:55Z] (email) SPC June Alvarez / Anchor-O3 -> Watchtower
+EOD Oscar clinic: in 25 lb, out 10 lb, on-hand 15 lb. Anchor-O3 closing books.
+
+[2026-09-12T16:46:34Z] (email) SFC Tom Alvarez / Anchor-Z9 -> Watchtower
+EOD Zulu tent city: in 25 lb, out 0 lb, on-hand 25 lb. Anchor-Z9 closing books.
+
+[2026-09-12T16:48:08Z] (email) SFC Leo Berg / Anchor-T9 -> Watchtower
+EOD Tango crossroads: in 220 lb, out 0 lb, on-hand 220 lb. Anchor-T9 closing books.

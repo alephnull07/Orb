@@ -1,0 +1,126 @@
+{
+  "mutated_message_ids": [
+    "MSG-055",
+    "MSG-054",
+    "MSG-002",
+    "MSG-075",
+    "MSG-022",
+    "MSG-019"
+  ],
+  "injected_messages": [
+    "MSG-C01",
+    "MSG-C02",
+    "MSG-C03",
+    "MSG-C04"
+  ],
+  "attacks": [
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-055",
+      "true_lb": 20,
+      "reported_lb": 60,
+      "edge": [
+        "HUB_KILO",
+        "SITE_JULIET"
+      ],
+      "source_name": "Kilo transfer yard",
+      "target_name": "Juliet tent city",
+      "lie": "Report 60 lb instead of 20 lb on the move Kilo transfer yard -> Juliet tent city."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-054",
+      "true_lb": 270,
+      "reported_lb": 295,
+      "edge": [
+        "HUB_OSCAR",
+        "SITE_VICTOR"
+      ],
+      "source_name": "Oscar transfer yard",
+      "target_name": "Victor orchard",
+      "lie": "Report 295 lb instead of 270 lb on the move Oscar transfer yard -> Victor orchard."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-002",
+      "true_lb": 20,
+      "reported_lb": 10,
+      "edge": [
+        "SRC_COPPER",
+        "HUB_ECHO"
+      ],
+      "source_name": "Copper railhead",
+      "target_name": "Echo forward cache",
+      "lie": "Report 10 lb instead of 20 lb on the move Copper railhead -> Echo forward cache."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-075",
+      "true_lb": 15,
+      "reported_lb": 40,
+      "edge": [
+        "SITE_XRAY",
+        "SITE_PAPA"
+      ],
+      "source_name": "Xray helipad",
+      "target_name": "Papa helipad",
+      "lie": "Report 40 lb instead of 15 lb on the move Xray helipad -> Papa helipad."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-022",
+      "true_lb": 40,
+      "reported_lb": 30,
+      "edge": [
+        "HUB_FOXTROT",
+        "SITE_XRAY"
+      ],
+      "source_name": "Foxtrot transfer yard",
+      "target_name": "Xray helipad",
+      "lie": "Report 30 lb instead of 40 lb on the move Foxtrot transfer yard -> Xray helipad."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-019",
+      "true_lb": 20,
+      "reported_lb": 10,
+      "edge": [
+        "HUB_BRAVO",
+        "SITE_VICTOR"
+      ],
+      "source_name": "Bravo transfer yard",
+      "target_name": "Victor orchard",
+      "lie": "Report 10 lb instead of 20 lb on the move Bravo transfer yard -> Victor orchard."
+    },
+    {
+      "id": "ghost_edge",
+      "message_id": "MSG-C01",
+      "source": "HUB_BRAVO",
+      "target": "HUB_FOXTROT",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Foxtrot transfer yard",
+      "reported_lb": 50,
+      "lie": "Bravo transfer yard sent 50 lb to Foxtrot transfer yard (no such edge)."
+    },
+    {
+      "id": "double_count_source",
+      "message_id": "MSG-C02",
+      "lie": "Second source drop that did not happen."
+    },
+    {
+      "id": "stale_prior_day",
+      "message_id": "MSG-C03",
+      "lie": "200 lb receipt from another day."
+    },
+    {
+      "id": "unit_swap_kg",
+      "message_id": "MSG-C04",
+      "lie": "kg vs lb on a runner."
+    }
+  ],
+  "true_message_count": 96,
+  "corrupted_message_count": 100,
+  "generator": "fallback",
+  "seed": 8110,
+  "n_nodes": 18
+}

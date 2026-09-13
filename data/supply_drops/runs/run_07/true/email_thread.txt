@@ -1,0 +1,40 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:15:47Z] (email) LT June Singh / Tango-Actual -> Watchtower
+got 55 pounds off Bravo airdrop LZ here at Tango ridge hub. logged. singh
+
+[2026-09-12T09:03:55Z] (email) PVT Priya Hassan / Anchor-W1 -> Watchtower
+got 5 pounds off Lima ridge hub here at Willow bridge. logged. hassan
+
+[2026-09-12T09:23:08Z] (email) CPT Maya Bennett / Anchor-C6 -> Watchtower
+got 5 pounds off Sandpit forward cache here at Charlie checkpoint. logged. bennett
+
+[2026-09-12T09:42:21Z] (email) PVT Priya Hassan / Anchor-W1 -> Watchtower
+got 25 pounds off Sandpit forward cache here at Willow bridge. logged. hassan
+
+[2026-09-12T10:00:47Z] (email) PVT Priya Hassan / Anchor-W1 -> Watchtower
+got 255 pounds off India forward cache here at Willow bridge. logged. hassan
+
+[2026-09-12T10:20:00Z] (email) PFC Elena Berg / Anchor-A4 -> Watchtower
+got 15 pounds off Xray junction here at Alpha mosque courtyard. logged. berg
+
+[2026-09-12T13:03:55Z] (email) SGT Sam Alvarez / Anchor-G5 -> Watchtower
+got 60 pounds off Willow bridge here at Golf well. logged. alvarez
+
+[2026-09-12T16:00:00Z] (email) PVT Victor Ortiz / Sandpit-Actual -> Watchtower
+EOD Sandpit forward cache: in 60 lb, out 60 lb, on-hand 0 lb. Sandpit-Actual closing books.
+
+[2026-09-12T16:00:47Z] (email) LT Tom Bennett / Zulu-Actual -> Watchtower
+EOD Zulu junction: in 20 lb, out 20 lb, on-hand 0 lb. Zulu-Actual closing books.
+
+[2026-09-12T16:15:00Z] (email) CPL Noah Khan / Anchor-G9 -> Watchtower
+EOD Granite market: in 10 lb, out 0 lb, on-hand 10 lb. Anchor-G9 closing books.
+
+[2026-09-12T16:16:34Z] (email) CPL Amelia Berg / Anchor-C6 -> Watchtower
+EOD Cedar orchard: in 25 lb, out 10 lb, on-hand 15 lb. Anchor-C6 closing books.
+
+[2026-09-12T16:17:21Z] (email) PVT Priya Nguyen / Anchor-D3 -> Watchtower
+EOD Delta water point: in 36 lb, out 0 lb, on-hand 36 lb. Anchor-D3 closing books.
+
+[2026-09-12T16:18:55Z] (email) CPT Maya Bennett / Anchor-C6 -> Watchtower
+EOD Charlie checkpoint: in 10 lb, out 0 lb, on-hand 10 lb. Anchor-C6 closing books.

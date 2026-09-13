@@ -1,0 +1,126 @@
+{
+  "mutated_message_ids": [
+    "MSG-015",
+    "MSG-038",
+    "MSG-046",
+    "MSG-043",
+    "MSG-009",
+    "MSG-022"
+  ],
+  "injected_messages": [
+    "MSG-C01",
+    "MSG-C02",
+    "MSG-C03",
+    "MSG-C04"
+  ],
+  "attacks": [
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-015",
+      "true_lb": 15,
+      "reported_lb": 35,
+      "edge": [
+        "SRC_UNIFORM",
+        "SITE_ECHO"
+      ],
+      "source_name": "Uniform FOB depot",
+      "target_name": "Echo warehouse",
+      "lie": "Report 35 lb instead of 15 lb on the move Uniform FOB depot -> Echo warehouse."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-038",
+      "true_lb": 160,
+      "reported_lb": 150,
+      "edge": [
+        "HUB_TANGO",
+        "SITE_INDIA"
+      ],
+      "source_name": "Tango transfer yard",
+      "target_name": "India checkpoint",
+      "lie": "Report 150 lb instead of 160 lb on the move Tango transfer yard -> India checkpoint."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-046",
+      "true_lb": 25,
+      "reported_lb": 15,
+      "edge": [
+        "SITE_XRAY",
+        "SITE_NOVEMBER"
+      ],
+      "source_name": "Xray warehouse",
+      "target_name": "November well",
+      "lie": "Report 15 lb instead of 25 lb on the move Xray warehouse -> November well."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-043",
+      "true_lb": 30,
+      "reported_lb": 20,
+      "edge": [
+        "SITE_INDIA",
+        "SITE_CEDAR"
+      ],
+      "source_name": "India checkpoint",
+      "target_name": "Cedar checkpoint",
+      "lie": "Report 20 lb instead of 30 lb on the move India checkpoint -> Cedar checkpoint."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-009",
+      "true_lb": 45,
+      "reported_lb": 85,
+      "edge": [
+        "SRC_UNIFORM",
+        "SITE_MIKE"
+      ],
+      "source_name": "Uniform FOB depot",
+      "target_name": "Mike quarry",
+      "lie": "Report 85 lb instead of 45 lb on the move Uniform FOB depot -> Mike quarry."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-022",
+      "true_lb": 25,
+      "reported_lb": 10,
+      "edge": [
+        "HUB_FOXTROT",
+        "SITE_KILO"
+      ],
+      "source_name": "Foxtrot ridge hub",
+      "target_name": "Kilo farm",
+      "lie": "Report 10 lb instead of 25 lb on the move Foxtrot ridge hub -> Kilo farm."
+    },
+    {
+      "id": "ghost_edge",
+      "message_id": "MSG-C01",
+      "source": "SITE_KILO",
+      "target": "HUB_FOXTROT",
+      "source_name": "Kilo farm",
+      "target_name": "Foxtrot ridge hub",
+      "reported_lb": 20,
+      "lie": "Kilo farm sent 20 lb to Foxtrot ridge hub (no such edge)."
+    },
+    {
+      "id": "double_count_source",
+      "message_id": "MSG-C02",
+      "lie": "Second source drop that did not happen."
+    },
+    {
+      "id": "stale_prior_day",
+      "message_id": "MSG-C03",
+      "lie": "200 lb receipt from another day."
+    },
+    {
+      "id": "unit_swap_kg",
+      "message_id": "MSG-C04",
+      "lie": "kg vs lb on a runner."
+    }
+  ],
+  "true_message_count": 63,
+  "corrupted_message_count": 67,
+  "generator": "fallback",
+  "seed": 8108,
+  "n_nodes": 17
+}

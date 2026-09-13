@@ -1,0 +1,657 @@
+{
+  "agent": "scout",
+  "role": "entity extraction / outbound transfer claims",
+  "nodes": [
+    {
+      "id": "CHARLIE_RAILHEAD",
+      "display": "Charlie railhead",
+      "aliases": [
+        "Charlie railhead"
+      ],
+      "key": "charlie railhead"
+    },
+    {
+      "id": "ECHO_TRANSFER_YARD",
+      "display": "Echo transfer yard",
+      "aliases": [
+        "Echo transfer yard"
+      ],
+      "key": "echo transfer yard"
+    },
+    {
+      "id": "SANDPIT_AIRDROP_LZ",
+      "display": "Sandpit airdrop LZ",
+      "aliases": [
+        "Sandpit airdrop LZ"
+      ],
+      "key": "sandpit airdrop lz"
+    },
+    {
+      "id": "MIKE_TRANSFER_YARD",
+      "display": "Mike transfer yard",
+      "aliases": [
+        "Mike transfer yard"
+      ],
+      "key": "mike transfer yard"
+    },
+    {
+      "id": "COPPER_TRANSFER_YARD",
+      "display": "Copper transfer yard",
+      "aliases": [
+        "Copper transfer yard"
+      ],
+      "key": "copper transfer yard"
+    },
+    {
+      "id": "WHISKEY_FORWARD_CACHE",
+      "display": "Whiskey forward cache",
+      "aliases": [
+        "Whiskey forward cache"
+      ],
+      "key": "whiskey forward cache"
+    },
+    {
+      "id": "NOVEMBER_PORT_DUMP",
+      "display": "November port dump",
+      "aliases": [
+        "November port dump"
+      ],
+      "key": "november port dump"
+    },
+    {
+      "id": "KILO_TRANSFER_YARD",
+      "display": "Kilo transfer yard",
+      "aliases": [
+        "Kilo transfer yard"
+      ],
+      "key": "kilo transfer yard"
+    },
+    {
+      "id": "GRANITE_HELIPAD",
+      "display": "Granite helipad",
+      "aliases": [
+        "Granite helipad"
+      ],
+      "key": "granite helipad"
+    },
+    {
+      "id": "JULIET_QUARRY",
+      "display": "Juliet quarry",
+      "aliases": [
+        "Juliet quarry"
+      ],
+      "key": "juliet quarry"
+    },
+    {
+      "id": "TANGO_MILL",
+      "display": "Tango mill",
+      "aliases": [
+        "Tango mill"
+      ],
+      "key": "tango mill"
+    },
+    {
+      "id": "OSCAR_ORCHARD",
+      "display": "Oscar orchard",
+      "aliases": [
+        "Oscar orchard"
+      ],
+      "key": "oscar orchard"
+    },
+    {
+      "id": "YANKEE_WAREHOUSE",
+      "display": "Yankee warehouse",
+      "aliases": [
+        "Yankee warehouse"
+      ],
+      "key": "yankee warehouse"
+    },
+    {
+      "id": "LIMA_CROSSROADS",
+      "display": "Lima crossroads",
+      "aliases": [
+        "Lima crossroads"
+      ],
+      "key": "lima crossroads"
+    },
+    {
+      "id": "CEDAR_CHECKPOINT",
+      "display": "Cedar checkpoint",
+      "aliases": [
+        "Cedar checkpoint"
+      ],
+      "key": "cedar checkpoint"
+    },
+    {
+      "id": "XRAY_CROSSROADS",
+      "display": "Xray crossroads",
+      "aliases": [
+        "Xray crossroads"
+      ],
+      "key": "xray crossroads"
+    },
+    {
+      "id": "QUARRY_FARM",
+      "display": "Quarry farm",
+      "aliases": [
+        "Quarry farm"
+      ],
+      "key": "quarry farm"
+    },
+    {
+      "id": "WILLOW_MARKET",
+      "display": "Willow market",
+      "aliases": [
+        "Willow market"
+      ],
+      "key": "willow market"
+    },
+    {
+      "id": "QUEBEC_CHECKPOINT",
+      "display": "Quebec checkpoint",
+      "aliases": [
+        "Quebec checkpoint"
+      ],
+      "key": "quebec checkpoint"
+    },
+    {
+      "id": "ZULU_TENT_CITY",
+      "display": "Zulu tent city",
+      "aliases": [
+        "Zulu tent city"
+      ],
+      "key": "zulu tent city"
+    },
+    {
+      "id": "VICTOR_MOSQUE_COURTYARD",
+      "display": "Victor mosque courtyard",
+      "aliases": [
+        "Victor mosque courtyard"
+      ],
+      "key": "victor mosque courtyard"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "charlie railhead",
+      "target_key": "echo transfer yard",
+      "source": "CHARLIE_RAILHEAD",
+      "target": "ECHO_TRANSFER_YARD",
+      "source_display": "Charlie railhead",
+      "target_display": "Echo transfer yard",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-001"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit airdrop lz",
+      "target_key": "mike transfer yard",
+      "source": "SANDPIT_AIRDROP_LZ",
+      "target": "MIKE_TRANSFER_YARD",
+      "source_display": "Sandpit airdrop LZ",
+      "target_display": "Mike transfer yard",
+      "value_lb": 195,
+      "evidence": [
+        "MSG-002"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit airdrop lz",
+      "target_key": "copper transfer yard",
+      "source": "SANDPIT_AIRDROP_LZ",
+      "target": "COPPER_TRANSFER_YARD",
+      "source_display": "Sandpit airdrop LZ",
+      "target_display": "Copper transfer yard",
+      "value_lb": 175,
+      "evidence": [
+        "MSG-004"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "charlie railhead",
+      "target_key": "mike transfer yard",
+      "source": "CHARLIE_RAILHEAD",
+      "target": "MIKE_TRANSFER_YARD",
+      "source_display": "Charlie railhead",
+      "target_display": "Mike transfer yard",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-006"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "charlie railhead",
+      "target_key": "whiskey forward cache",
+      "source": "CHARLIE_RAILHEAD",
+      "target": "WHISKEY_FORWARD_CACHE",
+      "source_display": "Charlie railhead",
+      "target_display": "Whiskey forward cache",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-013"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "november port dump",
+      "target_key": "echo transfer yard",
+      "source": "NOVEMBER_PORT_DUMP",
+      "target": "ECHO_TRANSFER_YARD",
+      "source_display": "November port dump",
+      "target_display": "Echo transfer yard",
+      "value_lb": 260,
+      "evidence": [
+        "MSG-014"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit airdrop lz",
+      "target_key": "kilo transfer yard",
+      "source": "SANDPIT_AIRDROP_LZ",
+      "target": "KILO_TRANSFER_YARD",
+      "source_display": "Sandpit airdrop LZ",
+      "target_display": "Kilo transfer yard",
+      "value_lb": 80,
+      "evidence": [
+        "MSG-015"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "november port dump",
+      "target_key": "whiskey forward cache",
+      "source": "NOVEMBER_PORT_DUMP",
+      "target": "WHISKEY_FORWARD_CACHE",
+      "source_display": "November port dump",
+      "target_display": "Whiskey forward cache",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-016"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "charlie railhead",
+      "target_key": "granite helipad",
+      "source": "CHARLIE_RAILHEAD",
+      "target": "GRANITE_HELIPAD",
+      "source_display": "Charlie railhead",
+      "target_display": "Granite helipad",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-018"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "charlie railhead",
+      "target_key": "juliet quarry",
+      "source": "CHARLIE_RAILHEAD",
+      "target": "JULIET_QUARRY",
+      "source_display": "Charlie railhead",
+      "target_display": "Juliet quarry",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-020"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "november port dump",
+      "target_key": "tango mill",
+      "source": "NOVEMBER_PORT_DUMP",
+      "target": "TANGO_MILL",
+      "source_display": "November port dump",
+      "target_display": "Tango mill",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-021"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo transfer yard",
+      "target_key": "oscar orchard",
+      "source": "ECHO_TRANSFER_YARD",
+      "target": "OSCAR_ORCHARD",
+      "source_display": "Echo transfer yard",
+      "target_display": "Oscar orchard",
+      "value_lb": 120,
+      "evidence": [
+        "MSG-026"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo transfer yard",
+      "target_key": "yankee warehouse",
+      "source": "ECHO_TRANSFER_YARD",
+      "target": "YANKEE_WAREHOUSE",
+      "source_display": "Echo transfer yard",
+      "target_display": "Yankee warehouse",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-027"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo transfer yard",
+      "target_key": "lima crossroads",
+      "source": "ECHO_TRANSFER_YARD",
+      "target": "LIMA_CROSSROADS",
+      "source_display": "Echo transfer yard",
+      "target_display": "Lima crossroads",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-028"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo transfer yard",
+      "target_key": "cedar checkpoint",
+      "source": "ECHO_TRANSFER_YARD",
+      "target": "CEDAR_CHECKPOINT",
+      "source_display": "Echo transfer yard",
+      "target_display": "Cedar checkpoint",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-029"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "lima crossroads",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "LIMA_CROSSROADS",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Lima crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-031"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "xray crossroads",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "XRAY_CROSSROADS",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Xray crossroads",
+      "value_lb": 50,
+      "evidence": [
+        "MSG-032"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo transfer yard",
+      "target_key": "quarry farm",
+      "source": "ECHO_TRANSFER_YARD",
+      "target": "QUARRY_FARM",
+      "source_display": "Echo transfer yard",
+      "target_display": "Quarry farm",
+      "value_lb": 75,
+      "evidence": [
+        "MSG-035"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "willow market",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "WILLOW_MARKET",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Willow market",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-038"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "quebec checkpoint",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "QUEBEC_CHECKPOINT",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Quebec checkpoint",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-039"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "copper transfer yard",
+      "target_key": "zulu tent city",
+      "source": "COPPER_TRANSFER_YARD",
+      "target": "ZULU_TENT_CITY",
+      "source_display": "Copper transfer yard",
+      "target_display": "Zulu tent city",
+      "value_lb": 145,
+      "evidence": [
+        "MSG-040"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "whiskey forward cache",
+      "target_key": "zulu tent city",
+      "source": "WHISKEY_FORWARD_CACHE",
+      "target": "ZULU_TENT_CITY",
+      "source_display": "Whiskey forward cache",
+      "target_display": "Zulu tent city",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-043"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "copper transfer yard",
+      "target_key": "cedar checkpoint",
+      "source": "COPPER_TRANSFER_YARD",
+      "target": "CEDAR_CHECKPOINT",
+      "source_display": "Copper transfer yard",
+      "target_display": "Cedar checkpoint",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-045"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "mike transfer yard",
+      "target_key": "xray crossroads",
+      "source": "MIKE_TRANSFER_YARD",
+      "target": "XRAY_CROSSROADS",
+      "source_display": "Mike transfer yard",
+      "target_display": "Xray crossroads",
+      "value_lb": 85,
+      "evidence": [
+        "MSG-047"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "mike transfer yard",
+      "target_key": "willow market",
+      "source": "MIKE_TRANSFER_YARD",
+      "target": "WILLOW_MARKET",
+      "source_display": "Mike transfer yard",
+      "target_display": "Willow market",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-049"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "mike transfer yard",
+      "target_key": "victor mosque courtyard",
+      "source": "MIKE_TRANSFER_YARD",
+      "target": "VICTOR_MOSQUE_COURTYARD",
+      "source_display": "Mike transfer yard",
+      "target_display": "Victor mosque courtyard",
+      "value_lb": 100,
+      "evidence": [
+        "MSG-050"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "whiskey forward cache",
+      "target_key": "quebec checkpoint",
+      "source": "WHISKEY_FORWARD_CACHE",
+      "target": "QUEBEC_CHECKPOINT",
+      "source_display": "Whiskey forward cache",
+      "target_display": "Quebec checkpoint",
+      "value_lb": 80,
+      "evidence": [
+        "MSG-052"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu tent city",
+      "target_key": "willow market",
+      "source": "ZULU_TENT_CITY",
+      "target": "WILLOW_MARKET",
+      "source_display": "Zulu tent city",
+      "target_display": "Willow market",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-058"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "cedar checkpoint",
+      "target_key": "tango mill",
+      "source": "CEDAR_CHECKPOINT",
+      "target": "TANGO_MILL",
+      "source_display": "Cedar checkpoint",
+      "target_display": "Tango mill",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-059"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "cedar checkpoint",
+      "target_key": "xray crossroads",
+      "source": "CEDAR_CHECKPOINT",
+      "target": "XRAY_CROSSROADS",
+      "source_display": "Cedar checkpoint",
+      "target_display": "Xray crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-061"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu tent city",
+      "target_key": "lima crossroads",
+      "source": "ZULU_TENT_CITY",
+      "target": "LIMA_CROSSROADS",
+      "source_display": "Zulu tent city",
+      "target_display": "Lima crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-064"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quebec checkpoint",
+      "target_key": "lima crossroads",
+      "source": "QUEBEC_CHECKPOINT",
+      "target": "LIMA_CROSSROADS",
+      "source_display": "Quebec checkpoint",
+      "target_display": "Lima crossroads",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-066"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "yankee warehouse",
+      "target_key": "granite helipad",
+      "source": "YANKEE_WAREHOUSE",
+      "target": "GRANITE_HELIPAD",
+      "source_display": "Yankee warehouse",
+      "target_display": "Granite helipad",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-068"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "yankee warehouse",
+      "target_key": "lima crossroads",
+      "source": "YANKEE_WAREHOUSE",
+      "target": "LIMA_CROSSROADS",
+      "source_display": "Yankee warehouse",
+      "target_display": "Lima crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-071"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "xray crossroads",
+      "target_key": "oscar orchard",
+      "source": "XRAY_CROSSROADS",
+      "target": "OSCAR_ORCHARD",
+      "source_display": "Xray crossroads",
+      "target_display": "Oscar orchard",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-072"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "juliet quarry",
+      "target_key": "zulu tent city",
+      "source": "JULIET_QUARRY",
+      "target": "ZULU_TENT_CITY",
+      "source_display": "Juliet quarry",
+      "target_display": "Zulu tent city",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-073"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "willow market",
+      "target_key": "kilo transfer yard",
+      "source": "WILLOW_MARKET",
+      "target": "KILO_TRANSFER_YARD",
+      "source_display": "Willow market",
+      "target_display": "Kilo transfer yard",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-C01"
+      ],
+      "channel_bias": "also_sent"
+    }
+  ]
+}

@@ -1,0 +1,1570 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "CEDAR_AIRDROP_LZ",
+      "key": "cedar airdrop lz",
+      "display": "Cedar airdrop LZ",
+      "aliases": [
+        "Cedar airdrop LZ"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "COPPER_RIDGE_HUB",
+      "key": "copper ridge hub",
+      "display": "Copper ridge hub",
+      "aliases": [
+        "Copper ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "XRAY_TRANSFER_YARD",
+      "key": "xray transfer yard",
+      "display": "Xray transfer yard",
+      "aliases": [
+        "Xray transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "CHARLIE_TRANSFER_YARD",
+      "key": "charlie transfer yard",
+      "display": "Charlie transfer yard",
+      "aliases": [
+        "Charlie transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "ZULU_PORT_DUMP",
+      "key": "zulu port dump",
+      "display": "Zulu port dump",
+      "aliases": [
+        "Zulu port dump"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "GRANITE_TENT_CITY",
+      "key": "granite tent city",
+      "display": "Granite tent city",
+      "aliases": [
+        "Granite tent city"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "INDIA_BRIDGE",
+      "key": "india bridge",
+      "display": "India bridge",
+      "aliases": [
+        "India bridge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "SIERRA_FOB_DEPOT",
+      "key": "sierra fob depot",
+      "display": "Sierra FOB depot",
+      "aliases": [
+        "Sierra FOB depot"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "TANGO_HELIPAD",
+      "key": "tango helipad",
+      "display": "Tango helipad",
+      "aliases": [
+        "Tango helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "KILO_PAD",
+      "key": "kilo pad",
+      "display": "Kilo pad",
+      "aliases": [
+        "Kilo pad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "PAPA_SCHOOLHOUSE",
+      "key": "papa schoolhouse",
+      "display": "Papa schoolhouse",
+      "aliases": [
+        "Papa schoolhouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "IRON_WAREHOUSE",
+      "key": "iron warehouse",
+      "display": "Iron warehouse",
+      "aliases": [
+        "Iron warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "NOVEMBER_AID_CAGE",
+      "key": "november aid cage",
+      "display": "November aid cage",
+      "aliases": [
+        "November aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "OVERLOOK_WAREHOUSE",
+      "key": "overlook warehouse",
+      "display": "Overlook warehouse",
+      "aliases": [
+        "Overlook warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "HOTEL_QUARRY",
+      "key": "hotel quarry",
+      "display": "Hotel quarry",
+      "aliases": [
+        "Hotel quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "HARBOR_HELIPAD",
+      "key": "harbor helipad",
+      "display": "Harbor helipad",
+      "aliases": [
+        "Harbor helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "MAPLE_AID_CAGE",
+      "key": "maple aid cage",
+      "display": "Maple aid cage",
+      "aliases": [
+        "Maple aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "GOLF_MOSQUE_COURTYARD",
+      "key": "golf mosque courtyard",
+      "display": "Golf mosque courtyard",
+      "aliases": [
+        "Golf mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "QUARRY_MOSQUE_COURTYARD",
+      "key": "quarry mosque courtyard",
+      "display": "Quarry mosque courtyard",
+      "aliases": [
+        "Quarry mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "LIMA_HELIPAD",
+      "key": "lima helipad",
+      "display": "Lima helipad",
+      "aliases": [
+        "Lima helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "WILLOW_WATER_POINT",
+      "key": "willow water point",
+      "display": "Willow water point",
+      "aliases": [
+        "Willow water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "QUEBEC_MOSQUE_COURTYARD",
+      "key": "quebec mosque courtyard",
+      "display": "Quebec mosque courtyard",
+      "aliases": [
+        "Quebec mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ECHO_WELL",
+      "key": "echo well",
+      "display": "Echo well",
+      "aliases": [
+        "Echo well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Copper ridge hub",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-002",
+        "MSG-004"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "XRAY_TRANSFER_YARD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Xray transfer yard",
+      "value_lb": 135,
+      "agent_values": {
+        "scout": 135,
+        "receiver": 135,
+        "auditor": 135
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-005",
+        "MSG-007"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "CHARLIE_TRANSFER_YARD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Charlie transfer yard",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-001",
+        "MSG-006"
+      ]
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "XRAY_TRANSFER_YARD",
+      "source_display": "Zulu port dump",
+      "target_display": "Xray transfer yard",
+      "value_lb": 130,
+      "agent_values": {
+        "scout": 130,
+        "receiver": 130,
+        "auditor": 130
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-003",
+        "MSG-008"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Granite tent city",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-012",
+        "MSG-013"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "INDIA_BRIDGE",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "India bridge",
+      "value_lb": 60,
+      "agent_values": {
+        "scout": 45,
+        "receiver": 60,
+        "auditor": 60
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-010",
+        "MSG-014"
+      ]
+    },
+    {
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "CHARLIE_TRANSFER_YARD",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Charlie transfer yard",
+      "value_lb": 70,
+      "agent_values": {
+        "scout": 70,
+        "receiver": 70,
+        "auditor": 70
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-011",
+        "MSG-015"
+      ]
+    },
+    {
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Copper ridge hub",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-009",
+        "MSG-016"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "TANGO_HELIPAD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Tango helipad",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-017",
+        "MSG-020"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "KILO_PAD",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Kilo pad",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-018",
+        "MSG-024"
+      ]
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "PAPA_SCHOOLHOUSE",
+      "source_display": "Zulu port dump",
+      "target_display": "Papa schoolhouse",
+      "value_lb": 35,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 35,
+        "auditor": 35
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-019",
+        "MSG-023"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Iron warehouse",
+      "value_lb": 45,
+      "agent_values": {
+        "scout": 45,
+        "receiver": 45,
+        "auditor": 45
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-021",
+        "MSG-022"
+      ]
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "NOVEMBER_AID_CAGE",
+      "source_display": "Zulu port dump",
+      "target_display": "November aid cage",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-025",
+        "MSG-026"
+      ]
+    },
+    {
+      "source": "ZULU_PORT_DUMP",
+      "target": "OVERLOOK_WAREHOUSE",
+      "source_display": "Zulu port dump",
+      "target_display": "Overlook warehouse",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-027",
+        "MSG-028"
+      ]
+    },
+    {
+      "source": "CEDAR_AIRDROP_LZ",
+      "target": "HOTEL_QUARRY",
+      "source_display": "Cedar airdrop LZ",
+      "target_display": "Hotel quarry",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-029",
+        "MSG-030"
+      ]
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Xray transfer yard",
+      "target_display": "Harbor helipad",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 10,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-032",
+        "MSG-034"
+      ]
+    },
+    {
+      "source": "CHARLIE_TRANSFER_YARD",
+      "target": "MAPLE_AID_CAGE",
+      "source_display": "Charlie transfer yard",
+      "target_display": "Maple aid cage",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-033",
+        "MSG-035"
+      ]
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Xray transfer yard",
+      "target_display": "Copper ridge hub",
+      "value_lb": 235,
+      "agent_values": {
+        "scout": 235,
+        "receiver": 235,
+        "auditor": 235
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-031",
+        "MSG-036"
+      ]
+    },
+    {
+      "source": "CHARLIE_TRANSFER_YARD",
+      "target": "GOLF_MOSQUE_COURTYARD",
+      "source_display": "Charlie transfer yard",
+      "target_display": "Golf mosque courtyard",
+      "value_lb": 80,
+      "agent_values": {
+        "scout": 80,
+        "receiver": 80,
+        "auditor": 80
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-037",
+        "MSG-038"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "QUARRY_MOSQUE_COURTYARD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Quarry mosque courtyard",
+      "value_lb": 95,
+      "agent_values": {
+        "scout": 95,
+        "receiver": 95,
+        "auditor": 95
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-039",
+        "MSG-041"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Lima helipad",
+      "value_lb": 105,
+      "agent_values": {
+        "scout": 105,
+        "receiver": 105,
+        "auditor": 105
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-040",
+        "MSG-046"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Copper ridge hub",
+      "target_display": "Willow water point",
+      "value_lb": 75,
+      "agent_values": {
+        "scout": 75,
+        "receiver": 75,
+        "auditor": 75
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-042",
+        "MSG-044"
+      ]
+    },
+    {
+      "source": "XRAY_TRANSFER_YARD",
+      "target": "QUEBEC_MOSQUE_COURTYARD",
+      "source_display": "Xray transfer yard",
+      "target_display": "Quebec mosque courtyard",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-043",
+        "MSG-045"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "ECHO_WELL",
+      "source_display": "Copper ridge hub",
+      "target_display": "Echo well",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-047",
+        "MSG-048"
+      ]
+    },
+    {
+      "source": "OVERLOOK_WAREHOUSE",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Overlook warehouse",
+      "target_display": "Iron warehouse",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 10,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-051",
+        "MSG-054"
+      ]
+    },
+    {
+      "source": "PAPA_SCHOOLHOUSE",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Papa schoolhouse",
+      "target_display": "Lima helipad",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 15,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-052",
+        "MSG-055"
+      ]
+    },
+    {
+      "source": "PAPA_SCHOOLHOUSE",
+      "target": "OVERLOOK_WAREHOUSE",
+      "source_display": "Papa schoolhouse",
+      "target_display": "Overlook warehouse",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-056",
+        "MSG-058"
+      ]
+    },
+    {
+      "source": "IRON_WAREHOUSE",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Iron warehouse",
+      "target_display": "Willow water point",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-053",
+        "MSG-057"
+      ]
+    },
+    {
+      "source": "LIMA_HELIPAD",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Lima helipad",
+      "target_display": "Harbor helipad",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-060",
+        "MSG-062"
+      ]
+    },
+    {
+      "source": "KILO_PAD",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "Kilo pad",
+      "target_display": "Willow water point",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-059",
+        "MSG-064"
+      ]
+    },
+    {
+      "source": "TANGO_HELIPAD",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Tango helipad",
+      "target_display": "Iron warehouse",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-061",
+        "MSG-065"
+      ]
+    },
+    {
+      "source": "KILO_PAD",
+      "target": "NOVEMBER_AID_CAGE",
+      "source_display": "Kilo pad",
+      "target_display": "November aid cage",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-063",
+        "MSG-066"
+      ]
+    },
+    {
+      "source": "WILLOW_WATER_POINT",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "Willow water point",
+      "target_display": "Granite tent city",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-067",
+        "MSG-074"
+      ]
+    },
+    {
+      "source": "GRANITE_TENT_CITY",
+      "target": "IRON_WAREHOUSE",
+      "source_display": "Granite tent city",
+      "target_display": "Iron warehouse",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-068",
+        "MSG-069"
+      ]
+    },
+    {
+      "source": "GRANITE_TENT_CITY",
+      "target": "QUARRY_MOSQUE_COURTYARD",
+      "source_display": "Granite tent city",
+      "target_display": "Quarry mosque courtyard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-070",
+        "MSG-072"
+      ]
+    },
+    {
+      "source": "WILLOW_WATER_POINT",
+      "target": "HARBOR_HELIPAD",
+      "source_display": "Willow water point",
+      "target_display": "Harbor helipad",
+      "value_lb": 55,
+      "agent_values": {
+        "scout": 55,
+        "receiver": 40,
+        "auditor": 55
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-071",
+        "MSG-073"
+      ]
+    },
+    {
+      "source": "INDIA_BRIDGE",
+      "target": "WILLOW_WATER_POINT",
+      "source_display": "India bridge",
+      "target_display": "Willow water point",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-076",
+        "MSG-082"
+      ]
+    },
+    {
+      "source": "QUARRY_MOSQUE_COURTYARD",
+      "target": "LIMA_HELIPAD",
+      "source_display": "Quarry mosque courtyard",
+      "target_display": "Lima helipad",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-077",
+        "MSG-078"
+      ]
+    },
+    {
+      "source": "GOLF_MOSQUE_COURTYARD",
+      "target": "KILO_PAD",
+      "source_display": "Golf mosque courtyard",
+      "target_display": "Kilo pad",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-079",
+        "MSG-080"
+      ]
+    },
+    {
+      "source": "GOLF_MOSQUE_COURTYARD",
+      "target": "PAPA_SCHOOLHOUSE",
+      "source_display": "Golf mosque courtyard",
+      "target_display": "Papa schoolhouse",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-075",
+        "MSG-081"
+      ]
+    },
+    {
+      "source": "INDIA_BRIDGE",
+      "target": "GRANITE_TENT_CITY",
+      "source_display": "India bridge",
+      "target_display": "Granite tent city",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-083",
+        "MSG-084"
+      ]
+    },
+    {
+      "source": "NOVEMBER_AID_CAGE",
+      "target": "QUEBEC_MOSQUE_COURTYARD",
+      "source_display": "November aid cage",
+      "target_display": "Quebec mosque courtyard",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-C01"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "CEDAR_AIRDROP_LZ",
+      "display": "Cedar airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 400,
+      "out_lb": 400,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "COPPER_RIDGE_HUB",
+      "display": "Copper ridge hub",
+      "law": "mass_balance",
+      "in_lb": 295,
+      "out_lb": 295,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "XRAY_TRANSFER_YARD",
+      "display": "Xray transfer yard",
+      "law": "mass_balance",
+      "in_lb": 265,
+      "out_lb": 260,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "CHARLIE_TRANSFER_YARD",
+      "display": "Charlie transfer yard",
+      "law": "mass_balance",
+      "in_lb": 85,
+      "out_lb": 85,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ZULU_PORT_DUMP",
+      "display": "Zulu port dump",
+      "law": "mass_balance",
+      "in_lb": 225,
+      "out_lb": 225,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "GRANITE_TENT_CITY",
+      "display": "Granite tent city",
+      "law": "mass_balance",
+      "in_lb": 35,
+      "out_lb": 10,
+      "inventory_eod_lb": 25,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "INDIA_BRIDGE",
+      "display": "India bridge",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 30,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SIERRA_FOB_DEPOT",
+      "display": "Sierra FOB depot",
+      "law": "mass_balance",
+      "in_lb": 80,
+      "out_lb": 80,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "TANGO_HELIPAD",
+      "display": "Tango helipad",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 10,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "KILO_PAD",
+      "display": "Kilo pad",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 10,
+      "inventory_eod_lb": 35,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "PAPA_SCHOOLHOUSE",
+      "display": "Papa schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 30,
+      "inventory_eod_lb": 25,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "IRON_WAREHOUSE",
+      "display": "Iron warehouse",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 15,
+      "inventory_eod_lb": 55,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "NOVEMBER_AID_CAGE",
+      "display": "November aid cage",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 0,
+      "inventory_eod_lb": 25,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "OVERLOOK_WAREHOUSE",
+      "display": "Overlook warehouse",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 10,
+      "inventory_eod_lb": 35,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HOTEL_QUARRY",
+      "display": "Hotel quarry",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HARBOR_HELIPAD",
+      "display": "Harbor helipad",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 0,
+      "inventory_eod_lb": 70,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MAPLE_AID_CAGE",
+      "display": "Maple aid cage",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GOLF_MOSQUE_COURTYARD",
+      "display": "Golf mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 80,
+      "out_lb": 40,
+      "inventory_eod_lb": 40,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "QUARRY_MOSQUE_COURTYARD",
+      "display": "Quarry mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 100,
+      "out_lb": 50,
+      "inventory_eod_lb": 50,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "LIMA_HELIPAD",
+      "display": "Lima helipad",
+      "law": "mass_balance",
+      "in_lb": 180,
+      "out_lb": 5,
+      "inventory_eod_lb": 175,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "WILLOW_WATER_POINT",
+      "display": "Willow water point",
+      "law": "mass_balance",
+      "in_lb": 120,
+      "out_lb": 60,
+      "inventory_eod_lb": 60,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "QUEBEC_MOSQUE_COURTYARD",
+      "display": "Quebec mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ECHO_WELL",
+      "display": "Echo well",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    }
+  ],
+  "disagreements": [
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "cedar airdrop lz",
+      "target": "india bridge",
+      "agent_values": {
+        "scout": 45,
+        "receiver": 60,
+        "auditor": 60
+      },
+      "kept": 60,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "zulu port dump",
+      "target": "papa schoolhouse",
+      "agent_values": {
+        "scout": 25,
+        "receiver": 35,
+        "auditor": 35
+      },
+      "kept": 35,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "xray transfer yard",
+      "target": "harbor helipad",
+      "agent_values": {
+        "scout": 30,
+        "receiver": 10,
+        "auditor": 30
+      },
+      "kept": 30,
+      "delta": 20
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "overlook warehouse",
+      "target": "iron warehouse",
+      "agent_values": {
+        "scout": 50,
+        "receiver": 10,
+        "auditor": 50
+      },
+      "kept": 50,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "papa schoolhouse",
+      "target": "lima helipad",
+      "agent_values": {
+        "scout": 25,
+        "receiver": 15,
+        "auditor": 25
+      },
+      "kept": 25,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "willow water point",
+      "target": "harbor helipad",
+      "agent_values": {
+        "scout": 55,
+        "receiver": 40,
+        "auditor": 55
+      },
+      "kept": 55,
+      "delta": 15
+    }
+  ],
+  "stats": {
+    "nodes": 23,
+    "edges": 42,
+    "outvoted_edges": 0,
+    "discrepancies": 6
+  },
+  "by_id": {
+    "CEDAR_AIRDROP_LZ": "Cedar airdrop LZ",
+    "COPPER_RIDGE_HUB": "Copper ridge hub",
+    "XRAY_TRANSFER_YARD": "Xray transfer yard",
+    "CHARLIE_TRANSFER_YARD": "Charlie transfer yard",
+    "ZULU_PORT_DUMP": "Zulu port dump",
+    "GRANITE_TENT_CITY": "Granite tent city",
+    "INDIA_BRIDGE": "India bridge",
+    "SIERRA_FOB_DEPOT": "Sierra FOB depot",
+    "TANGO_HELIPAD": "Tango helipad",
+    "KILO_PAD": "Kilo pad",
+    "PAPA_SCHOOLHOUSE": "Papa schoolhouse",
+    "IRON_WAREHOUSE": "Iron warehouse",
+    "NOVEMBER_AID_CAGE": "November aid cage",
+    "OVERLOOK_WAREHOUSE": "Overlook warehouse",
+    "HOTEL_QUARRY": "Hotel quarry",
+    "HARBOR_HELIPAD": "Harbor helipad",
+    "MAPLE_AID_CAGE": "Maple aid cage",
+    "GOLF_MOSQUE_COURTYARD": "Golf mosque courtyard",
+    "QUARRY_MOSQUE_COURTYARD": "Quarry mosque courtyard",
+    "LIMA_HELIPAD": "Lima helipad",
+    "WILLOW_WATER_POINT": "Willow water point",
+    "QUEBEC_MOSQUE_COURTYARD": "Quebec mosque courtyard",
+    "ECHO_WELL": "Echo well"
+  }
+}

@@ -1,0 +1,37 @@
+photographed notebooks + typed logs
+
+[2026-09-11T16:10:00Z] (paper_ocr) unknown / - -> ALL
+YESTERDAY? Victor farm recvd 200 lb (smudged date 11/12). do not know if this is today
+
+[2026-09-12T06:19:42Z] (field_log) PVT Riley Ruiz / Alpha-Actual -> Watchtower
+got 45 pounds off Quarry convoy origin here at Alpha junction. logged. ruiz
+
+[2026-09-12T06:35:47Z] (field_log) SFC Greta Ortiz / Anchor-F1 -> Watchtower
+got 40 pounds off Zulu FOB depot here at Foxtrot warehouse. logged. ortiz
+
+[2026-09-12T09:03:55Z] (field_log) SFC Diego Hale / Anchor-X3 -> Watchtower
+got 50 pounds off Delta forward cache here at Xray water point. logged. hale
+
+[2026-09-12T09:20:00Z] (field_log) CPT Greta Berg / Anchor-Q8 -> Watchtower
+got 80 pounds off Sandpit ridge hub here at Quebec crossroads. logged. berg
+
+[2026-09-12T13:02:21Z] (field_log) LT Sam Chen / Anchor-M1 -> Watchtower
+got 2 pounds off India quarry here at Mike mill. logged. chen
+
+[2026-09-12T13:25:29Z] (field_log) CPT Greta Berg / Anchor-Q8 -> Watchtower
+got 5 pounds off Victor farm here at Quebec crossroads. logged. berg
+
+[2026-09-12T13:40:47Z] (field_log) LT Amelia Park / Anchor-G6 -> Watchtower
+got 40 pounds off Xray water point here at Golf orchard. logged. park
+
+[2026-09-12T16:00:47Z] (field_log) LT Hana Alvarez / Delta-Actual -> Watchtower
+EOD Delta forward cache: in 140 lb, out 140 lb, on-hand 0 lb. Delta-Actual closing books.
+
+[2026-09-12T16:01:34Z] (field_log) CPT Greta Berg / Anchor-Q8 -> Watchtower
+EOD Quebec crossroads: in 110 lb, out 10 lb, on-hand 100 lb. Anchor-Q8 closing books.
+
+[2026-09-12T16:03:08Z] (field_log) PVT June Berg / Anchor-H9 -> Watchtower
+EOD Harbor water point: in 5 lb, out 0 lb, on-hand 5 lb. Anchor-H9 closing books.
+
+[2026-09-12T16:31:34Z] (field_log) SPC Maya Vasquez / Anchor-J6 -> Watchtower
+EOD Juliet tent city: in 15 lb, out 0 lb, on-hand 15 lb. Anchor-J6 closing books.

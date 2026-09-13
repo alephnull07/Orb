@@ -1,0 +1,40 @@
+=== ANCHOR NET TRANSCRIPT 12 SEP 26 ===
+
+[2026-09-12T06:17:21Z] (radio) PFC Diego Kowalski / Dustoff-I -> Tango-Actual
+Tango-Actual this is Dustoff-I. sending 290 lb from Iron port dump to Tango transfer yard. count it on arrival. over
+
+[2026-09-12T06:19:42Z] (radio) LT Hana Okonkwo / Wagon-6 -> Foxtrot-Actual
+Foxtrot-Actual this is Wagon-6. sending 55 lb from Uniform FOB depot to Foxtrot ridge hub. count it on arrival. over
+
+[2026-09-12T06:35:00Z] (radio) LT Hana Okonkwo / Wagon-6 -> Anchor-M9
+Anchor-M9 this is Wagon-6. sending 85 lb from Uniform FOB depot to Mike quarry. count it on arrival. over
+
+[2026-09-12T06:35:47Z] (radio) LT Hana Okonkwo / Wagon-6 -> Anchor-G8
+Anchor-G8 this is Wagon-6. sending 20 lb from Uniform FOB depot to Golf bridge. count it on arrival. over
+
+[2026-09-12T07:40:00Z] (radio) PFC Diego Kowalski / Dustoff-I -> Watchtower
+Watchtower, second drop, another 325 pounds from Iron port dump. Double it on the board. Over.
+
+[2026-09-12T09:00:00Z] (radio) SSG Aisha Bennett / Oscar-Actual -> Anchor-N9
+Anchor-N9 this is Oscar-Actual. sending 80 lb from Oscar junction to November well. count it on arrival. over
+
+[2026-09-12T09:03:08Z] (radio) SGT Farah Hale / Foxtrot-Actual -> Anchor-Q2
+Anchor-Q2 this is Foxtrot-Actual. sending 30 lb from Foxtrot ridge hub to Quebec crossroads. count it on arrival. over
+
+[2026-09-12T09:20:47Z] (radio) SSG Aisha Bennett / Oscar-Actual -> Anchor-I9
+Anchor-I9 this is Oscar-Actual. sending 10 lb from Oscar junction to India checkpoint. count it on arrival. over
+
+[2026-09-12T09:23:08Z] (radio) PVT Chris Khan / Hotel-Actual -> Anchor-Y8
+Anchor-Y8 this is Hotel-Actual. sending 25 lb from Hotel transfer yard to Yankee bridge. count it on arrival. over
+
+[2026-09-12T09:40:00Z] (radio) PVT Chris Khan / Hotel-Actual -> Anchor-I9
+Anchor-I9 this is Hotel-Actual. sending 5 lb from Hotel transfer yard to India checkpoint. count it on arrival. over
+
+[2026-09-12T09:43:55Z] (radio) SPC Amelia Singh / Tango-Actual -> Anchor-I9
+Anchor-I9 this is Tango-Actual. sending 150 lb from Tango transfer yard to India checkpoint. count it on arrival. over
+
+[2026-09-12T12:40:47Z] (radio) SSG Keiko Nair / Spare-2 -> ALL
+uh ignore, stepped on the net. dusty at Cedar checkpoint. no extra pallets, just looking for the toyota.
+
+[2026-09-12T13:02:21Z] (radio) CPT Malik Nguyen / Anchor-X9 -> Anchor-N9
+Anchor-N9 this is Anchor-X9. sending 15 lb from Xray warehouse to November well. count it on arrival. over

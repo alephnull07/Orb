@@ -1,0 +1,52 @@
+photographed notebooks + typed logs
+
+[2026-09-12T06:17:21Z] (field_log) CPL Elena Kowalski / Golf-Actual -> Watchtower
+got 195 pounds off Quarry airdrop LZ here at Golf forward cache. logged. kowalski
+
+[2026-09-12T06:38:55Z] (field_log) PVT Aisha Nair / Anchor-M6 -> Watchtower
+got 20 pounds off Sandpit railhead here at Maple mill. logged. nair
+
+[2026-09-12T06:55:47Z] (field_log) PVT Leo Chen / Anchor-V8 -> Watchtower
+got 40 pounds off Quarry airdrop LZ here at Victor farm. logged. chen
+
+[2026-09-12T09:03:55Z] (field_log) CPT Riley Petrov / Anchor-R6 -> Watchtower
+got 15 pounds off Charlie forward cache here at Romeo water point. logged. petrov
+
+[2026-09-12T09:25:29Z] (field_log) CPL James Okonkwo / Anchor-W3 -> Watchtower
+got 10 pounds off Juliet ridge hub here at Willow helipad. logged. okonkwo
+
+[2026-09-12T09:43:55Z] (field_log) SGT Keiko Alvarez / Anchor-W7 -> Watchtower
+got 5 pounds off Tango ridge hub here at Whiskey bridge. logged. alvarez
+
+[2026-09-12T13:05:29Z] (field_log) LT Diego Hassan / Anchor-E1 -> Watchtower
+got 15 pounds off Bravo water point here at Echo well. logged. hassan
+
+[2026-09-12T13:24:42Z] (field_log) PFC Malik Alvarez / Anchor-K2 -> Watchtower
+got 30 pounds off Harbor quarry here at Kilo schoolhouse. logged. alvarez
+
+[2026-09-12T13:43:08Z] (field_log) SFC Sofia Petrov / Anchor-M8 -> Watchtower
+got 25 pounds off Romeo water point here at Mike mosque courtyard. logged. petrov
+
+[2026-09-12T14:00:00Z] (field_log) SGT Chris Singh / Anchor-F8 -> Watchtower
+got 10 pounds off Papa crossroads here at Foxtrot helipad. logged. singh
+
+[2026-09-12T16:00:47Z] (field_log) LT Elena Rahman / Charlie-Actual -> Watchtower
+EOD Charlie forward cache: in 50 lb, out 30 lb, on-hand 20 lb. Charlie-Actual closing books.
+
+[2026-09-12T16:03:08Z] (field_log) CPL Elena Kowalski / Golf-Actual -> Watchtower
+EOD Golf forward cache: in 195 lb, out 195 lb, on-hand 0 lb. Golf-Actual closing books.
+
+[2026-09-12T16:15:00Z] (field_log) LT Sofia Hale / Anchor-H7 -> Watchtower
+EOD Harbor quarry: in 50 lb, out 30 lb, on-hand 20 lb. Anchor-H7 closing books.
+
+[2026-09-12T16:18:08Z] (field_log) CPL James Okonkwo / Anchor-W3 -> Watchtower
+EOD Willow helipad: in 30 lb, out 0 lb, on-hand 30 lb. Anchor-W3 closing books.
+
+[2026-09-12T16:33:08Z] (field_log) CPT James MacLeod / Anchor-P7 -> Watchtower
+EOD Papa crossroads: in 65 lb, out 60 lb, on-hand 5 lb. Anchor-P7 closing books.
+
+[2026-09-12T16:45:47Z] (field_log) CPT Priya Khan / Anchor-C2 -> Watchtower
+EOD Cedar crossroads: in 5 lb, out 0 lb, on-hand 5 lb. Anchor-C2 closing books.
+
+[2026-09-12T16:46:34Z] (field_log) SPC James Singh / Anchor-C4 -> Watchtower
+EOD Copper mosque courtyard: in 95 lb, out 0 lb, on-hand 95 lb. Anchor-C4 closing books.

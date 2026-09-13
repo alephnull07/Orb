@@ -1,0 +1,126 @@
+{
+  "mutated_message_ids": [
+    "MSG-048",
+    "MSG-040",
+    "MSG-058",
+    "MSG-044",
+    "MSG-010",
+    "MSG-062"
+  ],
+  "injected_messages": [
+    "MSG-C01",
+    "MSG-C02",
+    "MSG-C03",
+    "MSG-C04"
+  ],
+  "attacks": [
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-048",
+      "true_lb": 80,
+      "reported_lb": 70,
+      "edge": [
+        "HUB_WHISKEY",
+        "SITE_QUEBEC"
+      ],
+      "source_name": "Whiskey forward cache",
+      "target_name": "Quebec checkpoint",
+      "lie": "Report 70 lb instead of 80 lb on the move Whiskey forward cache -> Quebec checkpoint."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-040",
+      "true_lb": 155,
+      "reported_lb": 145,
+      "edge": [
+        "HUB_COPPER",
+        "SITE_ZULU"
+      ],
+      "source_name": "Copper transfer yard",
+      "target_name": "Zulu tent city",
+      "lie": "Report 145 lb instead of 155 lb on the move Copper transfer yard -> Zulu tent city."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-058",
+      "true_lb": 20,
+      "reported_lb": 35,
+      "edge": [
+        "SITE_JULIET",
+        "SITE_ZULU"
+      ],
+      "source_name": "Juliet quarry",
+      "target_name": "Zulu tent city",
+      "lie": "Report 35 lb instead of 20 lb on the move Juliet quarry -> Zulu tent city."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-044",
+      "true_lb": 20,
+      "reported_lb": 35,
+      "edge": [
+        "HUB_COPPER",
+        "SITE_CEDAR"
+      ],
+      "source_name": "Copper transfer yard",
+      "target_name": "Cedar checkpoint",
+      "lie": "Report 35 lb instead of 20 lb on the move Copper transfer yard -> Cedar checkpoint."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-010",
+      "true_lb": 60,
+      "reported_lb": 85,
+      "edge": [
+        "SRC_NOVEMBER",
+        "HUB_WHISKEY"
+      ],
+      "source_name": "November port dump",
+      "target_name": "Whiskey forward cache",
+      "lie": "Report 85 lb instead of 60 lb on the move November port dump -> Whiskey forward cache."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-062",
+      "true_lb": 20,
+      "reported_lb": 45,
+      "edge": [
+        "SITE_ZULU",
+        "SITE_WILLOW"
+      ],
+      "source_name": "Zulu tent city",
+      "target_name": "Willow market",
+      "lie": "Report 45 lb instead of 20 lb on the move Zulu tent city -> Willow market."
+    },
+    {
+      "id": "ghost_edge",
+      "message_id": "MSG-C01",
+      "source": "SITE_WILLOW",
+      "target": "HUB_KILO",
+      "source_name": "Willow market",
+      "target_name": "Kilo transfer yard",
+      "reported_lb": 35,
+      "lie": "Willow market sent 35 lb to Kilo transfer yard (no such edge)."
+    },
+    {
+      "id": "double_count_source",
+      "message_id": "MSG-C02",
+      "lie": "Second source drop that did not happen."
+    },
+    {
+      "id": "stale_prior_day",
+      "message_id": "MSG-C03",
+      "lie": "200 lb receipt from another day."
+    },
+    {
+      "id": "unit_swap_kg",
+      "message_id": "MSG-C04",
+      "lie": "kg vs lb on a runner."
+    }
+  ],
+  "true_message_count": 92,
+  "corrupted_message_count": 96,
+  "generator": "fallback",
+  "seed": 8105,
+  "n_nodes": 21
+}

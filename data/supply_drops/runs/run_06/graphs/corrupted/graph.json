@@ -1,0 +1,1146 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "UNIFORM_AIRDROP_LZ",
+      "key": "uniform airdrop lz",
+      "display": "Uniform airdrop LZ",
+      "aliases": [
+        "Uniform airdrop LZ"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "YANKEE_FORWARD_CACHE",
+      "key": "yankee forward cache",
+      "display": "Yankee forward cache",
+      "aliases": [
+        "Yankee forward cache"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "TANGO_AIRDROP_LZ",
+      "key": "tango airdrop lz",
+      "display": "Tango airdrop LZ",
+      "aliases": [
+        "Tango airdrop LZ"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "KILO_MARKET",
+      "key": "kilo market",
+      "display": "Kilo market",
+      "aliases": [
+        "Kilo market"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "IRON_FORWARD_CACHE",
+      "key": "iron forward cache",
+      "display": "Iron forward cache",
+      "aliases": [
+        "Iron forward cache"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "QUEBEC_TRANSFER_YARD",
+      "key": "quebec transfer yard",
+      "display": "Quebec transfer yard",
+      "aliases": [
+        "Quebec transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "OVERLOOK_WATER_POINT",
+      "key": "overlook water point",
+      "display": "Overlook water point",
+      "aliases": [
+        "Overlook water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "NOVEMBER_CROSSROADS",
+      "key": "november crossroads",
+      "display": "November crossroads",
+      "aliases": [
+        "November crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ECHO_MOSQUE_COURTYARD",
+      "key": "echo mosque courtyard",
+      "display": "Echo mosque courtyard",
+      "aliases": [
+        "Echo mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "PAPA_FARM",
+      "key": "papa farm",
+      "display": "Papa farm",
+      "aliases": [
+        "Papa farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "COPPER_AID_CAGE",
+      "key": "copper aid cage",
+      "display": "Copper aid cage",
+      "aliases": [
+        "Copper aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "OSCAR_WAREHOUSE",
+      "key": "oscar warehouse",
+      "display": "Oscar warehouse",
+      "aliases": [
+        "Oscar warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "MAPLE_WELL",
+      "key": "maple well",
+      "display": "Maple well",
+      "aliases": [
+        "Maple well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ZULU_PAD",
+      "key": "zulu pad",
+      "display": "Zulu pad",
+      "aliases": [
+        "Zulu pad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "key": "golf orchard",
+      "display": "Golf orchard",
+      "aliases": [
+        "Golf orchard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "GRANITE_QUARRY",
+      "key": "granite quarry",
+      "display": "Granite quarry",
+      "aliases": [
+        "Granite quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "MIKE_ORCHARD",
+      "key": "mike orchard",
+      "display": "Mike orchard",
+      "aliases": [
+        "Mike orchard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "CHARLIE_ORCHARD",
+      "key": "charlie orchard",
+      "display": "Charlie orchard",
+      "aliases": [
+        "Charlie orchard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ROMEO_AID_CAGE",
+      "key": "romeo aid cage",
+      "display": "Romeo aid cage",
+      "aliases": [
+        "Romeo aid cage"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ALPHA_MOSQUE_COURTYARD",
+      "key": "alpha mosque courtyard",
+      "display": "Alpha mosque courtyard",
+      "aliases": [
+        "Alpha mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "UNIFORM_AIRDROP_LZ",
+      "target": "YANKEE_FORWARD_CACHE",
+      "source_display": "Uniform airdrop LZ",
+      "target_display": "Yankee forward cache",
+      "value_lb": 310,
+      "agent_values": {
+        "scout": 310,
+        "receiver": 310,
+        "auditor": 310
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-001",
+        "MSG-003"
+      ]
+    },
+    {
+      "source": "TANGO_AIRDROP_LZ",
+      "target": "KILO_MARKET",
+      "source_display": "Tango airdrop LZ",
+      "target_display": "Kilo market",
+      "value_lb": 75,
+      "agent_values": {
+        "scout": 75,
+        "receiver": 35,
+        "auditor": 75
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-002",
+        "MSG-007"
+      ]
+    },
+    {
+      "source": "TANGO_AIRDROP_LZ",
+      "target": "IRON_FORWARD_CACHE",
+      "source_display": "Tango airdrop LZ",
+      "target_display": "Iron forward cache",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 25,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-004",
+        "MSG-005"
+      ]
+    },
+    {
+      "source": "TANGO_AIRDROP_LZ",
+      "target": "QUEBEC_TRANSFER_YARD",
+      "source_display": "Tango airdrop LZ",
+      "target_display": "Quebec transfer yard",
+      "value_lb": 340,
+      "agent_values": {
+        "scout": 340,
+        "receiver": 330,
+        "auditor": 340
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-006",
+        "MSG-008"
+      ]
+    },
+    {
+      "source": "UNIFORM_AIRDROP_LZ",
+      "target": "OVERLOOK_WATER_POINT",
+      "source_display": "Uniform airdrop LZ",
+      "target_display": "Overlook water point",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 25,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-012",
+        "MSG-016"
+      ]
+    },
+    {
+      "source": "UNIFORM_AIRDROP_LZ",
+      "target": "NOVEMBER_CROSSROADS",
+      "source_display": "Uniform airdrop LZ",
+      "target_display": "November crossroads",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-009",
+        "MSG-013"
+      ]
+    },
+    {
+      "source": "UNIFORM_AIRDROP_LZ",
+      "target": "ECHO_MOSQUE_COURTYARD",
+      "source_display": "Uniform airdrop LZ",
+      "target_display": "Echo mosque courtyard",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-010",
+        "MSG-014"
+      ]
+    },
+    {
+      "source": "TANGO_AIRDROP_LZ",
+      "target": "PAPA_FARM",
+      "source_display": "Tango airdrop LZ",
+      "target_display": "Papa farm",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-011",
+        "MSG-015"
+      ]
+    },
+    {
+      "source": "QUEBEC_TRANSFER_YARD",
+      "target": "COPPER_AID_CAGE",
+      "source_display": "Quebec transfer yard",
+      "target_display": "Copper aid cage",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-017",
+        "MSG-019"
+      ]
+    },
+    {
+      "source": "QUEBEC_TRANSFER_YARD",
+      "target": "OSCAR_WAREHOUSE",
+      "source_display": "Quebec transfer yard",
+      "target_display": "Oscar warehouse",
+      "value_lb": 95,
+      "agent_values": {
+        "scout": 95,
+        "receiver": 95,
+        "auditor": 95
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-020",
+        "MSG-024"
+      ]
+    },
+    {
+      "source": "QUEBEC_TRANSFER_YARD",
+      "target": "MAPLE_WELL",
+      "source_display": "Quebec transfer yard",
+      "target_display": "Maple well",
+      "value_lb": 140,
+      "agent_values": {
+        "scout": 140,
+        "receiver": 140,
+        "auditor": 140
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-021",
+        "MSG-023"
+      ]
+    },
+    {
+      "source": "QUEBEC_TRANSFER_YARD",
+      "target": "ZULU_PAD",
+      "source_display": "Quebec transfer yard",
+      "target_display": "Zulu pad",
+      "value_lb": 75,
+      "agent_values": {
+        "scout": 75,
+        "receiver": 75,
+        "auditor": 75
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-018",
+        "MSG-022"
+      ]
+    },
+    {
+      "source": "IRON_FORWARD_CACHE",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Iron forward cache",
+      "target_display": "Golf orchard",
+      "value_lb": 6,
+      "agent_values": {
+        "scout": 6,
+        "receiver": 6,
+        "auditor": 6
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-025",
+        "MSG-030"
+      ]
+    },
+    {
+      "source": "IRON_FORWARD_CACHE",
+      "target": "GRANITE_QUARRY",
+      "source_display": "Iron forward cache",
+      "target_display": "Granite quarry",
+      "value_lb": 2,
+      "agent_values": {
+        "scout": 2,
+        "receiver": 2,
+        "auditor": 2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-026",
+        "MSG-028"
+      ]
+    },
+    {
+      "source": "YANKEE_FORWARD_CACHE",
+      "target": "MIKE_ORCHARD",
+      "source_display": "Yankee forward cache",
+      "target_display": "Mike orchard",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-029",
+        "MSG-032"
+      ]
+    },
+    {
+      "source": "IRON_FORWARD_CACHE",
+      "target": "MIKE_ORCHARD",
+      "source_display": "Iron forward cache",
+      "target_display": "Mike orchard",
+      "value_lb": 2,
+      "agent_values": {
+        "scout": 2,
+        "receiver": 2,
+        "auditor": 2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-027",
+        "MSG-031"
+      ]
+    },
+    {
+      "source": "YANKEE_FORWARD_CACHE",
+      "target": "CHARLIE_ORCHARD",
+      "source_display": "Yankee forward cache",
+      "target_display": "Charlie orchard",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-034",
+        "MSG-037"
+      ]
+    },
+    {
+      "source": "YANKEE_FORWARD_CACHE",
+      "target": "GRANITE_QUARRY",
+      "source_display": "Yankee forward cache",
+      "target_display": "Granite quarry",
+      "value_lb": 70,
+      "agent_values": {
+        "scout": 45,
+        "receiver": 70,
+        "auditor": 70
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-035",
+        "MSG-038"
+      ]
+    },
+    {
+      "source": "YANKEE_FORWARD_CACHE",
+      "target": "ROMEO_AID_CAGE",
+      "source_display": "Yankee forward cache",
+      "target_display": "Romeo aid cage",
+      "value_lb": 35,
+      "agent_values": {
+        "scout": 35,
+        "receiver": 35,
+        "auditor": 35
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-036",
+        "MSG-039"
+      ]
+    },
+    {
+      "source": "YANKEE_FORWARD_CACHE",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "Yankee forward cache",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 150,
+      "agent_values": {
+        "scout": 150,
+        "receiver": 150,
+        "auditor": 150
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-033",
+        "MSG-040"
+      ]
+    },
+    {
+      "source": "ZULU_PAD",
+      "target": "CHARLIE_ORCHARD",
+      "source_display": "Zulu pad",
+      "target_display": "Charlie orchard",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-043",
+        "MSG-045"
+      ]
+    },
+    {
+      "source": "OSCAR_WAREHOUSE",
+      "target": "GRANITE_QUARRY",
+      "source_display": "Oscar warehouse",
+      "target_display": "Granite quarry",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-046",
+        "MSG-047"
+      ]
+    },
+    {
+      "source": "KILO_MARKET",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "Kilo market",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-048",
+        "MSG-049"
+      ]
+    },
+    {
+      "source": "OSCAR_WAREHOUSE",
+      "target": "CHARLIE_ORCHARD",
+      "source_display": "Oscar warehouse",
+      "target_display": "Charlie orchard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-044",
+        "MSG-050"
+      ]
+    },
+    {
+      "source": "KILO_MARKET",
+      "target": "PAPA_FARM",
+      "source_display": "Kilo market",
+      "target_display": "Papa farm",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 5,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-051",
+        "MSG-052"
+      ]
+    },
+    {
+      "source": "KILO_MARKET",
+      "target": "OVERLOOK_WATER_POINT",
+      "source_display": "Kilo market",
+      "target_display": "Overlook water point",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-C01"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "UNIFORM_AIRDROP_LZ",
+      "display": "Uniform airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 400,
+      "out_lb": 400,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "YANKEE_FORWARD_CACHE",
+      "display": "Yankee forward cache",
+      "law": "mass_balance",
+      "in_lb": 310,
+      "out_lb": 305,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "TANGO_AIRDROP_LZ",
+      "display": "Tango airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 480,
+      "out_lb": 480,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "KILO_MARKET",
+      "display": "Kilo market",
+      "law": "mass_balance",
+      "in_lb": 35,
+      "out_lb": 20,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "IRON_FORWARD_CACHE",
+      "display": "Iron forward cache",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "QUEBEC_TRANSFER_YARD",
+      "display": "Quebec transfer yard",
+      "law": "mass_balance",
+      "in_lb": 340,
+      "out_lb": 340,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "OVERLOOK_WATER_POINT",
+      "display": "Overlook water point",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 0,
+      "inventory_eod_lb": 25,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "NOVEMBER_CROSSROADS",
+      "display": "November crossroads",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ECHO_MOSQUE_COURTYARD",
+      "display": "Echo mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 0,
+      "inventory_eod_lb": 30,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "PAPA_FARM",
+      "display": "Papa farm",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 0,
+      "inventory_eod_lb": 40,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "COPPER_AID_CAGE",
+      "display": "Copper aid cage",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 0,
+      "inventory_eod_lb": 30,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "OSCAR_WAREHOUSE",
+      "display": "Oscar warehouse",
+      "law": "mass_balance",
+      "in_lb": 95,
+      "out_lb": 10,
+      "inventory_eod_lb": 85,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MAPLE_WELL",
+      "display": "Maple well",
+      "law": "mass_balance",
+      "in_lb": 140,
+      "out_lb": 0,
+      "inventory_eod_lb": 140,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ZULU_PAD",
+      "display": "Zulu pad",
+      "law": "mass_balance",
+      "in_lb": 75,
+      "out_lb": 30,
+      "inventory_eod_lb": 45,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GOLF_ORCHARD",
+      "display": "Golf orchard",
+      "law": "mass_balance",
+      "in_lb": 6,
+      "out_lb": 0,
+      "inventory_eod_lb": 6,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GRANITE_QUARRY",
+      "display": "Granite quarry",
+      "law": "mass_balance",
+      "in_lb": 52,
+      "out_lb": 0,
+      "inventory_eod_lb": 52,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MIKE_ORCHARD",
+      "display": "Mike orchard",
+      "law": "mass_balance",
+      "in_lb": 27,
+      "out_lb": 0,
+      "inventory_eod_lb": 27,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "CHARLIE_ORCHARD",
+      "display": "Charlie orchard",
+      "law": "mass_balance",
+      "in_lb": 85,
+      "out_lb": 0,
+      "inventory_eod_lb": 85,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ROMEO_AID_CAGE",
+      "display": "Romeo aid cage",
+      "law": "mass_balance",
+      "in_lb": 35,
+      "out_lb": 0,
+      "inventory_eod_lb": 35,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ALPHA_MOSQUE_COURTYARD",
+      "display": "Alpha mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 155,
+      "out_lb": 0,
+      "inventory_eod_lb": 155,
+      "source": "auditor_eod"
+    }
+  ],
+  "disagreements": [
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "tango airdrop lz",
+      "target": "kilo market",
+      "agent_values": {
+        "scout": 75,
+        "receiver": 35,
+        "auditor": 75
+      },
+      "kept": 75,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "tango airdrop lz",
+      "target": "iron forward cache",
+      "agent_values": {
+        "scout": 40,
+        "receiver": 25,
+        "auditor": 40
+      },
+      "kept": 40,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "tango airdrop lz",
+      "target": "quebec transfer yard",
+      "agent_values": {
+        "scout": 340,
+        "receiver": 330,
+        "auditor": 340
+      },
+      "kept": 340,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "uniform airdrop lz",
+      "target": "overlook water point",
+      "agent_values": {
+        "scout": 40,
+        "receiver": 25,
+        "auditor": 40
+      },
+      "kept": 40,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "yankee forward cache",
+      "target": "granite quarry",
+      "agent_values": {
+        "scout": 45,
+        "receiver": 70,
+        "auditor": 70
+      },
+      "kept": 70,
+      "delta": 25
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "kilo market",
+      "target": "papa farm",
+      "agent_values": {
+        "scout": 15,
+        "receiver": 5,
+        "auditor": 15
+      },
+      "kept": 15,
+      "delta": 10
+    }
+  ],
+  "stats": {
+    "nodes": 20,
+    "edges": 26,
+    "outvoted_edges": 0,
+    "discrepancies": 6
+  },
+  "by_id": {
+    "UNIFORM_AIRDROP_LZ": "Uniform airdrop LZ",
+    "YANKEE_FORWARD_CACHE": "Yankee forward cache",
+    "TANGO_AIRDROP_LZ": "Tango airdrop LZ",
+    "KILO_MARKET": "Kilo market",
+    "IRON_FORWARD_CACHE": "Iron forward cache",
+    "QUEBEC_TRANSFER_YARD": "Quebec transfer yard",
+    "OVERLOOK_WATER_POINT": "Overlook water point",
+    "NOVEMBER_CROSSROADS": "November crossroads",
+    "ECHO_MOSQUE_COURTYARD": "Echo mosque courtyard",
+    "PAPA_FARM": "Papa farm",
+    "COPPER_AID_CAGE": "Copper aid cage",
+    "OSCAR_WAREHOUSE": "Oscar warehouse",
+    "MAPLE_WELL": "Maple well",
+    "ZULU_PAD": "Zulu pad",
+    "GOLF_ORCHARD": "Golf orchard",
+    "GRANITE_QUARRY": "Granite quarry",
+    "MIKE_ORCHARD": "Mike orchard",
+    "CHARLIE_ORCHARD": "Charlie orchard",
+    "ROMEO_AID_CAGE": "Romeo aid cage",
+    "ALPHA_MOSQUE_COURTYARD": "Alpha mosque courtyard"
+  }
+}

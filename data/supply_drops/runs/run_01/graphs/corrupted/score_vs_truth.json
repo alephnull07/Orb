@@ -1,0 +1,43 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 42,
+  "consensus_edges": 43,
+  "matched_hops": 42,
+  "exact_weight_matches": 39,
+  "mean_abs_weight_error_on_matches": 2.26,
+  "differences": [
+    {
+      "hop": [
+        "juliet ridge hub",
+        "november mosque courtyard"
+      ],
+      "target_lb": 25,
+      "consensus_lb": 65,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "sandpit railhead",
+        "sierra water point"
+      ],
+      "target_lb": 25,
+      "consensus_lb": 65,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "sandpit railhead",
+        "echo well"
+      ],
+      "target_lb": 45,
+      "consensus_lb": 60,
+      "delta": 15
+    }
+  ],
+  "extra_hops": [
+    [
+      "juliet ridge hub",
+      "sandpit railhead"
+    ]
+  ]
+}

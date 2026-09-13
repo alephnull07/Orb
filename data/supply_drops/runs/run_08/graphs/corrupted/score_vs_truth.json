@@ -1,0 +1,34 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 23,
+  "consensus_edges": 24,
+  "matched_hops": 23,
+  "exact_weight_matches": 21,
+  "mean_abs_weight_error_on_matches": 2.61,
+  "differences": [
+    {
+      "hop": [
+        "uniform fob depot",
+        "echo warehouse"
+      ],
+      "target_lb": 15,
+      "consensus_lb": 35,
+      "delta": 20
+    },
+    {
+      "hop": [
+        "uniform fob depot",
+        "mike quarry"
+      ],
+      "target_lb": 45,
+      "consensus_lb": 85,
+      "delta": 40
+    }
+  ],
+  "extra_hops": [
+    [
+      "kilo farm",
+      "foxtrot ridge hub"
+    ]
+  ]
+}

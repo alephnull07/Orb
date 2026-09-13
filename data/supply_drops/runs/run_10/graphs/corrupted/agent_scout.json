@@ -1,0 +1,672 @@
+{
+  "agent": "scout",
+  "role": "entity extraction / outbound transfer claims",
+  "nodes": [
+    {
+      "id": "COPPER_RAILHEAD",
+      "display": "Copper railhead",
+      "aliases": [
+        "Copper railhead"
+      ],
+      "key": "copper railhead"
+    },
+    {
+      "id": "ECHO_FORWARD_CACHE",
+      "display": "Echo forward cache",
+      "aliases": [
+        "Echo forward cache"
+      ],
+      "key": "echo forward cache"
+    },
+    {
+      "id": "KILO_TRANSFER_YARD",
+      "display": "Kilo transfer yard",
+      "aliases": [
+        "Kilo transfer yard"
+      ],
+      "key": "kilo transfer yard"
+    },
+    {
+      "id": "FOXTROT_TRANSFER_YARD",
+      "display": "Foxtrot transfer yard",
+      "aliases": [
+        "Foxtrot transfer yard"
+      ],
+      "key": "foxtrot transfer yard"
+    },
+    {
+      "id": "HARBOR_RAILHEAD",
+      "display": "Harbor railhead",
+      "aliases": [
+        "Harbor railhead"
+      ],
+      "key": "harbor railhead"
+    },
+    {
+      "id": "OSCAR_TRANSFER_YARD",
+      "display": "Oscar transfer yard",
+      "aliases": [
+        "Oscar transfer yard"
+      ],
+      "key": "oscar transfer yard"
+    },
+    {
+      "id": "SANDPIT_TRANSFER_YARD",
+      "display": "Sandpit transfer yard",
+      "aliases": [
+        "Sandpit transfer yard"
+      ],
+      "key": "sandpit transfer yard"
+    },
+    {
+      "id": "BRAVO_TRANSFER_YARD",
+      "display": "Bravo transfer yard",
+      "aliases": [
+        "Bravo transfer yard"
+      ],
+      "key": "bravo transfer yard"
+    },
+    {
+      "id": "PAPA_HELIPAD",
+      "display": "Papa helipad",
+      "aliases": [
+        "Papa helipad"
+      ],
+      "key": "papa helipad"
+    },
+    {
+      "id": "ALPHA_MARKET",
+      "display": "Alpha market",
+      "aliases": [
+        "Alpha market"
+      ],
+      "key": "alpha market"
+    },
+    {
+      "id": "MIKE_MILL",
+      "display": "Mike mill",
+      "aliases": [
+        "Mike mill"
+      ],
+      "key": "mike mill"
+    },
+    {
+      "id": "VICTOR_ORCHARD",
+      "display": "Victor orchard",
+      "aliases": [
+        "Victor orchard"
+      ],
+      "key": "victor orchard"
+    },
+    {
+      "id": "XRAY_HELIPAD",
+      "display": "Xray helipad",
+      "aliases": [
+        "Xray helipad"
+      ],
+      "key": "xray helipad"
+    },
+    {
+      "id": "DELTA_SCHOOLHOUSE",
+      "display": "Delta schoolhouse",
+      "aliases": [
+        "Delta schoolhouse"
+      ],
+      "key": "delta schoolhouse"
+    },
+    {
+      "id": "LIMA_AID_CAGE",
+      "display": "Lima aid cage",
+      "aliases": [
+        "Lima aid cage"
+      ],
+      "key": "lima aid cage"
+    },
+    {
+      "id": "JULIET_TENT_CITY",
+      "display": "Juliet tent city",
+      "aliases": [
+        "Juliet tent city"
+      ],
+      "key": "juliet tent city"
+    },
+    {
+      "id": "YANKEE_MILL",
+      "display": "Yankee mill",
+      "aliases": [
+        "Yankee mill"
+      ],
+      "key": "yankee mill"
+    },
+    {
+      "id": "WHISKEY_WELL",
+      "display": "Whiskey well",
+      "aliases": [
+        "Whiskey well"
+      ],
+      "key": "whiskey well"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "copper railhead",
+      "target_key": "echo forward cache",
+      "source": "COPPER_RAILHEAD",
+      "target": "ECHO_FORWARD_CACHE",
+      "source_display": "Copper railhead",
+      "target_display": "Echo forward cache",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-002"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "copper railhead",
+      "target_key": "kilo transfer yard",
+      "source": "COPPER_RAILHEAD",
+      "target": "KILO_TRANSFER_YARD",
+      "source_display": "Copper railhead",
+      "target_display": "Kilo transfer yard",
+      "value_lb": 155,
+      "evidence": [
+        "MSG-003"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "copper railhead",
+      "target_key": "foxtrot transfer yard",
+      "source": "COPPER_RAILHEAD",
+      "target": "FOXTROT_TRANSFER_YARD",
+      "source_display": "Copper railhead",
+      "target_display": "Foxtrot transfer yard",
+      "value_lb": 195,
+      "evidence": [
+        "MSG-006"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "harbor railhead",
+      "target_key": "oscar transfer yard",
+      "source": "HARBOR_RAILHEAD",
+      "target": "OSCAR_TRANSFER_YARD",
+      "source_display": "Harbor railhead",
+      "target_display": "Oscar transfer yard",
+      "value_lb": 320,
+      "evidence": [
+        "MSG-007"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "harbor railhead",
+      "target_key": "sandpit transfer yard",
+      "source": "HARBOR_RAILHEAD",
+      "target": "SANDPIT_TRANSFER_YARD",
+      "source_display": "Harbor railhead",
+      "target_display": "Sandpit transfer yard",
+      "value_lb": 55,
+      "evidence": [
+        "MSG-011"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "harbor railhead",
+      "target_key": "bravo transfer yard",
+      "source": "HARBOR_RAILHEAD",
+      "target": "BRAVO_TRANSFER_YARD",
+      "source_display": "Harbor railhead",
+      "target_display": "Bravo transfer yard",
+      "value_lb": 65,
+      "evidence": [
+        "MSG-012"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "papa helipad",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Papa helipad",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-013"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "alpha market",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "ALPHA_MARKET",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Alpha market",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-015"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "mike mill",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "MIKE_MILL",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Mike mill",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-016"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "victor orchard",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "VICTOR_ORCHARD",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Victor orchard",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-020"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "foxtrot transfer yard",
+      "target_key": "xray helipad",
+      "source": "FOXTROT_TRANSFER_YARD",
+      "target": "XRAY_HELIPAD",
+      "source_display": "Foxtrot transfer yard",
+      "target_display": "Xray helipad",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-022"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "delta schoolhouse",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "DELTA_SCHOOLHOUSE",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Delta schoolhouse",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-026"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "foxtrot transfer yard",
+      "target_key": "papa helipad",
+      "source": "FOXTROT_TRANSFER_YARD",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Foxtrot transfer yard",
+      "target_display": "Papa helipad",
+      "value_lb": 90,
+      "evidence": [
+        "MSG-027"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "foxtrot transfer yard",
+      "target_key": "lima aid cage",
+      "source": "FOXTROT_TRANSFER_YARD",
+      "target": "LIMA_AID_CAGE",
+      "source_display": "Foxtrot transfer yard",
+      "target_display": "Lima aid cage",
+      "value_lb": 65,
+      "evidence": [
+        "MSG-028"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit transfer yard",
+      "target_key": "xray helipad",
+      "source": "SANDPIT_TRANSFER_YARD",
+      "target": "XRAY_HELIPAD",
+      "source_display": "Sandpit transfer yard",
+      "target_display": "Xray helipad",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-029"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit transfer yard",
+      "target_key": "juliet tent city",
+      "source": "SANDPIT_TRANSFER_YARD",
+      "target": "JULIET_TENT_CITY",
+      "source_display": "Sandpit transfer yard",
+      "target_display": "Juliet tent city",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-030"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit transfer yard",
+      "target_key": "delta schoolhouse",
+      "source": "SANDPIT_TRANSFER_YARD",
+      "target": "DELTA_SCHOOLHOUSE",
+      "source_display": "Sandpit transfer yard",
+      "target_display": "Delta schoolhouse",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-033"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit transfer yard",
+      "target_key": "papa helipad",
+      "source": "SANDPIT_TRANSFER_YARD",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Sandpit transfer yard",
+      "target_display": "Papa helipad",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-034"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo forward cache",
+      "target_key": "alpha market",
+      "source": "ECHO_FORWARD_CACHE",
+      "target": "ALPHA_MARKET",
+      "source_display": "Echo forward cache",
+      "target_display": "Alpha market",
+      "value_lb": 4,
+      "evidence": [
+        "MSG-039"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo forward cache",
+      "target_key": "victor orchard",
+      "source": "ECHO_FORWARD_CACHE",
+      "target": "VICTOR_ORCHARD",
+      "source_display": "Echo forward cache",
+      "target_display": "Victor orchard",
+      "value_lb": 9,
+      "evidence": [
+        "MSG-040"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo forward cache",
+      "target_key": "mike mill",
+      "source": "ECHO_FORWARD_CACHE",
+      "target": "MIKE_MILL",
+      "source_display": "Echo forward cache",
+      "target_display": "Mike mill",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-042"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo forward cache",
+      "target_key": "yankee mill",
+      "source": "ECHO_FORWARD_CACHE",
+      "target": "YANKEE_MILL",
+      "source_display": "Echo forward cache",
+      "target_display": "Yankee mill",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-044"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "xray helipad",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "XRAY_HELIPAD",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Xray helipad",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-045"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "alpha market",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "ALPHA_MARKET",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Alpha market",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-046"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "mike mill",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "MIKE_MILL",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Mike mill",
+      "value_lb": 70,
+      "evidence": [
+        "MSG-048"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "victor orchard",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "VICTOR_ORCHARD",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Victor orchard",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-051"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "oscar transfer yard",
+      "target_key": "victor orchard",
+      "source": "OSCAR_TRANSFER_YARD",
+      "target": "VICTOR_ORCHARD",
+      "source_display": "Oscar transfer yard",
+      "target_display": "Victor orchard",
+      "value_lb": 295,
+      "evidence": [
+        "MSG-054"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "oscar transfer yard",
+      "target_key": "mike mill",
+      "source": "OSCAR_TRANSFER_YARD",
+      "target": "MIKE_MILL",
+      "source_display": "Oscar transfer yard",
+      "target_display": "Mike mill",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-056"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "kilo transfer yard",
+      "target_key": "juliet tent city",
+      "source": "KILO_TRANSFER_YARD",
+      "target": "JULIET_TENT_CITY",
+      "source_display": "Kilo transfer yard",
+      "target_display": "Juliet tent city",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-057"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "oscar transfer yard",
+      "target_key": "whiskey well",
+      "source": "OSCAR_TRANSFER_YARD",
+      "target": "WHISKEY_WELL",
+      "source_display": "Oscar transfer yard",
+      "target_display": "Whiskey well",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-058"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "juliet tent city",
+      "target_key": "delta schoolhouse",
+      "source": "JULIET_TENT_CITY",
+      "target": "DELTA_SCHOOLHOUSE",
+      "source_display": "Juliet tent city",
+      "target_display": "Delta schoolhouse",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-063"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta schoolhouse",
+      "target_key": "mike mill",
+      "source": "DELTA_SCHOOLHOUSE",
+      "target": "MIKE_MILL",
+      "source_display": "Delta schoolhouse",
+      "target_display": "Mike mill",
+      "value_lb": 2,
+      "evidence": [
+        "MSG-064"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta schoolhouse",
+      "target_key": "papa helipad",
+      "source": "DELTA_SCHOOLHOUSE",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Delta schoolhouse",
+      "target_display": "Papa helipad",
+      "value_lb": 3,
+      "evidence": [
+        "MSG-068"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "lima aid cage",
+      "target_key": "papa helipad",
+      "source": "LIMA_AID_CAGE",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Lima aid cage",
+      "target_display": "Papa helipad",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-070"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "mike mill",
+      "target_key": "yankee mill",
+      "source": "MIKE_MILL",
+      "target": "YANKEE_MILL",
+      "source_display": "Mike mill",
+      "target_display": "Yankee mill",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-071"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "victor orchard",
+      "target_key": "papa helipad",
+      "source": "VICTOR_ORCHARD",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Victor orchard",
+      "target_display": "Papa helipad",
+      "value_lb": 50,
+      "evidence": [
+        "MSG-072"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "xray helipad",
+      "target_key": "papa helipad",
+      "source": "XRAY_HELIPAD",
+      "target": "PAPA_HELIPAD",
+      "source_display": "Xray helipad",
+      "target_display": "Papa helipad",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-075"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "whiskey well",
+      "target_key": "alpha market",
+      "source": "WHISKEY_WELL",
+      "target": "ALPHA_MARKET",
+      "source_display": "Whiskey well",
+      "target_display": "Alpha market",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-077"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "xray helipad",
+      "target_key": "whiskey well",
+      "source": "XRAY_HELIPAD",
+      "target": "WHISKEY_WELL",
+      "source_display": "Xray helipad",
+      "target_display": "Whiskey well",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-079"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "bravo transfer yard",
+      "target_key": "foxtrot transfer yard",
+      "source": "BRAVO_TRANSFER_YARD",
+      "target": "FOXTROT_TRANSFER_YARD",
+      "source_display": "Bravo transfer yard",
+      "target_display": "Foxtrot transfer yard",
+      "value_lb": 50,
+      "evidence": [
+        "MSG-C01"
+      ],
+      "channel_bias": "also_sent"
+    }
+  ]
+}

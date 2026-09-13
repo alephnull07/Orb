@@ -1,0 +1,37 @@
+photographed notebooks + typed logs
+
+[2026-09-11T16:10:00Z] (paper_ocr) unknown / - -> ALL
+YESTERDAY? Lima forward cache recvd 200 lb (smudged date 11/12). do not know if this is today
+
+[2026-09-12T06:15:47Z] (field_log) LT Leo Berg / Mike-Actual -> Watchtower
+got 160 pounds off Sandpit port dump here at Mike transfer yard. logged. berg
+
+[2026-09-12T06:36:34Z] (field_log) PVT Priya Hale / Anchor-Y3 -> Watchtower
+got 40 pounds off Victor FOB depot here at Yankee quarry. logged. hale
+
+[2026-09-12T09:00:47Z] (field_log) SFC Riley Singh / Anchor-I8 -> Watchtower
+got 2 pounds off Copper ridge hub here at India mosque courtyard. logged. singh
+
+[2026-09-12T09:25:29Z] (field_log) PFC James Okafor / Anchor-O7 -> Watchtower
+got 5 pounds off November ridge hub here at Oscar farm. logged. okafor
+
+[2026-09-12T09:40:47Z] (field_log) PFC James Okafor / Anchor-O7 -> Watchtower
+got 50 pounds off Mike transfer yard here at Oscar farm. logged. okafor
+
+[2026-09-12T10:01:34Z] (field_log) LT Diego Berg / Anchor-H5 -> Watchtower
+got 5 pounds off Lima forward cache here at Hotel orchard. logged. berg
+
+[2026-09-12T13:01:34Z] (field_log) SSG Aisha Vasquez / Anchor-B5 -> Watchtower
+got 35 pounds off Yankee quarry here at Bravo orchard. logged. vasquez
+
+[2026-09-12T16:01:34Z] (field_log) CPT Hana Rahman / Anchor-F9 -> Watchtower
+EOD Foxtrot well: in 55 lb, out 0 lb, on-hand 55 lb. Anchor-F9 closing books.
+
+[2026-09-12T16:03:55Z] (field_log) LT Leo Berg / Mike-Actual -> Watchtower
+EOD Mike transfer yard: in 265 lb, out 255 lb, on-hand 10 lb. Mike-Actual closing books.
+
+[2026-09-12T16:16:34Z] (field_log) SPC Greta Singh / Anchor-G4 -> Watchtower
+EOD Granite crossroads: in 15 lb, out 0 lb, on-hand 15 lb. Anchor-G4 closing books.
+
+[2026-09-12T16:30:00Z] (field_log) LT Tom Bennett / Anchor-K6 -> Watchtower
+EOD Kilo mill: in 5 lb, out 0 lb, on-hand 5 lb. Anchor-K6 closing books.

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORB graph compare</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">ORB graph compare <span>nodes and edges · match sites by name</span></div>
+      <div class="controls">
+        <label class="file-btn">A
+          <input id="fileA" type="file" accept="application/json,.json" />
+          <span id="nameA" class="file-name">choose JSON</span>
+        </label>
+        <label class="file-btn">B
+          <input id="fileB" type="file" accept="application/json,.json" />
+          <span id="nameB" class="file-name">choose JSON</span>
+        </label>
+        <button id="demoTruth" class="primary" type="button">Demo: truth vs agents</button>
+        <button id="demoCorrupt" type="button">Demo: true vs corrupted agents</button>
+        <label>View
+          <select id="viewMode">
+            <option value="split">Split</option>
+            <option value="overlay">Overlay</option>
+          </select>
+        </label>
+        <button id="fitBtn" type="button">Fit</button>
+      </div>
+    </header>
+
+    <div class="stats" id="stats">
+      <span class="hint">Load two JSON graphs, or start a demo (serve the repo root).</span>
+      <span class="legend">
+        <span><i class="dot source"></i>source</span>
+        <span><i class="dot hub"></i>hub / junction</span>
+        <span><i class="dot sink"></i>sink</span>
+        <span><i class="dot only-a"></i>only A</span>
+        <span><i class="dot only-b"></i>only B</span>
+        <span><i class="dot diff"></i>weight differs</span>
+        <span><i class="dot match"></i>match</span>
+      </span>
+    </div>
+
+    <main class="stage split" id="stage">
+      <section class="pane" id="paneA">
+        <h2 id="titleA">Graph A</h2>
+        <div class="graph" id="graphA"></div>
+      </section>
+      <section class="pane" id="paneB">
+        <h2 id="titleB">Graph B</h2>
+        <div class="graph" id="graphB"></div>
+      </section>
+    </main>
+
+    <aside class="detail" id="detail">Hover a node or edge.</aside>
+
+    <section class="drawer">
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>From</th>
+            <th>To</th>
+            <th>A (lb)</th>
+            <th>B (lb)</th>
+            <th>Delta</th>
+          </tr>
+        </thead>
+        <tbody id="diffBody">
+          <tr><td colspan="6" class="empty">No graphs loaded.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

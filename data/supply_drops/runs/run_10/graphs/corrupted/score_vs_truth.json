@@ -1,0 +1,43 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 39,
+  "consensus_edges": 40,
+  "matched_hops": 39,
+  "exact_weight_matches": 36,
+  "mean_abs_weight_error_on_matches": 2.31,
+  "differences": [
+    {
+      "hop": [
+        "kilo transfer yard",
+        "juliet tent city"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 60,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "oscar transfer yard",
+        "victor orchard"
+      ],
+      "target_lb": 270,
+      "consensus_lb": 295,
+      "delta": 25
+    },
+    {
+      "hop": [
+        "xray helipad",
+        "papa helipad"
+      ],
+      "target_lb": 15,
+      "consensus_lb": 40,
+      "delta": 25
+    }
+  ],
+  "extra_hops": [
+    [
+      "bravo transfer yard",
+      "foxtrot transfer yard"
+    ]
+  ]
+}

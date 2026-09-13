@@ -1,0 +1,34 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:15:00Z] (email) CPT Hana Khan / Uniform-Actual -> Watchtower
+got 130 pounds off Romeo FOB depot here at Uniform forward cache. logged. khan
+
+[2026-09-12T09:00:47Z] (email) LT Nina Bennett / Anchor-H1 -> Watchtower
+got 15 pounds off Xray junction here at Harbor mosque courtyard. logged. bennett
+
+[2026-09-12T09:20:47Z] (email) PFC Victor Rahman / Anchor-G7 -> Watchtower
+got 140 pounds off November ridge hub here at Golf orchard. logged. rahman
+
+[2026-09-12T09:43:08Z] (email) PVT Maya Ortiz / Anchor-C3 -> Watchtower
+got 60 pounds off Yankee transfer yard here at Cedar schoolhouse. logged. ortiz
+
+[2026-09-12T10:00:47Z] (email) PVT Maya Ortiz / Anchor-C3 -> Watchtower
+got 1 pounds off Overlook forward cache here at Cedar schoolhouse. logged. ortiz
+
+[2026-09-12T13:05:29Z] (email) PVT Sam Rahman / Anchor-W3 -> Watchtower
+got 15 pounds off Tango schoolhouse here at Willow warehouse. logged. rahman
+
+[2026-09-12T13:23:55Z] (email) CPL Hana Hale / Anchor-W5 -> Watchtower
+got 20 pounds off Cedar schoolhouse here at Whiskey checkpoint. logged. hale
+
+[2026-09-12T16:03:08Z] (email) SPC Sam Singh / Xray-Actual -> Watchtower
+EOD Xray junction: in 170 lb, out 170 lb, on-hand 0 lb. Xray-Actual closing books.
+
+[2026-09-12T16:15:00Z] (email) LT Nina Bennett / Anchor-H1 -> Watchtower
+EOD Harbor mosque courtyard: in 100 lb, out 0 lb, on-hand 100 lb. Anchor-H1 closing books.
+
+[2026-09-12T16:16:34Z] (email) SFC Victor Nguyen / Anchor-A7 -> Watchtower
+EOD Alpha bridge: in 40 lb, out 35 lb, on-hand 5 lb. Anchor-A7 closing books.
+
+[2026-09-12T16:30:47Z] (email) PVT Sam Rahman / Anchor-W3 -> Watchtower
+EOD Willow warehouse: in 72 lb, out 0 lb, on-hand 72 lb. Anchor-W3 closing books.

@@ -1,0 +1,85 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:16:34Z] (sms) SGT Omar Vasquez / Juliet-Actual -> Watchtower
+got 110 pounds off Sandpit railhead here at Juliet ridge hub. logged. vasquez
+
+[2026-09-12T06:18:08Z] (sms) SGT Sam Abebe / Dustoff-Q -> Juliet-Actual
+Juliet-Actual this is Dustoff-Q. sending 5 lb from Quarry airdrop LZ to Juliet ridge hub. count it on arrival. over
+
+[2026-09-12T06:36:34Z] (sms) SGT Sam Abebe / Dustoff-Q -> Anchor-A7
+Anchor-A7 this is Dustoff-Q. sending 20 lb from Quarry airdrop LZ to Alpha water point. count it on arrival. over
+
+[2026-09-12T06:38:08Z] (sms) LT Elena Rahman / Charlie-Actual -> Watchtower
+got 50 pounds off Sandpit railhead here at Charlie forward cache. logged. rahman
+
+[2026-09-12T06:56:34Z] (sms) CPL Farah Chen / Dustoff-S -> Anchor-S9
+Anchor-S9 this is Dustoff-S. sending 25 lb from Sandpit railhead to Sierra water point. count it on arrival. over
+
+[2026-09-12T06:58:55Z] (sms) PFC Malik Alvarez / Anchor-K2 -> Watchtower
+got 30 pounds off Quarry airdrop LZ here at Kilo schoolhouse. logged. alvarez
+
+[2026-09-12T07:15:00Z] (sms) LT Diego Hassan / Anchor-E1 -> Watchtower
+got 45 pounds off Sandpit railhead here at Echo well. logged. hassan
+
+[2026-09-12T07:17:21Z] (sms) SGT Sam Abebe / Dustoff-Q -> Anchor-M8
+Anchor-M8 this is Dustoff-Q. sending 25 lb from Quarry airdrop LZ to Mike mosque courtyard. count it on arrival. over
+
+[2026-09-12T09:00:47Z] (sms) CPL Elena Kowalski / Golf-Actual -> Anchor-B9
+Anchor-B9 this is Golf-Actual. sending 155 lb from Golf forward cache to Bravo water point. count it on arrival. over
+
+[2026-09-12T09:01:34Z] (sms) SGT Nina Nguyen / Anchor-L9 -> Watchtower
+got 40 pounds off Golf forward cache here at Lima farm. logged. nguyen
+
+[2026-09-12T09:23:08Z] (sms) LT Diego Vasquez / Anchor-H5 -> Watchtower
+got 10 pounds off Charlie forward cache here at Hotel farm. logged. vasquez
+
+[2026-09-12T09:23:55Z] (sms) SGT Omar Vasquez / Juliet-Actual -> Anchor-L9
+Anchor-L9 this is Juliet-Actual. sending 5 lb from Juliet ridge hub to Lima farm. count it on arrival. over
+
+[2026-09-12T09:40:47Z] (sms) SGT Omar Vasquez / Juliet-Actual -> Anchor-H7
+Anchor-H7 this is Juliet-Actual. sending 50 lb from Juliet ridge hub to Harbor quarry. count it on arrival. over
+
+[2026-09-12T09:43:08Z] (sms) LT Nina Berg / Anchor-N2 -> Watchtower
+got 25 pounds off Juliet ridge hub here at November mosque courtyard. logged. berg
+
+[2026-09-12T13:01:34Z] (sms) LT Nina Berg / Anchor-N2 -> Anchor-M8
+Anchor-M8 this is Anchor-N2. sending 5 lb from November mosque courtyard to Mike mosque courtyard. count it on arrival. over
+
+[2026-09-12T13:03:08Z] (sms) LT Diego Hassan / Anchor-E1 -> Watchtower
+got 5 pounds off November mosque courtyard here at Echo well. logged. hassan
+
+[2026-09-12T13:21:34Z] (sms) PFC Malik Alvarez / Anchor-K2 -> Watchtower
+got 10 pounds off Lima farm here at Kilo schoolhouse. logged. alvarez
+
+[2026-09-12T13:23:55Z] (sms) SGT Nina Nguyen / Anchor-L9 -> Anchor-H5
+Anchor-H5 this is Anchor-L9. sending 30 lb from Lima farm to Hotel farm. count it on arrival. over
+
+[2026-09-12T13:40:00Z] (sms) SFC Sofia Petrov / Anchor-M8 -> Anchor-W3
+Anchor-W3 this is Anchor-M8. sending 20 lb from Mike mosque courtyard to Willow helipad. count it on arrival. over
+
+[2026-09-12T13:41:34Z] (sms) CPT James MacLeod / Anchor-P7 -> Watchtower
+got 20 pounds off Echo well here at Papa crossroads. logged. macleod
+
+[2026-09-12T14:03:08Z] (sms) PFC Malik Alvarez / Anchor-K2 -> Anchor-A7
+Anchor-A7 this is Anchor-K2. sending 5 lb from Kilo schoolhouse to Alpha water point. count it on arrival. over
+
+[2026-09-12T14:05:29Z] (sms) LT Nina Berg / Anchor-N2 -> Watchtower
+got 5 pounds off Sierra water point here at November mosque courtyard. logged. berg
+
+[2026-09-12T16:00:00Z] (sms) SSG Greta Hassan / Anchor-A7 -> Watchtower
+EOD Alpha water point: in 30 lb, out 0 lb, on-hand 30 lb. Anchor-A7 closing books.
+
+[2026-09-12T16:02:21Z] (sms) PVT Aisha Nair / Anchor-M6 -> Watchtower
+EOD Maple mill: in 20 lb, out 0 lb, on-hand 20 lb. Anchor-M6 closing books.
+
+[2026-09-12T16:18:55Z] (sms) CPT James Okafor / Anchor-S9 -> Watchtower
+EOD Sierra water point: in 25 lb, out 10 lb, on-hand 15 lb. Anchor-S9 closing books.
+
+[2026-09-12T16:32:21Z] (sms) PVT Leo Chen / Anchor-V8 -> Watchtower
+EOD Victor farm: in 40 lb, out 5 lb, on-hand 35 lb. Anchor-V8 closing books.
+
+[2026-09-12T16:33:55Z] (sms) LT Diego Hassan / Anchor-E1 -> Watchtower
+EOD Echo well: in 65 lb, out 20 lb, on-hand 45 lb. Anchor-E1 closing books.
+
+[2026-09-12T16:47:21Z] (sms) PFC Noah Nair / Anchor-B9 -> Watchtower
+EOD Bravo water point: in 155 lb, out 55 lb, on-hand 100 lb. Anchor-B9 closing books.

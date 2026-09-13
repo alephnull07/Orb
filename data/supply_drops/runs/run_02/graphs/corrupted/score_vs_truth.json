@@ -1,0 +1,70 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 25,
+  "consensus_edges": 26,
+  "matched_hops": 25,
+  "exact_weight_matches": 19,
+  "mean_abs_weight_error_on_matches": 8.0,
+  "differences": [
+    {
+      "hop": [
+        "victor fob depot",
+        "copper ridge hub"
+      ],
+      "target_lb": 25,
+      "consensus_lb": 65,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "mike transfer yard",
+        "oscar farm"
+      ],
+      "target_lb": 35,
+      "consensus_lb": 50,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "mike transfer yard",
+        "alpha crossroads"
+      ],
+      "target_lb": 220,
+      "consensus_lb": 260,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "sandpit port dump",
+        "foxtrot well"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 45,
+      "delta": 25
+    },
+    {
+      "hop": [
+        "victor fob depot",
+        "yankee quarry"
+      ],
+      "target_lb": 40,
+      "consensus_lb": 80,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "yankee quarry",
+        "bravo orchard"
+      ],
+      "target_lb": 35,
+      "consensus_lb": 75,
+      "delta": 40
+    }
+  ],
+  "extra_hops": [
+    [
+      "zulu tent city",
+      "lima forward cache"
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "target_file": "corrupted_graph.json",
+  "target_edges": 24,
+  "consensus_edges": 24,
+  "matched_hops": 24,
+  "exact_weight_matches": 20,
+  "mean_abs_weight_error_on_matches": 1.88,
+  "differences": [
+    {
+      "hop": [
+        "foxtrot ridge hub",
+        "kilo farm"
+      ],
+      "target_lb": 10,
+      "consensus_lb": 25,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "tango transfer yard",
+        "india checkpoint"
+      ],
+      "target_lb": 150,
+      "consensus_lb": 160,
+      "delta": 10
+    },
+    {
+      "hop": [
+        "xray warehouse",
+        "november well"
+      ],
+      "target_lb": 15,
+      "consensus_lb": 25,
+      "delta": 10
+    },
+    {
+      "hop": [
+        "india checkpoint",
+        "cedar checkpoint"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 30,
+      "delta": 10
+    }
+  ],
+  "extra_hops": []
+}

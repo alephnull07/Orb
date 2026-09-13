@@ -1,0 +1,29 @@
+{
+  "target_file": "corrupted_graph.json",
+  "target_edges": 26,
+  "consensus_edges": 26,
+  "matched_hops": 26,
+  "exact_weight_matches": 24,
+  "mean_abs_weight_error_on_matches": 0.77,
+  "differences": [
+    {
+      "hop": [
+        "tango airdrop lz",
+        "quebec transfer yard"
+      ],
+      "target_lb": 330,
+      "consensus_lb": 340,
+      "delta": 10
+    },
+    {
+      "hop": [
+        "kilo market",
+        "papa farm"
+      ],
+      "target_lb": 5,
+      "consensus_lb": 15,
+      "delta": 10
+    }
+  ],
+  "extra_hops": []
+}

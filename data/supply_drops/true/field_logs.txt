@@ -1,0 +1,37 @@
+photographed notebooks + typed logs
+
+[2026-09-12T06:18:55Z] (field_log) PFC Noah Ruiz / Yankee-Actual -> Watchtower
+got 10 pounds off Lima convoy origin here at Yankee transfer yard. logged. ruiz
+
+[2026-09-12T06:35:47Z] (field_log) SSG Aisha Hale / Overlook-Actual -> Watchtower
+got 25 pounds off Sierra FOB depot here at Overlook forward cache. logged. hale
+
+[2026-09-12T09:03:55Z] (field_log) PFC Victor Rahman / Anchor-G7 -> Watchtower
+got 5 pounds off Mike junction here at Golf orchard. logged. rahman
+
+[2026-09-12T09:23:55Z] (field_log) PVT Sam Rahman / Anchor-W3 -> Watchtower
+got 45 pounds off November ridge hub here at Willow warehouse. logged. rahman
+
+[2026-09-12T09:45:29Z] (field_log) CPL Hana Hale / Anchor-W5 -> Watchtower
+got 45 pounds off Yankee transfer yard here at Whiskey checkpoint. logged. hale
+
+[2026-09-12T10:03:08Z] (field_log) PFC Victor Rahman / Anchor-G7 -> Watchtower
+got 1 pounds off Overlook forward cache here at Golf orchard. logged. rahman
+
+[2026-09-12T13:03:55Z] (field_log) LT Nina Bennett / Anchor-H1 -> Watchtower
+got 15 pounds off Tango schoolhouse here at Harbor mosque courtyard. logged. bennett
+
+[2026-09-12T13:25:29Z] (field_log) LT Nina Bennett / Anchor-H1 -> Watchtower
+got 45 pounds off Golf orchard here at Harbor mosque courtyard. logged. bennett
+
+[2026-09-12T16:00:47Z] (field_log) PFC Amelia Diaz / Mike-Actual -> Watchtower
+EOD Mike junction: in 25 lb, out 15 lb, on-hand 10 lb. Mike-Actual closing books.
+
+[2026-09-12T16:02:21Z] (field_log) CPL Leo Khan / November-Actual -> Watchtower
+EOD November ridge hub: in 200 lb, out 200 lb, on-hand 0 lb. November-Actual closing books.
+
+[2026-09-12T16:15:47Z] (field_log) PVT Maya Ortiz / Anchor-C3 -> Watchtower
+EOD Cedar schoolhouse: in 106 lb, out 45 lb, on-hand 61 lb. Anchor-C3 closing books.
+
+[2026-09-12T16:18:08Z] (field_log) SFC Keiko Khan / Anchor-C4 -> Watchtower
+EOD Charlie mill: in 170 lb, out 45 lb, on-hand 125 lb. Anchor-C4 closing books.

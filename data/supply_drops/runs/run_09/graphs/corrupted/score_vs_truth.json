@@ -1,0 +1,52 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 31,
+  "consensus_edges": 32,
+  "matched_hops": 31,
+  "exact_weight_matches": 27,
+  "mean_abs_weight_error_on_matches": 3.87,
+  "differences": [
+    {
+      "hop": [
+        "alpha junction",
+        "echo helipad"
+      ],
+      "target_lb": 40,
+      "consensus_lb": 80,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "quarry convoy origin",
+        "romeo checkpoint"
+      ],
+      "target_lb": 30,
+      "consensus_lb": 45,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "romeo checkpoint",
+        "kilo farm"
+      ],
+      "target_lb": 15,
+      "consensus_lb": 55,
+      "delta": 40
+    },
+    {
+      "hop": [
+        "xray water point",
+        "golf orchard"
+      ],
+      "target_lb": 15,
+      "consensus_lb": 40,
+      "delta": 25
+    }
+  ],
+  "extra_hops": [
+    [
+      "sandpit ridge hub",
+      "victor farm"
+    ]
+  ]
+}

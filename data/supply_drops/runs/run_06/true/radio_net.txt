@@ -1,0 +1,43 @@
+=== ANCHOR NET TRANSCRIPT 12 SEP 26 ===
+
+[2026-09-12T06:15:47Z] (radio) CPL Noah Khan / Dustoff-T -> Anchor-K4
+Anchor-K4 this is Dustoff-T. sending 35 lb from Tango airdrop LZ to Kilo market. count it on arrival. over
+
+[2026-09-12T06:20:29Z] (radio) CPL Noah Khan / Dustoff-T -> Quebec-Actual
+Quebec-Actual this is Dustoff-T. sending 340 lb from Tango airdrop LZ to Quebec transfer yard. count it on arrival. over
+
+[2026-09-12T06:38:08Z] (radio) LT Leo Vasquez / Dustoff-U -> Anchor-N4
+Anchor-N4 this is Dustoff-U. sending 20 lb from Uniform airdrop LZ to November crossroads. count it on arrival. over
+
+[2026-09-12T06:38:55Z] (radio) LT Leo Vasquez / Dustoff-U -> Anchor-E9
+Anchor-E9 this is Dustoff-U. sending 30 lb from Uniform airdrop LZ to Echo mosque courtyard. count it on arrival. over
+
+[2026-09-12T09:01:34Z] (radio) SFC Sofia Nair / Quebec-Actual -> Anchor-C3
+Anchor-C3 this is Quebec-Actual. sending 30 lb from Quebec transfer yard to Copper aid cage. count it on arrival. over
+
+[2026-09-12T09:03:55Z] (radio) SFC Sofia Nair / Quebec-Actual -> Anchor-Z7
+Anchor-Z7 this is Quebec-Actual. sending 75 lb from Quebec transfer yard to Zulu pad. count it on arrival. over
+
+[2026-09-12T09:23:08Z] (radio) SGT Yusuf Okafor / Yankee-Actual -> Anchor-M3
+Anchor-M3 this is Yankee-Actual. sending 25 lb from Yankee forward cache to Mike orchard. count it on arrival. over
+
+[2026-09-12T09:24:42Z] (radio) SPC Omar Ruiz / Iron-Actual -> Anchor-M3
+Anchor-M3 this is Iron-Actual. sending 2 lb from Iron forward cache to Mike orchard. count it on arrival. over
+
+[2026-09-12T09:40:47Z] (radio) SGT Yusuf Okafor / Yankee-Actual -> Anchor-C9
+Anchor-C9 this is Yankee-Actual. sending 50 lb from Yankee forward cache to Charlie orchard. count it on arrival. over
+
+[2026-09-12T09:43:55Z] (radio) SGT Yusuf Okafor / Yankee-Actual -> Anchor-G4
+Anchor-G4 this is Yankee-Actual. sending 45 lb from Yankee forward cache to Granite quarry. count it on arrival. over
+
+[2026-09-12T12:40:47Z] (radio) SSG Malik Bennett / Spare-2 -> ALL
+uh ignore, stepped on the net. dusty at Zulu pad. no extra pallets, just looking for the toyota.
+
+[2026-09-12T13:00:00Z] (radio) LT James Ruiz / Anchor-Z7 -> Anchor-C9
+Anchor-C9 this is Anchor-Z7. sending 30 lb from Zulu pad to Charlie orchard. count it on arrival. over
+
+[2026-09-12T13:04:42Z] (radio) CPT Keiko Kowalski / Anchor-K4 -> Anchor-A7
+Anchor-A7 this is Anchor-K4. sending 5 lb from Kilo market to Alpha mosque courtyard. count it on arrival. over
+
+[2026-09-12T13:20:47Z] (radio) CPT Keiko Kowalski / Anchor-K4 -> Anchor-P1
+Anchor-P1 this is Anchor-K4. sending 15 lb from Kilo market to Papa farm. count it on arrival. over

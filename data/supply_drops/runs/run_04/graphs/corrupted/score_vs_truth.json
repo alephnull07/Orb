@@ -1,0 +1,43 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 41,
+  "consensus_edges": 42,
+  "matched_hops": 41,
+  "exact_weight_matches": 38,
+  "mean_abs_weight_error_on_matches": 1.83,
+  "differences": [
+    {
+      "hop": [
+        "xray transfer yard",
+        "harbor helipad"
+      ],
+      "target_lb": 10,
+      "consensus_lb": 30,
+      "delta": 20
+    },
+    {
+      "hop": [
+        "cedar airdrop lz",
+        "india bridge"
+      ],
+      "target_lb": 45,
+      "consensus_lb": 60,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "overlook warehouse",
+        "iron warehouse"
+      ],
+      "target_lb": 10,
+      "consensus_lb": 50,
+      "delta": 40
+    }
+  ],
+  "extra_hops": [
+    [
+      "november aid cage",
+      "quebec mosque courtyard"
+    ]
+  ]
+}

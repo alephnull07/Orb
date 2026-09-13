@@ -1,0 +1,67 @@
+WhatsApp Chat with Logistics + CivAid
+
+[2026-09-12T06:18:55Z] (whatsapp) SGT Sam Abebe / Dustoff-Q -> Golf-Actual
+Golf-Actual this is Dustoff-Q. sending 195 lb from Quarry airdrop LZ to Golf forward cache. count it on arrival. over
+
+[2026-09-12T06:20:29Z] (whatsapp) SGT Omar Vasquez / Juliet-Actual -> Watchtower
+got 5 pounds off Quarry airdrop LZ here at Juliet ridge hub. logged. vasquez
+
+[2026-09-12T06:37:21Z] (whatsapp) CPL Farah Chen / Dustoff-S -> Anchor-M6
+Anchor-M6 this is Dustoff-S. sending 20 lb from Sandpit railhead to Maple mill. count it on arrival. over
+
+[2026-09-12T06:39:42Z] (whatsapp) SSG Greta Hassan / Anchor-A7 -> Watchtower
+got 20 pounds off Quarry airdrop LZ here at Alpha water point. logged. hassan
+
+[2026-09-12T06:58:08Z] (whatsapp) CPT James Okafor / Anchor-S9 -> Watchtower
+got 25 pounds off Sandpit railhead here at Sierra water point. logged. okafor
+
+[2026-09-12T06:59:42Z] (whatsapp) SGT Sam Abebe / Dustoff-Q -> Anchor-V8
+Anchor-V8 this is Dustoff-Q. sending 40 lb from Quarry airdrop LZ to Victor farm. count it on arrival. over
+
+[2026-09-12T07:16:34Z] (whatsapp) SFC Sofia Petrov / Anchor-M8 -> Watchtower
+got 25 pounds off Quarry airdrop LZ here at Mike mosque courtyard. logged. petrov
+
+[2026-09-12T09:03:08Z] (whatsapp) LT Elena Rahman / Charlie-Actual -> Anchor-R6
+Anchor-R6 this is Charlie-Actual. sending 15 lb from Charlie forward cache to Romeo water point. count it on arrival. over
+
+[2026-09-12T09:05:29Z] (whatsapp) PFC Noah Nair / Anchor-B9 -> Watchtower
+got 155 pounds off Golf forward cache here at Bravo water point. logged. nair
+
+[2026-09-12T09:22:21Z] (whatsapp) SGT Omar Vasquez / Juliet-Actual -> Anchor-W3
+Anchor-W3 this is Juliet-Actual. sending 10 lb from Juliet ridge hub to Willow helipad. count it on arrival. over
+
+[2026-09-12T09:24:42Z] (whatsapp) SGT Nina Nguyen / Anchor-L9 -> Watchtower
+got 5 pounds off Juliet ridge hub here at Lima farm. logged. nguyen
+
+[2026-09-12T09:41:34Z] (whatsapp) SPC Sam Hale / Tango-Actual -> Anchor-W7
+Anchor-W7 this is Tango-Actual. sending 5 lb from Tango ridge hub to Whiskey bridge. count it on arrival. over
+
+[2026-09-12T09:42:21Z] (whatsapp) LT Sofia Hale / Anchor-H7 -> Watchtower
+got 50 pounds off Juliet ridge hub here at Harbor quarry. logged. hale
+
+[2026-09-12T12:40:00Z] (whatsapp) CPL Farah Chen / Dustoff-S -> MAJ Yusuf Ortiz
+roof still leaking at Sandpit railhead but the load is dry. no new numbers.
+
+[2026-09-12T13:00:47Z] (whatsapp) SFC Sofia Petrov / Anchor-M8 -> Watchtower
+got 5 pounds off November mosque courtyard here at Mike mosque courtyard. logged. petrov
+
+[2026-09-12T13:03:55Z] (whatsapp) PFC Noah Nair / Anchor-B9 -> Anchor-E1
+Anchor-E1 this is Anchor-B9. sending 15 lb from Bravo water point to Echo well. count it on arrival. over
+
+[2026-09-12T13:20:47Z] (whatsapp) LT Diego Vasquez / Anchor-H5 -> Watchtower
+got 30 pounds off Lima farm here at Hotel farm. logged. vasquez
+
+[2026-09-12T13:25:29Z] (whatsapp) LT Sofia Hale / Anchor-H7 -> Anchor-K2
+Anchor-K2 this is Anchor-H7. sending 30 lb from Harbor quarry to Kilo schoolhouse. count it on arrival. over
+
+[2026-09-12T13:42:21Z] (whatsapp) CPT Riley Petrov / Anchor-R6 -> Anchor-M8
+Anchor-M8 this is Anchor-R6. sending 25 lb from Romeo water point to Mike mosque courtyard. count it on arrival. over
+
+[2026-09-12T13:43:55Z] (whatsapp) CPL James Okonkwo / Anchor-W3 -> Watchtower
+got 20 pounds off Mike mosque courtyard here at Willow helipad. logged. okonkwo
+
+[2026-09-12T14:02:21Z] (whatsapp) CPT James MacLeod / Anchor-P7 -> Anchor-F8
+Anchor-F8 this is Anchor-P7. sending 10 lb from Papa crossroads to Foxtrot helipad. count it on arrival. over
+
+[2026-09-12T14:04:42Z] (whatsapp) SSG Greta Hassan / Anchor-A7 -> Watchtower
+got 5 pounds off Kilo schoolhouse here at Alpha water point. logged. hassan

@@ -1,0 +1,55 @@
+=== ANCHOR NET TRANSCRIPT 12 SEP 26 ===
+
+[2026-09-12T06:15:00Z] (radio) LT Ibrahim Okonkwo / Dustoff-B -> Tango-Actual
+Tango-Actual this is Dustoff-B. sending 55 lb from Bravo airdrop LZ to Tango ridge hub. count it on arrival. over
+
+[2026-09-12T06:18:55Z] (radio) LT Tom MacLeod / Dustoff-N -> India-Actual
+India-Actual this is Dustoff-N. sending 400 lb from November airdrop LZ to India forward cache. count it on arrival. over
+
+[2026-09-12T06:35:47Z] (radio) LT Ibrahim Okonkwo / Dustoff-B -> Lima-Actual
+Lima-Actual this is Dustoff-B. sending 50 lb from Bravo airdrop LZ to Lima ridge hub. count it on arrival. over
+
+[2026-09-12T07:40:00Z] (radio) LT Tom MacLeod / Dustoff-N -> Watchtower
+Watchtower, second drop, another 400 pounds from November airdrop LZ. Double it on the board. Over.
+
+[2026-09-12T09:00:47Z] (radio) CPL Diego Okonkwo / Lima-Actual -> Anchor-C6
+Anchor-C6 this is Lima-Actual. sending 25 lb from Lima ridge hub to Cedar orchard. count it on arrival. over
+
+[2026-09-12T09:01:34Z] (radio) CPL Diego Okonkwo / Lima-Actual -> Anchor-W1
+Anchor-W1 this is Lima-Actual. sending 5 lb from Lima ridge hub to Willow bridge. count it on arrival. over
+
+[2026-09-12T09:20:00Z] (radio) PVT Victor Ortiz / Sandpit-Actual -> Anchor-C6
+Anchor-C6 this is Sandpit-Actual. sending 5 lb from Sandpit forward cache to Charlie checkpoint. count it on arrival. over
+
+[2026-09-12T09:23:55Z] (radio) LT June Singh / Tango-Actual -> Anchor-C6
+Anchor-C6 this is Tango-Actual. sending 5 lb from Tango ridge hub to Charlie checkpoint. count it on arrival. over
+
+[2026-09-12T09:40:47Z] (radio) PVT Victor Ortiz / Sandpit-Actual -> Zulu-Actual
+Zulu-Actual this is Sandpit-Actual. sending 20 lb from Sandpit forward cache to Zulu junction. count it on arrival. over
+
+[2026-09-12T09:43:55Z] (radio) PVT Victor Ortiz / Sandpit-Actual -> Anchor-W1
+Anchor-W1 this is Sandpit-Actual. sending 25 lb from Sandpit forward cache to Willow bridge. count it on arrival. over
+
+[2026-09-12T10:02:21Z] (radio) LT Tom Bennett / Zulu-Actual -> Anchor-A4
+Anchor-A4 this is Zulu-Actual. sending 5 lb from Zulu junction to Alpha mosque courtyard. count it on arrival. over
+
+[2026-09-12T10:03:08Z] (radio) SSG Leo Ruiz / India-Actual -> Anchor-W1
+Anchor-W1 this is India-Actual. sending 255 lb from India forward cache to Willow bridge. count it on arrival. over
+
+[2026-09-12T10:20:47Z] (radio) SGT Omar Volkov / Xray-Actual -> Anchor-A4
+Anchor-A4 this is Xray-Actual. sending 15 lb from Xray junction to Alpha mosque courtyard. count it on arrival. over
+
+[2026-09-12T10:25:29Z] (radio) SSG Leo Ruiz / India-Actual -> Anchor-G5
+Anchor-G5 this is India-Actual. sending 70 lb from India forward cache to Golf well. count it on arrival. over
+
+[2026-09-12T10:40:00Z] (radio) SGT Omar Volkov / Xray-Actual -> Anchor-C6
+Anchor-C6 this is Xray-Actual. sending 15 lb from Xray junction to Cedar orchard. count it on arrival. over
+
+[2026-09-12T12:40:00Z] (radio) CPT Riley Okafor / Spare-2 -> ALL
+uh ignore, stepped on the net. dusty at Granite market. no extra pallets, just looking for the toyota.
+
+[2026-09-12T13:01:34Z] (radio) PVT Priya Hassan / Anchor-W1 -> Anchor-G5
+Anchor-G5 this is Anchor-W1. sending 60 lb from Willow bridge to Golf well. count it on arrival. over
+
+[2026-09-12T13:03:08Z] (radio) PFC Elena Berg / Anchor-A4 -> Anchor-J3
+Anchor-J3 this is Anchor-A4. sending 4 lb from Alpha mosque courtyard to Juliet warehouse. count it on arrival. over

@@ -1,0 +1,1030 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "UNIFORM_FOB_DEPOT",
+      "key": "uniform fob depot",
+      "display": "Uniform FOB depot",
+      "aliases": [
+        "Uniform FOB depot"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "HOTEL_TRANSFER_YARD",
+      "key": "hotel transfer yard",
+      "display": "Hotel transfer yard",
+      "aliases": [
+        "Hotel transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "IRON_PORT_DUMP",
+      "key": "iron port dump",
+      "display": "Iron port dump",
+      "aliases": [
+        "Iron port dump"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "TANGO_TRANSFER_YARD",
+      "key": "tango transfer yard",
+      "display": "Tango transfer yard",
+      "aliases": [
+        "Tango transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "FOXTROT_RIDGE_HUB",
+      "key": "foxtrot ridge hub",
+      "display": "Foxtrot ridge hub",
+      "aliases": [
+        "Foxtrot ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "OSCAR_JUNCTION",
+      "key": "oscar junction",
+      "display": "Oscar junction",
+      "aliases": [
+        "Oscar junction"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "MIKE_QUARRY",
+      "key": "mike quarry",
+      "display": "Mike quarry",
+      "aliases": [
+        "Mike quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "GOLF_BRIDGE",
+      "key": "golf bridge",
+      "display": "Golf bridge",
+      "aliases": [
+        "Golf bridge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "CEDAR_CHECKPOINT",
+      "key": "cedar checkpoint",
+      "display": "Cedar checkpoint",
+      "aliases": [
+        "Cedar checkpoint"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ECHO_WAREHOUSE",
+      "key": "echo warehouse",
+      "display": "Echo warehouse",
+      "aliases": [
+        "Echo warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "NOVEMBER_WELL",
+      "key": "november well",
+      "display": "November well",
+      "aliases": [
+        "November well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "SIERRA_WAREHOUSE",
+      "key": "sierra warehouse",
+      "display": "Sierra warehouse",
+      "aliases": [
+        "Sierra warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "QUEBEC_CROSSROADS",
+      "key": "quebec crossroads",
+      "display": "Quebec crossroads",
+      "aliases": [
+        "Quebec crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "KILO_FARM",
+      "key": "kilo farm",
+      "display": "Kilo farm",
+      "aliases": [
+        "Kilo farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "INDIA_CHECKPOINT",
+      "key": "india checkpoint",
+      "display": "India checkpoint",
+      "aliases": [
+        "India checkpoint"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "XRAY_WAREHOUSE",
+      "key": "xray warehouse",
+      "display": "Xray warehouse",
+      "aliases": [
+        "Xray warehouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "YANKEE_BRIDGE",
+      "key": "yankee bridge",
+      "display": "Yankee bridge",
+      "aliases": [
+        "Yankee bridge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "HOTEL_TRANSFER_YARD",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Hotel transfer yard",
+      "value_lb": 125,
+      "agent_values": {
+        "scout": 125,
+        "receiver": 125,
+        "auditor": 125
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-001",
+        "MSG-006"
+      ]
+    },
+    {
+      "source": "IRON_PORT_DUMP",
+      "target": "TANGO_TRANSFER_YARD",
+      "source_display": "Iron port dump",
+      "target_display": "Tango transfer yard",
+      "value_lb": 290,
+      "agent_values": {
+        "scout": 290,
+        "receiver": 290,
+        "auditor": 290
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-003",
+        "MSG-004"
+      ]
+    },
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "FOXTROT_RIDGE_HUB",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Foxtrot ridge hub",
+      "value_lb": 55,
+      "agent_values": {
+        "scout": 55,
+        "receiver": 55,
+        "auditor": 55
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-002",
+        "MSG-007"
+      ]
+    },
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "OSCAR_JUNCTION",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Oscar junction",
+      "value_lb": 275,
+      "agent_values": {
+        "scout": 275,
+        "receiver": 275,
+        "auditor": 275
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-005",
+        "MSG-008"
+      ]
+    },
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "MIKE_QUARRY",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Mike quarry",
+      "value_lb": 85,
+      "agent_values": {
+        "scout": 85,
+        "receiver": 45,
+        "auditor": 85
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-009",
+        "MSG-013"
+      ]
+    },
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "GOLF_BRIDGE",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Golf bridge",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-010",
+        "MSG-012"
+      ]
+    },
+    {
+      "source": "IRON_PORT_DUMP",
+      "target": "CEDAR_CHECKPOINT",
+      "source_display": "Iron port dump",
+      "target_display": "Cedar checkpoint",
+      "value_lb": 35,
+      "agent_values": {
+        "scout": 35,
+        "receiver": 35,
+        "auditor": 35
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-011",
+        "MSG-014"
+      ]
+    },
+    {
+      "source": "UNIFORM_FOB_DEPOT",
+      "target": "ECHO_WAREHOUSE",
+      "source_display": "Uniform FOB depot",
+      "target_display": "Echo warehouse",
+      "value_lb": 35,
+      "agent_values": {
+        "scout": 35,
+        "receiver": 15,
+        "auditor": 35
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-015",
+        "MSG-016"
+      ]
+    },
+    {
+      "source": "OSCAR_JUNCTION",
+      "target": "NOVEMBER_WELL",
+      "source_display": "Oscar junction",
+      "target_display": "November well",
+      "value_lb": 80,
+      "agent_values": {
+        "scout": 80,
+        "receiver": 80,
+        "auditor": 80
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-017",
+        "MSG-019"
+      ]
+    },
+    {
+      "source": "OSCAR_JUNCTION",
+      "target": "SIERRA_WAREHOUSE",
+      "source_display": "Oscar junction",
+      "target_display": "Sierra warehouse",
+      "value_lb": 105,
+      "agent_values": {
+        "scout": 105,
+        "receiver": 105,
+        "auditor": 105
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-018",
+        "MSG-020"
+      ]
+    },
+    {
+      "source": "FOXTROT_RIDGE_HUB",
+      "target": "QUEBEC_CROSSROADS",
+      "source_display": "Foxtrot ridge hub",
+      "target_display": "Quebec crossroads",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-021",
+        "MSG-023"
+      ]
+    },
+    {
+      "source": "FOXTROT_RIDGE_HUB",
+      "target": "KILO_FARM",
+      "source_display": "Foxtrot ridge hub",
+      "target_display": "Kilo farm",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-022",
+        "MSG-024"
+      ]
+    },
+    {
+      "source": "OSCAR_JUNCTION",
+      "target": "INDIA_CHECKPOINT",
+      "source_display": "Oscar junction",
+      "target_display": "India checkpoint",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-026",
+        "MSG-032"
+      ]
+    },
+    {
+      "source": "OSCAR_JUNCTION",
+      "target": "XRAY_WAREHOUSE",
+      "source_display": "Oscar junction",
+      "target_display": "Xray warehouse",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-027",
+        "MSG-028"
+      ]
+    },
+    {
+      "source": "HOTEL_TRANSFER_YARD",
+      "target": "YANKEE_BRIDGE",
+      "source_display": "Hotel transfer yard",
+      "target_display": "Yankee bridge",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-029",
+        "MSG-030"
+      ]
+    },
+    {
+      "source": "OSCAR_JUNCTION",
+      "target": "KILO_FARM",
+      "source_display": "Oscar junction",
+      "target_display": "Kilo farm",
+      "value_lb": 75,
+      "agent_values": {
+        "scout": 75,
+        "receiver": 75,
+        "auditor": 75
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-025",
+        "MSG-031"
+      ]
+    },
+    {
+      "source": "HOTEL_TRANSFER_YARD",
+      "target": "INDIA_CHECKPOINT",
+      "source_display": "Hotel transfer yard",
+      "target_display": "India checkpoint",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-033",
+        "MSG-034"
+      ]
+    },
+    {
+      "source": "HOTEL_TRANSFER_YARD",
+      "target": "XRAY_WAREHOUSE",
+      "source_display": "Hotel transfer yard",
+      "target_display": "Xray warehouse",
+      "value_lb": 95,
+      "agent_values": {
+        "scout": 95,
+        "receiver": 95,
+        "auditor": 95
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-035",
+        "MSG-037"
+      ]
+    },
+    {
+      "source": "TANGO_TRANSFER_YARD",
+      "target": "XRAY_WAREHOUSE",
+      "source_display": "Tango transfer yard",
+      "target_display": "Xray warehouse",
+      "value_lb": 130,
+      "agent_values": {
+        "scout": 130,
+        "receiver": 130,
+        "auditor": 130
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-036",
+        "MSG-040"
+      ]
+    },
+    {
+      "source": "TANGO_TRANSFER_YARD",
+      "target": "INDIA_CHECKPOINT",
+      "source_display": "Tango transfer yard",
+      "target_display": "India checkpoint",
+      "value_lb": 160,
+      "agent_values": {
+        "scout": 150,
+        "receiver": 160,
+        "auditor": 160
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-038",
+        "MSG-039"
+      ]
+    },
+    {
+      "source": "QUEBEC_CROSSROADS",
+      "target": "KILO_FARM",
+      "source_display": "Quebec crossroads",
+      "target_display": "Kilo farm",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-044",
+        "MSG-047"
+      ]
+    },
+    {
+      "source": "INDIA_CHECKPOINT",
+      "target": "CEDAR_CHECKPOINT",
+      "source_display": "India checkpoint",
+      "target_display": "Cedar checkpoint",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 20,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-043",
+        "MSG-045"
+      ]
+    },
+    {
+      "source": "XRAY_WAREHOUSE",
+      "target": "NOVEMBER_WELL",
+      "source_display": "Xray warehouse",
+      "target_display": "November well",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-046",
+        "MSG-048"
+      ]
+    },
+    {
+      "source": "KILO_FARM",
+      "target": "FOXTROT_RIDGE_HUB",
+      "source_display": "Kilo farm",
+      "target_display": "Foxtrot ridge hub",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-C01"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "UNIFORM_FOB_DEPOT",
+      "display": "Uniform FOB depot",
+      "law": "mass_balance",
+      "in_lb": 595,
+      "out_lb": 595,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "HOTEL_TRANSFER_YARD",
+      "display": "Hotel transfer yard",
+      "law": "mass_balance",
+      "in_lb": 125,
+      "out_lb": 125,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "IRON_PORT_DUMP",
+      "display": "Iron port dump",
+      "law": "mass_balance",
+      "in_lb": 325,
+      "out_lb": 325,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "TANGO_TRANSFER_YARD",
+      "display": "Tango transfer yard",
+      "law": "mass_balance",
+      "in_lb": 290,
+      "out_lb": 290,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "FOXTROT_RIDGE_HUB",
+      "display": "Foxtrot ridge hub",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 55,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "OSCAR_JUNCTION",
+      "display": "Oscar junction",
+      "law": "mass_balance",
+      "in_lb": 275,
+      "out_lb": 275,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MIKE_QUARRY",
+      "display": "Mike quarry",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 0,
+      "inventory_eod_lb": 45,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GOLF_BRIDGE",
+      "display": "Golf bridge",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "CEDAR_CHECKPOINT",
+      "display": "Cedar checkpoint",
+      "law": "mass_balance",
+      "in_lb": 65,
+      "out_lb": 0,
+      "inventory_eod_lb": 65,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ECHO_WAREHOUSE",
+      "display": "Echo warehouse",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "NOVEMBER_WELL",
+      "display": "November well",
+      "law": "mass_balance",
+      "in_lb": 105,
+      "out_lb": 0,
+      "inventory_eod_lb": 105,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SIERRA_WAREHOUSE",
+      "display": "Sierra warehouse",
+      "law": "mass_balance",
+      "in_lb": 105,
+      "out_lb": 0,
+      "inventory_eod_lb": 105,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "QUEBEC_CROSSROADS",
+      "display": "Quebec crossroads",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 25,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "KILO_FARM",
+      "display": "Kilo farm",
+      "law": "mass_balance",
+      "in_lb": 125,
+      "out_lb": 0,
+      "inventory_eod_lb": 125,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "INDIA_CHECKPOINT",
+      "display": "India checkpoint",
+      "law": "mass_balance",
+      "in_lb": 175,
+      "out_lb": 30,
+      "inventory_eod_lb": 145,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "XRAY_WAREHOUSE",
+      "display": "Xray warehouse",
+      "law": "mass_balance",
+      "in_lb": 230,
+      "out_lb": 25,
+      "inventory_eod_lb": 205,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "YANKEE_BRIDGE",
+      "display": "Yankee bridge",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 0,
+      "inventory_eod_lb": 25,
+      "source": "auditor_eod"
+    }
+  ],
+  "disagreements": [
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "uniform fob depot",
+      "target": "mike quarry",
+      "agent_values": {
+        "scout": 85,
+        "receiver": 45,
+        "auditor": 85
+      },
+      "kept": 85,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "uniform fob depot",
+      "target": "echo warehouse",
+      "agent_values": {
+        "scout": 35,
+        "receiver": 15,
+        "auditor": 35
+      },
+      "kept": 35,
+      "delta": 20
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "foxtrot ridge hub",
+      "target": "kilo farm",
+      "agent_values": {
+        "scout": 10,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "kept": 25,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "tango transfer yard",
+      "target": "india checkpoint",
+      "agent_values": {
+        "scout": 150,
+        "receiver": 160,
+        "auditor": 160
+      },
+      "kept": 160,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "india checkpoint",
+      "target": "cedar checkpoint",
+      "agent_values": {
+        "scout": 30,
+        "receiver": 20,
+        "auditor": 30
+      },
+      "kept": 30,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "xray warehouse",
+      "target": "november well",
+      "agent_values": {
+        "scout": 15,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "kept": 25,
+      "delta": 10
+    }
+  ],
+  "stats": {
+    "nodes": 17,
+    "edges": 24,
+    "outvoted_edges": 0,
+    "discrepancies": 6
+  },
+  "by_id": {
+    "UNIFORM_FOB_DEPOT": "Uniform FOB depot",
+    "HOTEL_TRANSFER_YARD": "Hotel transfer yard",
+    "IRON_PORT_DUMP": "Iron port dump",
+    "TANGO_TRANSFER_YARD": "Tango transfer yard",
+    "FOXTROT_RIDGE_HUB": "Foxtrot ridge hub",
+    "OSCAR_JUNCTION": "Oscar junction",
+    "MIKE_QUARRY": "Mike quarry",
+    "GOLF_BRIDGE": "Golf bridge",
+    "CEDAR_CHECKPOINT": "Cedar checkpoint",
+    "ECHO_WAREHOUSE": "Echo warehouse",
+    "NOVEMBER_WELL": "November well",
+    "SIERRA_WAREHOUSE": "Sierra warehouse",
+    "QUEBEC_CROSSROADS": "Quebec crossroads",
+    "KILO_FARM": "Kilo farm",
+    "INDIA_CHECKPOINT": "India checkpoint",
+    "XRAY_WAREHOUSE": "Xray warehouse",
+    "YANKEE_BRIDGE": "Yankee bridge"
+  }
+}

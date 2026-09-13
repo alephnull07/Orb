@@ -1,0 +1,52 @@
+=== ANCHOR NET TRANSCRIPT 12 SEP 26 ===
+
+[2026-09-12T06:15:00Z] (radio) SFC Diego Okafor / Wagon-3 -> Sandpit-Actual
+Sandpit-Actual this is Wagon-3. sending 400 lb from Quarry convoy origin to Sandpit ridge hub. count it on arrival. over
+
+[2026-09-12T06:15:47Z] (radio) PVT Chris Singh / Wagon-2 -> Anchor-V8
+Anchor-V8 this is Wagon-2. sending 30 lb from Zulu FOB depot to Victor farm. count it on arrival. over
+
+[2026-09-12T06:36:34Z] (radio) PVT Chris Singh / Wagon-2 -> Anchor-M9
+Anchor-M9 this is Wagon-2. sending 15 lb from Zulu FOB depot to Maple helipad. count it on arrival. over
+
+[2026-09-12T06:39:42Z] (radio) PVT Chris Singh / Wagon-2 -> Anchor-U2
+Anchor-U2 this is Wagon-2. sending 20 lb from Zulu FOB depot to Uniform helipad. count it on arrival. over
+
+[2026-09-12T06:56:34Z] (radio) SFC Diego Okafor / Wagon-3 -> Anchor-R3
+Anchor-R3 this is Wagon-3. sending 30 lb from Quarry convoy origin to Romeo checkpoint. count it on arrival. over
+
+[2026-09-12T07:40:00Z] (radio) SFC Diego Okafor / Wagon-3 -> Watchtower
+Watchtower, second drop, another 505 pounds from Quarry convoy origin. Double it on the board. Over.
+
+[2026-09-12T09:00:00Z] (radio) PVT Riley Ruiz / Alpha-Actual -> Anchor-Q8
+Anchor-Q8 this is Alpha-Actual. sending 5 lb from Alpha junction to Quebec crossroads. count it on arrival. over
+
+[2026-09-12T09:02:21Z] (radio) LT Hana Alvarez / Delta-Actual -> Anchor-I5
+Anchor-I5 this is Delta-Actual. sending 60 lb from Delta forward cache to India quarry. count it on arrival. over
+
+[2026-09-12T09:22:21Z] (radio) SGT Hana Khan / Sandpit-Actual -> Anchor-M1
+Anchor-M1 this is Sandpit-Actual. sending 10 lb from Sandpit ridge hub to Mike mill. count it on arrival. over
+
+[2026-09-12T09:24:42Z] (radio) LT Hana Alvarez / Delta-Actual -> Anchor-H9
+Anchor-H9 this is Delta-Actual. sending 5 lb from Delta forward cache to Harbor water point. count it on arrival. over
+
+[2026-09-12T09:40:47Z] (radio) SGT Hana Khan / Sandpit-Actual -> Anchor-G6
+Anchor-G6 this is Sandpit-Actual. sending 90 lb from Sandpit ridge hub to Golf orchard. count it on arrival. over
+
+[2026-09-12T12:40:47Z] (radio) SPC Amelia Volkov / Spare-2 -> ALL
+uh ignore, stepped on the net. dusty at Quarry convoy origin. no extra pallets, just looking for the toyota.
+
+[2026-09-12T13:03:08Z] (radio) CPT Greta Berg / Anchor-Q8 -> Anchor-X3
+Anchor-X3 this is Anchor-Q8. sending 5 lb from Quebec crossroads to Xray water point. count it on arrival. over
+
+[2026-09-12T13:03:55Z] (radio) SPC Diego Diaz / Anchor-I5 -> Anchor-X3
+Anchor-X3 this is Anchor-I5. sending 3 lb from India quarry to Xray water point. count it on arrival. over
+
+[2026-09-12T13:20:47Z] (radio) CPT Omar Okafor / Anchor-V8 -> Anchor-M1
+Anchor-M1 this is Anchor-V8. sending 20 lb from Victor farm to Mike mill. count it on arrival. over
+
+[2026-09-12T13:21:34Z] (radio) SPC Noah Nguyen / Anchor-E9 -> Anchor-Q8
+Anchor-Q8 this is Anchor-E9. sending 20 lb from Echo helipad to Quebec crossroads. count it on arrival. over
+
+[2026-09-12T13:42:21Z] (radio) LT Leo Ortiz / Anchor-R3 -> Anchor-F1
+Anchor-F1 this is Anchor-R3. sending 10 lb from Romeo checkpoint to Foxtrot warehouse. count it on arrival. over

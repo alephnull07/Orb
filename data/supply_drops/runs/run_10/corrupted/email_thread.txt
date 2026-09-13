@@ -1,0 +1,52 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:20:29Z] (email) SPC Nina Rahman / Kilo-Actual -> Watchtower
+got 155 pounds off Copper railhead here at Kilo transfer yard. logged. rahman
+
+[2026-09-12T09:03:55Z] (email) LT Omar Bennett / Anchor-M9 -> Watchtower
+got 5 pounds off Bravo transfer yard here at Mike mill. logged. bennett
+
+[2026-09-12T09:20:00Z] (email) LT Hana Singh / Anchor-P6 -> Watchtower
+got 90 pounds off Foxtrot transfer yard here at Papa helipad. logged. singh
+
+[2026-09-12T09:41:34Z] (email) LT Hana Singh / Anchor-P6 -> Watchtower
+got 5 pounds off Sandpit transfer yard here at Papa helipad. logged. singh
+
+[2026-09-12T10:00:47Z] (email) LT Greta Hale / Anchor-A9 -> Watchtower
+got 4 pounds off Echo forward cache here at Alpha market. logged. hale
+
+[2026-09-12T10:25:29Z] (email) LT Omar Bennett / Anchor-M9 -> Watchtower
+got 70 pounds off Kilo transfer yard here at Mike mill. logged. bennett
+
+[2026-09-12T10:44:42Z] (email) SSG Maya Khan / Anchor-V4 -> Watchtower
+got 270 pounds off Oscar transfer yard here at Victor orchard. logged. khan
+
+[2026-09-12T13:02:21Z] (email) LT Hana Singh / Anchor-P6 -> Watchtower
+got 10 pounds off Lima aid cage here at Papa helipad. logged. singh
+
+[2026-09-12T13:25:29Z] (email) LT Hana Singh / Anchor-P6 -> Watchtower
+got 15 pounds off Xray helipad here at Papa helipad. logged. singh
+
+[2026-09-12T16:00:00Z] (email) SSG Maya Okafor / Foxtrot-Actual -> Watchtower
+EOD Foxtrot transfer yard: in 195 lb, out 195 lb, on-hand 0 lb. Foxtrot-Actual closing books.
+
+[2026-09-12T16:00:47Z] (email) SPC Nina Rahman / Kilo-Actual -> Watchtower
+EOD Kilo transfer yard: in 155 lb, out 155 lb, on-hand 0 lb. Kilo-Actual closing books.
+
+[2026-09-12T16:01:34Z] (email) LT Yusuf Alvarez / Oscar-Actual -> Watchtower
+EOD Oscar transfer yard: in 320 lb, out 320 lb, on-hand 0 lb. Oscar-Actual closing books.
+
+[2026-09-12T16:15:00Z] (email) LT Omar Bennett / Anchor-M9 -> Watchtower
+EOD Mike mill: in 103 lb, out 5 lb, on-hand 98 lb. Anchor-M9 closing books.
+
+[2026-09-12T16:16:34Z] (email) LT Ibrahim Alvarez / Anchor-Y7 -> Watchtower
+EOD Yankee mill: in 6 lb, out 0 lb, on-hand 6 lb. Anchor-Y7 closing books.
+
+[2026-09-12T16:17:21Z] (email) SSG Maya Ruiz / Anchor-W7 -> Watchtower
+EOD Whiskey well: in 55 lb, out 5 lb, on-hand 50 lb. Anchor-W7 closing books.
+
+[2026-09-12T16:18:08Z] (email) PVT Elena Rahman / Anchor-J7 -> Watchtower
+EOD Juliet tent city: in 25 lb, out 10 lb, on-hand 15 lb. Anchor-J7 closing books.
+
+[2026-09-12T16:30:47Z] (email) PVT Sam Nair / Anchor-D5 -> Watchtower
+EOD Delta schoolhouse: in 40 lb, out 5 lb, on-hand 35 lb. Anchor-D5 closing books.

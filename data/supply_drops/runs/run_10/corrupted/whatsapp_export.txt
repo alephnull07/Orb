@@ -1,0 +1,61 @@
+WhatsApp Chat with Logistics + CivAid
+
+[2026-09-12T06:17:21Z] (whatsapp) CPL Chris Nair / Echo-Actual -> Watchtower
+got 20 pounds off Copper railhead here at Echo forward cache. logged. nair
+
+[2026-09-12T06:18:55Z] (whatsapp) CPT Greta Vasquez / Dustoff-C -> Foxtrot-Actual
+Foxtrot-Actual this is Dustoff-C. sending 195 lb from Copper railhead to Foxtrot transfer yard. count it on arrival. over
+
+[2026-09-12T06:35:00Z] (whatsapp) LT Amelia Diaz / Sandpit-Actual -> Watchtower
+got 55 pounds off Harbor railhead here at Sandpit transfer yard. logged. diaz
+
+[2026-09-12T09:01:34Z] (whatsapp) CPL Chris Ruiz / Bravo-Actual -> Anchor-A9
+Anchor-A9 this is Bravo-Actual. sending 5 lb from Bravo transfer yard to Alpha market. count it on arrival. over
+
+[2026-09-12T09:04:42Z] (whatsapp) SSG Maya Khan / Anchor-V4 -> Watchtower
+got 10 pounds off Bravo transfer yard here at Victor orchard. logged. khan
+
+[2026-09-12T09:21:34Z] (whatsapp) SFC Omar Berg / Anchor-X1 -> Watchtower
+got 40 pounds off Foxtrot transfer yard here at Xray helipad. logged. berg
+
+[2026-09-12T09:25:29Z] (whatsapp) SSG Maya Okafor / Foxtrot-Actual -> Anchor-L1
+Anchor-L1 this is Foxtrot-Actual. sending 65 lb from Foxtrot transfer yard to Lima aid cage. count it on arrival. over
+
+[2026-09-12T09:40:47Z] (whatsapp) LT Amelia Diaz / Sandpit-Actual -> Anchor-J7
+Anchor-J7 this is Sandpit-Actual. sending 5 lb from Sandpit transfer yard to Juliet tent city. count it on arrival. over
+
+[2026-09-12T09:42:21Z] (whatsapp) PVT Sam Nair / Anchor-D5 -> Watchtower
+got 15 pounds off Sandpit transfer yard here at Delta schoolhouse. logged. nair
+
+[2026-09-12T10:03:55Z] (whatsapp) CPL Chris Nair / Echo-Actual -> Anchor-M9
+Anchor-M9 this is Echo-Actual. sending 1 lb from Echo forward cache to Mike mill. count it on arrival. over
+
+[2026-09-12T10:04:42Z] (whatsapp) SSG Maya Khan / Anchor-V4 -> Watchtower
+got 9 pounds off Echo forward cache here at Victor orchard. logged. khan
+
+[2026-09-12T10:21:34Z] (whatsapp) LT Greta Hale / Anchor-A9 -> Watchtower
+got 15 pounds off Kilo transfer yard here at Alpha market. logged. hale
+
+[2026-09-12T10:24:42Z] (whatsapp) SPC Nina Rahman / Kilo-Actual -> Anchor-V4
+Anchor-V4 this is Kilo-Actual. sending 30 lb from Kilo transfer yard to Victor orchard. count it on arrival. over
+
+[2026-09-12T10:40:00Z] (whatsapp) SSG Maya Ruiz / Anchor-W7 -> Watchtower
+got 25 pounds off Oscar transfer yard here at Whiskey well. logged. ruiz
+
+[2026-09-12T10:42:21Z] (whatsapp) LT Yusuf Alvarez / Oscar-Actual -> Anchor-M9
+Anchor-M9 this is Oscar-Actual. sending 25 lb from Oscar transfer yard to Mike mill. count it on arrival. over
+
+[2026-09-12T12:40:00Z] (whatsapp) LT Omar Bennett / Anchor-M9 -> MAJ Diego Nair
+roof still leaking at Mike mill but the load is dry. no new numbers.
+
+[2026-09-12T13:00:00Z] (whatsapp) PVT Elena Rahman / Anchor-J7 -> Anchor-D5
+Anchor-D5 this is Anchor-J7. sending 10 lb from Juliet tent city to Delta schoolhouse. count it on arrival. over
+
+[2026-09-12T13:01:34Z] (whatsapp) LT Omar Bennett / Anchor-M9 -> Watchtower
+got 2 pounds off Delta schoolhouse here at Mike mill. logged. bennett
+
+[2026-09-12T13:20:47Z] (whatsapp) SSG Maya Khan / Anchor-V4 -> Anchor-P6
+Anchor-P6 this is Anchor-V4. sending 50 lb from Victor orchard to Papa helipad. count it on arrival. over
+
+[2026-09-12T13:22:21Z] (whatsapp) LT Ibrahim Alvarez / Anchor-Y7 -> Watchtower
+got 5 pounds off Mike mill here at Yankee mill. logged. alvarez

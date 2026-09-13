@@ -1,0 +1,571 @@
+{
+  "agent": "scout",
+  "role": "entity extraction / outbound transfer claims",
+  "nodes": [
+    {
+      "id": "QUARRY_CONVOY_ORIGIN",
+      "display": "Quarry convoy origin",
+      "aliases": [
+        "Quarry convoy origin"
+      ],
+      "key": "quarry convoy origin"
+    },
+    {
+      "id": "SANDPIT_RIDGE_HUB",
+      "display": "Sandpit ridge hub",
+      "aliases": [
+        "Sandpit ridge hub"
+      ],
+      "key": "sandpit ridge hub"
+    },
+    {
+      "id": "ZULU_FOB_DEPOT",
+      "display": "Zulu FOB depot",
+      "aliases": [
+        "Zulu FOB depot"
+      ],
+      "key": "zulu fob depot"
+    },
+    {
+      "id": "VICTOR_FARM",
+      "display": "Victor farm",
+      "aliases": [
+        "Victor farm"
+      ],
+      "key": "victor farm"
+    },
+    {
+      "id": "ALPHA_JUNCTION",
+      "display": "Alpha junction",
+      "aliases": [
+        "Alpha junction"
+      ],
+      "key": "alpha junction"
+    },
+    {
+      "id": "DELTA_FORWARD_CACHE",
+      "display": "Delta forward cache",
+      "aliases": [
+        "Delta forward cache"
+      ],
+      "key": "delta forward cache"
+    },
+    {
+      "id": "MAPLE_HELIPAD",
+      "display": "Maple helipad",
+      "aliases": [
+        "Maple helipad"
+      ],
+      "key": "maple helipad"
+    },
+    {
+      "id": "CEDAR_CLINIC",
+      "display": "Cedar clinic",
+      "aliases": [
+        "Cedar clinic"
+      ],
+      "key": "cedar clinic"
+    },
+    {
+      "id": "UNIFORM_HELIPAD",
+      "display": "Uniform helipad",
+      "aliases": [
+        "Uniform helipad"
+      ],
+      "key": "uniform helipad"
+    },
+    {
+      "id": "FOXTROT_WAREHOUSE",
+      "display": "Foxtrot warehouse",
+      "aliases": [
+        "Foxtrot warehouse"
+      ],
+      "key": "foxtrot warehouse"
+    },
+    {
+      "id": "ROMEO_CHECKPOINT",
+      "display": "Romeo checkpoint",
+      "aliases": [
+        "Romeo checkpoint"
+      ],
+      "key": "romeo checkpoint"
+    },
+    {
+      "id": "JULIET_TENT_CITY",
+      "display": "Juliet tent city",
+      "aliases": [
+        "Juliet tent city"
+      ],
+      "key": "juliet tent city"
+    },
+    {
+      "id": "QUEBEC_CROSSROADS",
+      "display": "Quebec crossroads",
+      "aliases": [
+        "Quebec crossroads"
+      ],
+      "key": "quebec crossroads"
+    },
+    {
+      "id": "ECHO_HELIPAD",
+      "display": "Echo helipad",
+      "aliases": [
+        "Echo helipad"
+      ],
+      "key": "echo helipad"
+    },
+    {
+      "id": "INDIA_QUARRY",
+      "display": "India quarry",
+      "aliases": [
+        "India quarry"
+      ],
+      "key": "india quarry"
+    },
+    {
+      "id": "XRAY_WATER_POINT",
+      "display": "Xray water point",
+      "aliases": [
+        "Xray water point"
+      ],
+      "key": "xray water point"
+    },
+    {
+      "id": "MIKE_MILL",
+      "display": "Mike mill",
+      "aliases": [
+        "Mike mill"
+      ],
+      "key": "mike mill"
+    },
+    {
+      "id": "HARBOR_WATER_POINT",
+      "display": "Harbor water point",
+      "aliases": [
+        "Harbor water point"
+      ],
+      "key": "harbor water point"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "display": "Golf orchard",
+      "aliases": [
+        "Golf orchard"
+      ],
+      "key": "golf orchard"
+    },
+    {
+      "id": "KILO_FARM",
+      "display": "Kilo farm",
+      "aliases": [
+        "Kilo farm"
+      ],
+      "key": "kilo farm"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "quarry convoy origin",
+      "target_key": "sandpit ridge hub",
+      "source": "QUARRY_CONVOY_ORIGIN",
+      "target": "SANDPIT_RIDGE_HUB",
+      "source_display": "Quarry convoy origin",
+      "target_display": "Sandpit ridge hub",
+      "value_lb": 400,
+      "evidence": [
+        "MSG-001"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu fob depot",
+      "target_key": "victor farm",
+      "source": "ZULU_FOB_DEPOT",
+      "target": "VICTOR_FARM",
+      "source_display": "Zulu FOB depot",
+      "target_display": "Victor farm",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-002"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quarry convoy origin",
+      "target_key": "alpha junction",
+      "source": "QUARRY_CONVOY_ORIGIN",
+      "target": "ALPHA_JUNCTION",
+      "source_display": "Quarry convoy origin",
+      "target_display": "Alpha junction",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-005"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu fob depot",
+      "target_key": "delta forward cache",
+      "source": "ZULU_FOB_DEPOT",
+      "target": "DELTA_FORWARD_CACHE",
+      "source_display": "Zulu FOB depot",
+      "target_display": "Delta forward cache",
+      "value_lb": 140,
+      "evidence": [
+        "MSG-006"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu fob depot",
+      "target_key": "maple helipad",
+      "source": "ZULU_FOB_DEPOT",
+      "target": "MAPLE_HELIPAD",
+      "source_display": "Zulu FOB depot",
+      "target_display": "Maple helipad",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-011"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quarry convoy origin",
+      "target_key": "cedar clinic",
+      "source": "QUARRY_CONVOY_ORIGIN",
+      "target": "CEDAR_CLINIC",
+      "source_display": "Quarry convoy origin",
+      "target_display": "Cedar clinic",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-013"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu fob depot",
+      "target_key": "uniform helipad",
+      "source": "ZULU_FOB_DEPOT",
+      "target": "UNIFORM_HELIPAD",
+      "source_display": "Zulu FOB depot",
+      "target_display": "Uniform helipad",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-015"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "zulu fob depot",
+      "target_key": "foxtrot warehouse",
+      "source": "ZULU_FOB_DEPOT",
+      "target": "FOXTROT_WAREHOUSE",
+      "source_display": "Zulu FOB depot",
+      "target_display": "Foxtrot warehouse",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-016"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quarry convoy origin",
+      "target_key": "romeo checkpoint",
+      "source": "QUARRY_CONVOY_ORIGIN",
+      "target": "ROMEO_CHECKPOINT",
+      "source_display": "Quarry convoy origin",
+      "target_display": "Romeo checkpoint",
+      "value_lb": 30,
+      "evidence": [
+        "MSG-019"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quarry convoy origin",
+      "target_key": "juliet tent city",
+      "source": "QUARRY_CONVOY_ORIGIN",
+      "target": "JULIET_TENT_CITY",
+      "source_display": "Quarry convoy origin",
+      "target_display": "Juliet tent city",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-020"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "alpha junction",
+      "target_key": "quebec crossroads",
+      "source": "ALPHA_JUNCTION",
+      "target": "QUEBEC_CROSSROADS",
+      "source_display": "Alpha junction",
+      "target_display": "Quebec crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-021"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "alpha junction",
+      "target_key": "echo helipad",
+      "source": "ALPHA_JUNCTION",
+      "target": "ECHO_HELIPAD",
+      "source_display": "Alpha junction",
+      "target_display": "Echo helipad",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-023"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta forward cache",
+      "target_key": "india quarry",
+      "source": "DELTA_FORWARD_CACHE",
+      "target": "INDIA_QUARRY",
+      "source_display": "Delta forward cache",
+      "target_display": "India quarry",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-024"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta forward cache",
+      "target_key": "xray water point",
+      "source": "DELTA_FORWARD_CACHE",
+      "target": "XRAY_WATER_POINT",
+      "source_display": "Delta forward cache",
+      "target_display": "Xray water point",
+      "value_lb": 50,
+      "evidence": [
+        "MSG-027"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta forward cache",
+      "target_key": "echo helipad",
+      "source": "DELTA_FORWARD_CACHE",
+      "target": "ECHO_HELIPAD",
+      "source_display": "Delta forward cache",
+      "target_display": "Echo helipad",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-030"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit ridge hub",
+      "target_key": "mike mill",
+      "source": "SANDPIT_RIDGE_HUB",
+      "target": "MIKE_MILL",
+      "source_display": "Sandpit ridge hub",
+      "target_display": "Mike mill",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-032"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit ridge hub",
+      "target_key": "quebec crossroads",
+      "source": "SANDPIT_RIDGE_HUB",
+      "target": "QUEBEC_CROSSROADS",
+      "source_display": "Sandpit ridge hub",
+      "target_display": "Quebec crossroads",
+      "value_lb": 80,
+      "evidence": [
+        "MSG-033"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "delta forward cache",
+      "target_key": "harbor water point",
+      "source": "DELTA_FORWARD_CACHE",
+      "target": "HARBOR_WATER_POINT",
+      "source_display": "Delta forward cache",
+      "target_display": "Harbor water point",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-035"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit ridge hub",
+      "target_key": "golf orchard",
+      "source": "SANDPIT_RIDGE_HUB",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Sandpit ridge hub",
+      "target_display": "Golf orchard",
+      "value_lb": 90,
+      "evidence": [
+        "MSG-038"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "sandpit ridge hub",
+      "target_key": "kilo farm",
+      "source": "SANDPIT_RIDGE_HUB",
+      "target": "KILO_FARM",
+      "source_display": "Sandpit ridge hub",
+      "target_display": "Kilo farm",
+      "value_lb": 220,
+      "evidence": [
+        "MSG-039"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quebec crossroads",
+      "target_key": "india quarry",
+      "source": "QUEBEC_CROSSROADS",
+      "target": "INDIA_QUARRY",
+      "source_display": "Quebec crossroads",
+      "target_display": "India quarry",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-043"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "quebec crossroads",
+      "target_key": "xray water point",
+      "source": "QUEBEC_CROSSROADS",
+      "target": "XRAY_WATER_POINT",
+      "source_display": "Quebec crossroads",
+      "target_display": "Xray water point",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-047"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "india quarry",
+      "target_key": "xray water point",
+      "source": "INDIA_QUARRY",
+      "target": "XRAY_WATER_POINT",
+      "source_display": "India quarry",
+      "target_display": "Xray water point",
+      "value_lb": 3,
+      "evidence": [
+        "MSG-048"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "india quarry",
+      "target_key": "mike mill",
+      "source": "INDIA_QUARRY",
+      "target": "MIKE_MILL",
+      "source_display": "India quarry",
+      "target_display": "Mike mill",
+      "value_lb": 2,
+      "evidence": [
+        "MSG-049"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo helipad",
+      "target_key": "romeo checkpoint",
+      "source": "ECHO_HELIPAD",
+      "target": "ROMEO_CHECKPOINT",
+      "source_display": "Echo helipad",
+      "target_display": "Romeo checkpoint",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-051"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "victor farm",
+      "target_key": "mike mill",
+      "source": "VICTOR_FARM",
+      "target": "MIKE_MILL",
+      "source_display": "Victor farm",
+      "target_display": "Mike mill",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-052"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "echo helipad",
+      "target_key": "quebec crossroads",
+      "source": "ECHO_HELIPAD",
+      "target": "QUEBEC_CROSSROADS",
+      "source_display": "Echo helipad",
+      "target_display": "Quebec crossroads",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-053"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "victor farm",
+      "target_key": "quebec crossroads",
+      "source": "VICTOR_FARM",
+      "target": "QUEBEC_CROSSROADS",
+      "source_display": "Victor farm",
+      "target_display": "Quebec crossroads",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-056"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "romeo checkpoint",
+      "target_key": "kilo farm",
+      "source": "ROMEO_CHECKPOINT",
+      "target": "KILO_FARM",
+      "source_display": "Romeo checkpoint",
+      "target_display": "Kilo farm",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-061"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "romeo checkpoint",
+      "target_key": "foxtrot warehouse",
+      "source": "ROMEO_CHECKPOINT",
+      "target": "FOXTROT_WAREHOUSE",
+      "source_display": "Romeo checkpoint",
+      "target_display": "Foxtrot warehouse",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-062"
+      ],
+      "channel_bias": "send"
+    },
+    {
+      "source_key": "xray water point",
+      "target_key": "golf orchard",
+      "source": "XRAY_WATER_POINT",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Xray water point",
+      "target_display": "Golf orchard",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-063"
+      ],
+      "channel_bias": "send"
+    }
+  ]
+}

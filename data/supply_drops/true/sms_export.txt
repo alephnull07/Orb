@@ -1,0 +1,76 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:16:34Z] (sms) LT Elena Okonkwo / Wagon-3 -> Xray-Actual
+Xray-Actual this is Wagon-3. sending 170 lb from Lima convoy origin to Xray junction. count it on arrival. over
+
+[2026-09-12T06:19:42Z] (sms) CPL Leo Khan / November-Actual -> Watchtower
+got 200 pounds off Lima convoy origin here at November ridge hub. logged. khan
+
+[2026-09-12T06:36:34Z] (sms) PFC Noah Ruiz / Yankee-Actual -> Watchtower
+got 110 pounds off Sierra FOB depot here at Yankee transfer yard. logged. ruiz
+
+[2026-09-12T06:38:08Z] (sms) LT Elena Okonkwo / Wagon-3 -> Mike-Actual
+Mike-Actual this is Wagon-3. sending 25 lb from Lima convoy origin to Mike junction. count it on arrival. over
+
+[2026-09-12T09:00:00Z] (sms) SFC Victor Nguyen / Anchor-A7 -> Watchtower
+got 5 pounds off Mike junction here at Alpha bridge. logged. nguyen
+
+[2026-09-12T09:01:34Z] (sms) PFC Amelia Diaz / Mike-Actual -> Anchor-W5
+Anchor-W5 this is Mike-Actual. sending 5 lb from Mike junction to Whiskey checkpoint. count it on arrival. over
+
+[2026-09-12T09:20:00Z] (sms) SPC Sam Singh / Xray-Actual -> Anchor-A7
+Anchor-A7 this is Xray-Actual. sending 15 lb from Xray junction to Alpha bridge. count it on arrival. over
+
+[2026-09-12T09:24:42Z] (sms) SPC Riley Rahman / Anchor-T9 -> Watchtower
+got 140 pounds off Xray junction here at Tango schoolhouse. logged. rahman
+
+[2026-09-12T09:40:47Z] (sms) CPL Leo Khan / November-Actual -> Anchor-C4
+Anchor-C4 this is November-Actual. sending 20 lb from November ridge hub to Charlie mill. count it on arrival. over
+
+[2026-09-12T09:43:55Z] (sms) SFC Victor Nguyen / Anchor-A7 -> Watchtower
+got 20 pounds off November ridge hub here at Alpha bridge. logged. nguyen
+
+[2026-09-12T10:03:55Z] (sms) PVT Sam Rahman / Anchor-W3 -> Watchtower
+got 10 pounds off Uniform forward cache here at Willow warehouse. logged. rahman
+
+[2026-09-12T10:04:42Z] (sms) CPT Hana Khan / Uniform-Actual -> Anchor-C4
+Anchor-C4 this is Uniform-Actual. sending 120 lb from Uniform forward cache to Charlie mill. count it on arrival. over
+
+[2026-09-12T10:20:00Z] (sms) PVT Sam Rahman / Anchor-W3 -> Watchtower
+got 2 pounds off Overlook forward cache here at Willow warehouse. logged. rahman
+
+[2026-09-12T10:20:47Z] (sms) SSG Aisha Hale / Overlook-Actual -> Anchor-W5
+Anchor-W5 this is Overlook-Actual. sending 1 lb from Overlook forward cache to Whiskey checkpoint. count it on arrival. over
+
+[2026-09-12T13:00:00Z] (sms) SPC Riley Rahman / Anchor-T9 -> Watchtower
+got 5 pounds off Alpha bridge here at Tango schoolhouse. logged. rahman
+
+[2026-09-12T13:03:08Z] (sms) SFC Victor Nguyen / Anchor-A7 -> Anchor-C4
+Anchor-C4 this is Anchor-A7. sending 30 lb from Alpha bridge to Charlie mill. count it on arrival. over
+
+[2026-09-12T13:20:47Z] (sms) SFC Keiko Khan / Anchor-C4 -> Anchor-G7
+Anchor-G7 this is Anchor-C4. sending 45 lb from Charlie mill to Golf orchard. count it on arrival. over
+
+[2026-09-12T13:21:34Z] (sms) PVT Maya Ortiz / Anchor-C3 -> Watchtower
+got 45 pounds off Whiskey checkpoint here at Cedar schoolhouse. logged. ortiz
+
+[2026-09-12T13:40:00Z] (sms) LT Nina Bennett / Anchor-H1 -> Watchtower
+got 25 pounds off Cedar schoolhouse here at Harbor mosque courtyard. logged. bennett
+
+[2026-09-12T16:00:00Z] (sms) CPT Hana Khan / Uniform-Actual -> Watchtower
+EOD Uniform forward cache: in 130 lb, out 130 lb, on-hand 0 lb. Uniform-Actual closing books.
+
+[2026-09-12T16:01:34Z] (sms) PFC Noah Ruiz / Yankee-Actual -> Watchtower
+EOD Yankee transfer yard: in 120 lb, out 105 lb, on-hand 15 lb. Yankee-Actual closing books.
+
+[2026-09-12T16:03:55Z] (sms) SSG Aisha Hale / Overlook-Actual -> Watchtower
+EOD Overlook forward cache: in 25 lb, out 5 lb, on-hand 20 lb. Overlook-Actual closing books.
+
+[2026-09-12T16:17:21Z] (sms) PFC Victor Rahman / Anchor-G7 -> Watchtower
+EOD Golf orchard: in 166 lb, out 45 lb, on-hand 121 lb. Anchor-G7 closing books.
+
+[2026-09-12T16:18:55Z] (sms) CPL Hana Hale / Anchor-W5 -> Watchtower
+EOD Whiskey checkpoint: in 71 lb, out 45 lb, on-hand 26 lb. Anchor-W5 closing books.
+
+[2026-09-12T16:30:00Z] (sms) SPC Riley Rahman / Anchor-T9 -> Watchtower
+EOD Tango schoolhouse: in 145 lb, out 30 lb, on-hand 115 lb. Anchor-T9 closing books.

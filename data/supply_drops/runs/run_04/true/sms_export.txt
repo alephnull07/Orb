@@ -1,0 +1,97 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:15:00Z] (sms) PFC Chris Petrov / Charlie-Actual -> Watchtower
+got 15 pounds off Cedar airdrop LZ here at Charlie transfer yard. logged. petrov
+
+[2026-09-12T06:17:21Z] (sms) SGT Nina Park / Dustoff-C -> Copper-Actual
+Copper-Actual this is Dustoff-C. sending 50 lb from Cedar airdrop LZ to Copper ridge hub. count it on arrival. over
+
+[2026-09-12T06:35:00Z] (sms) CPL Priya Abebe / Copper-Actual -> Watchtower
+got 10 pounds off Sierra FOB depot here at Copper ridge hub. logged. abebe
+
+[2026-09-12T06:39:42Z] (sms) SFC Victor Khan / Wagon-6 -> Charlie-Actual
+Charlie-Actual this is Wagon-6. sending 70 lb from Sierra FOB depot to Charlie transfer yard. count it on arrival. over
+
+[2026-09-12T06:58:55Z] (sms) SGT Nina Park / Dustoff-C -> Anchor-I8
+Anchor-I8 this is Dustoff-C. sending 45 lb from Cedar airdrop LZ to Iron warehouse. count it on arrival. over
+
+[2026-09-12T07:00:29Z] (sms) PVT Elena MacLeod / Anchor-K7 -> Watchtower
+got 25 pounds off Cedar airdrop LZ here at Kilo pad. logged. macleod
+
+[2026-09-12T07:16:34Z] (sms) PVT Diego Vasquez / Anchor-O6 -> Watchtower
+got 40 pounds off Zulu port dump here at Overlook warehouse. logged. vasquez
+
+[2026-09-12T07:18:55Z] (sms) SGT Nina Park / Dustoff-C -> Anchor-H7
+Anchor-H7 this is Dustoff-C. sending 15 lb from Cedar airdrop LZ to Hotel quarry. count it on arrival. over
+
+[2026-09-12T09:03:08Z] (sms) PFC Chris Petrov / Charlie-Actual -> Anchor-M5
+Anchor-M5 this is Charlie-Actual. sending 5 lb from Charlie transfer yard to Maple aid cage. count it on arrival. over
+
+[2026-09-12T09:05:29Z] (sms) SSG Sofia Okonkwo / Anchor-G4 -> Watchtower
+got 80 pounds off Charlie transfer yard here at Golf mosque courtyard. logged. okonkwo
+
+[2026-09-12T09:23:55Z] (sms) CPL Priya Abebe / Copper-Actual -> Anchor-W4
+Anchor-W4 this is Copper-Actual. sending 75 lb from Copper ridge hub to Willow water point. count it on arrival. over
+
+[2026-09-12T09:25:29Z] (sms) SSG Maya Okonkwo / Anchor-L2 -> Watchtower
+got 105 pounds off Copper ridge hub here at Lima helipad. logged. okonkwo
+
+[2026-09-12T09:40:00Z] (sms) SSG Keiko Bennett / Anchor-E8 -> Watchtower
+got 20 pounds off Copper ridge hub here at Echo well. logged. bennett
+
+[2026-09-12T13:01:34Z] (sms) PVT Chris Bennett / Anchor-W4 -> Watchtower
+got 15 pounds off Iron warehouse here at Willow water point. logged. bennett
+
+[2026-09-12T13:03:55Z] (sms) SSG Diego Rahman / Anchor-P7 -> Anchor-O6
+Anchor-O6 this is Anchor-P7. sending 5 lb from Papa schoolhouse to Overlook warehouse. count it on arrival. over
+
+[2026-09-12T13:20:47Z] (sms) SSG Maya Okonkwo / Anchor-L2 -> Anchor-H5
+Anchor-H5 this is Anchor-L2. sending 5 lb from Lima helipad to Harbor helipad. count it on arrival. over
+
+[2026-09-12T13:21:34Z] (sms) CPT Maya Alvarez / Anchor-I8 -> Watchtower
+got 10 pounds off Tango helipad here at Iron warehouse. logged. alvarez
+
+[2026-09-12T13:40:00Z] (sms) PVT Chris Bennett / Anchor-W4 -> Anchor-G4
+Anchor-G4 this is Anchor-W4. sending 5 lb from Willow water point to Granite tent city. count it on arrival. over
+
+[2026-09-12T13:43:08Z] (sms) CPL Sofia Volkov / Anchor-H5 -> Watchtower
+got 55 pounds off Willow water point here at Harbor helipad. logged. volkov
+
+[2026-09-12T14:00:00Z] (sms) SSG Diego Rahman / Anchor-P7 -> Watchtower
+got 20 pounds off Golf mosque courtyard here at Papa schoolhouse. logged. rahman
+
+[2026-09-12T14:03:55Z] (sms) SSG Sofia Okonkwo / Anchor-G4 -> Anchor-K7
+Anchor-K7 this is Anchor-G4. sending 20 lb from Golf mosque courtyard to Kilo pad. count it on arrival. over
+
+[2026-09-12T14:20:00Z] (sms) SSG Ibrahim Nair / Anchor-G4 -> Watchtower
+got 5 pounds off India bridge here at Granite tent city. logged. nair
+
+[2026-09-12T16:00:00Z] (sms) PFC Chris Petrov / Charlie-Actual -> Watchtower
+EOD Charlie transfer yard: in 85 lb, out 85 lb, on-hand 0 lb. Charlie-Actual closing books.
+
+[2026-09-12T16:03:08Z] (sms) PFC Farah Diaz / Anchor-Q5 -> Watchtower
+EOD Quebec mosque courtyard: in 15 lb, out 0 lb, on-hand 15 lb. Anchor-Q5 closing books.
+
+[2026-09-12T16:03:55Z] (sms) SSG Maya Okonkwo / Anchor-L2 -> Watchtower
+EOD Lima helipad: in 180 lb, out 5 lb, on-hand 175 lb. Anchor-L2 closing books.
+
+[2026-09-12T16:15:47Z] (sms) PVT Chris Bennett / Anchor-W4 -> Watchtower
+EOD Willow water point: in 120 lb, out 60 lb, on-hand 60 lb. Anchor-W4 closing books.
+
+[2026-09-12T16:17:21Z] (sms) SSG Ibrahim Nair / Anchor-G4 -> Watchtower
+EOD Granite tent city: in 35 lb, out 10 lb, on-hand 25 lb. Anchor-G4 closing books.
+
+[2026-09-12T16:18:08Z] (sms) SSG Maya Rahman / Anchor-I1 -> Watchtower
+EOD India bridge: in 45 lb, out 30 lb, on-hand 15 lb. Anchor-I1 closing books.
+
+[2026-09-12T16:31:34Z] (sms) SFC Aisha Ortiz / Anchor-Q8 -> Watchtower
+EOD Quarry mosque courtyard: in 100 lb, out 50 lb, on-hand 50 lb. Anchor-Q8 closing books.
+
+[2026-09-12T16:32:21Z] (sms) SSG Diego Rahman / Anchor-P7 -> Watchtower
+EOD Papa schoolhouse: in 55 lb, out 30 lb, on-hand 25 lb. Anchor-P7 closing books.
+
+[2026-09-12T16:33:55Z] (sms) SPC Farah Rahman / Anchor-M5 -> Watchtower
+EOD Maple aid cage: in 5 lb, out 0 lb, on-hand 5 lb. Anchor-M5 closing books.
+
+[2026-09-12T16:45:00Z] (sms) SFC James Diaz / Anchor-N9 -> Watchtower
+EOD November aid cage: in 25 lb, out 0 lb, on-hand 25 lb. Anchor-N9 closing books.

@@ -1,0 +1,61 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:15:00Z] (sms) LT Leo Vasquez / Dustoff-U -> Yankee-Actual
+Yankee-Actual this is Dustoff-U. sending 310 lb from Uniform airdrop LZ to Yankee forward cache. count it on arrival. over
+
+[2026-09-12T06:18:55Z] (sms) SFC Sofia Nair / Quebec-Actual -> Watchtower
+got 340 pounds off Tango airdrop LZ here at Quebec transfer yard. logged. nair
+
+[2026-09-12T06:35:47Z] (sms) SSG Noah Ortiz / Anchor-E9 -> Watchtower
+got 30 pounds off Uniform airdrop LZ here at Echo mosque courtyard. logged. ortiz
+
+[2026-09-12T06:39:42Z] (sms) CPL Noah Khan / Dustoff-T -> Anchor-P1
+Anchor-P1 this is Dustoff-T. sending 25 lb from Tango airdrop LZ to Papa farm. count it on arrival. over
+
+[2026-09-12T09:00:00Z] (sms) SGT Priya Abebe / Anchor-C3 -> Watchtower
+got 30 pounds off Quebec transfer yard here at Copper aid cage. logged. abebe
+
+[2026-09-12T09:03:08Z] (sms) SFC Sofia Nair / Quebec-Actual -> Anchor-M5
+Anchor-M5 this is Quebec-Actual. sending 140 lb from Quebec transfer yard to Maple well. count it on arrival. over
+
+[2026-09-12T09:21:34Z] (sms) CPT Aisha Park / Anchor-M3 -> Watchtower
+got 2 pounds off Iron forward cache here at Mike orchard. logged. park
+
+[2026-09-12T09:22:21Z] (sms) SPC Omar Ruiz / Iron-Actual -> Anchor-G4
+Anchor-G4 this is Iron-Actual. sending 2 lb from Iron forward cache to Granite quarry. count it on arrival. over
+
+[2026-09-12T09:41:34Z] (sms) SFC Noah Park / Anchor-G4 -> Watchtower
+got 45 pounds off Yankee forward cache here at Granite quarry. logged. park
+
+[2026-09-12T09:44:42Z] (sms) SGT Yusuf Okafor / Yankee-Actual -> Anchor-R8
+Anchor-R8 this is Yankee-Actual. sending 35 lb from Yankee forward cache to Romeo aid cage. count it on arrival. over
+
+[2026-09-12T13:01:34Z] (sms) PVT Chris Rahman / Anchor-C9 -> Watchtower
+got 30 pounds off Zulu pad here at Charlie orchard. logged. rahman
+
+[2026-09-12T13:05:29Z] (sms) PFC Nina Abebe / Anchor-O6 -> Anchor-C9
+Anchor-C9 this is Anchor-O6. sending 5 lb from Oscar warehouse to Charlie orchard. count it on arrival. over
+
+[2026-09-12T13:20:00Z] (sms) PVT Aisha Volkov / Anchor-P1 -> Watchtower
+got 15 pounds off Kilo market here at Papa farm. logged. volkov
+
+[2026-09-12T16:00:47Z] (sms) SGT Yusuf Okafor / Yankee-Actual -> Watchtower
+EOD Yankee forward cache: in 310 lb, out 305 lb, on-hand 5 lb. Yankee-Actual closing books.
+
+[2026-09-12T16:01:34Z] (sms) CPT Keiko Kowalski / Anchor-K4 -> Watchtower
+EOD Kilo market: in 35 lb, out 20 lb, on-hand 15 lb. Anchor-K4 closing books.
+
+[2026-09-12T16:03:55Z] (sms) CPT Riley Bennett / Anchor-G6 -> Watchtower
+EOD Golf orchard: in 6 lb, out 0 lb, on-hand 6 lb. Anchor-G6 closing books.
+
+[2026-09-12T16:18:08Z] (sms) SSG Noah Ortiz / Anchor-E9 -> Watchtower
+EOD Echo mosque courtyard: in 30 lb, out 0 lb, on-hand 30 lb. Anchor-E9 closing books.
+
+[2026-09-12T16:30:00Z] (sms) CPT Sam Abebe / Anchor-N4 -> Watchtower
+EOD November crossroads: in 20 lb, out 0 lb, on-hand 20 lb. Anchor-N4 closing books.
+
+[2026-09-12T16:30:47Z] (sms) SGT Priya Abebe / Anchor-C3 -> Watchtower
+EOD Copper aid cage: in 30 lb, out 0 lb, on-hand 30 lb. Anchor-C3 closing books.
+
+[2026-09-12T16:31:34Z] (sms) PVT Chris Rahman / Anchor-C9 -> Watchtower
+EOD Charlie orchard: in 85 lb, out 0 lb, on-hand 85 lb. Anchor-C9 closing books.

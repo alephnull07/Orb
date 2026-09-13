@@ -1,0 +1,40 @@
+WhatsApp Chat with Logistics + CivAid
+
+[2026-09-12T06:15:00Z] (whatsapp) LT Hana Okonkwo / Wagon-6 -> Hotel-Actual
+Hotel-Actual this is Wagon-6. sending 125 lb from Uniform FOB depot to Hotel transfer yard. count it on arrival. over
+
+[2026-09-12T06:18:08Z] (whatsapp) SSG Aisha Bennett / Oscar-Actual -> Watchtower
+got 275 pounds off Uniform FOB depot here at Oscar junction. logged. bennett
+
+[2026-09-12T06:38:55Z] (whatsapp) PFC Diego Kowalski / Dustoff-I -> Anchor-C9
+Anchor-C9 this is Dustoff-I. sending 35 lb from Iron port dump to Cedar checkpoint. count it on arrival. over
+
+[2026-09-12T06:40:29Z] (whatsapp) SSG Keiko Berg / Anchor-E4 -> Watchtower
+got 15 pounds off Uniform FOB depot here at Echo warehouse. logged. berg
+
+[2026-09-12T09:02:21Z] (whatsapp) SSG Aisha Bennett / Oscar-Actual -> Anchor-S5
+Anchor-S5 this is Oscar-Actual. sending 105 lb from Oscar junction to Sierra warehouse. count it on arrival. over
+
+[2026-09-12T09:05:29Z] (whatsapp) SFC Sofia Abebe / Anchor-K1 -> Watchtower
+got 25 pounds off Foxtrot ridge hub here at Kilo farm. logged. abebe
+
+[2026-09-12T09:22:21Z] (whatsapp) CPT Malik Nguyen / Anchor-X9 -> Watchtower
+got 5 pounds off Oscar junction here at Xray warehouse. logged. nguyen
+
+[2026-09-12T09:24:42Z] (whatsapp) SSG Aisha Bennett / Oscar-Actual -> Anchor-K1
+Anchor-K1 this is Oscar-Actual. sending 75 lb from Oscar junction to Kilo farm. count it on arrival. over
+
+[2026-09-12T09:42:21Z] (whatsapp) SPC Amelia Singh / Tango-Actual -> Anchor-X9
+Anchor-X9 this is Tango-Actual. sending 130 lb from Tango transfer yard to Xray warehouse. count it on arrival. over
+
+[2026-09-12T09:43:08Z] (whatsapp) CPT Malik Nguyen / Anchor-X9 -> Watchtower
+got 95 pounds off Hotel transfer yard here at Xray warehouse. logged. nguyen
+
+[2026-09-12T12:40:00Z] (whatsapp) LT Farah Berg / Anchor-C9 -> MAJ June Volkov
+roof still leaking at Cedar checkpoint but the load is dry. no new numbers.
+
+[2026-09-12T13:01:34Z] (whatsapp) CPT Amelia Vasquez / Anchor-I9 -> Anchor-C9
+Anchor-C9 this is Anchor-I9. sending 30 lb from India checkpoint to Cedar checkpoint. count it on arrival. over
+
+[2026-09-12T13:03:08Z] (whatsapp) SFC Sofia Abebe / Anchor-K1 -> Watchtower
+got 25 pounds off Quebec crossroads here at Kilo farm. logged. abebe

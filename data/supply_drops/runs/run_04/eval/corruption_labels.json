@@ -1,0 +1,126 @@
+{
+  "mutated_message_ids": [
+    "MSG-051",
+    "MSG-071",
+    "MSG-032",
+    "MSG-052",
+    "MSG-010",
+    "MSG-019"
+  ],
+  "injected_messages": [
+    "MSG-C01",
+    "MSG-C02",
+    "MSG-C03",
+    "MSG-C04"
+  ],
+  "attacks": [
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-051",
+      "true_lb": 10,
+      "reported_lb": 50,
+      "edge": [
+        "SITE_TANGO",
+        "SITE_IRON"
+      ],
+      "source_name": "Tango helipad",
+      "target_name": "Iron warehouse",
+      "lie": "Report 50 lb instead of 10 lb on the move Tango helipad -> Iron warehouse."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-071",
+      "true_lb": 55,
+      "reported_lb": 40,
+      "edge": [
+        "SITE_WILLOW",
+        "SITE_HARBOR"
+      ],
+      "source_name": "Willow water point",
+      "target_name": "Harbor helipad",
+      "lie": "Report 40 lb instead of 55 lb on the move Willow water point -> Harbor helipad."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-032",
+      "true_lb": 10,
+      "reported_lb": 30,
+      "edge": [
+        "HUB_XRAY",
+        "SITE_HARBOR"
+      ],
+      "source_name": "Xray transfer yard",
+      "target_name": "Harbor helipad",
+      "lie": "Report 30 lb instead of 10 lb on the move Xray transfer yard -> Harbor helipad."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-052",
+      "true_lb": 25,
+      "reported_lb": 15,
+      "edge": [
+        "SITE_PAPA",
+        "SITE_LIMA"
+      ],
+      "source_name": "Papa schoolhouse",
+      "target_name": "Lima helipad",
+      "lie": "Report 15 lb instead of 25 lb on the move Papa schoolhouse -> Lima helipad."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-010",
+      "true_lb": 45,
+      "reported_lb": 60,
+      "edge": [
+        "SRC_CEDAR",
+        "SITE_INDIA"
+      ],
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "India bridge",
+      "lie": "Report 60 lb instead of 45 lb on the move Cedar airdrop LZ -> India bridge."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-019",
+      "true_lb": 35,
+      "reported_lb": 25,
+      "edge": [
+        "SRC_ZULU",
+        "SITE_PAPA"
+      ],
+      "source_name": "Zulu port dump",
+      "target_name": "Papa schoolhouse",
+      "lie": "Report 25 lb instead of 35 lb on the move Zulu port dump -> Papa schoolhouse."
+    },
+    {
+      "id": "ghost_edge",
+      "message_id": "MSG-C01",
+      "source": "SITE_NOVEMBER",
+      "target": "SITE_QUEBEC",
+      "source_name": "November aid cage",
+      "target_name": "Quebec mosque courtyard",
+      "reported_lb": 30,
+      "lie": "November aid cage sent 30 lb to Quebec mosque courtyard (no such edge)."
+    },
+    {
+      "id": "double_count_source",
+      "message_id": "MSG-C02",
+      "lie": "Second source drop that did not happen."
+    },
+    {
+      "id": "stale_prior_day",
+      "message_id": "MSG-C03",
+      "lie": "200 lb receipt from another day."
+    },
+    {
+      "id": "unit_swap_kg",
+      "message_id": "MSG-C04",
+      "lie": "kg vs lb on a runner."
+    }
+  ],
+  "true_message_count": 104,
+  "corrupted_message_count": 108,
+  "generator": "fallback",
+  "seed": 8104,
+  "n_nodes": 23
+}

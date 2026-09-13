@@ -1,0 +1,1259 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "seed_nodes": 30,
+  "window": {
+    "date": "2026-09-12",
+    "start": "2026-09-12T06:00:00Z",
+    "end": "2026-09-12T18:00:00Z",
+    "commodity": "relief_supplies",
+    "unit": "lb"
+  },
+  "notes": "Mass is conserved at every node. People reports are sensors; conservation equalities are trusted parity rows. Node count is sampled uniformly from 15\u201330 (this run: 30).",
+  "nodes": [
+    {
+      "id": "SRC_ROMEO",
+      "nato": "Romeo",
+      "type": "source",
+      "layer": 0,
+      "kind": "port dump",
+      "display": "Romeo port dump",
+      "aliases": [
+        "Romeo port dump",
+        "Romeo",
+        "port dump Romeo"
+      ]
+    },
+    {
+      "id": "SRC_PAPA",
+      "nato": "Papa",
+      "type": "source",
+      "layer": 0,
+      "kind": "FOB depot",
+      "display": "Papa FOB depot",
+      "aliases": [
+        "Papa FOB depot",
+        "Papa",
+        "FOB depot Papa"
+      ]
+    },
+    {
+      "id": "SRC_NOVEMBER",
+      "nato": "November",
+      "type": "source",
+      "layer": 0,
+      "kind": "airdrop LZ",
+      "display": "November airdrop LZ",
+      "aliases": [
+        "November airdrop LZ",
+        "November",
+        "airdrop LZ November"
+      ]
+    },
+    {
+      "id": "HUB_DELTA",
+      "nato": "Delta",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Delta transfer yard",
+      "aliases": [
+        "Point D",
+        "Delta transfer yard",
+        "Anchor-D",
+        "Delta"
+      ]
+    },
+    {
+      "id": "HUB_HARBOR",
+      "nato": "Harbor",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Harbor transfer yard",
+      "aliases": [
+        "Point H",
+        "Harbor transfer yard",
+        "Anchor-H",
+        "Harbor"
+      ]
+    },
+    {
+      "id": "HUB_UNIFORM",
+      "nato": "Uniform",
+      "type": "hub",
+      "layer": 1,
+      "kind": "ridge hub",
+      "display": "Uniform ridge hub",
+      "aliases": [
+        "Point U",
+        "Uniform ridge hub",
+        "Anchor-U",
+        "Uniform"
+      ]
+    },
+    {
+      "id": "HUB_XRAY",
+      "nato": "Xray",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Xray transfer yard",
+      "aliases": [
+        "Point X",
+        "Xray transfer yard",
+        "Anchor-X",
+        "Xray"
+      ]
+    },
+    {
+      "id": "HUB_LIMA",
+      "nato": "Lima",
+      "type": "hub",
+      "layer": 1,
+      "kind": "forward cache",
+      "display": "Lima forward cache",
+      "aliases": [
+        "Point L",
+        "Lima forward cache",
+        "Anchor-L",
+        "Lima"
+      ]
+    },
+    {
+      "id": "HUB_SIERRA",
+      "nato": "Sierra",
+      "type": "hub",
+      "layer": 1,
+      "kind": "forward cache",
+      "display": "Sierra forward cache",
+      "aliases": [
+        "Point S",
+        "Sierra forward cache",
+        "Anchor-S",
+        "Sierra"
+      ]
+    },
+    {
+      "id": "SITE_MIKE",
+      "nato": "Mike",
+      "type": "sink",
+      "layer": 2,
+      "kind": "schoolhouse",
+      "display": "Mike schoolhouse",
+      "aliases": [
+        "Point M",
+        "Mike schoolhouse",
+        "Anchor-M",
+        "Mike"
+      ]
+    },
+    {
+      "id": "SITE_GRANITE",
+      "nato": "Granite",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mill",
+      "display": "Granite mill",
+      "aliases": [
+        "Point G",
+        "Granite mill",
+        "Anchor-G",
+        "Granite"
+      ]
+    },
+    {
+      "id": "SITE_ECHO",
+      "nato": "Echo",
+      "type": "sink",
+      "layer": 2,
+      "kind": "orchard",
+      "display": "Echo orchard",
+      "aliases": [
+        "Point E",
+        "Echo orchard",
+        "Anchor-E",
+        "Echo"
+      ]
+    },
+    {
+      "id": "SITE_HOTEL",
+      "nato": "Hotel",
+      "type": "sink",
+      "layer": 2,
+      "kind": "schoolhouse",
+      "display": "Hotel schoolhouse",
+      "aliases": [
+        "Point H",
+        "Hotel schoolhouse",
+        "Anchor-H",
+        "Hotel"
+      ]
+    },
+    {
+      "id": "SITE_GOLF",
+      "nato": "Golf",
+      "type": "sink",
+      "layer": 2,
+      "kind": "mill",
+      "display": "Golf mill",
+      "aliases": [
+        "Point G",
+        "Golf mill",
+        "Anchor-G",
+        "Golf"
+      ]
+    },
+    {
+      "id": "SITE_SANDPIT",
+      "nato": "Sandpit",
+      "type": "junction",
+      "layer": 2,
+      "kind": "quarry",
+      "display": "Sandpit quarry",
+      "aliases": [
+        "Point S",
+        "Sandpit quarry",
+        "Anchor-S",
+        "Sandpit"
+      ]
+    },
+    {
+      "id": "SITE_WILLOW",
+      "nato": "Willow",
+      "type": "sink",
+      "layer": 2,
+      "kind": "orchard",
+      "display": "Willow orchard",
+      "aliases": [
+        "Point W",
+        "Willow orchard",
+        "Anchor-W",
+        "Willow"
+      ]
+    },
+    {
+      "id": "SITE_OSCAR",
+      "nato": "Oscar",
+      "type": "junction",
+      "layer": 2,
+      "kind": "clinic",
+      "display": "Oscar clinic",
+      "aliases": [
+        "Point O",
+        "Oscar clinic",
+        "Anchor-O",
+        "Oscar"
+      ]
+    },
+    {
+      "id": "SITE_QUARRY",
+      "nato": "Quarry",
+      "type": "junction",
+      "layer": 2,
+      "kind": "water point",
+      "display": "Quarry water point",
+      "aliases": [
+        "Point Q",
+        "Quarry water point",
+        "Anchor-Q",
+        "Quarry"
+      ]
+    },
+    {
+      "id": "SITE_KILO",
+      "nato": "Kilo",
+      "type": "sink",
+      "layer": 2,
+      "kind": "well",
+      "display": "Kilo well",
+      "aliases": [
+        "Point K",
+        "Kilo well",
+        "Anchor-K",
+        "Kilo"
+      ]
+    },
+    {
+      "id": "SITE_VICTOR",
+      "nato": "Victor",
+      "type": "sink",
+      "layer": 2,
+      "kind": "checkpoint",
+      "display": "Victor checkpoint",
+      "aliases": [
+        "Point V",
+        "Victor checkpoint",
+        "Anchor-V",
+        "Victor"
+      ]
+    },
+    {
+      "id": "SITE_BRAVO",
+      "nato": "Bravo",
+      "type": "sink",
+      "layer": 2,
+      "kind": "schoolhouse",
+      "display": "Bravo schoolhouse",
+      "aliases": [
+        "Point B",
+        "Bravo schoolhouse",
+        "Anchor-B",
+        "Bravo"
+      ]
+    },
+    {
+      "id": "SITE_YANKEE",
+      "nato": "Yankee",
+      "type": "sink",
+      "layer": 2,
+      "kind": "farm",
+      "display": "Yankee farm",
+      "aliases": [
+        "Point Y",
+        "Yankee farm",
+        "Anchor-Y",
+        "Yankee"
+      ]
+    },
+    {
+      "id": "SITE_ZULU",
+      "nato": "Zulu",
+      "type": "sink",
+      "layer": 2,
+      "kind": "tent city",
+      "display": "Zulu tent city",
+      "aliases": [
+        "Point Z",
+        "Zulu tent city",
+        "Anchor-Z",
+        "Zulu"
+      ]
+    },
+    {
+      "id": "SITE_INDIA",
+      "nato": "India",
+      "type": "junction",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "India helipad",
+      "aliases": [
+        "Point I",
+        "India helipad",
+        "Anchor-I",
+        "India"
+      ]
+    },
+    {
+      "id": "SITE_WHISKEY",
+      "nato": "Whiskey",
+      "type": "sink",
+      "layer": 2,
+      "kind": "checkpoint",
+      "display": "Whiskey checkpoint",
+      "aliases": [
+        "Point W",
+        "Whiskey checkpoint",
+        "Anchor-W",
+        "Whiskey"
+      ]
+    },
+    {
+      "id": "SITE_TANGO",
+      "nato": "Tango",
+      "type": "sink",
+      "layer": 2,
+      "kind": "crossroads",
+      "display": "Tango crossroads",
+      "aliases": [
+        "Point T",
+        "Tango crossroads",
+        "Anchor-T",
+        "Tango"
+      ]
+    },
+    {
+      "id": "SITE_FOXTROT",
+      "nato": "Foxtrot",
+      "type": "sink",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Foxtrot helipad",
+      "aliases": [
+        "Point F",
+        "Foxtrot helipad",
+        "Anchor-F",
+        "Foxtrot"
+      ]
+    },
+    {
+      "id": "SITE_CEDAR",
+      "nato": "Cedar",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mosque courtyard",
+      "display": "Cedar mosque courtyard",
+      "aliases": [
+        "Point C",
+        "Cedar mosque courtyard",
+        "Anchor-C",
+        "Cedar"
+      ]
+    },
+    {
+      "id": "SITE_MAPLE",
+      "nato": "Maple",
+      "type": "junction",
+      "layer": 2,
+      "kind": "orchard",
+      "display": "Maple orchard",
+      "aliases": [
+        "Point M",
+        "Maple orchard",
+        "Anchor-M",
+        "Maple"
+      ]
+    },
+    {
+      "id": "SITE_ALPHA",
+      "nato": "Alpha",
+      "type": "sink",
+      "layer": 2,
+      "kind": "warehouse",
+      "display": "Alpha warehouse",
+      "aliases": [
+        "Point A",
+        "Alpha warehouse",
+        "Anchor-A",
+        "Alpha"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "SRC_ROMEO",
+      "target": "HUB_LIMA",
+      "value_lb": 340,
+      "time": "2026-09-12T06:21:00Z",
+      "source_name": "Romeo port dump",
+      "target_name": "Lima forward cache"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "HUB_XRAY",
+      "value_lb": 390,
+      "time": "2026-09-12T06:31:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Xray transfer yard"
+    },
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "HUB_HARBOR",
+      "value_lb": 330,
+      "time": "2026-09-12T06:41:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "Harbor transfer yard"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_WILLOW",
+      "value_lb": 15,
+      "time": "2026-09-12T06:49:00Z",
+      "source_name": "Lima forward cache",
+      "target_name": "Willow orchard"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_MAPLE",
+      "value_lb": 100,
+      "time": "2026-09-12T07:04:00Z",
+      "source_name": "Lima forward cache",
+      "target_name": "Maple orchard"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_FOXTROT",
+      "value_lb": 40,
+      "time": "2026-09-12T07:18:00Z",
+      "source_name": "Lima forward cache",
+      "target_name": "Foxtrot helipad"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_TANGO",
+      "value_lb": 185,
+      "time": "2026-09-12T07:24:00Z",
+      "source_name": "Lima forward cache",
+      "target_name": "Tango crossroads"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "HUB_DELTA",
+      "value_lb": 75,
+      "time": "2026-09-12T07:35:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Delta transfer yard"
+    },
+    {
+      "source": "HUB_DELTA",
+      "target": "SITE_GRANITE",
+      "value_lb": 35,
+      "time": "2026-09-12T07:41:00Z",
+      "source_name": "Delta transfer yard",
+      "target_name": "Granite mill"
+    },
+    {
+      "source": "HUB_DELTA",
+      "target": "SITE_QUARRY",
+      "value_lb": 40,
+      "time": "2026-09-12T07:56:00Z",
+      "source_name": "Delta transfer yard",
+      "target_name": "Quarry water point"
+    },
+    {
+      "source": "SRC_ROMEO",
+      "target": "HUB_SIERRA",
+      "value_lb": 25,
+      "time": "2026-09-12T08:07:00Z",
+      "source_name": "Romeo port dump",
+      "target_name": "Sierra forward cache"
+    },
+    {
+      "source": "HUB_SIERRA",
+      "target": "SITE_BRAVO",
+      "value_lb": 5,
+      "time": "2026-09-12T08:22:00Z",
+      "source_name": "Sierra forward cache",
+      "target_name": "Bravo schoolhouse"
+    },
+    {
+      "source": "HUB_SIERRA",
+      "target": "SITE_WHISKEY",
+      "value_lb": 5,
+      "time": "2026-09-12T08:36:00Z",
+      "source_name": "Sierra forward cache",
+      "target_name": "Whiskey checkpoint"
+    },
+    {
+      "source": "HUB_SIERRA",
+      "target": "SITE_KILO",
+      "value_lb": 5,
+      "time": "2026-09-12T08:44:00Z",
+      "source_name": "Sierra forward cache",
+      "target_name": "Kilo well"
+    },
+    {
+      "source": "HUB_SIERRA",
+      "target": "SITE_ALPHA",
+      "value_lb": 5,
+      "time": "2026-09-12T08:53:00Z",
+      "source_name": "Sierra forward cache",
+      "target_name": "Alpha warehouse"
+    },
+    {
+      "source": "HUB_SIERRA",
+      "target": "SITE_INDIA",
+      "value_lb": 5,
+      "time": "2026-09-12T09:07:00Z",
+      "source_name": "Sierra forward cache",
+      "target_name": "India helipad"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "HUB_UNIFORM",
+      "value_lb": 75,
+      "time": "2026-09-12T09:15:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Uniform ridge hub"
+    },
+    {
+      "source": "HUB_UNIFORM",
+      "target": "SITE_MIKE",
+      "value_lb": 45,
+      "time": "2026-09-12T09:28:00Z",
+      "source_name": "Uniform ridge hub",
+      "target_name": "Mike schoolhouse"
+    },
+    {
+      "source": "HUB_UNIFORM",
+      "target": "SITE_TANGO",
+      "value_lb": 30,
+      "time": "2026-09-12T09:42:00Z",
+      "source_name": "Uniform ridge hub",
+      "target_name": "Tango crossroads"
+    },
+    {
+      "source": "HUB_HARBOR",
+      "target": "SITE_GRANITE",
+      "value_lb": 200,
+      "time": "2026-09-12T09:58:00Z",
+      "source_name": "Harbor transfer yard",
+      "target_name": "Granite mill"
+    },
+    {
+      "source": "HUB_HARBOR",
+      "target": "SITE_INDIA",
+      "value_lb": 130,
+      "time": "2026-09-12T10:10:00Z",
+      "source_name": "Harbor transfer yard",
+      "target_name": "India helipad"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_CEDAR",
+      "value_lb": 305,
+      "time": "2026-09-12T10:22:00Z",
+      "source_name": "Xray transfer yard",
+      "target_name": "Cedar mosque courtyard"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_MIKE",
+      "value_lb": 85,
+      "time": "2026-09-12T10:34:00Z",
+      "source_name": "Xray transfer yard",
+      "target_name": "Mike schoolhouse"
+    },
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "SITE_ECHO",
+      "value_lb": 15,
+      "time": "2026-09-12T10:40:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "Echo orchard"
+    },
+    {
+      "source": "SRC_ROMEO",
+      "target": "SITE_HOTEL",
+      "value_lb": 25,
+      "time": "2026-09-12T10:52:00Z",
+      "source_name": "Romeo port dump",
+      "target_name": "Hotel schoolhouse"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "SITE_GOLF",
+      "value_lb": 20,
+      "time": "2026-09-12T11:03:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Golf mill"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "SITE_SANDPIT",
+      "value_lb": 40,
+      "time": "2026-09-12T11:16:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Sandpit quarry"
+    },
+    {
+      "source": "SRC_PAPA",
+      "target": "SITE_OSCAR",
+      "value_lb": 25,
+      "time": "2026-09-12T11:24:00Z",
+      "source_name": "Papa FOB depot",
+      "target_name": "Oscar clinic"
+    },
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "SITE_VICTOR",
+      "value_lb": 20,
+      "time": "2026-09-12T11:39:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "Victor checkpoint"
+    },
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "SITE_YANKEE",
+      "value_lb": 25,
+      "time": "2026-09-12T11:45:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "Yankee farm"
+    },
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "SITE_ZULU",
+      "value_lb": 25,
+      "time": "2026-09-12T11:56:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "Zulu tent city"
+    },
+    {
+      "source": "SITE_MAPLE",
+      "target": "SITE_FOXTROT",
+      "value_lb": 60,
+      "time": "2026-09-12T12:07:00Z",
+      "source_name": "Maple orchard",
+      "target_name": "Foxtrot helipad"
+    },
+    {
+      "source": "SITE_SANDPIT",
+      "target": "SITE_MIKE",
+      "value_lb": 30,
+      "time": "2026-09-12T12:29:00Z",
+      "source_name": "Sandpit quarry",
+      "target_name": "Mike schoolhouse"
+    },
+    {
+      "source": "SITE_OSCAR",
+      "target": "SITE_TANGO",
+      "value_lb": 5,
+      "time": "2026-09-12T12:49:00Z",
+      "source_name": "Oscar clinic",
+      "target_name": "Tango crossroads"
+    },
+    {
+      "source": "SITE_OSCAR",
+      "target": "SITE_CEDAR",
+      "value_lb": 5,
+      "time": "2026-09-12T13:02:00Z",
+      "source_name": "Oscar clinic",
+      "target_name": "Cedar mosque courtyard"
+    },
+    {
+      "source": "SITE_INDIA",
+      "target": "SITE_YANKEE",
+      "value_lb": 10,
+      "time": "2026-09-12T13:15:00Z",
+      "source_name": "India helipad",
+      "target_name": "Yankee farm"
+    },
+    {
+      "source": "SITE_INDIA",
+      "target": "SITE_VICTOR",
+      "value_lb": 20,
+      "time": "2026-09-12T13:31:00Z",
+      "source_name": "India helipad",
+      "target_name": "Victor checkpoint"
+    },
+    {
+      "source": "SITE_CEDAR",
+      "target": "SITE_YANKEE",
+      "value_lb": 45,
+      "time": "2026-09-12T13:51:00Z",
+      "source_name": "Cedar mosque courtyard",
+      "target_name": "Yankee farm"
+    },
+    {
+      "source": "SITE_QUARRY",
+      "target": "SITE_HOTEL",
+      "value_lb": 25,
+      "time": "2026-09-12T14:06:00Z",
+      "source_name": "Quarry water point",
+      "target_name": "Hotel schoolhouse"
+    },
+    {
+      "source": "SITE_GRANITE",
+      "target": "SITE_HOTEL",
+      "value_lb": 20,
+      "time": "2026-09-12T14:27:00Z",
+      "source_name": "Granite mill",
+      "target_name": "Hotel schoolhouse"
+    },
+    {
+      "source": "SITE_GRANITE",
+      "target": "SITE_ECHO",
+      "value_lb": 5,
+      "time": "2026-09-12T14:38:00Z",
+      "source_name": "Granite mill",
+      "target_name": "Echo orchard"
+    }
+  ],
+  "injections_lb": {
+    "SRC_ROMEO": 390,
+    "SRC_PAPA": 625,
+    "SRC_NOVEMBER": 415
+  },
+  "inventory_eod_lb": {
+    "SRC_ROMEO": 0,
+    "SRC_PAPA": 0,
+    "SRC_NOVEMBER": 0,
+    "HUB_DELTA": 0,
+    "HUB_HARBOR": 0,
+    "HUB_UNIFORM": 0,
+    "HUB_XRAY": 0,
+    "HUB_LIMA": 0,
+    "HUB_SIERRA": 0,
+    "SITE_MIKE": 160,
+    "SITE_GRANITE": 210,
+    "SITE_ECHO": 20,
+    "SITE_HOTEL": 70,
+    "SITE_GOLF": 20,
+    "SITE_SANDPIT": 10,
+    "SITE_WILLOW": 15,
+    "SITE_OSCAR": 15,
+    "SITE_QUARRY": 15,
+    "SITE_KILO": 5,
+    "SITE_VICTOR": 40,
+    "SITE_BRAVO": 5,
+    "SITE_YANKEE": 80,
+    "SITE_ZULU": 25,
+    "SITE_INDIA": 105,
+    "SITE_WHISKEY": 5,
+    "SITE_TANGO": 220,
+    "SITE_FOXTROT": 100,
+    "SITE_CEDAR": 265,
+    "SITE_MAPLE": 40,
+    "SITE_ALPHA": 5
+  },
+  "trusted_constraint_rows": [
+    {
+      "node": "SRC_ROMEO",
+      "display": "Romeo port dump",
+      "law": "mass_balance",
+      "in_lb": 390,
+      "out_lb": 390,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_PAPA",
+      "display": "Papa FOB depot",
+      "law": "mass_balance",
+      "in_lb": 625,
+      "out_lb": 625,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_NOVEMBER",
+      "display": "November airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 415,
+      "out_lb": 415,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_DELTA",
+      "display": "Delta transfer yard",
+      "law": "mass_balance",
+      "in_lb": 75,
+      "out_lb": 75,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_HARBOR",
+      "display": "Harbor transfer yard",
+      "law": "mass_balance",
+      "in_lb": 330,
+      "out_lb": 330,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_UNIFORM",
+      "display": "Uniform ridge hub",
+      "law": "mass_balance",
+      "in_lb": 75,
+      "out_lb": 75,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_XRAY",
+      "display": "Xray transfer yard",
+      "law": "mass_balance",
+      "in_lb": 390,
+      "out_lb": 390,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_LIMA",
+      "display": "Lima forward cache",
+      "law": "mass_balance",
+      "in_lb": 340,
+      "out_lb": 340,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_SIERRA",
+      "display": "Sierra forward cache",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 25,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SITE_MIKE",
+      "display": "Mike schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 160,
+      "out_lb": 0,
+      "inventory_eod_lb": 160
+    },
+    {
+      "node": "SITE_GRANITE",
+      "display": "Granite mill",
+      "law": "mass_balance",
+      "in_lb": 235,
+      "out_lb": 25,
+      "inventory_eod_lb": 210
+    },
+    {
+      "node": "SITE_ECHO",
+      "display": "Echo orchard",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20
+    },
+    {
+      "node": "SITE_HOTEL",
+      "display": "Hotel schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 0,
+      "inventory_eod_lb": 70
+    },
+    {
+      "node": "SITE_GOLF",
+      "display": "Golf mill",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20
+    },
+    {
+      "node": "SITE_SANDPIT",
+      "display": "Sandpit quarry",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 30,
+      "inventory_eod_lb": 10
+    },
+    {
+      "node": "SITE_WILLOW",
+      "display": "Willow orchard",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_OSCAR",
+      "display": "Oscar clinic",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_QUARRY",
+      "display": "Quarry water point",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 25,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_KILO",
+      "display": "Kilo well",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "SITE_VICTOR",
+      "display": "Victor checkpoint",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 0,
+      "inventory_eod_lb": 40
+    },
+    {
+      "node": "SITE_BRAVO",
+      "display": "Bravo schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "SITE_YANKEE",
+      "display": "Yankee farm",
+      "law": "mass_balance",
+      "in_lb": 80,
+      "out_lb": 0,
+      "inventory_eod_lb": 80
+    },
+    {
+      "node": "SITE_ZULU",
+      "display": "Zulu tent city",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 0,
+      "inventory_eod_lb": 25
+    },
+    {
+      "node": "SITE_INDIA",
+      "display": "India helipad",
+      "law": "mass_balance",
+      "in_lb": 135,
+      "out_lb": 30,
+      "inventory_eod_lb": 105
+    },
+    {
+      "node": "SITE_WHISKEY",
+      "display": "Whiskey checkpoint",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "SITE_TANGO",
+      "display": "Tango crossroads",
+      "law": "mass_balance",
+      "in_lb": 220,
+      "out_lb": 0,
+      "inventory_eod_lb": 220
+    },
+    {
+      "node": "SITE_FOXTROT",
+      "display": "Foxtrot helipad",
+      "law": "mass_balance",
+      "in_lb": 100,
+      "out_lb": 0,
+      "inventory_eod_lb": 100
+    },
+    {
+      "node": "SITE_CEDAR",
+      "display": "Cedar mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 310,
+      "out_lb": 45,
+      "inventory_eod_lb": 265
+    },
+    {
+      "node": "SITE_MAPLE",
+      "display": "Maple orchard",
+      "law": "mass_balance",
+      "in_lb": 100,
+      "out_lb": 60,
+      "inventory_eod_lb": 40
+    },
+    {
+      "node": "SITE_ALPHA",
+      "display": "Alpha warehouse",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5
+    }
+  ],
+  "people": [
+    {
+      "name": "MAJ Tom Khan",
+      "callsign": "Watchtower",
+      "site_id": null,
+      "role": "TOC collector"
+    },
+    {
+      "name": "CPL Hana Nguyen",
+      "callsign": "Spare-2",
+      "site_id": null,
+      "role": "spare radio hand"
+    },
+    {
+      "name": "PFC Farah MacLeod",
+      "callsign": "Dustoff-R",
+      "site_id": "SRC_ROMEO",
+      "role": "site reporter at Romeo port dump"
+    },
+    {
+      "name": "LT Keiko Ortiz",
+      "callsign": "Wagon-3",
+      "site_id": "SRC_PAPA",
+      "role": "site reporter at Papa FOB depot"
+    },
+    {
+      "name": "PVT Amelia Nguyen",
+      "callsign": "Dustoff-N",
+      "site_id": "SRC_NOVEMBER",
+      "role": "site reporter at November airdrop LZ"
+    },
+    {
+      "name": "CPT Nina Ortiz",
+      "callsign": "Delta-Actual",
+      "site_id": "HUB_DELTA",
+      "role": "site reporter at Delta transfer yard"
+    },
+    {
+      "name": "CPT Riley Diaz",
+      "callsign": "Harbor-Actual",
+      "site_id": "HUB_HARBOR",
+      "role": "site reporter at Harbor transfer yard"
+    },
+    {
+      "name": "PFC Hana Ruiz",
+      "callsign": "Uniform-Actual",
+      "site_id": "HUB_UNIFORM",
+      "role": "site reporter at Uniform ridge hub"
+    },
+    {
+      "name": "SSG Ibrahim Park",
+      "callsign": "Xray-Actual",
+      "site_id": "HUB_XRAY",
+      "role": "site reporter at Xray transfer yard"
+    },
+    {
+      "name": "CPT Elena Vasquez",
+      "callsign": "Lima-Actual",
+      "site_id": "HUB_LIMA",
+      "role": "site reporter at Lima forward cache"
+    },
+    {
+      "name": "SGT Priya Hassan",
+      "callsign": "Sierra-Actual",
+      "site_id": "HUB_SIERRA",
+      "role": "site reporter at Sierra forward cache"
+    },
+    {
+      "name": "SGT Amelia Volkov",
+      "callsign": "Anchor-M6",
+      "site_id": "SITE_MIKE",
+      "role": "site reporter at Mike schoolhouse"
+    },
+    {
+      "name": "SSG Sofia Nair",
+      "callsign": "Anchor-G3",
+      "site_id": "SITE_GRANITE",
+      "role": "site reporter at Granite mill"
+    },
+    {
+      "name": "LT Riley Hale",
+      "callsign": "Anchor-E2",
+      "site_id": "SITE_ECHO",
+      "role": "site reporter at Echo orchard"
+    },
+    {
+      "name": "CPT Sam Hassan",
+      "callsign": "Anchor-H6",
+      "site_id": "SITE_HOTEL",
+      "role": "site reporter at Hotel schoolhouse"
+    },
+    {
+      "name": "PFC Priya Singh",
+      "callsign": "Anchor-G6",
+      "site_id": "SITE_GOLF",
+      "role": "site reporter at Golf mill"
+    },
+    {
+      "name": "Yusuf Petrov",
+      "callsign": "CIV-YUS",
+      "site_id": "SITE_GOLF",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SPC Yusuf Singh",
+      "callsign": "Anchor-S6",
+      "site_id": "SITE_SANDPIT",
+      "role": "site reporter at Sandpit quarry"
+    },
+    {
+      "name": "Priya Rahman",
+      "callsign": "CIV-PRI",
+      "site_id": "SITE_SANDPIT",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SSG Leo Ortiz",
+      "callsign": "Anchor-W7",
+      "site_id": "SITE_WILLOW",
+      "role": "site reporter at Willow orchard"
+    },
+    {
+      "name": "SPC June Alvarez",
+      "callsign": "Anchor-O3",
+      "site_id": "SITE_OSCAR",
+      "role": "site reporter at Oscar clinic"
+    },
+    {
+      "name": "SPC Leo Okafor",
+      "callsign": "Anchor-Q7",
+      "site_id": "SITE_QUARRY",
+      "role": "site reporter at Quarry water point"
+    },
+    {
+      "name": "SSG Elena Park",
+      "callsign": "Anchor-K1",
+      "site_id": "SITE_KILO",
+      "role": "site reporter at Kilo well"
+    },
+    {
+      "name": "PFC Noah Singh",
+      "callsign": "Anchor-V3",
+      "site_id": "SITE_VICTOR",
+      "role": "site reporter at Victor checkpoint"
+    },
+    {
+      "name": "James Vasquez",
+      "callsign": "CIV-JAM",
+      "site_id": "SITE_VICTOR",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SSG Hana Chen",
+      "callsign": "Anchor-B6",
+      "site_id": "SITE_BRAVO",
+      "role": "site reporter at Bravo schoolhouse"
+    },
+    {
+      "name": "LT Nina Berg",
+      "callsign": "Anchor-Y7",
+      "site_id": "SITE_YANKEE",
+      "role": "site reporter at Yankee farm"
+    },
+    {
+      "name": "SFC Tom Alvarez",
+      "callsign": "Anchor-Z9",
+      "site_id": "SITE_ZULU",
+      "role": "site reporter at Zulu tent city"
+    },
+    {
+      "name": "CPL Hana Ortiz",
+      "callsign": "Anchor-I7",
+      "site_id": "SITE_INDIA",
+      "role": "site reporter at India helipad"
+    },
+    {
+      "name": "SSG Noah Ruiz",
+      "callsign": "Anchor-W6",
+      "site_id": "SITE_WHISKEY",
+      "role": "site reporter at Whiskey checkpoint"
+    },
+    {
+      "name": "SFC Leo Berg",
+      "callsign": "Anchor-T9",
+      "site_id": "SITE_TANGO",
+      "role": "site reporter at Tango crossroads"
+    },
+    {
+      "name": "Sam Vasquez",
+      "callsign": "CIV-SAM",
+      "site_id": "SITE_TANGO",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SFC Keiko Hassan",
+      "callsign": "Anchor-F1",
+      "site_id": "SITE_FOXTROT",
+      "role": "site reporter at Foxtrot helipad"
+    },
+    {
+      "name": "SGT Nina Nguyen",
+      "callsign": "Anchor-C3",
+      "site_id": "SITE_CEDAR",
+      "role": "site reporter at Cedar mosque courtyard"
+    },
+    {
+      "name": "PVT Keiko Singh",
+      "callsign": "Anchor-M5",
+      "site_id": "SITE_MAPLE",
+      "role": "site reporter at Maple orchard"
+    },
+    {
+      "name": "CPT Amelia Alvarez",
+      "callsign": "Anchor-A6",
+      "site_id": "SITE_ALPHA",
+      "role": "site reporter at Alpha warehouse"
+    }
+  ],
+  "generator_seed": 8103
+}

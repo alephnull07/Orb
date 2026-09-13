@@ -1,0 +1,891 @@
+{
+  "scenario": "supply_drops_people_as_sensors_corrupted",
+  "seed_nodes": 18,
+  "window": {
+    "date": "2026-09-12",
+    "start": "2026-09-12T06:00:00Z",
+    "end": "2026-09-12T18:00:00Z",
+    "commodity": "relief_supplies",
+    "unit": "lb"
+  },
+  "notes": "Corrupted graph incorporating mutated edge weights and injected ghost edges as reported by the corrupted messages.",
+  "nodes": [
+    {
+      "id": "SRC_HARBOR",
+      "nato": "Harbor",
+      "type": "source",
+      "layer": 0,
+      "kind": "railhead",
+      "display": "Harbor railhead",
+      "aliases": [
+        "Harbor railhead",
+        "Harbor",
+        "railhead Harbor"
+      ]
+    },
+    {
+      "id": "SRC_COPPER",
+      "nato": "Copper",
+      "type": "source",
+      "layer": 0,
+      "kind": "railhead",
+      "display": "Copper railhead",
+      "aliases": [
+        "Copper railhead",
+        "Copper",
+        "railhead Copper"
+      ]
+    },
+    {
+      "id": "HUB_KILO",
+      "nato": "Kilo",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Kilo transfer yard",
+      "aliases": [
+        "Point K",
+        "Kilo transfer yard",
+        "Anchor-K",
+        "Kilo"
+      ]
+    },
+    {
+      "id": "HUB_FOXTROT",
+      "nato": "Foxtrot",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Foxtrot transfer yard",
+      "aliases": [
+        "Point F",
+        "Foxtrot transfer yard",
+        "Anchor-F",
+        "Foxtrot"
+      ]
+    },
+    {
+      "id": "HUB_ECHO",
+      "nato": "Echo",
+      "type": "hub",
+      "layer": 1,
+      "kind": "forward cache",
+      "display": "Echo forward cache",
+      "aliases": [
+        "Point E",
+        "Echo forward cache",
+        "Anchor-E",
+        "Echo"
+      ]
+    },
+    {
+      "id": "HUB_BRAVO",
+      "nato": "Bravo",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Bravo transfer yard",
+      "aliases": [
+        "Point B",
+        "Bravo transfer yard",
+        "Anchor-B",
+        "Bravo"
+      ]
+    },
+    {
+      "id": "HUB_SANDPIT",
+      "nato": "Sandpit",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Sandpit transfer yard",
+      "aliases": [
+        "Point S",
+        "Sandpit transfer yard",
+        "Anchor-S",
+        "Sandpit"
+      ]
+    },
+    {
+      "id": "HUB_OSCAR",
+      "nato": "Oscar",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Oscar transfer yard",
+      "aliases": [
+        "Point O",
+        "Oscar transfer yard",
+        "Anchor-O",
+        "Oscar"
+      ]
+    },
+    {
+      "id": "SITE_MIKE",
+      "nato": "Mike",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mill",
+      "display": "Mike mill",
+      "aliases": [
+        "Point M",
+        "Mike mill",
+        "Anchor-M",
+        "Mike"
+      ]
+    },
+    {
+      "id": "SITE_PAPA",
+      "nato": "Papa",
+      "type": "sink",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Papa helipad",
+      "aliases": [
+        "Point P",
+        "Papa helipad",
+        "Anchor-P",
+        "Papa"
+      ]
+    },
+    {
+      "id": "SITE_WHISKEY",
+      "nato": "Whiskey",
+      "type": "junction",
+      "layer": 2,
+      "kind": "well",
+      "display": "Whiskey well",
+      "aliases": [
+        "Point W",
+        "Whiskey well",
+        "Anchor-W",
+        "Whiskey"
+      ]
+    },
+    {
+      "id": "SITE_YANKEE",
+      "nato": "Yankee",
+      "type": "sink",
+      "layer": 2,
+      "kind": "mill",
+      "display": "Yankee mill",
+      "aliases": [
+        "Point Y",
+        "Yankee mill",
+        "Anchor-Y",
+        "Yankee"
+      ]
+    },
+    {
+      "id": "SITE_XRAY",
+      "nato": "Xray",
+      "type": "junction",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Xray helipad",
+      "aliases": [
+        "Point X",
+        "Xray helipad",
+        "Anchor-X",
+        "Xray"
+      ]
+    },
+    {
+      "id": "SITE_JULIET",
+      "nato": "Juliet",
+      "type": "junction",
+      "layer": 2,
+      "kind": "tent city",
+      "display": "Juliet tent city",
+      "aliases": [
+        "Point J",
+        "Juliet tent city",
+        "Anchor-J",
+        "Juliet"
+      ]
+    },
+    {
+      "id": "SITE_LIMA",
+      "nato": "Lima",
+      "type": "junction",
+      "layer": 2,
+      "kind": "aid cage",
+      "display": "Lima aid cage",
+      "aliases": [
+        "Point L",
+        "Lima aid cage",
+        "Anchor-L",
+        "Lima"
+      ]
+    },
+    {
+      "id": "SITE_DELTA",
+      "nato": "Delta",
+      "type": "junction",
+      "layer": 2,
+      "kind": "schoolhouse",
+      "display": "Delta schoolhouse",
+      "aliases": [
+        "Point D",
+        "Delta schoolhouse",
+        "Anchor-D",
+        "Delta"
+      ]
+    },
+    {
+      "id": "SITE_ALPHA",
+      "nato": "Alpha",
+      "type": "sink",
+      "layer": 2,
+      "kind": "market",
+      "display": "Alpha market",
+      "aliases": [
+        "Point A",
+        "Alpha market",
+        "Anchor-A",
+        "Alpha"
+      ]
+    },
+    {
+      "id": "SITE_VICTOR",
+      "nato": "Victor",
+      "type": "junction",
+      "layer": 2,
+      "kind": "orchard",
+      "display": "Victor orchard",
+      "aliases": [
+        "Point V",
+        "Victor orchard",
+        "Anchor-V",
+        "Victor"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "SRC_HARBOR",
+      "target": "HUB_OSCAR",
+      "value_lb": 320,
+      "time": "2026-09-12T06:20:00Z",
+      "source_name": "Harbor railhead",
+      "target_name": "Oscar transfer yard"
+    },
+    {
+      "source": "SRC_COPPER",
+      "target": "HUB_ECHO",
+      "value_lb": 10,
+      "time": "2026-09-12T06:37:00Z",
+      "source_name": "Copper railhead",
+      "target_name": "Echo forward cache",
+      "corrupted": true
+    },
+    {
+      "source": "SRC_COPPER",
+      "target": "HUB_FOXTROT",
+      "value_lb": 195,
+      "time": "2026-09-12T06:50:00Z",
+      "source_name": "Copper railhead",
+      "target_name": "Foxtrot transfer yard"
+    },
+    {
+      "source": "SRC_COPPER",
+      "target": "HUB_KILO",
+      "value_lb": 155,
+      "time": "2026-09-12T07:00:00Z",
+      "source_name": "Copper railhead",
+      "target_name": "Kilo transfer yard"
+    },
+    {
+      "source": "SRC_HARBOR",
+      "target": "HUB_BRAVO",
+      "value_lb": 65,
+      "time": "2026-09-12T07:11:00Z",
+      "source_name": "Harbor railhead",
+      "target_name": "Bravo transfer yard"
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "SITE_PAPA",
+      "value_lb": 5,
+      "time": "2026-09-12T07:20:00Z",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "SITE_VICTOR",
+      "value_lb": 10,
+      "time": "2026-09-12T07:34:00Z",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Victor orchard",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "SITE_ALPHA",
+      "value_lb": 5,
+      "time": "2026-09-12T07:48:00Z",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Alpha market"
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "SITE_MIKE",
+      "value_lb": 5,
+      "time": "2026-09-12T07:54:00Z",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Mike mill"
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "SITE_DELTA",
+      "value_lb": 15,
+      "time": "2026-09-12T08:06:00Z",
+      "source_name": "Bravo transfer yard",
+      "target_name": "Delta schoolhouse"
+    },
+    {
+      "source": "HUB_FOXTROT",
+      "target": "SITE_XRAY",
+      "value_lb": 30,
+      "time": "2026-09-12T08:22:00Z",
+      "source_name": "Foxtrot transfer yard",
+      "target_name": "Xray helipad",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_FOXTROT",
+      "target": "SITE_LIMA",
+      "value_lb": 65,
+      "time": "2026-09-12T08:37:00Z",
+      "source_name": "Foxtrot transfer yard",
+      "target_name": "Lima aid cage"
+    },
+    {
+      "source": "HUB_FOXTROT",
+      "target": "SITE_PAPA",
+      "value_lb": 90,
+      "time": "2026-09-12T08:52:00Z",
+      "source_name": "Foxtrot transfer yard",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "SRC_HARBOR",
+      "target": "HUB_SANDPIT",
+      "value_lb": 55,
+      "time": "2026-09-12T08:57:00Z",
+      "source_name": "Harbor railhead",
+      "target_name": "Sandpit transfer yard"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_XRAY",
+      "value_lb": 30,
+      "time": "2026-09-12T09:10:00Z",
+      "source_name": "Sandpit transfer yard",
+      "target_name": "Xray helipad"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_DELTA",
+      "value_lb": 15,
+      "time": "2026-09-12T09:16:00Z",
+      "source_name": "Sandpit transfer yard",
+      "target_name": "Delta schoolhouse"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_JULIET",
+      "value_lb": 5,
+      "time": "2026-09-12T09:31:00Z",
+      "source_name": "Sandpit transfer yard",
+      "target_name": "Juliet tent city"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_PAPA",
+      "value_lb": 5,
+      "time": "2026-09-12T09:38:00Z",
+      "source_name": "Sandpit transfer yard",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "HUB_ECHO",
+      "target": "SITE_YANKEE",
+      "value_lb": 1,
+      "time": "2026-09-12T09:49:00Z",
+      "source_name": "Echo forward cache",
+      "target_name": "Yankee mill"
+    },
+    {
+      "source": "HUB_ECHO",
+      "target": "SITE_VICTOR",
+      "value_lb": 9,
+      "time": "2026-09-12T10:00:00Z",
+      "source_name": "Echo forward cache",
+      "target_name": "Victor orchard"
+    },
+    {
+      "source": "HUB_ECHO",
+      "target": "SITE_MIKE",
+      "value_lb": 1,
+      "time": "2026-09-12T10:11:00Z",
+      "source_name": "Echo forward cache",
+      "target_name": "Mike mill"
+    },
+    {
+      "source": "HUB_ECHO",
+      "target": "SITE_ALPHA",
+      "value_lb": 4,
+      "time": "2026-09-12T10:22:00Z",
+      "source_name": "Echo forward cache",
+      "target_name": "Alpha market"
+    },
+    {
+      "source": "HUB_KILO",
+      "target": "SITE_XRAY",
+      "value_lb": 20,
+      "time": "2026-09-12T10:28:00Z",
+      "source_name": "Kilo transfer yard",
+      "target_name": "Xray helipad"
+    },
+    {
+      "source": "HUB_KILO",
+      "target": "SITE_ALPHA",
+      "value_lb": 15,
+      "time": "2026-09-12T10:40:00Z",
+      "source_name": "Kilo transfer yard",
+      "target_name": "Alpha market"
+    },
+    {
+      "source": "HUB_KILO",
+      "target": "SITE_VICTOR",
+      "value_lb": 30,
+      "time": "2026-09-12T10:48:00Z",
+      "source_name": "Kilo transfer yard",
+      "target_name": "Victor orchard"
+    },
+    {
+      "source": "HUB_KILO",
+      "target": "SITE_MIKE",
+      "value_lb": 70,
+      "time": "2026-09-12T11:03:00Z",
+      "source_name": "Kilo transfer yard",
+      "target_name": "Mike mill"
+    },
+    {
+      "source": "HUB_KILO",
+      "target": "SITE_JULIET",
+      "value_lb": 60,
+      "time": "2026-09-12T11:18:00Z",
+      "source_name": "Kilo transfer yard",
+      "target_name": "Juliet tent city",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_OSCAR",
+      "target": "SITE_WHISKEY",
+      "value_lb": 25,
+      "time": "2026-09-12T11:30:00Z",
+      "source_name": "Oscar transfer yard",
+      "target_name": "Whiskey well"
+    },
+    {
+      "source": "HUB_OSCAR",
+      "target": "SITE_MIKE",
+      "value_lb": 25,
+      "time": "2026-09-12T11:46:00Z",
+      "source_name": "Oscar transfer yard",
+      "target_name": "Mike mill"
+    },
+    {
+      "source": "HUB_OSCAR",
+      "target": "SITE_VICTOR",
+      "value_lb": 295,
+      "time": "2026-09-12T11:53:00Z",
+      "source_name": "Oscar transfer yard",
+      "target_name": "Victor orchard",
+      "corrupted": true
+    },
+    {
+      "source": "SITE_DELTA",
+      "target": "SITE_PAPA",
+      "value_lb": 3,
+      "time": "2026-09-12T12:08:00Z",
+      "source_name": "Delta schoolhouse",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "SITE_DELTA",
+      "target": "SITE_MIKE",
+      "value_lb": 2,
+      "time": "2026-09-12T12:28:00Z",
+      "source_name": "Delta schoolhouse",
+      "target_name": "Mike mill"
+    },
+    {
+      "source": "SITE_JULIET",
+      "target": "SITE_DELTA",
+      "value_lb": 10,
+      "time": "2026-09-12T12:46:00Z",
+      "source_name": "Juliet tent city",
+      "target_name": "Delta schoolhouse"
+    },
+    {
+      "source": "SITE_LIMA",
+      "target": "SITE_PAPA",
+      "value_lb": 10,
+      "time": "2026-09-12T13:04:00Z",
+      "source_name": "Lima aid cage",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "SITE_WHISKEY",
+      "target": "SITE_ALPHA",
+      "value_lb": 5,
+      "time": "2026-09-12T13:17:00Z",
+      "source_name": "Whiskey well",
+      "target_name": "Alpha market"
+    },
+    {
+      "source": "SITE_MIKE",
+      "target": "SITE_YANKEE",
+      "value_lb": 5,
+      "time": "2026-09-12T13:30:00Z",
+      "source_name": "Mike mill",
+      "target_name": "Yankee mill"
+    },
+    {
+      "source": "SITE_VICTOR",
+      "target": "SITE_PAPA",
+      "value_lb": 50,
+      "time": "2026-09-12T13:51:00Z",
+      "source_name": "Victor orchard",
+      "target_name": "Papa helipad"
+    },
+    {
+      "source": "SITE_XRAY",
+      "target": "SITE_PAPA",
+      "value_lb": 40,
+      "time": "2026-09-12T14:08:00Z",
+      "source_name": "Xray helipad",
+      "target_name": "Papa helipad",
+      "corrupted": true
+    },
+    {
+      "source": "SITE_XRAY",
+      "target": "SITE_WHISKEY",
+      "value_lb": 30,
+      "time": "2026-09-12T14:21:00Z",
+      "source_name": "Xray helipad",
+      "target_name": "Whiskey well"
+    },
+    {
+      "source": "HUB_BRAVO",
+      "target": "HUB_FOXTROT",
+      "value_lb": 50,
+      "source_name": "Bravo transfer yard",
+      "target_name": "Foxtrot transfer yard",
+      "ghost": true
+    }
+  ],
+  "injections_lb": {
+    "SRC_HARBOR": 440,
+    "SRC_COPPER": 370
+  },
+  "inventory_eod_lb": {
+    "SRC_HARBOR": 0,
+    "SRC_COPPER": 0,
+    "HUB_KILO": 0,
+    "HUB_FOXTROT": 0,
+    "HUB_ECHO": 5,
+    "HUB_BRAVO": 15,
+    "HUB_SANDPIT": 0,
+    "HUB_OSCAR": 0,
+    "SITE_MIKE": 98,
+    "SITE_PAPA": 178,
+    "SITE_WHISKEY": 50,
+    "SITE_YANKEE": 6,
+    "SITE_XRAY": 45,
+    "SITE_JULIET": 15,
+    "SITE_LIMA": 55,
+    "SITE_DELTA": 35,
+    "SITE_ALPHA": 29,
+    "SITE_VICTOR": 279
+  },
+  "trusted_constraint_rows": [
+    {
+      "node": "SRC_HARBOR",
+      "display": "Harbor railhead",
+      "law": "mass_balance",
+      "in_lb": 440,
+      "out_lb": 440,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_COPPER",
+      "display": "Copper railhead",
+      "law": "mass_balance",
+      "in_lb": 370,
+      "out_lb": 370,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_KILO",
+      "display": "Kilo transfer yard",
+      "law": "mass_balance",
+      "in_lb": 155,
+      "out_lb": 155,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_FOXTROT",
+      "display": "Foxtrot transfer yard",
+      "law": "mass_balance",
+      "in_lb": 195,
+      "out_lb": 195,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_ECHO",
+      "display": "Echo forward cache",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 15,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "HUB_BRAVO",
+      "display": "Bravo transfer yard",
+      "law": "mass_balance",
+      "in_lb": 65,
+      "out_lb": 50,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "HUB_SANDPIT",
+      "display": "Sandpit transfer yard",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 55,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_OSCAR",
+      "display": "Oscar transfer yard",
+      "law": "mass_balance",
+      "in_lb": 320,
+      "out_lb": 320,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SITE_MIKE",
+      "display": "Mike mill",
+      "law": "mass_balance",
+      "in_lb": 103,
+      "out_lb": 5,
+      "inventory_eod_lb": 98
+    },
+    {
+      "node": "SITE_PAPA",
+      "display": "Papa helipad",
+      "law": "mass_balance",
+      "in_lb": 178,
+      "out_lb": 0,
+      "inventory_eod_lb": 178
+    },
+    {
+      "node": "SITE_WHISKEY",
+      "display": "Whiskey well",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 5,
+      "inventory_eod_lb": 50
+    },
+    {
+      "node": "SITE_YANKEE",
+      "display": "Yankee mill",
+      "law": "mass_balance",
+      "in_lb": 6,
+      "out_lb": 0,
+      "inventory_eod_lb": 6
+    },
+    {
+      "node": "SITE_XRAY",
+      "display": "Xray helipad",
+      "law": "mass_balance",
+      "in_lb": 90,
+      "out_lb": 45,
+      "inventory_eod_lb": 45
+    },
+    {
+      "node": "SITE_JULIET",
+      "display": "Juliet tent city",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_LIMA",
+      "display": "Lima aid cage",
+      "law": "mass_balance",
+      "in_lb": 65,
+      "out_lb": 10,
+      "inventory_eod_lb": 55
+    },
+    {
+      "node": "SITE_DELTA",
+      "display": "Delta schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 5,
+      "inventory_eod_lb": 35
+    },
+    {
+      "node": "SITE_ALPHA",
+      "display": "Alpha market",
+      "law": "mass_balance",
+      "in_lb": 29,
+      "out_lb": 0,
+      "inventory_eod_lb": 29
+    },
+    {
+      "node": "SITE_VICTOR",
+      "display": "Victor orchard",
+      "law": "mass_balance",
+      "in_lb": 329,
+      "out_lb": 50,
+      "inventory_eod_lb": 279
+    }
+  ],
+  "people": [
+    {
+      "name": "MAJ Diego Nair",
+      "callsign": "Watchtower",
+      "site_id": null,
+      "role": "TOC collector"
+    },
+    {
+      "name": "SSG Hana Nguyen",
+      "callsign": "Spare-2",
+      "site_id": null,
+      "role": "spare radio hand"
+    },
+    {
+      "name": "SPC Elena Chen",
+      "callsign": "Dustoff-H",
+      "site_id": "SRC_HARBOR",
+      "role": "site reporter at Harbor railhead"
+    },
+    {
+      "name": "CPT Greta Vasquez",
+      "callsign": "Dustoff-C",
+      "site_id": "SRC_COPPER",
+      "role": "site reporter at Copper railhead"
+    },
+    {
+      "name": "SPC Nina Rahman",
+      "callsign": "Kilo-Actual",
+      "site_id": "HUB_KILO",
+      "role": "site reporter at Kilo transfer yard"
+    },
+    {
+      "name": "SSG Maya Okafor",
+      "callsign": "Foxtrot-Actual",
+      "site_id": "HUB_FOXTROT",
+      "role": "site reporter at Foxtrot transfer yard"
+    },
+    {
+      "name": "CPL Chris Nair",
+      "callsign": "Echo-Actual",
+      "site_id": "HUB_ECHO",
+      "role": "site reporter at Echo forward cache"
+    },
+    {
+      "name": "CPL Chris Ruiz",
+      "callsign": "Bravo-Actual",
+      "site_id": "HUB_BRAVO",
+      "role": "site reporter at Bravo transfer yard"
+    },
+    {
+      "name": "LT Amelia Diaz",
+      "callsign": "Sandpit-Actual",
+      "site_id": "HUB_SANDPIT",
+      "role": "site reporter at Sandpit transfer yard"
+    },
+    {
+      "name": "LT Yusuf Alvarez",
+      "callsign": "Oscar-Actual",
+      "site_id": "HUB_OSCAR",
+      "role": "site reporter at Oscar transfer yard"
+    },
+    {
+      "name": "LT Omar Bennett",
+      "callsign": "Anchor-M9",
+      "site_id": "SITE_MIKE",
+      "role": "site reporter at Mike mill"
+    },
+    {
+      "name": "LT Hana Singh",
+      "callsign": "Anchor-P6",
+      "site_id": "SITE_PAPA",
+      "role": "site reporter at Papa helipad"
+    },
+    {
+      "name": "SSG Maya Ruiz",
+      "callsign": "Anchor-W7",
+      "site_id": "SITE_WHISKEY",
+      "role": "site reporter at Whiskey well"
+    },
+    {
+      "name": "LT Ibrahim Alvarez",
+      "callsign": "Anchor-Y7",
+      "site_id": "SITE_YANKEE",
+      "role": "site reporter at Yankee mill"
+    },
+    {
+      "name": "SFC Omar Berg",
+      "callsign": "Anchor-X1",
+      "site_id": "SITE_XRAY",
+      "role": "site reporter at Xray helipad"
+    },
+    {
+      "name": "PVT Elena Rahman",
+      "callsign": "Anchor-J7",
+      "site_id": "SITE_JULIET",
+      "role": "site reporter at Juliet tent city"
+    },
+    {
+      "name": "Ibrahim Nguyen",
+      "callsign": "CIV-IBR",
+      "site_id": "SITE_JULIET",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SGT Tom Rahman",
+      "callsign": "Anchor-L1",
+      "site_id": "SITE_LIMA",
+      "role": "site reporter at Lima aid cage"
+    },
+    {
+      "name": "PVT Sam Nair",
+      "callsign": "Anchor-D5",
+      "site_id": "SITE_DELTA",
+      "role": "site reporter at Delta schoolhouse"
+    },
+    {
+      "name": "LT Greta Hale",
+      "callsign": "Anchor-A9",
+      "site_id": "SITE_ALPHA",
+      "role": "site reporter at Alpha market"
+    },
+    {
+      "name": "SSG Maya Khan",
+      "callsign": "Anchor-V4",
+      "site_id": "SITE_VICTOR",
+      "role": "site reporter at Victor orchard"
+    }
+  ],
+  "generator_seed": 8110
+}

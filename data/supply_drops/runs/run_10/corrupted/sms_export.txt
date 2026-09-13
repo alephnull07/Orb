@@ -1,0 +1,85 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:15:00Z] (sms) LT Yusuf Alvarez / Oscar-Actual -> Watchtower
+got 320 pounds off Harbor railhead here at Oscar transfer yard. logged. alvarez
+
+[2026-09-12T06:15:47Z] (sms) CPT Greta Vasquez / Dustoff-C -> Echo-Actual
+Echo-Actual this is Dustoff-C. sending 10 lb from Copper railhead to Echo forward cache. count it on arrival. over
+
+[2026-09-12T06:35:47Z] (sms) CPL Chris Ruiz / Bravo-Actual -> Watchtower
+got 65 pounds off Harbor railhead here at Bravo transfer yard. logged. ruiz
+
+[2026-09-12T06:36:34Z] (sms) SPC Elena Chen / Dustoff-H -> Sandpit-Actual
+Sandpit-Actual this is Dustoff-H. sending 55 lb from Harbor railhead to Sandpit transfer yard. count it on arrival. over
+
+[2026-09-12T09:03:08Z] (sms) LT Hana Singh / Anchor-P6 -> Watchtower
+got 5 pounds off Bravo transfer yard here at Papa helipad. logged. singh
+
+[2026-09-12T09:05:29Z] (sms) CPL Chris Ruiz / Bravo-Actual -> Anchor-V4
+Anchor-V4 this is Bravo-Actual. sending 20 lb from Bravo transfer yard to Victor orchard. count it on arrival. over
+
+[2026-09-12T09:20:47Z] (sms) SSG Maya Okafor / Foxtrot-Actual -> Anchor-X1
+Anchor-X1 this is Foxtrot-Actual. sending 30 lb from Foxtrot transfer yard to Xray helipad. count it on arrival. over
+
+[2026-09-12T09:23:08Z] (sms) PVT Sam Nair / Anchor-D5 -> Watchtower
+got 15 pounds off Bravo transfer yard here at Delta schoolhouse. logged. nair
+
+[2026-09-12T09:43:08Z] (sms) LT Amelia Diaz / Sandpit-Actual -> Anchor-D5
+Anchor-D5 this is Sandpit-Actual. sending 15 lb from Sandpit transfer yard to Delta schoolhouse. count it on arrival. over
+
+[2026-09-12T09:44:42Z] (sms) SFC Omar Berg / Anchor-X1 -> Watchtower
+got 30 pounds off Sandpit transfer yard here at Xray helipad. logged. berg
+
+[2026-09-12T10:02:21Z] (sms) CPL Chris Nair / Echo-Actual -> Anchor-V4
+Anchor-V4 this is Echo-Actual. sending 9 lb from Echo forward cache to Victor orchard. count it on arrival. over
+
+[2026-09-12T10:03:08Z] (sms) LT Ibrahim Alvarez / Anchor-Y7 -> Watchtower
+got 1 pounds off Echo forward cache here at Yankee mill. logged. alvarez
+
+[2026-09-12T10:20:47Z] (sms) SPC Nina Rahman / Kilo-Actual -> Anchor-A9
+Anchor-A9 this is Kilo-Actual. sending 15 lb from Kilo transfer yard to Alpha market. count it on arrival. over
+
+[2026-09-12T10:23:08Z] (sms) SFC Omar Berg / Anchor-X1 -> Watchtower
+got 20 pounds off Kilo transfer yard here at Xray helipad. logged. berg
+
+[2026-09-12T10:41:34Z] (sms) PVT Elena Rahman / Anchor-J7 -> Watchtower
+got 60 pounds off Kilo transfer yard here at Juliet tent city. logged. rahman
+
+[2026-09-12T10:43:55Z] (sms) LT Yusuf Alvarez / Oscar-Actual -> Anchor-W7
+Anchor-W7 this is Oscar-Actual. sending 25 lb from Oscar transfer yard to Whiskey well. count it on arrival. over
+
+[2026-09-12T13:00:47Z] (sms) PVT Sam Nair / Anchor-D5 -> Anchor-M9
+Anchor-M9 this is Anchor-D5. sending 2 lb from Delta schoolhouse to Mike mill. count it on arrival. over
+
+[2026-09-12T13:04:42Z] (sms) LT Hana Singh / Anchor-P6 -> Watchtower
+got 3 pounds off Delta schoolhouse here at Papa helipad. logged. singh
+
+[2026-09-12T13:20:00Z] (sms) LT Omar Bennett / Anchor-M9 -> Anchor-Y7
+Anchor-Y7 this is Anchor-M9. sending 5 lb from Mike mill to Yankee mill. count it on arrival. over
+
+[2026-09-12T13:23:55Z] (sms) LT Greta Hale / Anchor-A9 -> Watchtower
+got 5 pounds off Whiskey well here at Alpha market. logged. hale
+
+[2026-09-12T13:40:47Z] (sms) SSG Maya Ruiz / Anchor-W7 -> Watchtower
+got 30 pounds off Xray helipad here at Whiskey well. logged. ruiz
+
+[2026-09-12T14:31:00Z] (sms) CPL Chris Ruiz / Bravo-Actual -> SSG Maya Okafor
+correction that last runner was 50 kg not lb wait no 50 kg
+
+[2026-09-12T14:44:00Z] (sms) CPL Chris Ruiz / Bravo-Actual -> Foxtrot-Actual
+also sent 50 lbs over to Foxtrot transfer yard, same runner loop. log it.
+
+[2026-09-12T16:03:08Z] (sms) LT Amelia Diaz / Sandpit-Actual -> Watchtower
+EOD Sandpit transfer yard: in 55 lb, out 55 lb, on-hand 0 lb. Sandpit-Actual closing books.
+
+[2026-09-12T16:15:47Z] (sms) SFC Omar Berg / Anchor-X1 -> Watchtower
+EOD Xray helipad: in 90 lb, out 45 lb, on-hand 45 lb. Anchor-X1 closing books.
+
+[2026-09-12T16:18:55Z] (sms) LT Hana Singh / Anchor-P6 -> Watchtower
+EOD Papa helipad: in 178 lb, out 0 lb, on-hand 178 lb. Anchor-P6 closing books.
+
+[2026-09-12T16:31:34Z] (sms) LT Greta Hale / Anchor-A9 -> Watchtower
+EOD Alpha market: in 29 lb, out 0 lb, on-hand 29 lb. Anchor-A9 closing books.
+
+[2026-09-12T16:32:21Z] (sms) SGT Tom Rahman / Anchor-L1 -> Watchtower
+EOD Lima aid cage: in 65 lb, out 10 lb, on-hand 55 lb. Anchor-L1 closing books.

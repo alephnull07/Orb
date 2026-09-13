@@ -1,0 +1,38 @@
+{
+  "target_file": "corrupted_graph.json",
+  "target_edges": 43,
+  "consensus_edges": 43,
+  "matched_hops": 43,
+  "exact_weight_matches": 40,
+  "mean_abs_weight_error_on_matches": 0.81,
+  "differences": [
+    {
+      "hop": [
+        "sandpit railhead",
+        "juliet ridge hub"
+      ],
+      "target_lb": 95,
+      "consensus_lb": 110,
+      "delta": 15
+    },
+    {
+      "hop": [
+        "quarry airdrop lz",
+        "alpha water point"
+      ],
+      "target_lb": 10,
+      "consensus_lb": 20,
+      "delta": 10
+    },
+    {
+      "hop": [
+        "echo well",
+        "papa crossroads"
+      ],
+      "target_lb": 10,
+      "consensus_lb": 20,
+      "delta": 10
+    }
+  ],
+  "extra_hops": []
+}

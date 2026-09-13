@@ -1,0 +1,10 @@
+{
+  "target_file": "true_graph.json",
+  "target_edges": 23,
+  "consensus_edges": 23,
+  "matched_hops": 23,
+  "exact_weight_matches": 23,
+  "mean_abs_weight_error_on_matches": 0.0,
+  "differences": [],
+  "extra_hops": []
+}

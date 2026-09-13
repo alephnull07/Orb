@@ -1,0 +1,40 @@
+photographed notebooks + typed logs
+
+[2026-09-12T06:19:42Z] (field_log) SGT June Singh / Xray-Actual -> Watchtower
+got 135 pounds off Cedar airdrop LZ here at Xray transfer yard. logged. singh
+
+[2026-09-12T06:35:47Z] (field_log) SSG Maya Rahman / Anchor-I1 -> Watchtower
+got 45 pounds off Cedar airdrop LZ here at India bridge. logged. rahman
+
+[2026-09-12T06:57:21Z] (field_log) LT Malik Okonkwo / Anchor-T4 -> Watchtower
+got 30 pounds off Cedar airdrop LZ here at Tango helipad. logged. okonkwo
+
+[2026-09-12T07:15:47Z] (field_log) SFC James Diaz / Anchor-N9 -> Watchtower
+got 20 pounds off Zulu port dump here at November aid cage. logged. diaz
+
+[2026-09-12T09:02:21Z] (field_log) CPL Sofia Volkov / Anchor-H5 -> Watchtower
+got 10 pounds off Xray transfer yard here at Harbor helipad. logged. volkov
+
+[2026-09-12T09:21:34Z] (field_log) SFC Aisha Ortiz / Anchor-Q8 -> Watchtower
+got 95 pounds off Copper ridge hub here at Quarry mosque courtyard. logged. ortiz
+
+[2026-09-12T13:00:47Z] (field_log) SSG Maya Okonkwo / Anchor-L2 -> Watchtower
+got 25 pounds off Papa schoolhouse here at Lima helipad. logged. okonkwo
+
+[2026-09-12T13:20:00Z] (field_log) PVT Chris Bennett / Anchor-W4 -> Watchtower
+got 5 pounds off Kilo pad here at Willow water point. logged. bennett
+
+[2026-09-12T13:41:34Z] (field_log) CPT Maya Alvarez / Anchor-I8 -> Watchtower
+got 5 pounds off Granite tent city here at Iron warehouse. logged. alvarez
+
+[2026-09-12T14:02:21Z] (field_log) SSG Maya Okonkwo / Anchor-L2 -> Watchtower
+got 50 pounds off Quarry mosque courtyard here at Lima helipad. logged. okonkwo
+
+[2026-09-12T16:15:00Z] (field_log) SSG Keiko Bennett / Anchor-E8 -> Watchtower
+EOD Echo well: in 20 lb, out 0 lb, on-hand 20 lb. Anchor-E8 closing books.
+
+[2026-09-12T16:30:00Z] (field_log) CPL Sofia Volkov / Anchor-H5 -> Watchtower
+EOD Harbor helipad: in 70 lb, out 0 lb, on-hand 70 lb. Anchor-H5 closing books.
+
+[2026-09-12T16:33:08Z] (field_log) LT Malik Okonkwo / Anchor-T4 -> Watchtower
+EOD Tango helipad: in 30 lb, out 10 lb, on-hand 20 lb. Anchor-T4 closing books.

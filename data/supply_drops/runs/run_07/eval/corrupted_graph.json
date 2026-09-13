@@ -1,0 +1,767 @@
+{
+  "scenario": "supply_drops_people_as_sensors_corrupted",
+  "seed_nodes": 16,
+  "window": {
+    "date": "2026-09-12",
+    "start": "2026-09-12T06:00:00Z",
+    "end": "2026-09-12T18:00:00Z",
+    "commodity": "relief_supplies",
+    "unit": "lb"
+  },
+  "notes": "Corrupted graph incorporating mutated edge weights and injected ghost edges as reported by the corrupted messages.",
+  "nodes": [
+    {
+      "id": "SRC_NOVEMBER",
+      "nato": "November",
+      "type": "source",
+      "layer": 0,
+      "kind": "airdrop LZ",
+      "display": "November airdrop LZ",
+      "aliases": [
+        "November airdrop LZ",
+        "November",
+        "airdrop LZ November"
+      ]
+    },
+    {
+      "id": "SRC_BRAVO",
+      "nato": "Bravo",
+      "type": "source",
+      "layer": 0,
+      "kind": "airdrop LZ",
+      "display": "Bravo airdrop LZ",
+      "aliases": [
+        "Bravo airdrop LZ",
+        "Bravo",
+        "airdrop LZ Bravo"
+      ]
+    },
+    {
+      "id": "HUB_XRAY",
+      "nato": "Xray",
+      "type": "hub",
+      "layer": 1,
+      "kind": "junction",
+      "display": "Xray junction",
+      "aliases": [
+        "Point X",
+        "Xray junction",
+        "Anchor-X",
+        "Xray"
+      ]
+    },
+    {
+      "id": "HUB_SANDPIT",
+      "nato": "Sandpit",
+      "type": "hub",
+      "layer": 1,
+      "kind": "forward cache",
+      "display": "Sandpit forward cache",
+      "aliases": [
+        "Point S",
+        "Sandpit forward cache",
+        "Anchor-S",
+        "Sandpit"
+      ]
+    },
+    {
+      "id": "HUB_INDIA",
+      "nato": "India",
+      "type": "hub",
+      "layer": 1,
+      "kind": "forward cache",
+      "display": "India forward cache",
+      "aliases": [
+        "Point I",
+        "India forward cache",
+        "Anchor-I",
+        "India"
+      ]
+    },
+    {
+      "id": "HUB_TANGO",
+      "nato": "Tango",
+      "type": "hub",
+      "layer": 1,
+      "kind": "ridge hub",
+      "display": "Tango ridge hub",
+      "aliases": [
+        "Point T",
+        "Tango ridge hub",
+        "Anchor-T",
+        "Tango"
+      ]
+    },
+    {
+      "id": "HUB_LIMA",
+      "nato": "Lima",
+      "type": "hub",
+      "layer": 1,
+      "kind": "ridge hub",
+      "display": "Lima ridge hub",
+      "aliases": [
+        "Point L",
+        "Lima ridge hub",
+        "Anchor-L",
+        "Lima"
+      ]
+    },
+    {
+      "id": "HUB_ZULU",
+      "nato": "Zulu",
+      "type": "hub",
+      "layer": 1,
+      "kind": "junction",
+      "display": "Zulu junction",
+      "aliases": [
+        "Point Z",
+        "Zulu junction",
+        "Anchor-Z",
+        "Zulu"
+      ]
+    },
+    {
+      "id": "SITE_DELTA",
+      "nato": "Delta",
+      "type": "sink",
+      "layer": 2,
+      "kind": "water point",
+      "display": "Delta water point",
+      "aliases": [
+        "Point D",
+        "Delta water point",
+        "Anchor-D",
+        "Delta"
+      ]
+    },
+    {
+      "id": "SITE_CEDAR",
+      "nato": "Cedar",
+      "type": "junction",
+      "layer": 2,
+      "kind": "orchard",
+      "display": "Cedar orchard",
+      "aliases": [
+        "Point C",
+        "Cedar orchard",
+        "Anchor-C",
+        "Cedar"
+      ]
+    },
+    {
+      "id": "SITE_CHARLIE",
+      "nato": "Charlie",
+      "type": "sink",
+      "layer": 2,
+      "kind": "checkpoint",
+      "display": "Charlie checkpoint",
+      "aliases": [
+        "Point C",
+        "Charlie checkpoint",
+        "Anchor-C",
+        "Charlie"
+      ]
+    },
+    {
+      "id": "SITE_ALPHA",
+      "nato": "Alpha",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mosque courtyard",
+      "display": "Alpha mosque courtyard",
+      "aliases": [
+        "Point A",
+        "Alpha mosque courtyard",
+        "Anchor-A",
+        "Alpha"
+      ]
+    },
+    {
+      "id": "SITE_GRANITE",
+      "nato": "Granite",
+      "type": "sink",
+      "layer": 2,
+      "kind": "market",
+      "display": "Granite market",
+      "aliases": [
+        "Point G",
+        "Granite market",
+        "Anchor-G",
+        "Granite"
+      ]
+    },
+    {
+      "id": "SITE_JULIET",
+      "nato": "Juliet",
+      "type": "sink",
+      "layer": 2,
+      "kind": "warehouse",
+      "display": "Juliet warehouse",
+      "aliases": [
+        "Point J",
+        "Juliet warehouse",
+        "Anchor-J",
+        "Juliet"
+      ]
+    },
+    {
+      "id": "SITE_WILLOW",
+      "nato": "Willow",
+      "type": "junction",
+      "layer": 2,
+      "kind": "bridge",
+      "display": "Willow bridge",
+      "aliases": [
+        "Point W",
+        "Willow bridge",
+        "Anchor-W",
+        "Willow"
+      ]
+    },
+    {
+      "id": "SITE_GOLF",
+      "nato": "Golf",
+      "type": "sink",
+      "layer": 2,
+      "kind": "well",
+      "display": "Golf well",
+      "aliases": [
+        "Point G",
+        "Golf well",
+        "Anchor-G",
+        "Golf"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "SRC_NOVEMBER",
+      "target": "HUB_INDIA",
+      "value_lb": 400,
+      "time": "2026-09-12T06:18:00Z",
+      "source_name": "November airdrop LZ",
+      "target_name": "India forward cache"
+    },
+    {
+      "source": "SRC_BRAVO",
+      "target": "HUB_SANDPIT",
+      "value_lb": 60,
+      "time": "2026-09-12T06:28:00Z",
+      "source_name": "Bravo airdrop LZ",
+      "target_name": "Sandpit forward cache"
+    },
+    {
+      "source": "SRC_BRAVO",
+      "target": "HUB_XRAY",
+      "value_lb": 35,
+      "time": "2026-09-12T06:44:00Z",
+      "source_name": "Bravo airdrop LZ",
+      "target_name": "Xray junction"
+    },
+    {
+      "source": "SRC_BRAVO",
+      "target": "HUB_TANGO",
+      "value_lb": 55,
+      "time": "2026-09-12T06:59:00Z",
+      "source_name": "Bravo airdrop LZ",
+      "target_name": "Tango ridge hub"
+    },
+    {
+      "source": "SRC_BRAVO",
+      "target": "HUB_LIMA",
+      "value_lb": 40,
+      "time": "2026-09-12T07:07:00Z",
+      "source_name": "Bravo airdrop LZ",
+      "target_name": "Lima ridge hub",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_CEDAR",
+      "value_lb": 25,
+      "time": "2026-09-12T07:22:00Z",
+      "source_name": "Lima ridge hub",
+      "target_name": "Cedar orchard",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_DELTA",
+      "value_lb": 20,
+      "time": "2026-09-12T07:36:00Z",
+      "source_name": "Lima ridge hub",
+      "target_name": "Delta water point"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_JULIET",
+      "value_lb": 15,
+      "time": "2026-09-12T07:44:00Z",
+      "source_name": "Lima ridge hub",
+      "target_name": "Juliet warehouse"
+    },
+    {
+      "source": "HUB_LIMA",
+      "target": "SITE_WILLOW",
+      "value_lb": 5,
+      "time": "2026-09-12T07:56:00Z",
+      "source_name": "Lima ridge hub",
+      "target_name": "Willow bridge"
+    },
+    {
+      "source": "HUB_TANGO",
+      "target": "SITE_CHARLIE",
+      "value_lb": 5,
+      "time": "2026-09-12T08:08:00Z",
+      "source_name": "Tango ridge hub",
+      "target_name": "Charlie checkpoint"
+    },
+    {
+      "source": "HUB_TANGO",
+      "target": "SITE_GRANITE",
+      "value_lb": 5,
+      "time": "2026-09-12T08:21:00Z",
+      "source_name": "Tango ridge hub",
+      "target_name": "Granite market"
+    },
+    {
+      "source": "HUB_TANGO",
+      "target": "SITE_GOLF",
+      "value_lb": 85,
+      "time": "2026-09-12T08:27:00Z",
+      "source_name": "Tango ridge hub",
+      "target_name": "Golf well",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_CHARLIE",
+      "value_lb": 5,
+      "time": "2026-09-12T08:33:00Z",
+      "source_name": "Sandpit forward cache",
+      "target_name": "Charlie checkpoint"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "HUB_ZULU",
+      "value_lb": 20,
+      "time": "2026-09-12T08:40:00Z",
+      "source_name": "Sandpit forward cache",
+      "target_name": "Zulu junction"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_GRANITE",
+      "value_lb": 5,
+      "time": "2026-09-12T08:49:00Z",
+      "source_name": "Sandpit forward cache",
+      "target_name": "Granite market"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_DELTA",
+      "value_lb": 5,
+      "time": "2026-09-12T09:03:00Z",
+      "source_name": "Sandpit forward cache",
+      "target_name": "Delta water point"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_WILLOW",
+      "value_lb": 25,
+      "time": "2026-09-12T09:16:00Z",
+      "source_name": "Sandpit forward cache",
+      "target_name": "Willow bridge"
+    },
+    {
+      "source": "HUB_ZULU",
+      "target": "SITE_ALPHA",
+      "value_lb": 5,
+      "time": "2026-09-12T09:23:00Z",
+      "source_name": "Zulu junction",
+      "target_name": "Alpha mosque courtyard"
+    },
+    {
+      "source": "HUB_ZULU",
+      "target": "HUB_INDIA",
+      "value_lb": 5,
+      "time": "2026-09-12T09:29:00Z",
+      "source_name": "Zulu junction",
+      "target_name": "India forward cache"
+    },
+    {
+      "source": "HUB_ZULU",
+      "target": "SITE_DELTA",
+      "value_lb": 10,
+      "time": "2026-09-12T09:42:00Z",
+      "source_name": "Zulu junction",
+      "target_name": "Delta water point"
+    },
+    {
+      "source": "HUB_INDIA",
+      "target": "SITE_WILLOW",
+      "value_lb": 240,
+      "time": "2026-09-12T09:50:00Z",
+      "source_name": "India forward cache",
+      "target_name": "Willow bridge",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_INDIA",
+      "target": "SITE_GOLF",
+      "value_lb": 95,
+      "time": "2026-09-12T09:56:00Z",
+      "source_name": "India forward cache",
+      "target_name": "Golf well",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_INDIA",
+      "target": "SITE_ALPHA",
+      "value_lb": 75,
+      "time": "2026-09-12T10:06:00Z",
+      "source_name": "India forward cache",
+      "target_name": "Alpha mosque courtyard",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_GOLF",
+      "value_lb": 5,
+      "time": "2026-09-12T10:21:00Z",
+      "source_name": "Xray junction",
+      "target_name": "Golf well"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_ALPHA",
+      "value_lb": 15,
+      "time": "2026-09-12T10:34:00Z",
+      "source_name": "Xray junction",
+      "target_name": "Alpha mosque courtyard"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_CEDAR",
+      "value_lb": 15,
+      "time": "2026-09-12T10:40:00Z",
+      "source_name": "Xray junction",
+      "target_name": "Cedar orchard"
+    },
+    {
+      "source": "SITE_ALPHA",
+      "target": "SITE_JULIET",
+      "value_lb": 4,
+      "time": "2026-09-12T11:00:00Z",
+      "source_name": "Alpha mosque courtyard",
+      "target_name": "Juliet warehouse"
+    },
+    {
+      "source": "SITE_ALPHA",
+      "target": "SITE_DELTA",
+      "value_lb": 1,
+      "time": "2026-09-12T11:17:00Z",
+      "source_name": "Alpha mosque courtyard",
+      "target_name": "Delta water point"
+    },
+    {
+      "source": "SITE_CEDAR",
+      "target": "SITE_ALPHA",
+      "value_lb": 10,
+      "time": "2026-09-12T11:30:00Z",
+      "source_name": "Cedar orchard",
+      "target_name": "Alpha mosque courtyard"
+    },
+    {
+      "source": "SITE_WILLOW",
+      "target": "SITE_GOLF",
+      "value_lb": 60,
+      "time": "2026-09-12T11:44:00Z",
+      "source_name": "Willow bridge",
+      "target_name": "Golf well"
+    },
+    {
+      "source": "HUB_SANDPIT",
+      "target": "SITE_CEDAR",
+      "value_lb": 20,
+      "source_name": "Sandpit forward cache",
+      "target_name": "Cedar orchard",
+      "ghost": true
+    }
+  ],
+  "injections_lb": {
+    "SRC_NOVEMBER": 400,
+    "SRC_BRAVO": 200
+  },
+  "inventory_eod_lb": {
+    "SRC_NOVEMBER": 0,
+    "SRC_BRAVO": 0,
+    "HUB_XRAY": 0,
+    "HUB_SANDPIT": 0,
+    "HUB_INDIA": 20,
+    "HUB_TANGO": 0,
+    "HUB_LIMA": 0,
+    "HUB_ZULU": 0,
+    "SITE_DELTA": 36,
+    "SITE_CEDAR": 15,
+    "SITE_CHARLIE": 10,
+    "SITE_ALPHA": 85,
+    "SITE_GRANITE": 10,
+    "SITE_JULIET": 19,
+    "SITE_WILLOW": 225,
+    "SITE_GOLF": 180
+  },
+  "trusted_constraint_rows": [
+    {
+      "node": "SRC_NOVEMBER",
+      "display": "November airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 400,
+      "out_lb": 400,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_BRAVO",
+      "display": "Bravo airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 200,
+      "out_lb": 200,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_XRAY",
+      "display": "Xray junction",
+      "law": "mass_balance",
+      "in_lb": 35,
+      "out_lb": 35,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_SANDPIT",
+      "display": "Sandpit forward cache",
+      "law": "mass_balance",
+      "in_lb": 60,
+      "out_lb": 60,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_INDIA",
+      "display": "India forward cache",
+      "law": "mass_balance",
+      "in_lb": 405,
+      "out_lb": 385,
+      "inventory_eod_lb": 20
+    },
+    {
+      "node": "HUB_TANGO",
+      "display": "Tango ridge hub",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 55,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_LIMA",
+      "display": "Lima ridge hub",
+      "law": "mass_balance",
+      "in_lb": 50,
+      "out_lb": 50,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_ZULU",
+      "display": "Zulu junction",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 20,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SITE_DELTA",
+      "display": "Delta water point",
+      "law": "mass_balance",
+      "in_lb": 36,
+      "out_lb": 0,
+      "inventory_eod_lb": 36
+    },
+    {
+      "node": "SITE_CEDAR",
+      "display": "Cedar orchard",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_CHARLIE",
+      "display": "Charlie checkpoint",
+      "law": "mass_balance",
+      "in_lb": 10,
+      "out_lb": 0,
+      "inventory_eod_lb": 10
+    },
+    {
+      "node": "SITE_ALPHA",
+      "display": "Alpha mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 90,
+      "out_lb": 5,
+      "inventory_eod_lb": 85
+    },
+    {
+      "node": "SITE_GRANITE",
+      "display": "Granite market",
+      "law": "mass_balance",
+      "in_lb": 10,
+      "out_lb": 0,
+      "inventory_eod_lb": 10
+    },
+    {
+      "node": "SITE_JULIET",
+      "display": "Juliet warehouse",
+      "law": "mass_balance",
+      "in_lb": 19,
+      "out_lb": 0,
+      "inventory_eod_lb": 19
+    },
+    {
+      "node": "SITE_WILLOW",
+      "display": "Willow bridge",
+      "law": "mass_balance",
+      "in_lb": 285,
+      "out_lb": 60,
+      "inventory_eod_lb": 225
+    },
+    {
+      "node": "SITE_GOLF",
+      "display": "Golf well",
+      "law": "mass_balance",
+      "in_lb": 180,
+      "out_lb": 0,
+      "inventory_eod_lb": 180
+    }
+  ],
+  "people": [
+    {
+      "name": "MAJ Aisha Berg",
+      "callsign": "Watchtower",
+      "site_id": null,
+      "role": "TOC collector"
+    },
+    {
+      "name": "CPT Riley Okafor",
+      "callsign": "Spare-2",
+      "site_id": null,
+      "role": "spare radio hand"
+    },
+    {
+      "name": "LT Tom MacLeod",
+      "callsign": "Dustoff-N",
+      "site_id": "SRC_NOVEMBER",
+      "role": "site reporter at November airdrop LZ"
+    },
+    {
+      "name": "LT Ibrahim Okonkwo",
+      "callsign": "Dustoff-B",
+      "site_id": "SRC_BRAVO",
+      "role": "site reporter at Bravo airdrop LZ"
+    },
+    {
+      "name": "SGT Omar Volkov",
+      "callsign": "Xray-Actual",
+      "site_id": "HUB_XRAY",
+      "role": "site reporter at Xray junction"
+    },
+    {
+      "name": "PVT Victor Ortiz",
+      "callsign": "Sandpit-Actual",
+      "site_id": "HUB_SANDPIT",
+      "role": "site reporter at Sandpit forward cache"
+    },
+    {
+      "name": "SSG Leo Ruiz",
+      "callsign": "India-Actual",
+      "site_id": "HUB_INDIA",
+      "role": "site reporter at India forward cache"
+    },
+    {
+      "name": "LT June Singh",
+      "callsign": "Tango-Actual",
+      "site_id": "HUB_TANGO",
+      "role": "site reporter at Tango ridge hub"
+    },
+    {
+      "name": "CPL Diego Okonkwo",
+      "callsign": "Lima-Actual",
+      "site_id": "HUB_LIMA",
+      "role": "site reporter at Lima ridge hub"
+    },
+    {
+      "name": "LT Tom Bennett",
+      "callsign": "Zulu-Actual",
+      "site_id": "HUB_ZULU",
+      "role": "site reporter at Zulu junction"
+    },
+    {
+      "name": "PVT Priya Nguyen",
+      "callsign": "Anchor-D3",
+      "site_id": "SITE_DELTA",
+      "role": "site reporter at Delta water point"
+    },
+    {
+      "name": "CPL Amelia Berg",
+      "callsign": "Anchor-C6",
+      "site_id": "SITE_CEDAR",
+      "role": "site reporter at Cedar orchard"
+    },
+    {
+      "name": "CPT Maya Bennett",
+      "callsign": "Anchor-C6",
+      "site_id": "SITE_CHARLIE",
+      "role": "site reporter at Charlie checkpoint"
+    },
+    {
+      "name": "PFC Elena Berg",
+      "callsign": "Anchor-A4",
+      "site_id": "SITE_ALPHA",
+      "role": "site reporter at Alpha mosque courtyard"
+    },
+    {
+      "name": "CPL Noah Khan",
+      "callsign": "Anchor-G9",
+      "site_id": "SITE_GRANITE",
+      "role": "site reporter at Granite market"
+    },
+    {
+      "name": "Noah Abebe",
+      "callsign": "CIV-NOA",
+      "site_id": "SITE_GRANITE",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "PFC Tom Singh",
+      "callsign": "Anchor-J3",
+      "site_id": "SITE_JULIET",
+      "role": "site reporter at Juliet warehouse"
+    },
+    {
+      "name": "PVT Priya Hassan",
+      "callsign": "Anchor-W1",
+      "site_id": "SITE_WILLOW",
+      "role": "site reporter at Willow bridge"
+    },
+    {
+      "name": "Chris Okonkwo",
+      "callsign": "CIV-CHR",
+      "site_id": "SITE_WILLOW",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SGT Sam Alvarez",
+      "callsign": "Anchor-G5",
+      "site_id": "SITE_GOLF",
+      "role": "site reporter at Golf well"
+    }
+  ],
+  "generator_seed": 8107
+}

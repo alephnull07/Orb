@@ -1,0 +1,1122 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "VICTOR_FOB_DEPOT",
+      "key": "victor fob depot",
+      "display": "Victor FOB depot",
+      "aliases": [
+        "Victor FOB depot"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "MIKE_TRANSFER_YARD",
+      "key": "mike transfer yard",
+      "display": "Mike transfer yard",
+      "aliases": [
+        "Mike transfer yard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "COPPER_RIDGE_HUB",
+      "key": "copper ridge hub",
+      "display": "Copper ridge hub",
+      "aliases": [
+        "Copper ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "NOVEMBER_RIDGE_HUB",
+      "key": "november ridge hub",
+      "display": "November ridge hub",
+      "aliases": [
+        "November ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "SANDPIT_PORT_DUMP",
+      "key": "sandpit port dump",
+      "display": "Sandpit port dump",
+      "aliases": [
+        "Sandpit port dump"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "YANKEE_QUARRY",
+      "key": "yankee quarry",
+      "display": "Yankee quarry",
+      "aliases": [
+        "Yankee quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "FOXTROT_WELL",
+      "key": "foxtrot well",
+      "display": "Foxtrot well",
+      "aliases": [
+        "Foxtrot well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "LIMA_FORWARD_CACHE",
+      "key": "lima forward cache",
+      "display": "Lima forward cache",
+      "aliases": [
+        "Lima forward cache"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "HOTEL_ORCHARD",
+      "key": "hotel orchard",
+      "display": "Hotel orchard",
+      "aliases": [
+        "Hotel orchard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "INDIA_MOSQUE_COURTYARD",
+      "key": "india mosque courtyard",
+      "display": "India mosque courtyard",
+      "aliases": [
+        "India mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "BRAVO_ORCHARD",
+      "key": "bravo orchard",
+      "display": "Bravo orchard",
+      "aliases": [
+        "Bravo orchard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "HARBOR_MILL",
+      "key": "harbor mill",
+      "display": "Harbor mill",
+      "aliases": [
+        "Harbor mill"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "KILO_MILL",
+      "key": "kilo mill",
+      "display": "Kilo mill",
+      "aliases": [
+        "Kilo mill"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "OSCAR_FARM",
+      "key": "oscar farm",
+      "display": "Oscar farm",
+      "aliases": [
+        "Oscar farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "SIERRA_MOSQUE_COURTYARD",
+      "key": "sierra mosque courtyard",
+      "display": "Sierra mosque courtyard",
+      "aliases": [
+        "Sierra mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ZULU_TENT_CITY",
+      "key": "zulu tent city",
+      "display": "Zulu tent city",
+      "aliases": [
+        "Zulu tent city"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "GRANITE_CROSSROADS",
+      "key": "granite crossroads",
+      "display": "Granite crossroads",
+      "aliases": [
+        "Granite crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ALPHA_CROSSROADS",
+      "key": "alpha crossroads",
+      "display": "Alpha crossroads",
+      "aliases": [
+        "Alpha crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "JULIET_MARKET",
+      "key": "juliet market",
+      "display": "Juliet market",
+      "aliases": [
+        "Juliet market"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    }
+  ],
+  "edges": [
+    {
+      "source": "VICTOR_FOB_DEPOT",
+      "target": "MIKE_TRANSFER_YARD",
+      "source_display": "Victor FOB depot",
+      "target_display": "Mike transfer yard",
+      "value_lb": 105,
+      "agent_values": {
+        "scout": 105,
+        "receiver": 105,
+        "auditor": 105
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-003",
+        "MSG-008"
+      ]
+    },
+    {
+      "source": "VICTOR_FOB_DEPOT",
+      "target": "COPPER_RIDGE_HUB",
+      "source_display": "Victor FOB depot",
+      "target_display": "Copper ridge hub",
+      "value_lb": 65,
+      "agent_values": {
+        "scout": 65,
+        "receiver": 25,
+        "auditor": 65
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-004",
+        "MSG-006"
+      ]
+    },
+    {
+      "source": "VICTOR_FOB_DEPOT",
+      "target": "NOVEMBER_RIDGE_HUB",
+      "source_display": "Victor FOB depot",
+      "target_display": "November ridge hub",
+      "value_lb": 55,
+      "agent_values": {
+        "scout": 55,
+        "receiver": 55,
+        "auditor": 55
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-001",
+        "MSG-005"
+      ]
+    },
+    {
+      "source": "SANDPIT_PORT_DUMP",
+      "target": "MIKE_TRANSFER_YARD",
+      "source_display": "Sandpit port dump",
+      "target_display": "Mike transfer yard",
+      "value_lb": 160,
+      "agent_values": {
+        "scout": 160,
+        "receiver": 160,
+        "auditor": 160
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-002",
+        "MSG-007"
+      ]
+    },
+    {
+      "source": "VICTOR_FOB_DEPOT",
+      "target": "YANKEE_QUARRY",
+      "source_display": "Victor FOB depot",
+      "target_display": "Yankee quarry",
+      "value_lb": 80,
+      "agent_values": {
+        "scout": 80,
+        "receiver": 40,
+        "auditor": 80
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-009",
+        "MSG-011"
+      ]
+    },
+    {
+      "source": "SANDPIT_PORT_DUMP",
+      "target": "FOXTROT_WELL",
+      "source_display": "Sandpit port dump",
+      "target_display": "Foxtrot well",
+      "value_lb": 45,
+      "agent_values": {
+        "scout": 45,
+        "receiver": 20,
+        "auditor": 45
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-010",
+        "MSG-014"
+      ]
+    },
+    {
+      "source": "VICTOR_FOB_DEPOT",
+      "target": "LIMA_FORWARD_CACHE",
+      "source_display": "Victor FOB depot",
+      "target_display": "Lima forward cache",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-012",
+        "MSG-013"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "HOTEL_ORCHARD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Hotel orchard",
+      "value_lb": 1,
+      "agent_values": {
+        "scout": 1,
+        "receiver": 1,
+        "auditor": 1
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-015",
+        "MSG-018"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "INDIA_MOSQUE_COURTYARD",
+      "source_display": "Copper ridge hub",
+      "target_display": "India mosque courtyard",
+      "value_lb": 2,
+      "agent_values": {
+        "scout": 2,
+        "receiver": 2,
+        "auditor": 2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-016",
+        "MSG-017"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "BRAVO_ORCHARD",
+      "source_display": "Copper ridge hub",
+      "target_display": "Bravo orchard",
+      "value_lb": 4,
+      "agent_values": {
+        "scout": 4,
+        "receiver": 4,
+        "auditor": 4
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-019",
+        "MSG-020"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "HARBOR_MILL",
+      "source_display": "Copper ridge hub",
+      "target_display": "Harbor mill",
+      "value_lb": 2,
+      "agent_values": {
+        "scout": 2,
+        "receiver": 2,
+        "auditor": 2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-021",
+        "MSG-022"
+      ]
+    },
+    {
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "KILO_MILL",
+      "source_display": "November ridge hub",
+      "target_display": "Kilo mill",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-023",
+        "MSG-024"
+      ]
+    },
+    {
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "OSCAR_FARM",
+      "source_display": "November ridge hub",
+      "target_display": "Oscar farm",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-025",
+        "MSG-030"
+      ]
+    },
+    {
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "SIERRA_MOSQUE_COURTYARD",
+      "source_display": "November ridge hub",
+      "target_display": "Sierra mosque courtyard",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-026",
+        "MSG-027"
+      ]
+    },
+    {
+      "source": "COPPER_RIDGE_HUB",
+      "target": "ZULU_TENT_CITY",
+      "source_display": "Copper ridge hub",
+      "target_display": "Zulu tent city",
+      "value_lb": 1,
+      "agent_values": {
+        "scout": 1,
+        "receiver": 1,
+        "auditor": 1
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-028",
+        "MSG-029"
+      ]
+    },
+    {
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "HARBOR_MILL",
+      "source_display": "November ridge hub",
+      "target_display": "Harbor mill",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-031",
+        "MSG-035"
+      ]
+    },
+    {
+      "source": "MIKE_TRANSFER_YARD",
+      "target": "OSCAR_FARM",
+      "source_display": "Mike transfer yard",
+      "target_display": "Oscar farm",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 35,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-032",
+        "MSG-033"
+      ]
+    },
+    {
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "GRANITE_CROSSROADS",
+      "source_display": "November ridge hub",
+      "target_display": "Granite crossroads",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-034",
+        "MSG-036"
+      ]
+    },
+    {
+      "source": "MIKE_TRANSFER_YARD",
+      "target": "ALPHA_CROSSROADS",
+      "source_display": "Mike transfer yard",
+      "target_display": "Alpha crossroads",
+      "value_lb": 260,
+      "agent_values": {
+        "scout": 260,
+        "receiver": 220,
+        "auditor": 260
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-037",
+        "MSG-038"
+      ]
+    },
+    {
+      "source": "LIMA_FORWARD_CACHE",
+      "target": "JULIET_MARKET",
+      "source_display": "Lima forward cache",
+      "target_display": "Juliet market",
+      "value_lb": 2,
+      "agent_values": {
+        "scout": 2,
+        "receiver": 2,
+        "auditor": 2
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-039",
+        "MSG-042"
+      ]
+    },
+    {
+      "source": "LIMA_FORWARD_CACHE",
+      "target": "SIERRA_MOSQUE_COURTYARD",
+      "source_display": "Lima forward cache",
+      "target_display": "Sierra mosque courtyard",
+      "value_lb": 3,
+      "agent_values": {
+        "scout": 3,
+        "receiver": 3,
+        "auditor": 3
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-040",
+        "MSG-044"
+      ]
+    },
+    {
+      "source": "LIMA_FORWARD_CACHE",
+      "target": "HOTEL_ORCHARD",
+      "source_display": "Lima forward cache",
+      "target_display": "Hotel orchard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-041",
+        "MSG-043"
+      ]
+    },
+    {
+      "source": "YANKEE_QUARRY",
+      "target": "BRAVO_ORCHARD",
+      "source_display": "Yankee quarry",
+      "target_display": "Bravo orchard",
+      "value_lb": 75,
+      "agent_values": {
+        "scout": 75,
+        "receiver": 35,
+        "auditor": 75
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-047",
+        "MSG-049"
+      ]
+    },
+    {
+      "source": "ALPHA_CROSSROADS",
+      "target": "JULIET_MARKET",
+      "source_display": "Alpha crossroads",
+      "target_display": "Juliet market",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-048",
+        "MSG-050"
+      ]
+    },
+    {
+      "source": "OSCAR_FARM",
+      "target": "FOXTROT_WELL",
+      "source_display": "Oscar farm",
+      "target_display": "Foxtrot well",
+      "value_lb": 35,
+      "agent_values": {
+        "scout": 35,
+        "receiver": 35,
+        "auditor": 35
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-051",
+        "MSG-052"
+      ]
+    },
+    {
+      "source": "ZULU_TENT_CITY",
+      "target": "LIMA_FORWARD_CACHE",
+      "source_display": "Zulu tent city",
+      "target_display": "Lima forward cache",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-C01"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "VICTOR_FOB_DEPOT",
+      "display": "Victor FOB depot",
+      "law": "mass_balance",
+      "in_lb": 330,
+      "out_lb": 330,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "MIKE_TRANSFER_YARD",
+      "display": "Mike transfer yard",
+      "law": "mass_balance",
+      "in_lb": 265,
+      "out_lb": 255,
+      "inventory_eod_lb": 10,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "COPPER_RIDGE_HUB",
+      "display": "Copper ridge hub",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "NOVEMBER_RIDGE_HUB",
+      "display": "November ridge hub",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 50,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SANDPIT_PORT_DUMP",
+      "display": "Sandpit port dump",
+      "law": "mass_balance",
+      "in_lb": 205,
+      "out_lb": 205,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "YANKEE_QUARRY",
+      "display": "Yankee quarry",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 35,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "FOXTROT_WELL",
+      "display": "Foxtrot well",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 0,
+      "inventory_eod_lb": 55,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "LIMA_FORWARD_CACHE",
+      "display": "Lima forward cache",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HOTEL_ORCHARD",
+      "display": "Hotel orchard",
+      "law": "mass_balance",
+      "in_lb": 6,
+      "out_lb": 0,
+      "inventory_eod_lb": 6,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "INDIA_MOSQUE_COURTYARD",
+      "display": "India mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 2,
+      "out_lb": 0,
+      "inventory_eod_lb": 2,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "BRAVO_ORCHARD",
+      "display": "Bravo orchard",
+      "law": "mass_balance",
+      "in_lb": 39,
+      "out_lb": 0,
+      "inventory_eod_lb": 39,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HARBOR_MILL",
+      "display": "Harbor mill",
+      "law": "mass_balance",
+      "in_lb": 7,
+      "out_lb": 0,
+      "inventory_eod_lb": 7,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "KILO_MILL",
+      "display": "Kilo mill",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "OSCAR_FARM",
+      "display": "Oscar farm",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 35,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SIERRA_MOSQUE_COURTYARD",
+      "display": "Sierra mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 23,
+      "out_lb": 0,
+      "inventory_eod_lb": 23,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ZULU_TENT_CITY",
+      "display": "Zulu tent city",
+      "law": "mass_balance",
+      "in_lb": 1,
+      "out_lb": 0,
+      "inventory_eod_lb": 1,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GRANITE_CROSSROADS",
+      "display": "Granite crossroads",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ALPHA_CROSSROADS",
+      "display": "Alpha crossroads",
+      "law": "mass_balance",
+      "in_lb": 220,
+      "out_lb": 15,
+      "inventory_eod_lb": 205,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "JULIET_MARKET",
+      "display": "Juliet market",
+      "law": "mass_balance",
+      "in_lb": 17,
+      "out_lb": 0,
+      "inventory_eod_lb": 17,
+      "source": "auditor_eod"
+    }
+  ],
+  "disagreements": [
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "victor fob depot",
+      "target": "copper ridge hub",
+      "agent_values": {
+        "scout": 65,
+        "receiver": 25,
+        "auditor": 65
+      },
+      "kept": 65,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "victor fob depot",
+      "target": "yankee quarry",
+      "agent_values": {
+        "scout": 80,
+        "receiver": 40,
+        "auditor": 80
+      },
+      "kept": 80,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "sandpit port dump",
+      "target": "foxtrot well",
+      "agent_values": {
+        "scout": 45,
+        "receiver": 20,
+        "auditor": 45
+      },
+      "kept": 45,
+      "delta": 25
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "mike transfer yard",
+      "target": "oscar farm",
+      "agent_values": {
+        "scout": 35,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "kept": 50,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "mike transfer yard",
+      "target": "alpha crossroads",
+      "agent_values": {
+        "scout": 260,
+        "receiver": 220,
+        "auditor": 260
+      },
+      "kept": 260,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "yankee quarry",
+      "target": "bravo orchard",
+      "agent_values": {
+        "scout": 75,
+        "receiver": 35,
+        "auditor": 75
+      },
+      "kept": 75,
+      "delta": 40
+    }
+  ],
+  "stats": {
+    "nodes": 19,
+    "edges": 26,
+    "outvoted_edges": 0,
+    "discrepancies": 6
+  },
+  "by_id": {
+    "VICTOR_FOB_DEPOT": "Victor FOB depot",
+    "MIKE_TRANSFER_YARD": "Mike transfer yard",
+    "COPPER_RIDGE_HUB": "Copper ridge hub",
+    "NOVEMBER_RIDGE_HUB": "November ridge hub",
+    "SANDPIT_PORT_DUMP": "Sandpit port dump",
+    "YANKEE_QUARRY": "Yankee quarry",
+    "FOXTROT_WELL": "Foxtrot well",
+    "LIMA_FORWARD_CACHE": "Lima forward cache",
+    "HOTEL_ORCHARD": "Hotel orchard",
+    "INDIA_MOSQUE_COURTYARD": "India mosque courtyard",
+    "BRAVO_ORCHARD": "Bravo orchard",
+    "HARBOR_MILL": "Harbor mill",
+    "KILO_MILL": "Kilo mill",
+    "OSCAR_FARM": "Oscar farm",
+    "SIERRA_MOSQUE_COURTYARD": "Sierra mosque courtyard",
+    "ZULU_TENT_CITY": "Zulu tent city",
+    "GRANITE_CROSSROADS": "Granite crossroads",
+    "ALPHA_CROSSROADS": "Alpha crossroads",
+    "JULIET_MARKET": "Juliet market"
+  }
+}

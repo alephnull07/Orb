@@ -1,0 +1,1640 @@
+{
+  "scenario": "supply_drops_people_as_sensors",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "agents": [
+    "scout",
+    "receiver",
+    "auditor"
+  ],
+  "nodes": [
+    {
+      "id": "QUARRY_AIRDROP_LZ",
+      "key": "quarry airdrop lz",
+      "display": "Quarry airdrop LZ",
+      "aliases": [
+        "Quarry airdrop LZ"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "TANGO_RIDGE_HUB",
+      "key": "tango ridge hub",
+      "display": "Tango ridge hub",
+      "aliases": [
+        "Tango ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "JULIET_RIDGE_HUB",
+      "key": "juliet ridge hub",
+      "display": "Juliet ridge hub",
+      "aliases": [
+        "Juliet ridge hub"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "GOLF_FORWARD_CACHE",
+      "key": "golf forward cache",
+      "display": "Golf forward cache",
+      "aliases": [
+        "Golf forward cache"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "SANDPIT_RAILHEAD",
+      "key": "sandpit railhead",
+      "display": "Sandpit railhead",
+      "aliases": [
+        "Sandpit railhead"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "source"
+    },
+    {
+      "id": "FOXTROT_HELIPAD",
+      "key": "foxtrot helipad",
+      "display": "Foxtrot helipad",
+      "aliases": [
+        "Foxtrot helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ALPHA_WATER_POINT",
+      "key": "alpha water point",
+      "display": "Alpha water point",
+      "aliases": [
+        "Alpha water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "MAPLE_MILL",
+      "key": "maple mill",
+      "display": "Maple mill",
+      "aliases": [
+        "Maple mill"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "CHARLIE_FORWARD_CACHE",
+      "key": "charlie forward cache",
+      "display": "Charlie forward cache",
+      "aliases": [
+        "Charlie forward cache"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "KILO_SCHOOLHOUSE",
+      "key": "kilo schoolhouse",
+      "display": "Kilo schoolhouse",
+      "aliases": [
+        "Kilo schoolhouse"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "SIERRA_WATER_POINT",
+      "key": "sierra water point",
+      "display": "Sierra water point",
+      "aliases": [
+        "Sierra water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "VICTOR_FARM",
+      "key": "victor farm",
+      "display": "Victor farm",
+      "aliases": [
+        "Victor farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "PAPA_CROSSROADS",
+      "key": "papa crossroads",
+      "display": "Papa crossroads",
+      "aliases": [
+        "Papa crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "ECHO_WELL",
+      "key": "echo well",
+      "display": "Echo well",
+      "aliases": [
+        "Echo well"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "MIKE_MOSQUE_COURTYARD",
+      "key": "mike mosque courtyard",
+      "display": "Mike mosque courtyard",
+      "aliases": [
+        "Mike mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    },
+    {
+      "id": "BRAVO_WATER_POINT",
+      "key": "bravo water point",
+      "display": "Bravo water point",
+      "aliases": [
+        "Bravo water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "COPPER_MOSQUE_COURTYARD",
+      "key": "copper mosque courtyard",
+      "display": "Copper mosque courtyard",
+      "aliases": [
+        "Copper mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "ROMEO_WATER_POINT",
+      "key": "romeo water point",
+      "display": "Romeo water point",
+      "aliases": [
+        "Romeo water point"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "LIMA_FARM",
+      "key": "lima farm",
+      "display": "Lima farm",
+      "aliases": [
+        "Lima farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "HOTEL_FARM",
+      "key": "hotel farm",
+      "display": "Hotel farm",
+      "aliases": [
+        "Hotel farm"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "WILLOW_HELIPAD",
+      "key": "willow helipad",
+      "display": "Willow helipad",
+      "aliases": [
+        "Willow helipad"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "CEDAR_CROSSROADS",
+      "key": "cedar crossroads",
+      "display": "Cedar crossroads",
+      "aliases": [
+        "Cedar crossroads"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "HARBOR_QUARRY",
+      "key": "harbor quarry",
+      "display": "Harbor quarry",
+      "aliases": [
+        "Harbor quarry"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "junction"
+    },
+    {
+      "id": "WHISKEY_BRIDGE",
+      "key": "whiskey bridge",
+      "display": "Whiskey bridge",
+      "aliases": [
+        "Whiskey bridge"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "sink"
+    },
+    {
+      "id": "NOVEMBER_MOSQUE_COURTYARD",
+      "key": "november mosque courtyard",
+      "display": "November mosque courtyard",
+      "aliases": [
+        "November mosque courtyard"
+      ],
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "type": "hub"
+    }
+  ],
+  "edges": [
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "TANGO_RIDGE_HUB",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Tango ridge hub",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-001",
+        "MSG-002"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "JULIET_RIDGE_HUB",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Juliet ridge hub",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-005",
+        "MSG-008"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "GOLF_FORWARD_CACHE",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Golf forward cache",
+      "value_lb": 195,
+      "agent_values": {
+        "scout": 195,
+        "receiver": 195,
+        "auditor": 195
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-004",
+        "MSG-006"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "JULIET_RIDGE_HUB",
+      "source_display": "Sandpit railhead",
+      "target_display": "Juliet ridge hub",
+      "value_lb": 110,
+      "agent_values": {
+        "scout": 110,
+        "receiver": 95,
+        "auditor": 110
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-003",
+        "MSG-007"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "FOXTROT_HELIPAD",
+      "source_display": "Sandpit railhead",
+      "target_display": "Foxtrot helipad",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-009",
+        "MSG-010"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "ALPHA_WATER_POINT",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Alpha water point",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-011",
+        "MSG-015"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "MAPLE_MILL",
+      "source_display": "Sandpit railhead",
+      "target_display": "Maple mill",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-012",
+        "MSG-014"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "CHARLIE_FORWARD_CACHE",
+      "source_display": "Sandpit railhead",
+      "target_display": "Charlie forward cache",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-013",
+        "MSG-016"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "KILO_SCHOOLHOUSE",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Kilo schoolhouse",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-017",
+        "MSG-022"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "SIERRA_WATER_POINT",
+      "source_display": "Sandpit railhead",
+      "target_display": "Sierra water point",
+      "value_lb": 65,
+      "agent_values": {
+        "scout": 65,
+        "receiver": 25,
+        "auditor": 65
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-019",
+        "MSG-021"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "VICTOR_FARM",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Victor farm",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-018",
+        "MSG-023"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "PAPA_CROSSROADS",
+      "source_display": "Sandpit railhead",
+      "target_display": "Papa crossroads",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-020",
+        "MSG-024"
+      ]
+    },
+    {
+      "source": "SANDPIT_RAILHEAD",
+      "target": "ECHO_WELL",
+      "source_display": "Sandpit railhead",
+      "target_display": "Echo well",
+      "value_lb": 60,
+      "agent_values": {
+        "scout": 45,
+        "receiver": 60,
+        "auditor": 60
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-025",
+        "MSG-026"
+      ]
+    },
+    {
+      "source": "QUARRY_AIRDROP_LZ",
+      "target": "MIKE_MOSQUE_COURTYARD",
+      "source_display": "Quarry airdrop LZ",
+      "target_display": "Mike mosque courtyard",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-027",
+        "MSG-028"
+      ]
+    },
+    {
+      "source": "GOLF_FORWARD_CACHE",
+      "target": "BRAVO_WATER_POINT",
+      "source_display": "Golf forward cache",
+      "target_display": "Bravo water point",
+      "value_lb": 155,
+      "agent_values": {
+        "scout": 155,
+        "receiver": 155,
+        "auditor": 155
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-030",
+        "MSG-036"
+      ]
+    },
+    {
+      "source": "CHARLIE_FORWARD_CACHE",
+      "target": "COPPER_MOSQUE_COURTYARD",
+      "source_display": "Charlie forward cache",
+      "target_display": "Copper mosque courtyard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-029",
+        "MSG-032"
+      ]
+    },
+    {
+      "source": "CHARLIE_FORWARD_CACHE",
+      "target": "ROMEO_WATER_POINT",
+      "source_display": "Charlie forward cache",
+      "target_display": "Romeo water point",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-033",
+        "MSG-034"
+      ]
+    },
+    {
+      "source": "GOLF_FORWARD_CACHE",
+      "target": "LIMA_FARM",
+      "source_display": "Golf forward cache",
+      "target_display": "Lima farm",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-031",
+        "MSG-035"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "ROMEO_WATER_POINT",
+      "source_display": "Juliet ridge hub",
+      "target_display": "Romeo water point",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-037",
+        "MSG-038"
+      ]
+    },
+    {
+      "source": "CHARLIE_FORWARD_CACHE",
+      "target": "HOTEL_FARM",
+      "source_display": "Charlie forward cache",
+      "target_display": "Hotel farm",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-039",
+        "MSG-041"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "WILLOW_HELIPAD",
+      "source_display": "Juliet ridge hub",
+      "target_display": "Willow helipad",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-040",
+        "MSG-044"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "LIMA_FARM",
+      "source_display": "Juliet ridge hub",
+      "target_display": "Lima farm",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-042",
+        "MSG-043"
+      ]
+    },
+    {
+      "source": "TANGO_RIDGE_HUB",
+      "target": "CEDAR_CROSSROADS",
+      "source_display": "Tango ridge hub",
+      "target_display": "Cedar crossroads",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-045",
+        "MSG-052"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "HARBOR_QUARRY",
+      "source_display": "Juliet ridge hub",
+      "target_display": "Harbor quarry",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-046",
+        "MSG-048"
+      ]
+    },
+    {
+      "source": "TANGO_RIDGE_HUB",
+      "target": "WHISKEY_BRIDGE",
+      "source_display": "Tango ridge hub",
+      "target_display": "Whiskey bridge",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-047",
+        "MSG-050"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "NOVEMBER_MOSQUE_COURTYARD",
+      "source_display": "Juliet ridge hub",
+      "target_display": "November mosque courtyard",
+      "value_lb": 65,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 65,
+        "auditor": 65
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-049",
+        "MSG-051"
+      ]
+    },
+    {
+      "source": "NOVEMBER_MOSQUE_COURTYARD",
+      "target": "MIKE_MOSQUE_COURTYARD",
+      "source_display": "November mosque courtyard",
+      "target_display": "Mike mosque courtyard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-056",
+        "MSG-057"
+      ]
+    },
+    {
+      "source": "NOVEMBER_MOSQUE_COURTYARD",
+      "target": "ECHO_WELL",
+      "source_display": "November mosque courtyard",
+      "target_display": "Echo well",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-058",
+        "MSG-059"
+      ]
+    },
+    {
+      "source": "BRAVO_WATER_POINT",
+      "target": "ECHO_WELL",
+      "source_display": "Bravo water point",
+      "target_display": "Echo well",
+      "value_lb": 15,
+      "agent_values": {
+        "scout": 15,
+        "receiver": 15,
+        "auditor": 15
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-060",
+        "MSG-062"
+      ]
+    },
+    {
+      "source": "BRAVO_WATER_POINT",
+      "target": "COPPER_MOSQUE_COURTYARD",
+      "source_display": "Bravo water point",
+      "target_display": "Copper mosque courtyard",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "receiver": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-055",
+        "MSG-061"
+      ]
+    },
+    {
+      "source": "VICTOR_FARM",
+      "target": "ALPHA_WATER_POINT",
+      "source_display": "Victor farm",
+      "target_display": "Alpha water point",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-063",
+        "MSG-066"
+      ]
+    },
+    {
+      "source": "LIMA_FARM",
+      "target": "KILO_SCHOOLHOUSE",
+      "source_display": "Lima farm",
+      "target_display": "Kilo schoolhouse",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-065",
+        "MSG-067"
+      ]
+    },
+    {
+      "source": "LIMA_FARM",
+      "target": "HOTEL_FARM",
+      "source_display": "Lima farm",
+      "target_display": "Hotel farm",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-064",
+        "MSG-068"
+      ]
+    },
+    {
+      "source": "HARBOR_QUARRY",
+      "target": "KILO_SCHOOLHOUSE",
+      "source_display": "Harbor quarry",
+      "target_display": "Kilo schoolhouse",
+      "value_lb": 30,
+      "agent_values": {
+        "scout": 30,
+        "receiver": 30,
+        "auditor": 30
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-069",
+        "MSG-070"
+      ]
+    },
+    {
+      "source": "MIKE_MOSQUE_COURTYARD",
+      "target": "WILLOW_HELIPAD",
+      "source_display": "Mike mosque courtyard",
+      "target_display": "Willow helipad",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-071",
+        "MSG-076"
+      ]
+    },
+    {
+      "source": "ROMEO_WATER_POINT",
+      "target": "MIKE_MOSQUE_COURTYARD",
+      "source_display": "Romeo water point",
+      "target_display": "Mike mosque courtyard",
+      "value_lb": 25,
+      "agent_values": {
+        "scout": 25,
+        "receiver": 25,
+        "auditor": 25
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-074",
+        "MSG-075"
+      ]
+    },
+    {
+      "source": "SIERRA_WATER_POINT",
+      "target": "PAPA_CROSSROADS",
+      "source_display": "Sierra water point",
+      "target_display": "Papa crossroads",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-072",
+        "MSG-077"
+      ]
+    },
+    {
+      "source": "ECHO_WELL",
+      "target": "PAPA_CROSSROADS",
+      "source_display": "Echo well",
+      "target_display": "Papa crossroads",
+      "value_lb": 20,
+      "agent_values": {
+        "scout": 20,
+        "receiver": 10,
+        "auditor": 20
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "reported_extreme",
+      "evidence": [
+        "MSG-073",
+        "MSG-078"
+      ]
+    },
+    {
+      "source": "SIERRA_WATER_POINT",
+      "target": "NOVEMBER_MOSQUE_COURTYARD",
+      "source_display": "Sierra water point",
+      "target_display": "November mosque courtyard",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-081",
+        "MSG-086"
+      ]
+    },
+    {
+      "source": "PAPA_CROSSROADS",
+      "target": "FOXTROT_HELIPAD",
+      "source_display": "Papa crossroads",
+      "target_display": "Foxtrot helipad",
+      "value_lb": 10,
+      "agent_values": {
+        "scout": 10,
+        "receiver": 10,
+        "auditor": 10
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-079",
+        "MSG-082"
+      ]
+    },
+    {
+      "source": "KILO_SCHOOLHOUSE",
+      "target": "ALPHA_WATER_POINT",
+      "source_display": "Kilo schoolhouse",
+      "target_display": "Alpha water point",
+      "value_lb": 5,
+      "agent_values": {
+        "scout": 5,
+        "receiver": 5,
+        "auditor": 5
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-083",
+        "MSG-085"
+      ]
+    },
+    {
+      "source": "PAPA_CROSSROADS",
+      "target": "COPPER_MOSQUE_COURTYARD",
+      "source_display": "Papa crossroads",
+      "target_display": "Copper mosque courtyard",
+      "value_lb": 50,
+      "agent_values": {
+        "scout": 50,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "votes": [
+        "auditor",
+        "receiver",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-080",
+        "MSG-084"
+      ]
+    },
+    {
+      "source": "JULIET_RIDGE_HUB",
+      "target": "SANDPIT_RAILHEAD",
+      "source_display": "Juliet ridge hub",
+      "target_display": "Sandpit railhead",
+      "value_lb": 40,
+      "agent_values": {
+        "scout": 40,
+        "auditor": 40
+      },
+      "votes": [
+        "auditor",
+        "scout"
+      ],
+      "method": "unanimous",
+      "evidence": [
+        "MSG-C01"
+      ]
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "QUARRY_AIRDROP_LZ",
+      "display": "Quarry airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 325,
+      "out_lb": 325,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "TANGO_RIDGE_HUB",
+      "display": "Tango ridge hub",
+      "law": "mass_balance",
+      "in_lb": 10,
+      "out_lb": 10,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "JULIET_RIDGE_HUB",
+      "display": "Juliet ridge hub",
+      "law": "mass_balance",
+      "in_lb": 115,
+      "out_lb": 115,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "GOLF_FORWARD_CACHE",
+      "display": "Golf forward cache",
+      "law": "mass_balance",
+      "in_lb": 195,
+      "out_lb": 195,
+      "inventory_eod_lb": 0,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SANDPIT_RAILHEAD",
+      "display": "Sandpit railhead",
+      "law": "mass_balance",
+      "in_lb": 365,
+      "out_lb": 365,
+      "inventory_eod_lb": 0,
+      "source": "consensus_flow"
+    },
+    {
+      "node": "FOXTROT_HELIPAD",
+      "display": "Foxtrot helipad",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 0,
+      "inventory_eod_lb": 30,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ALPHA_WATER_POINT",
+      "display": "Alpha water point",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 0,
+      "inventory_eod_lb": 30,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MAPLE_MILL",
+      "display": "Maple mill",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "CHARLIE_FORWARD_CACHE",
+      "display": "Charlie forward cache",
+      "law": "mass_balance",
+      "in_lb": 50,
+      "out_lb": 30,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "KILO_SCHOOLHOUSE",
+      "display": "Kilo schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 5,
+      "inventory_eod_lb": 65,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "SIERRA_WATER_POINT",
+      "display": "Sierra water point",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 10,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "VICTOR_FARM",
+      "display": "Victor farm",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 5,
+      "inventory_eod_lb": 35,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "PAPA_CROSSROADS",
+      "display": "Papa crossroads",
+      "law": "mass_balance",
+      "in_lb": 65,
+      "out_lb": 60,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ECHO_WELL",
+      "display": "Echo well",
+      "law": "mass_balance",
+      "in_lb": 65,
+      "out_lb": 20,
+      "inventory_eod_lb": 45,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "MIKE_MOSQUE_COURTYARD",
+      "display": "Mike mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 20,
+      "inventory_eod_lb": 35,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "BRAVO_WATER_POINT",
+      "display": "Bravo water point",
+      "law": "mass_balance",
+      "in_lb": 155,
+      "out_lb": 55,
+      "inventory_eod_lb": 100,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "COPPER_MOSQUE_COURTYARD",
+      "display": "Copper mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 95,
+      "out_lb": 0,
+      "inventory_eod_lb": 95,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "ROMEO_WATER_POINT",
+      "display": "Romeo water point",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 25,
+      "inventory_eod_lb": 15,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "LIMA_FARM",
+      "display": "Lima farm",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 40,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HOTEL_FARM",
+      "display": "Hotel farm",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 0,
+      "inventory_eod_lb": 40,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "WILLOW_HELIPAD",
+      "display": "Willow helipad",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 0,
+      "inventory_eod_lb": 30,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "CEDAR_CROSSROADS",
+      "display": "Cedar crossroads",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "HARBOR_QUARRY",
+      "display": "Harbor quarry",
+      "law": "mass_balance",
+      "in_lb": 50,
+      "out_lb": 30,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "WHISKEY_BRIDGE",
+      "display": "Whiskey bridge",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5,
+      "source": "auditor_eod"
+    },
+    {
+      "node": "NOVEMBER_MOSQUE_COURTYARD",
+      "display": "November mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 10,
+      "inventory_eod_lb": 20,
+      "source": "auditor_eod"
+    }
+  ],
+  "disagreements": [
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "sandpit railhead",
+      "target": "juliet ridge hub",
+      "agent_values": {
+        "scout": 110,
+        "receiver": 95,
+        "auditor": 110
+      },
+      "kept": 110,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "quarry airdrop lz",
+      "target": "alpha water point",
+      "agent_values": {
+        "scout": 10,
+        "receiver": 20,
+        "auditor": 20
+      },
+      "kept": 20,
+      "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "sandpit railhead",
+      "target": "sierra water point",
+      "agent_values": {
+        "scout": 65,
+        "receiver": 25,
+        "auditor": 65
+      },
+      "kept": 65,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "sandpit railhead",
+      "target": "echo well",
+      "agent_values": {
+        "scout": 45,
+        "receiver": 60,
+        "auditor": 60
+      },
+      "kept": 60,
+      "delta": 15
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "juliet ridge hub",
+      "target": "november mosque courtyard",
+      "agent_values": {
+        "scout": 25,
+        "receiver": 65,
+        "auditor": 65
+      },
+      "kept": 65,
+      "delta": 40
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "echo well",
+      "target": "papa crossroads",
+      "agent_values": {
+        "scout": 20,
+        "receiver": 10,
+        "auditor": 20
+      },
+      "kept": 20,
+      "delta": 10
+    }
+  ],
+  "stats": {
+    "nodes": 25,
+    "edges": 43,
+    "outvoted_edges": 0,
+    "discrepancies": 6
+  },
+  "by_id": {
+    "QUARRY_AIRDROP_LZ": "Quarry airdrop LZ",
+    "TANGO_RIDGE_HUB": "Tango ridge hub",
+    "JULIET_RIDGE_HUB": "Juliet ridge hub",
+    "GOLF_FORWARD_CACHE": "Golf forward cache",
+    "SANDPIT_RAILHEAD": "Sandpit railhead",
+    "FOXTROT_HELIPAD": "Foxtrot helipad",
+    "ALPHA_WATER_POINT": "Alpha water point",
+    "MAPLE_MILL": "Maple mill",
+    "CHARLIE_FORWARD_CACHE": "Charlie forward cache",
+    "KILO_SCHOOLHOUSE": "Kilo schoolhouse",
+    "SIERRA_WATER_POINT": "Sierra water point",
+    "VICTOR_FARM": "Victor farm",
+    "PAPA_CROSSROADS": "Papa crossroads",
+    "ECHO_WELL": "Echo well",
+    "MIKE_MOSQUE_COURTYARD": "Mike mosque courtyard",
+    "BRAVO_WATER_POINT": "Bravo water point",
+    "COPPER_MOSQUE_COURTYARD": "Copper mosque courtyard",
+    "ROMEO_WATER_POINT": "Romeo water point",
+    "LIMA_FARM": "Lima farm",
+    "HOTEL_FARM": "Hotel farm",
+    "WILLOW_HELIPAD": "Willow helipad",
+    "CEDAR_CROSSROADS": "Cedar crossroads",
+    "HARBOR_QUARRY": "Harbor quarry",
+    "WHISKEY_BRIDGE": "Whiskey bridge",
+    "NOVEMBER_MOSQUE_COURTYARD": "November mosque courtyard"
+  }
+}

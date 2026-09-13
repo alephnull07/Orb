@@ -1,0 +1,1064 @@
+{
+  "scenario": "supply_drops_people_as_sensors_corrupted",
+  "seed_nodes": 23,
+  "window": {
+    "date": "2026-09-12",
+    "start": "2026-09-12T06:00:00Z",
+    "end": "2026-09-12T18:00:00Z",
+    "commodity": "relief_supplies",
+    "unit": "lb"
+  },
+  "notes": "Corrupted graph incorporating mutated edge weights and injected ghost edges as reported by the corrupted messages.",
+  "nodes": [
+    {
+      "id": "SRC_CEDAR",
+      "nato": "Cedar",
+      "type": "source",
+      "layer": 0,
+      "kind": "airdrop LZ",
+      "display": "Cedar airdrop LZ",
+      "aliases": [
+        "Cedar airdrop LZ",
+        "Cedar",
+        "airdrop LZ Cedar"
+      ]
+    },
+    {
+      "id": "SRC_ZULU",
+      "nato": "Zulu",
+      "type": "source",
+      "layer": 0,
+      "kind": "port dump",
+      "display": "Zulu port dump",
+      "aliases": [
+        "Zulu port dump",
+        "Zulu",
+        "port dump Zulu"
+      ]
+    },
+    {
+      "id": "SRC_SIERRA",
+      "nato": "Sierra",
+      "type": "source",
+      "layer": 0,
+      "kind": "FOB depot",
+      "display": "Sierra FOB depot",
+      "aliases": [
+        "Sierra FOB depot",
+        "Sierra",
+        "FOB depot Sierra"
+      ]
+    },
+    {
+      "id": "HUB_CHARLIE",
+      "nato": "Charlie",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Charlie transfer yard",
+      "aliases": [
+        "Point C",
+        "Charlie transfer yard",
+        "Anchor-C",
+        "Charlie"
+      ]
+    },
+    {
+      "id": "HUB_COPPER",
+      "nato": "Copper",
+      "type": "hub",
+      "layer": 1,
+      "kind": "ridge hub",
+      "display": "Copper ridge hub",
+      "aliases": [
+        "Point C",
+        "Copper ridge hub",
+        "Anchor-C",
+        "Copper"
+      ]
+    },
+    {
+      "id": "HUB_XRAY",
+      "nato": "Xray",
+      "type": "hub",
+      "layer": 1,
+      "kind": "transfer yard",
+      "display": "Xray transfer yard",
+      "aliases": [
+        "Point X",
+        "Xray transfer yard",
+        "Anchor-X",
+        "Xray"
+      ]
+    },
+    {
+      "id": "SITE_QUEBEC",
+      "nato": "Quebec",
+      "type": "sink",
+      "layer": 2,
+      "kind": "mosque courtyard",
+      "display": "Quebec mosque courtyard",
+      "aliases": [
+        "Point Q",
+        "Quebec mosque courtyard",
+        "Anchor-Q",
+        "Quebec"
+      ]
+    },
+    {
+      "id": "SITE_LIMA",
+      "nato": "Lima",
+      "type": "junction",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Lima helipad",
+      "aliases": [
+        "Point L",
+        "Lima helipad",
+        "Anchor-L",
+        "Lima"
+      ]
+    },
+    {
+      "id": "SITE_GOLF",
+      "nato": "Golf",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mosque courtyard",
+      "display": "Golf mosque courtyard",
+      "aliases": [
+        "Point G",
+        "Golf mosque courtyard",
+        "Anchor-G",
+        "Golf"
+      ]
+    },
+    {
+      "id": "SITE_INDIA",
+      "nato": "India",
+      "type": "junction",
+      "layer": 2,
+      "kind": "bridge",
+      "display": "India bridge",
+      "aliases": [
+        "Point I",
+        "India bridge",
+        "Anchor-I",
+        "India"
+      ]
+    },
+    {
+      "id": "SITE_GRANITE",
+      "nato": "Granite",
+      "type": "junction",
+      "layer": 2,
+      "kind": "tent city",
+      "display": "Granite tent city",
+      "aliases": [
+        "Point G",
+        "Granite tent city",
+        "Anchor-G",
+        "Granite"
+      ]
+    },
+    {
+      "id": "SITE_WILLOW",
+      "nato": "Willow",
+      "type": "junction",
+      "layer": 2,
+      "kind": "water point",
+      "display": "Willow water point",
+      "aliases": [
+        "Point W",
+        "Willow water point",
+        "Anchor-W",
+        "Willow"
+      ]
+    },
+    {
+      "id": "SITE_KILO",
+      "nato": "Kilo",
+      "type": "junction",
+      "layer": 2,
+      "kind": "pad",
+      "display": "Kilo pad",
+      "aliases": [
+        "Point K",
+        "Kilo pad",
+        "Anchor-K",
+        "Kilo"
+      ]
+    },
+    {
+      "id": "SITE_ECHO",
+      "nato": "Echo",
+      "type": "sink",
+      "layer": 2,
+      "kind": "well",
+      "display": "Echo well",
+      "aliases": [
+        "Point E",
+        "Echo well",
+        "Anchor-E",
+        "Echo"
+      ]
+    },
+    {
+      "id": "SITE_IRON",
+      "nato": "Iron",
+      "type": "junction",
+      "layer": 2,
+      "kind": "warehouse",
+      "display": "Iron warehouse",
+      "aliases": [
+        "Point I",
+        "Iron warehouse",
+        "Anchor-I",
+        "Iron"
+      ]
+    },
+    {
+      "id": "SITE_MAPLE",
+      "nato": "Maple",
+      "type": "sink",
+      "layer": 2,
+      "kind": "aid cage",
+      "display": "Maple aid cage",
+      "aliases": [
+        "Point M",
+        "Maple aid cage",
+        "Anchor-M",
+        "Maple"
+      ]
+    },
+    {
+      "id": "SITE_TANGO",
+      "nato": "Tango",
+      "type": "junction",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Tango helipad",
+      "aliases": [
+        "Point T",
+        "Tango helipad",
+        "Anchor-T",
+        "Tango"
+      ]
+    },
+    {
+      "id": "SITE_PAPA",
+      "nato": "Papa",
+      "type": "junction",
+      "layer": 2,
+      "kind": "schoolhouse",
+      "display": "Papa schoolhouse",
+      "aliases": [
+        "Point P",
+        "Papa schoolhouse",
+        "Anchor-P",
+        "Papa"
+      ]
+    },
+    {
+      "id": "SITE_QUARRY",
+      "nato": "Quarry",
+      "type": "junction",
+      "layer": 2,
+      "kind": "mosque courtyard",
+      "display": "Quarry mosque courtyard",
+      "aliases": [
+        "Point Q",
+        "Quarry mosque courtyard",
+        "Anchor-Q",
+        "Quarry"
+      ]
+    },
+    {
+      "id": "SITE_OVERLOOK",
+      "nato": "Overlook",
+      "type": "junction",
+      "layer": 2,
+      "kind": "warehouse",
+      "display": "Overlook warehouse",
+      "aliases": [
+        "Point O",
+        "Overlook warehouse",
+        "Anchor-O",
+        "Overlook"
+      ]
+    },
+    {
+      "id": "SITE_HARBOR",
+      "nato": "Harbor",
+      "type": "sink",
+      "layer": 2,
+      "kind": "helipad",
+      "display": "Harbor helipad",
+      "aliases": [
+        "Point H",
+        "Harbor helipad",
+        "Anchor-H",
+        "Harbor"
+      ]
+    },
+    {
+      "id": "SITE_HOTEL",
+      "nato": "Hotel",
+      "type": "sink",
+      "layer": 2,
+      "kind": "quarry",
+      "display": "Hotel quarry",
+      "aliases": [
+        "Point H",
+        "Hotel quarry",
+        "Anchor-H",
+        "Hotel"
+      ]
+    },
+    {
+      "id": "SITE_NOVEMBER",
+      "nato": "November",
+      "type": "sink",
+      "layer": 2,
+      "kind": "aid cage",
+      "display": "November aid cage",
+      "aliases": [
+        "Point N",
+        "November aid cage",
+        "Anchor-N",
+        "November"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "SRC_CEDAR",
+      "target": "HUB_CHARLIE",
+      "value_lb": 15,
+      "time": "2026-09-12T06:20:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Charlie transfer yard"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "HUB_COPPER",
+      "value_lb": 50,
+      "time": "2026-09-12T06:36:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Copper ridge hub"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "HUB_XRAY",
+      "value_lb": 135,
+      "time": "2026-09-12T06:53:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Xray transfer yard"
+    },
+    {
+      "source": "SRC_ZULU",
+      "target": "HUB_XRAY",
+      "value_lb": 130,
+      "time": "2026-09-12T07:11:00Z",
+      "source_name": "Zulu port dump",
+      "target_name": "Xray transfer yard"
+    },
+    {
+      "source": "SRC_SIERRA",
+      "target": "HUB_COPPER",
+      "value_lb": 10,
+      "time": "2026-09-12T07:20:00Z",
+      "source_name": "Sierra FOB depot",
+      "target_name": "Copper ridge hub"
+    },
+    {
+      "source": "SRC_SIERRA",
+      "target": "HUB_CHARLIE",
+      "value_lb": 70,
+      "time": "2026-09-12T07:35:00Z",
+      "source_name": "Sierra FOB depot",
+      "target_name": "Charlie transfer yard"
+    },
+    {
+      "source": "HUB_CHARLIE",
+      "target": "SITE_GOLF",
+      "value_lb": 80,
+      "time": "2026-09-12T07:47:00Z",
+      "source_name": "Charlie transfer yard",
+      "target_name": "Golf mosque courtyard"
+    },
+    {
+      "source": "HUB_CHARLIE",
+      "target": "SITE_MAPLE",
+      "value_lb": 5,
+      "time": "2026-09-12T07:56:00Z",
+      "source_name": "Charlie transfer yard",
+      "target_name": "Maple aid cage"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_HARBOR",
+      "value_lb": 30,
+      "time": "2026-09-12T08:05:00Z",
+      "source_name": "Xray transfer yard",
+      "target_name": "Harbor helipad",
+      "corrupted": true
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "HUB_COPPER",
+      "value_lb": 235,
+      "time": "2026-09-12T08:13:00Z",
+      "source_name": "Xray transfer yard",
+      "target_name": "Copper ridge hub"
+    },
+    {
+      "source": "HUB_COPPER",
+      "target": "SITE_LIMA",
+      "value_lb": 105,
+      "time": "2026-09-12T08:27:00Z",
+      "source_name": "Copper ridge hub",
+      "target_name": "Lima helipad"
+    },
+    {
+      "source": "HUB_COPPER",
+      "target": "SITE_WILLOW",
+      "value_lb": 75,
+      "time": "2026-09-12T08:35:00Z",
+      "source_name": "Copper ridge hub",
+      "target_name": "Willow water point"
+    },
+    {
+      "source": "HUB_COPPER",
+      "target": "SITE_QUARRY",
+      "value_lb": 95,
+      "time": "2026-09-12T08:48:00Z",
+      "source_name": "Copper ridge hub",
+      "target_name": "Quarry mosque courtyard"
+    },
+    {
+      "source": "HUB_XRAY",
+      "target": "SITE_QUEBEC",
+      "value_lb": 15,
+      "time": "2026-09-12T08:56:00Z",
+      "source_name": "Xray transfer yard",
+      "target_name": "Quebec mosque courtyard"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_INDIA",
+      "value_lb": 60,
+      "time": "2026-09-12T09:04:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "India bridge",
+      "corrupted": true
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_GRANITE",
+      "value_lb": 25,
+      "time": "2026-09-12T09:20:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Granite tent city"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_KILO",
+      "value_lb": 25,
+      "time": "2026-09-12T09:27:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Kilo pad"
+    },
+    {
+      "source": "HUB_COPPER",
+      "target": "SITE_ECHO",
+      "value_lb": 20,
+      "time": "2026-09-12T09:42:00Z",
+      "source_name": "Copper ridge hub",
+      "target_name": "Echo well"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_IRON",
+      "value_lb": 45,
+      "time": "2026-09-12T09:58:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Iron warehouse"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_TANGO",
+      "value_lb": 30,
+      "time": "2026-09-12T10:07:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Tango helipad"
+    },
+    {
+      "source": "SRC_ZULU",
+      "target": "SITE_PAPA",
+      "value_lb": 25,
+      "time": "2026-09-12T10:18:00Z",
+      "source_name": "Zulu port dump",
+      "target_name": "Papa schoolhouse",
+      "corrupted": true
+    },
+    {
+      "source": "SRC_ZULU",
+      "target": "SITE_OVERLOOK",
+      "value_lb": 40,
+      "time": "2026-09-12T10:24:00Z",
+      "source_name": "Zulu port dump",
+      "target_name": "Overlook warehouse"
+    },
+    {
+      "source": "SRC_CEDAR",
+      "target": "SITE_HOTEL",
+      "value_lb": 15,
+      "time": "2026-09-12T10:36:00Z",
+      "source_name": "Cedar airdrop LZ",
+      "target_name": "Hotel quarry"
+    },
+    {
+      "source": "SRC_ZULU",
+      "target": "SITE_NOVEMBER",
+      "value_lb": 20,
+      "time": "2026-09-12T10:52:00Z",
+      "source_name": "Zulu port dump",
+      "target_name": "November aid cage"
+    },
+    {
+      "source": "SITE_IRON",
+      "target": "SITE_WILLOW",
+      "value_lb": 15,
+      "time": "2026-09-12T11:12:00Z",
+      "source_name": "Iron warehouse",
+      "target_name": "Willow water point"
+    },
+    {
+      "source": "SITE_PAPA",
+      "target": "SITE_OVERLOOK",
+      "value_lb": 5,
+      "time": "2026-09-12T11:25:00Z",
+      "source_name": "Papa schoolhouse",
+      "target_name": "Overlook warehouse"
+    },
+    {
+      "source": "SITE_PAPA",
+      "target": "SITE_LIMA",
+      "value_lb": 15,
+      "time": "2026-09-12T11:39:00Z",
+      "source_name": "Papa schoolhouse",
+      "target_name": "Lima helipad",
+      "corrupted": true
+    },
+    {
+      "source": "SITE_OVERLOOK",
+      "target": "SITE_IRON",
+      "value_lb": 10,
+      "time": "2026-09-12T11:56:00Z",
+      "source_name": "Overlook warehouse",
+      "target_name": "Iron warehouse"
+    },
+    {
+      "source": "SITE_TANGO",
+      "target": "SITE_IRON",
+      "value_lb": 50,
+      "time": "2026-09-12T12:13:00Z",
+      "source_name": "Tango helipad",
+      "target_name": "Iron warehouse",
+      "corrupted": true
+    },
+    {
+      "source": "SITE_LIMA",
+      "target": "SITE_HARBOR",
+      "value_lb": 5,
+      "time": "2026-09-12T12:32:00Z",
+      "source_name": "Lima helipad",
+      "target_name": "Harbor helipad"
+    },
+    {
+      "source": "SITE_KILO",
+      "target": "SITE_WILLOW",
+      "value_lb": 5,
+      "time": "2026-09-12T12:52:00Z",
+      "source_name": "Kilo pad",
+      "target_name": "Willow water point"
+    },
+    {
+      "source": "SITE_KILO",
+      "target": "SITE_NOVEMBER",
+      "value_lb": 5,
+      "time": "2026-09-12T13:06:00Z",
+      "source_name": "Kilo pad",
+      "target_name": "November aid cage"
+    },
+    {
+      "source": "SITE_WILLOW",
+      "target": "SITE_HARBOR",
+      "value_lb": 40,
+      "time": "2026-09-12T13:23:00Z",
+      "source_name": "Willow water point",
+      "target_name": "Harbor helipad",
+      "corrupted": true
+    },
+    {
+      "source": "SITE_WILLOW",
+      "target": "SITE_GRANITE",
+      "value_lb": 5,
+      "time": "2026-09-12T13:34:00Z",
+      "source_name": "Willow water point",
+      "target_name": "Granite tent city"
+    },
+    {
+      "source": "SITE_GRANITE",
+      "target": "SITE_IRON",
+      "value_lb": 5,
+      "time": "2026-09-12T13:47:00Z",
+      "source_name": "Granite tent city",
+      "target_name": "Iron warehouse"
+    },
+    {
+      "source": "SITE_GRANITE",
+      "target": "SITE_QUARRY",
+      "value_lb": 5,
+      "time": "2026-09-12T14:01:00Z",
+      "source_name": "Granite tent city",
+      "target_name": "Quarry mosque courtyard"
+    },
+    {
+      "source": "SITE_GOLF",
+      "target": "SITE_PAPA",
+      "value_lb": 20,
+      "time": "2026-09-12T14:11:00Z",
+      "source_name": "Golf mosque courtyard",
+      "target_name": "Papa schoolhouse"
+    },
+    {
+      "source": "SITE_GOLF",
+      "target": "SITE_KILO",
+      "value_lb": 20,
+      "time": "2026-09-12T14:27:00Z",
+      "source_name": "Golf mosque courtyard",
+      "target_name": "Kilo pad"
+    },
+    {
+      "source": "SITE_QUARRY",
+      "target": "SITE_LIMA",
+      "value_lb": 50,
+      "time": "2026-09-12T14:44:00Z",
+      "source_name": "Quarry mosque courtyard",
+      "target_name": "Lima helipad"
+    },
+    {
+      "source": "SITE_INDIA",
+      "target": "SITE_WILLOW",
+      "value_lb": 25,
+      "time": "2026-09-12T15:03:00Z",
+      "source_name": "India bridge",
+      "target_name": "Willow water point"
+    },
+    {
+      "source": "SITE_INDIA",
+      "target": "SITE_GRANITE",
+      "value_lb": 5,
+      "time": "2026-09-12T15:22:00Z",
+      "source_name": "India bridge",
+      "target_name": "Granite tent city"
+    },
+    {
+      "source": "SITE_NOVEMBER",
+      "target": "SITE_QUEBEC",
+      "value_lb": 30,
+      "source_name": "November aid cage",
+      "target_name": "Quebec mosque courtyard",
+      "ghost": true
+    }
+  ],
+  "injections_lb": {
+    "SRC_CEDAR": 385,
+    "SRC_ZULU": 225,
+    "SRC_SIERRA": 80
+  },
+  "inventory_eod_lb": {
+    "SRC_CEDAR": 0,
+    "SRC_ZULU": 0,
+    "SRC_SIERRA": 0,
+    "HUB_CHARLIE": 0,
+    "HUB_COPPER": 0,
+    "HUB_XRAY": 5,
+    "SITE_QUEBEC": 15,
+    "SITE_LIMA": 175,
+    "SITE_GOLF": 40,
+    "SITE_INDIA": 15,
+    "SITE_GRANITE": 25,
+    "SITE_WILLOW": 60,
+    "SITE_KILO": 35,
+    "SITE_ECHO": 20,
+    "SITE_IRON": 55,
+    "SITE_MAPLE": 5,
+    "SITE_TANGO": 20,
+    "SITE_PAPA": 25,
+    "SITE_QUARRY": 50,
+    "SITE_OVERLOOK": 35,
+    "SITE_HARBOR": 70,
+    "SITE_HOTEL": 15,
+    "SITE_NOVEMBER": 25
+  },
+  "trusted_constraint_rows": [
+    {
+      "node": "SRC_CEDAR",
+      "display": "Cedar airdrop LZ",
+      "law": "mass_balance",
+      "in_lb": 385,
+      "out_lb": 385,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_ZULU",
+      "display": "Zulu port dump",
+      "law": "mass_balance",
+      "in_lb": 225,
+      "out_lb": 225,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "SRC_SIERRA",
+      "display": "Sierra FOB depot",
+      "law": "mass_balance",
+      "in_lb": 80,
+      "out_lb": 80,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_CHARLIE",
+      "display": "Charlie transfer yard",
+      "law": "mass_balance",
+      "in_lb": 85,
+      "out_lb": 85,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_COPPER",
+      "display": "Copper ridge hub",
+      "law": "mass_balance",
+      "in_lb": 295,
+      "out_lb": 295,
+      "inventory_eod_lb": 0
+    },
+    {
+      "node": "HUB_XRAY",
+      "display": "Xray transfer yard",
+      "law": "mass_balance",
+      "in_lb": 265,
+      "out_lb": 260,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "SITE_QUEBEC",
+      "display": "Quebec mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_LIMA",
+      "display": "Lima helipad",
+      "law": "mass_balance",
+      "in_lb": 180,
+      "out_lb": 5,
+      "inventory_eod_lb": 175
+    },
+    {
+      "node": "SITE_GOLF",
+      "display": "Golf mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 80,
+      "out_lb": 40,
+      "inventory_eod_lb": 40
+    },
+    {
+      "node": "SITE_INDIA",
+      "display": "India bridge",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 30,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_GRANITE",
+      "display": "Granite tent city",
+      "law": "mass_balance",
+      "in_lb": 35,
+      "out_lb": 10,
+      "inventory_eod_lb": 25
+    },
+    {
+      "node": "SITE_WILLOW",
+      "display": "Willow water point",
+      "law": "mass_balance",
+      "in_lb": 120,
+      "out_lb": 60,
+      "inventory_eod_lb": 60
+    },
+    {
+      "node": "SITE_KILO",
+      "display": "Kilo pad",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 10,
+      "inventory_eod_lb": 35
+    },
+    {
+      "node": "SITE_ECHO",
+      "display": "Echo well",
+      "law": "mass_balance",
+      "in_lb": 20,
+      "out_lb": 0,
+      "inventory_eod_lb": 20
+    },
+    {
+      "node": "SITE_IRON",
+      "display": "Iron warehouse",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 15,
+      "inventory_eod_lb": 55
+    },
+    {
+      "node": "SITE_MAPLE",
+      "display": "Maple aid cage",
+      "law": "mass_balance",
+      "in_lb": 5,
+      "out_lb": 0,
+      "inventory_eod_lb": 5
+    },
+    {
+      "node": "SITE_TANGO",
+      "display": "Tango helipad",
+      "law": "mass_balance",
+      "in_lb": 30,
+      "out_lb": 10,
+      "inventory_eod_lb": 20
+    },
+    {
+      "node": "SITE_PAPA",
+      "display": "Papa schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 55,
+      "out_lb": 30,
+      "inventory_eod_lb": 25
+    },
+    {
+      "node": "SITE_QUARRY",
+      "display": "Quarry mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 100,
+      "out_lb": 50,
+      "inventory_eod_lb": 50
+    },
+    {
+      "node": "SITE_OVERLOOK",
+      "display": "Overlook warehouse",
+      "law": "mass_balance",
+      "in_lb": 45,
+      "out_lb": 10,
+      "inventory_eod_lb": 35
+    },
+    {
+      "node": "SITE_HARBOR",
+      "display": "Harbor helipad",
+      "law": "mass_balance",
+      "in_lb": 70,
+      "out_lb": 0,
+      "inventory_eod_lb": 70
+    },
+    {
+      "node": "SITE_HOTEL",
+      "display": "Hotel quarry",
+      "law": "mass_balance",
+      "in_lb": 15,
+      "out_lb": 0,
+      "inventory_eod_lb": 15
+    },
+    {
+      "node": "SITE_NOVEMBER",
+      "display": "November aid cage",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 0,
+      "inventory_eod_lb": 25
+    }
+  ],
+  "people": [
+    {
+      "name": "MAJ Riley Kowalski",
+      "callsign": "Watchtower",
+      "site_id": null,
+      "role": "TOC collector"
+    },
+    {
+      "name": "CPL Leo Berg",
+      "callsign": "Spare-2",
+      "site_id": null,
+      "role": "spare radio hand"
+    },
+    {
+      "name": "SGT Nina Park",
+      "callsign": "Dustoff-C",
+      "site_id": "SRC_CEDAR",
+      "role": "site reporter at Cedar airdrop LZ"
+    },
+    {
+      "name": "CPT James Ortiz",
+      "callsign": "Dustoff-Z",
+      "site_id": "SRC_ZULU",
+      "role": "site reporter at Zulu port dump"
+    },
+    {
+      "name": "SFC Victor Khan",
+      "callsign": "Wagon-6",
+      "site_id": "SRC_SIERRA",
+      "role": "site reporter at Sierra FOB depot"
+    },
+    {
+      "name": "PFC Chris Petrov",
+      "callsign": "Charlie-Actual",
+      "site_id": "HUB_CHARLIE",
+      "role": "site reporter at Charlie transfer yard"
+    },
+    {
+      "name": "CPL Priya Abebe",
+      "callsign": "Copper-Actual",
+      "site_id": "HUB_COPPER",
+      "role": "site reporter at Copper ridge hub"
+    },
+    {
+      "name": "SGT June Singh",
+      "callsign": "Xray-Actual",
+      "site_id": "HUB_XRAY",
+      "role": "site reporter at Xray transfer yard"
+    },
+    {
+      "name": "PFC Farah Diaz",
+      "callsign": "Anchor-Q5",
+      "site_id": "SITE_QUEBEC",
+      "role": "site reporter at Quebec mosque courtyard"
+    },
+    {
+      "name": "SSG Maya Okonkwo",
+      "callsign": "Anchor-L2",
+      "site_id": "SITE_LIMA",
+      "role": "site reporter at Lima helipad"
+    },
+    {
+      "name": "SSG Sofia Okonkwo",
+      "callsign": "Anchor-G4",
+      "site_id": "SITE_GOLF",
+      "role": "site reporter at Golf mosque courtyard"
+    },
+    {
+      "name": "SSG Maya Rahman",
+      "callsign": "Anchor-I1",
+      "site_id": "SITE_INDIA",
+      "role": "site reporter at India bridge"
+    },
+    {
+      "name": "Leo Okonkwo",
+      "callsign": "CIV-LEO",
+      "site_id": "SITE_INDIA",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "SSG Ibrahim Nair",
+      "callsign": "Anchor-G4",
+      "site_id": "SITE_GRANITE",
+      "role": "site reporter at Granite tent city"
+    },
+    {
+      "name": "PVT Chris Bennett",
+      "callsign": "Anchor-W4",
+      "site_id": "SITE_WILLOW",
+      "role": "site reporter at Willow water point"
+    },
+    {
+      "name": "PVT Elena MacLeod",
+      "callsign": "Anchor-K7",
+      "site_id": "SITE_KILO",
+      "role": "site reporter at Kilo pad"
+    },
+    {
+      "name": "SSG Keiko Bennett",
+      "callsign": "Anchor-E8",
+      "site_id": "SITE_ECHO",
+      "role": "site reporter at Echo well"
+    },
+    {
+      "name": "CPT Maya Alvarez",
+      "callsign": "Anchor-I8",
+      "site_id": "SITE_IRON",
+      "role": "site reporter at Iron warehouse"
+    },
+    {
+      "name": "SPC Farah Rahman",
+      "callsign": "Anchor-M5",
+      "site_id": "SITE_MAPLE",
+      "role": "site reporter at Maple aid cage"
+    },
+    {
+      "name": "LT Malik Okonkwo",
+      "callsign": "Anchor-T4",
+      "site_id": "SITE_TANGO",
+      "role": "site reporter at Tango helipad"
+    },
+    {
+      "name": "SSG Diego Rahman",
+      "callsign": "Anchor-P7",
+      "site_id": "SITE_PAPA",
+      "role": "site reporter at Papa schoolhouse"
+    },
+    {
+      "name": "SFC Aisha Ortiz",
+      "callsign": "Anchor-Q8",
+      "site_id": "SITE_QUARRY",
+      "role": "site reporter at Quarry mosque courtyard"
+    },
+    {
+      "name": "Nina Vasquez",
+      "callsign": "CIV-NIN",
+      "site_id": "SITE_QUARRY",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "PVT Diego Vasquez",
+      "callsign": "Anchor-O6",
+      "site_id": "SITE_OVERLOOK",
+      "role": "site reporter at Overlook warehouse"
+    },
+    {
+      "name": "June MacLeod",
+      "callsign": "CIV-JUN",
+      "site_id": "SITE_OVERLOOK",
+      "role": "civilian aid worker"
+    },
+    {
+      "name": "CPL Sofia Volkov",
+      "callsign": "Anchor-H5",
+      "site_id": "SITE_HARBOR",
+      "role": "site reporter at Harbor helipad"
+    },
+    {
+      "name": "SGT Amelia Nair",
+      "callsign": "Anchor-H7",
+      "site_id": "SITE_HOTEL",
+      "role": "site reporter at Hotel quarry"
+    },
+    {
+      "name": "SFC James Diaz",
+      "callsign": "Anchor-N9",
+      "site_id": "SITE_NOVEMBER",
+      "role": "site reporter at November aid cage"
+    }
+  ],
+  "generator_seed": 8104
+}

@@ -1,0 +1,58 @@
+SMS backup export — device mixed, timestamps UTC
+
+[2026-09-12T06:16:34Z] (sms) SPC Amelia Singh / Tango-Actual -> Watchtower
+got 290 pounds off Iron port dump here at Tango transfer yard. logged. singh
+
+[2026-09-12T06:20:29Z] (sms) LT Hana Okonkwo / Wagon-6 -> Oscar-Actual
+Oscar-Actual this is Wagon-6. sending 275 lb from Uniform FOB depot to Oscar junction. count it on arrival. over
+
+[2026-09-12T06:37:21Z] (sms) SSG Hana Singh / Anchor-G8 -> Watchtower
+got 20 pounds off Uniform FOB depot here at Golf bridge. logged. singh
+
+[2026-09-12T06:39:42Z] (sms) LT Hana Okonkwo / Wagon-6 -> Anchor-E4
+Anchor-E4 this is Wagon-6. sending 35 lb from Uniform FOB depot to Echo warehouse. count it on arrival. over
+
+[2026-09-12T09:03:55Z] (sms) SGT Farah Hale / Foxtrot-Actual -> Anchor-K1
+Anchor-K1 this is Foxtrot-Actual. sending 10 lb from Foxtrot ridge hub to Kilo farm. count it on arrival. over
+
+[2026-09-12T09:04:42Z] (sms) PFC Nina Petrov / Anchor-Q2 -> Watchtower
+got 30 pounds off Foxtrot ridge hub here at Quebec crossroads. logged. petrov
+
+[2026-09-12T09:21:34Z] (sms) SSG Aisha Bennett / Oscar-Actual -> Anchor-X9
+Anchor-X9 this is Oscar-Actual. sending 5 lb from Oscar junction to Xray warehouse. count it on arrival. over
+
+[2026-09-12T09:25:29Z] (sms) CPT Amelia Vasquez / Anchor-I9 -> Watchtower
+got 10 pounds off Oscar junction here at India checkpoint. logged. vasquez
+
+[2026-09-12T09:40:47Z] (sms) CPT Amelia Vasquez / Anchor-I9 -> Watchtower
+got 5 pounds off Hotel transfer yard here at India checkpoint. logged. vasquez
+
+[2026-09-12T09:41:34Z] (sms) PVT Chris Khan / Hotel-Actual -> Anchor-X9
+Anchor-X9 this is Hotel-Actual. sending 95 lb from Hotel transfer yard to Xray warehouse. count it on arrival. over
+
+[2026-09-12T13:00:47Z] (sms) PFC Nina Petrov / Anchor-Q2 -> Anchor-K1
+Anchor-K1 this is Anchor-Q2. sending 25 lb from Quebec crossroads to Kilo farm. count it on arrival. over
+
+[2026-09-12T13:03:55Z] (sms) PVT Tom Diaz / Anchor-N9 -> Watchtower
+got 25 pounds off Xray warehouse here at November well. logged. diaz
+
+[2026-09-12T14:31:00Z] (sms) SFC Sofia Abebe / Anchor-K1 -> SGT Farah Hale
+correction that last runner was 20 kg not lb wait no 20 kg
+
+[2026-09-12T14:44:00Z] (sms) SFC Sofia Abebe / Anchor-K1 -> Foxtrot-Actual
+also sent 20 lbs over to Foxtrot ridge hub, same runner loop. log it.
+
+[2026-09-12T16:00:47Z] (sms) SGT Farah Hale / Foxtrot-Actual -> Watchtower
+EOD Foxtrot ridge hub: in 55 lb, out 55 lb, on-hand 0 lb. Foxtrot-Actual closing books.
+
+[2026-09-12T16:15:00Z] (sms) SFC Sofia Abebe / Anchor-K1 -> Watchtower
+EOD Kilo farm: in 125 lb, out 0 lb, on-hand 125 lb. Anchor-K1 closing books.
+
+[2026-09-12T16:18:55Z] (sms) LT Farah Berg / Anchor-C9 -> Watchtower
+EOD Cedar checkpoint: in 65 lb, out 0 lb, on-hand 65 lb. Anchor-C9 closing books.
+
+[2026-09-12T16:30:47Z] (sms) SFC Malik Rahman / Anchor-Y8 -> Watchtower
+EOD Yankee bridge: in 25 lb, out 0 lb, on-hand 25 lb. Anchor-Y8 closing books.
+
+[2026-09-12T16:31:34Z] (sms) CPT Amelia Vasquez / Anchor-I9 -> Watchtower
+EOD India checkpoint: in 175 lb, out 30 lb, on-hand 145 lb. Anchor-I9 closing books.

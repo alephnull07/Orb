@@ -1,0 +1,526 @@
+{
+  "agent": "receiver",
+  "role": "topology / inbound receipt mapping",
+  "nodes": [
+    {
+      "id": "BRAVO_AIRDROP_LZ",
+      "display": "Bravo airdrop LZ",
+      "aliases": [
+        "Bravo airdrop LZ"
+      ],
+      "key": "bravo airdrop lz"
+    },
+    {
+      "id": "TANGO_RIDGE_HUB",
+      "display": "Tango ridge hub",
+      "aliases": [
+        "Tango ridge hub"
+      ],
+      "key": "tango ridge hub"
+    },
+    {
+      "id": "XRAY_JUNCTION",
+      "display": "Xray junction",
+      "aliases": [
+        "Xray junction"
+      ],
+      "key": "xray junction"
+    },
+    {
+      "id": "SANDPIT_FORWARD_CACHE",
+      "display": "Sandpit forward cache",
+      "aliases": [
+        "Sandpit forward cache"
+      ],
+      "key": "sandpit forward cache"
+    },
+    {
+      "id": "NOVEMBER_AIRDROP_LZ",
+      "display": "November airdrop LZ",
+      "aliases": [
+        "November airdrop LZ"
+      ],
+      "key": "november airdrop lz"
+    },
+    {
+      "id": "INDIA_FORWARD_CACHE",
+      "display": "India forward cache",
+      "aliases": [
+        "India forward cache"
+      ],
+      "key": "india forward cache"
+    },
+    {
+      "id": "LIMA_RIDGE_HUB",
+      "display": "Lima ridge hub",
+      "aliases": [
+        "Lima ridge hub"
+      ],
+      "key": "lima ridge hub"
+    },
+    {
+      "id": "DELTA_WATER_POINT",
+      "display": "Delta water point",
+      "aliases": [
+        "Delta water point"
+      ],
+      "key": "delta water point"
+    },
+    {
+      "id": "JULIET_WAREHOUSE",
+      "display": "Juliet warehouse",
+      "aliases": [
+        "Juliet warehouse"
+      ],
+      "key": "juliet warehouse"
+    },
+    {
+      "id": "CEDAR_ORCHARD",
+      "display": "Cedar orchard",
+      "aliases": [
+        "Cedar orchard"
+      ],
+      "key": "cedar orchard"
+    },
+    {
+      "id": "WILLOW_BRIDGE",
+      "display": "Willow bridge",
+      "aliases": [
+        "Willow bridge"
+      ],
+      "key": "willow bridge"
+    },
+    {
+      "id": "CHARLIE_CHECKPOINT",
+      "display": "Charlie checkpoint",
+      "aliases": [
+        "Charlie checkpoint"
+      ],
+      "key": "charlie checkpoint"
+    },
+    {
+      "id": "GOLF_WELL",
+      "display": "Golf well",
+      "aliases": [
+        "Golf well"
+      ],
+      "key": "golf well"
+    },
+    {
+      "id": "GRANITE_MARKET",
+      "display": "Granite market",
+      "aliases": [
+        "Granite market"
+      ],
+      "key": "granite market"
+    },
+    {
+      "id": "ZULU_JUNCTION",
+      "display": "Zulu junction",
+      "aliases": [
+        "Zulu junction"
+      ],
+      "key": "zulu junction"
+    },
+    {
+      "id": "ALPHA_MOSQUE_COURTYARD",
+      "display": "Alpha mosque courtyard",
+      "aliases": [
+        "Alpha mosque courtyard"
+      ],
+      "key": "alpha mosque courtyard"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "bravo airdrop lz",
+      "target_key": "tango ridge hub",
+      "source": "BRAVO_AIRDROP_LZ",
+      "target": "TANGO_RIDGE_HUB",
+      "source_display": "Bravo airdrop LZ",
+      "target_display": "Tango ridge hub",
+      "value_lb": 55,
+      "evidence": [
+        "MSG-002"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "bravo airdrop lz",
+      "target_key": "xray junction",
+      "source": "BRAVO_AIRDROP_LZ",
+      "target": "XRAY_JUNCTION",
+      "source_display": "Bravo airdrop LZ",
+      "target_display": "Xray junction",
+      "value_lb": 35,
+      "evidence": [
+        "MSG-005"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "bravo airdrop lz",
+      "target_key": "sandpit forward cache",
+      "source": "BRAVO_AIRDROP_LZ",
+      "target": "SANDPIT_FORWARD_CACHE",
+      "source_display": "Bravo airdrop LZ",
+      "target_display": "Sandpit forward cache",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-007"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "november airdrop lz",
+      "target_key": "india forward cache",
+      "source": "NOVEMBER_AIRDROP_LZ",
+      "target": "INDIA_FORWARD_CACHE",
+      "source_display": "November airdrop LZ",
+      "target_display": "India forward cache",
+      "value_lb": 400,
+      "evidence": [
+        "MSG-008"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "bravo airdrop lz",
+      "target_key": "lima ridge hub",
+      "source": "BRAVO_AIRDROP_LZ",
+      "target": "LIMA_RIDGE_HUB",
+      "source_display": "Bravo airdrop LZ",
+      "target_display": "Lima ridge hub",
+      "value_lb": 40,
+      "evidence": [
+        "MSG-009"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "lima ridge hub",
+      "target_key": "delta water point",
+      "source": "LIMA_RIDGE_HUB",
+      "target": "DELTA_WATER_POINT",
+      "source_display": "Lima ridge hub",
+      "target_display": "Delta water point",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-011"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "lima ridge hub",
+      "target_key": "juliet warehouse",
+      "source": "LIMA_RIDGE_HUB",
+      "target": "JULIET_WAREHOUSE",
+      "source_display": "Lima ridge hub",
+      "target_display": "Juliet warehouse",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-014"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "lima ridge hub",
+      "target_key": "cedar orchard",
+      "source": "LIMA_RIDGE_HUB",
+      "target": "CEDAR_ORCHARD",
+      "source_display": "Lima ridge hub",
+      "target_display": "Cedar orchard",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-015"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "lima ridge hub",
+      "target_key": "willow bridge",
+      "source": "LIMA_RIDGE_HUB",
+      "target": "WILLOW_BRIDGE",
+      "source_display": "Lima ridge hub",
+      "target_display": "Willow bridge",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-016"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "tango ridge hub",
+      "target_key": "charlie checkpoint",
+      "source": "TANGO_RIDGE_HUB",
+      "target": "CHARLIE_CHECKPOINT",
+      "source_display": "Tango ridge hub",
+      "target_display": "Charlie checkpoint",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-021"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "tango ridge hub",
+      "target_key": "golf well",
+      "source": "TANGO_RIDGE_HUB",
+      "target": "GOLF_WELL",
+      "source_display": "Tango ridge hub",
+      "target_display": "Golf well",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-022"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "sandpit forward cache",
+      "target_key": "charlie checkpoint",
+      "source": "SANDPIT_FORWARD_CACHE",
+      "target": "CHARLIE_CHECKPOINT",
+      "source_display": "Sandpit forward cache",
+      "target_display": "Charlie checkpoint",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-023"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "tango ridge hub",
+      "target_key": "granite market",
+      "source": "TANGO_RIDGE_HUB",
+      "target": "GRANITE_MARKET",
+      "source_display": "Tango ridge hub",
+      "target_display": "Granite market",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-025"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "sandpit forward cache",
+      "target_key": "delta water point",
+      "source": "SANDPIT_FORWARD_CACHE",
+      "target": "DELTA_WATER_POINT",
+      "source_display": "Sandpit forward cache",
+      "target_display": "Delta water point",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-027"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "sandpit forward cache",
+      "target_key": "zulu junction",
+      "source": "SANDPIT_FORWARD_CACHE",
+      "target": "ZULU_JUNCTION",
+      "source_display": "Sandpit forward cache",
+      "target_display": "Zulu junction",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-029"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "sandpit forward cache",
+      "target_key": "willow bridge",
+      "source": "SANDPIT_FORWARD_CACHE",
+      "target": "WILLOW_BRIDGE",
+      "source_display": "Sandpit forward cache",
+      "target_display": "Willow bridge",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-030"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "sandpit forward cache",
+      "target_key": "granite market",
+      "source": "SANDPIT_FORWARD_CACHE",
+      "target": "GRANITE_MARKET",
+      "source_display": "Sandpit forward cache",
+      "target_display": "Granite market",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-033"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "india forward cache",
+      "target_key": "willow bridge",
+      "source": "INDIA_FORWARD_CACHE",
+      "target": "WILLOW_BRIDGE",
+      "source_display": "India forward cache",
+      "target_display": "Willow bridge",
+      "value_lb": 240,
+      "evidence": [
+        "MSG-036"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "zulu junction",
+      "target_key": "delta water point",
+      "source": "ZULU_JUNCTION",
+      "target": "DELTA_WATER_POINT",
+      "source_display": "Zulu junction",
+      "target_display": "Delta water point",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-037"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "zulu junction",
+      "target_key": "india forward cache",
+      "source": "ZULU_JUNCTION",
+      "target": "INDIA_FORWARD_CACHE",
+      "source_display": "Zulu junction",
+      "target_display": "India forward cache",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-040"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "zulu junction",
+      "target_key": "alpha mosque courtyard",
+      "source": "ZULU_JUNCTION",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "Zulu junction",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-041"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "alpha mosque courtyard",
+      "source": "XRAY_JUNCTION",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "Xray junction",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-043"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "golf well",
+      "source": "XRAY_JUNCTION",
+      "target": "GOLF_WELL",
+      "source_display": "Xray junction",
+      "target_display": "Golf well",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-047"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "india forward cache",
+      "target_key": "alpha mosque courtyard",
+      "source": "INDIA_FORWARD_CACHE",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "India forward cache",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-048"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "india forward cache",
+      "target_key": "golf well",
+      "source": "INDIA_FORWARD_CACHE",
+      "target": "GOLF_WELL",
+      "source_display": "India forward cache",
+      "target_display": "Golf well",
+      "value_lb": 95,
+      "evidence": [
+        "MSG-049"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "cedar orchard",
+      "source": "XRAY_JUNCTION",
+      "target": "CEDAR_ORCHARD",
+      "source_display": "Xray junction",
+      "target_display": "Cedar orchard",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-052"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "cedar orchard",
+      "target_key": "alpha mosque courtyard",
+      "source": "CEDAR_ORCHARD",
+      "target": "ALPHA_MOSQUE_COURTYARD",
+      "source_display": "Cedar orchard",
+      "target_display": "Alpha mosque courtyard",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-056"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "alpha mosque courtyard",
+      "target_key": "juliet warehouse",
+      "source": "ALPHA_MOSQUE_COURTYARD",
+      "target": "JULIET_WAREHOUSE",
+      "source_display": "Alpha mosque courtyard",
+      "target_display": "Juliet warehouse",
+      "value_lb": 4,
+      "evidence": [
+        "MSG-058"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "willow bridge",
+      "target_key": "golf well",
+      "source": "WILLOW_BRIDGE",
+      "target": "GOLF_WELL",
+      "source_display": "Willow bridge",
+      "target_display": "Golf well",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-060"
+      ],
+      "channel_bias": "receipt"
+    },
+    {
+      "source_key": "alpha mosque courtyard",
+      "target_key": "delta water point",
+      "source": "ALPHA_MOSQUE_COURTYARD",
+      "target": "DELTA_WATER_POINT",
+      "source_display": "Alpha mosque courtyard",
+      "target_display": "Delta water point",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-061"
+      ],
+      "channel_bias": "receipt"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:15:00Z] (email) CPT Amelia Petrov / November-Actual -> Watchtower
+got 55 pounds off Victor FOB depot here at November ridge hub. logged. petrov
+
+[2026-09-12T09:04:42Z] (email) CPL June Vasquez / Anchor-H4 -> Watchtower
+got 2 pounds off Copper ridge hub here at Harbor mill. logged. vasquez
+
+[2026-09-12T09:22:21Z] (email) CPL Omar Hale / Anchor-S9 -> Watchtower
+got 20 pounds off November ridge hub here at Sierra mosque courtyard. logged. hale
+
+[2026-09-12T09:45:29Z] (email) SPC Yusuf Kowalski / Anchor-A5 -> Watchtower
+got 220 pounds off Mike transfer yard here at Alpha crossroads. logged. kowalski
+
+[2026-09-12T16:00:47Z] (email) SPC Yusuf Kowalski / Anchor-A5 -> Watchtower
+EOD Alpha crossroads: in 220 lb, out 15 lb, on-hand 205 lb. Anchor-A5 closing books.
+
+[2026-09-12T16:03:08Z] (email) PVT Maya Park / Copper-Actual -> Watchtower
+EOD Copper ridge hub: in 25 lb, out 10 lb, on-hand 15 lb. Copper-Actual closing books.
+
+[2026-09-12T16:15:00Z] (email) LT Diego Berg / Anchor-H5 -> Watchtower
+EOD Hotel orchard: in 6 lb, out 0 lb, on-hand 6 lb. Anchor-H5 closing books.
+
+[2026-09-12T16:15:47Z] (email) PFC James Okafor / Anchor-O7 -> Watchtower
+EOD Oscar farm: in 40 lb, out 35 lb, on-hand 5 lb. Anchor-O7 closing books.
+
+[2026-09-12T16:18:55Z] (email) CPL Omar Hale / Anchor-S9 -> Watchtower
+EOD Sierra mosque courtyard: in 23 lb, out 0 lb, on-hand 23 lb. Anchor-S9 closing books.

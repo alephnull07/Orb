@@ -1,0 +1,37 @@
+mbox-ish TOC logistics thread
+
+[2026-09-12T06:18:08Z] (email) PVT Farah Okonkwo / Echo-Actual -> Watchtower
+got 40 pounds off Charlie railhead here at Echo transfer yard. logged. okonkwo
+
+[2026-09-12T06:36:34Z] (email) SPC Sofia Ortiz / Kilo-Actual -> Watchtower
+got 80 pounds off Sandpit airdrop LZ here at Kilo transfer yard. logged. ortiz
+
+[2026-09-12T09:00:00Z] (email) CPL James Bennett / Anchor-C4 -> Watchtower
+got 35 pounds off Echo transfer yard here at Cedar checkpoint. logged. bennett
+
+[2026-09-12T09:24:42Z] (email) LT Noah Alvarez / Anchor-X5 -> Watchtower
+got 50 pounds off Kilo transfer yard here at Xray crossroads. logged. alvarez
+
+[2026-09-12T09:42:21Z] (email) CPT Amelia MacLeod / Anchor-Z3 -> Watchtower
+got 5 pounds off Whiskey forward cache here at Zulu tent city. logged. macleod
+
+[2026-09-12T10:04:42Z] (email) LT Noah Alvarez / Anchor-X5 -> Watchtower
+got 85 pounds off Mike transfer yard here at Xray crossroads. logged. alvarez
+
+[2026-09-12T13:02:21Z] (email) CPL Ibrahim Hale / Anchor-L9 -> Watchtower
+got 5 pounds off Zulu tent city here at Lima crossroads. logged. hale
+
+[2026-09-12T13:21:34Z] (email) LT Omar MacLeod / Anchor-O3 -> Watchtower
+got 40 pounds off Xray crossroads here at Oscar orchard. logged. macleod
+
+[2026-09-12T16:18:08Z] (email) LT Omar MacLeod / Anchor-O3 -> Watchtower
+EOD Oscar orchard: in 160 lb, out 0 lb, on-hand 160 lb. Anchor-O3 closing books.
+
+[2026-09-12T16:18:55Z] (email) PVT Victor Nair / Anchor-Q4 -> Watchtower
+EOD Quebec checkpoint: in 95 lb, out 35 lb, on-hand 60 lb. Anchor-Q4 closing books.
+
+[2026-09-12T16:32:21Z] (email) SPC June Ruiz / Anchor-V2 -> Watchtower
+EOD Victor mosque courtyard: in 100 lb, out 0 lb, on-hand 100 lb. Anchor-V2 closing books.
+
+[2026-09-12T16:33:08Z] (email) SPC James Hassan / Anchor-J5 -> Watchtower
+EOD Juliet quarry: in 25 lb, out 20 lb, on-hand 5 lb. Anchor-J5 closing books.
