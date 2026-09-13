@@ -6,6 +6,9 @@ Aarav & Parth, UCLA CS
 
 ---
 
+<img width="1723" height="950" alt="image" src="https://github.com/user-attachments/assets/ac1979f1-754e-40a6-87ed-00f0dfecd12e" />
+
+
 ## The problem
 
 Any system where resources move through a network — defense logistics, disaster relief, utilities, inventory — runs on reports about where things are. Those reports come from people, arrive as unstructured text, and some are wrong: stale, duplicated, or fabricated.
