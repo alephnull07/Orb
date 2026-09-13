@@ -1,0 +1,14 @@
+[
+  {
+    "claim_index": 3,
+    "source": "stock_report_BASE_C",
+    "original_amount": 115,
+    "corrupted_amount": 422
+  },
+  {
+    "claim_index": 11,
+    "source": "receiver_DEPOT_BASE_A",
+    "original_amount": 129,
+    "corrupted_amount": 361
+  }
+]

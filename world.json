@@ -1,0 +1,57 @@
+{
+  "sites": ["DEPOT", "BASE_A", "BASE_B", "BASE_C", "POST_1", "POST_2", "POST_3", "POST_4", "POST_5", "POST_6"],
+  "edges": [
+    ["DEPOT", "BASE_A"],
+    ["DEPOT", "BASE_B"],
+    ["DEPOT", "BASE_C"],
+    ["BASE_A", "POST_1"],
+    ["BASE_A", "POST_2"],
+    ["BASE_B", "POST_3"],
+    ["BASE_B", "POST_4"],
+    ["BASE_C", "POST_5"],
+    ["BASE_C", "POST_6"]
+  ],
+  "start_stock": {
+    "DEPOT": 1000,
+    "BASE_A": 150,
+    "BASE_B": 120,
+    "BASE_C": 100,
+    "POST_1": 40,
+    "POST_2": 30,
+    "POST_3": 50,
+    "POST_4": 20,
+    "POST_5": 35,
+    "POST_6": 25
+  },
+  "transfers": [
+    {"from": "DEPOT",  "to": "BASE_A",  "amount": 80},
+    {"from": "DEPOT",  "to": "BASE_B",  "amount": 60},
+    {"from": "DEPOT",  "to": "BASE_C",  "amount": 70},
+    {"from": "BASE_A", "to": "POST_1",  "amount": 45},
+    {"from": "BASE_A", "to": "POST_2",  "amount": 30},
+    {"from": "BASE_B", "to": "POST_3",  "amount": 40},
+    {"from": "BASE_B", "to": "POST_4",  "amount": 25},
+    {"from": "BASE_C", "to": "POST_5",  "amount": 35},
+    {"from": "BASE_C", "to": "POST_6",  "amount": 20},
+    {"from": "DEPOT",  "to": "BASE_A",  "amount": 50},
+    {"from": "BASE_A", "to": "POST_1",  "amount": 20},
+    {"from": "BASE_B", "to": "POST_3",  "amount": 15}
+  ],
+  "final_stock": {
+    "DEPOT":  740,
+    "BASE_A": 185,
+    "BASE_B": 100,
+    "BASE_C": 115,
+    "POST_1": 105,
+    "POST_2":  60,
+    "POST_3": 105,
+    "POST_4":  45,
+    "POST_5":  70,
+    "POST_6":  45
+  },
+  "_conservation_check": {
+    "total_start": 1570,
+    "total_final": 1570,
+    "conserved": true
+  }
+}

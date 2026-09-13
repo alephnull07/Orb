@@ -1,0 +1,216 @@
+[
+  {
+    "type": "stock",
+    "site": "DEPOT",
+    "amount": 741,
+    "confidence": 1.0,
+    "source": "stock_report_DEPOT"
+  },
+  {
+    "type": "stock",
+    "site": "BASE_A",
+    "amount": 186,
+    "confidence": 1.0,
+    "source": "stock_report_BASE_A"
+  },
+  {
+    "type": "stock",
+    "site": "BASE_B",
+    "amount": 98,
+    "confidence": 1.0,
+    "source": "stock_report_BASE_B"
+  },
+  {
+    "type": "stock",
+    "site": "BASE_C",
+    "amount": 422,
+    "confidence": 1.0,
+    "source": "stock_report_BASE_C"
+  },
+  {
+    "type": "stock",
+    "site": "POST_1",
+    "amount": 107,
+    "confidence": 1.0,
+    "source": "stock_report_POST_1"
+  },
+  {
+    "type": "stock",
+    "site": "POST_2",
+    "amount": 61,
+    "confidence": 1.0,
+    "source": "stock_report_POST_2"
+  },
+  {
+    "type": "stock",
+    "site": "POST_3",
+    "amount": 106,
+    "confidence": 1.0,
+    "source": "stock_report_POST_3"
+  },
+  {
+    "type": "stock",
+    "site": "POST_4",
+    "amount": 45,
+    "confidence": 1.0,
+    "source": "stock_report_POST_4"
+  },
+  {
+    "type": "stock",
+    "site": "POST_5",
+    "amount": 71,
+    "confidence": 1.0,
+    "source": "stock_report_POST_5"
+  },
+  {
+    "type": "stock",
+    "site": "POST_6",
+    "amount": 45,
+    "confidence": 1.0,
+    "source": "stock_report_POST_6"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_A",
+    "amount": 132,
+    "confidence": 1.0,
+    "source": "driver_DEPOT_BASE_A"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_A",
+    "amount": 361,
+    "confidence": 1.0,
+    "source": "receiver_DEPOT_BASE_A"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_B",
+    "amount": 62,
+    "confidence": 1.0,
+    "source": "driver_DEPOT_BASE_B"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_B",
+    "amount": 59,
+    "confidence": 1.0,
+    "source": "receiver_DEPOT_BASE_B"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_C",
+    "amount": 70,
+    "confidence": 1.0,
+    "source": "driver_DEPOT_BASE_C"
+  },
+  {
+    "type": "transfer",
+    "from": "DEPOT",
+    "to": "BASE_C",
+    "amount": 69,
+    "confidence": 1.0,
+    "source": "receiver_DEPOT_BASE_C"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_A",
+    "to": "POST_1",
+    "amount": 63,
+    "confidence": 1.0,
+    "source": "driver_BASE_A_POST_1"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_A",
+    "to": "POST_1",
+    "amount": 67,
+    "confidence": 1.0,
+    "source": "receiver_BASE_A_POST_1"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_A",
+    "to": "POST_2",
+    "amount": 30,
+    "confidence": 1.0,
+    "source": "driver_BASE_A_POST_2"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_A",
+    "to": "POST_2",
+    "amount": 32,
+    "confidence": 1.0,
+    "source": "receiver_BASE_A_POST_2"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_B",
+    "to": "POST_3",
+    "amount": 57,
+    "confidence": 1.0,
+    "source": "driver_BASE_B_POST_3"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_B",
+    "to": "POST_3",
+    "amount": 54,
+    "confidence": 1.0,
+    "source": "receiver_BASE_B_POST_3"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_B",
+    "to": "POST_4",
+    "amount": 25,
+    "confidence": 1.0,
+    "source": "driver_BASE_B_POST_4"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_B",
+    "to": "POST_4",
+    "amount": 23,
+    "confidence": 1.0,
+    "source": "receiver_BASE_B_POST_4"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_C",
+    "to": "POST_5",
+    "amount": 33,
+    "confidence": 1.0,
+    "source": "driver_BASE_C_POST_5"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_C",
+    "to": "POST_5",
+    "amount": 35,
+    "confidence": 1.0,
+    "source": "receiver_BASE_C_POST_5"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_C",
+    "to": "POST_6",
+    "amount": 21,
+    "confidence": 1.0,
+    "source": "driver_BASE_C_POST_6"
+  },
+  {
+    "type": "transfer",
+    "from": "BASE_C",
+    "to": "POST_6",
+    "amount": 22,
+    "confidence": 1.0,
+    "source": "receiver_BASE_C_POST_6"
+  }
+]

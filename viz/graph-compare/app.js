@@ -512,6 +512,22 @@ document.getElementById("demoCorrupt").addEventListener("click", () =>
     "Agents on corrupted logs",
   ),
 );
+document.getElementById("demoL1").addEventListener("click", () =>
+  loadDemo(
+    "../../data/supply_drops/graphs/corrupted/consensus.json",
+    "../../data/supply_drops/graphs/corrupted/l1_recovered.json",
+    "Corrupted consensus (what agents saw)",
+    "L1 recovered (corrected flows)",
+  ),
+);
+document.getElementById("demoL1Truth").addEventListener("click", () =>
+  loadDemo(
+    "../../data/supply_drops/graphs/corrupted/l1_recovered.json",
+    "../../data/supply_drops/eval/true_graph.json",
+    "L1 recovered",
+    "Ground truth",
+  ),
+);
 window.addEventListener("resize", () => {
   if (state.cmp) render();
 });
