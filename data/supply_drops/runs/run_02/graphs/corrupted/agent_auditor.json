@@ -168,7 +168,8 @@
         "MSG-001",
         "MSG-005"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit port dump",
@@ -182,7 +183,8 @@
         "MSG-002",
         "MSG-007"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "victor fob depot",
@@ -196,7 +198,8 @@
         "MSG-003",
         "MSG-008"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "victor fob depot",
@@ -210,7 +213,8 @@
         "MSG-004",
         "MSG-006"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "victor fob depot",
@@ -224,7 +228,8 @@
         "MSG-009",
         "MSG-011"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "sandpit port dump",
@@ -238,7 +243,8 @@
         "MSG-010",
         "MSG-014"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "victor fob depot",
@@ -252,7 +258,8 @@
         "MSG-012",
         "MSG-013"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -266,7 +273,8 @@
         "MSG-015",
         "MSG-018"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -280,7 +288,8 @@
         "MSG-016",
         "MSG-017"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -294,7 +303,8 @@
         "MSG-019",
         "MSG-020"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -308,7 +318,8 @@
         "MSG-021",
         "MSG-022"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -322,7 +333,8 @@
         "MSG-023",
         "MSG-024"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -336,7 +348,8 @@
         "MSG-025",
         "MSG-030"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -350,7 +363,8 @@
         "MSG-026",
         "MSG-027"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -364,7 +378,8 @@
         "MSG-028",
         "MSG-029"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -378,7 +393,8 @@
         "MSG-031",
         "MSG-035"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "mike transfer yard",
@@ -392,7 +408,8 @@
         "MSG-032",
         "MSG-033"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "november ridge hub",
@@ -406,7 +423,8 @@
         "MSG-034",
         "MSG-036"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "mike transfer yard",
@@ -420,7 +438,8 @@
         "MSG-037",
         "MSG-038"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "lima forward cache",
@@ -434,7 +453,8 @@
         "MSG-039",
         "MSG-042"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -448,7 +468,8 @@
         "MSG-040",
         "MSG-044"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -462,7 +483,8 @@
         "MSG-041",
         "MSG-043"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee quarry",
@@ -476,7 +498,8 @@
         "MSG-047",
         "MSG-049"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "alpha crossroads",
@@ -490,7 +513,8 @@
         "MSG-048",
         "MSG-050"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar farm",
@@ -504,7 +528,8 @@
         "MSG-051",
         "MSG-052"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu tent city",
@@ -517,7 +542,8 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     }
   ],
   "trusted_constraint_rows": [

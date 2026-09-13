@@ -3,9 +3,18 @@
   "target_edges": 42,
   "consensus_edges": 43,
   "matched_hops": 42,
-  "exact_weight_matches": 39,
-  "mean_abs_weight_error_on_matches": 2.26,
+  "exact_weight_matches": 36,
+  "mean_abs_weight_error_on_matches": 3.1,
   "differences": [
+    {
+      "hop": [
+        "sandpit railhead",
+        "juliet ridge hub"
+      ],
+      "target_lb": 110,
+      "consensus_lb": 95,
+      "delta": -15
+    },
     {
       "hop": [
         "juliet ridge hub",
@@ -14,6 +23,15 @@
       "target_lb": 25,
       "consensus_lb": 65,
       "delta": 40
+    },
+    {
+      "hop": [
+        "quarry airdrop lz",
+        "alpha water point"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 10,
+      "delta": -10
     },
     {
       "hop": [
@@ -32,6 +50,15 @@
       "target_lb": 45,
       "consensus_lb": 60,
       "delta": 15
+    },
+    {
+      "hop": [
+        "echo well",
+        "papa crossroads"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 10,
+      "delta": -10
     }
   ],
   "extra_hops": [

@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -327,7 +327,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-002",
         "MSG-007"
@@ -349,7 +349,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-004",
         "MSG-005"
@@ -360,18 +360,18 @@
       "target": "QUEBEC_TRANSFER_YARD",
       "source_display": "Tango airdrop LZ",
       "target_display": "Quebec transfer yard",
-      "value_lb": 340,
+      "value_lb": 330,
       "agent_values": {
         "scout": 340,
         "receiver": 330,
-        "auditor": 340
+        "auditor": 330
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-006",
         "MSG-008"
@@ -393,7 +393,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-012",
         "MSG-016"
@@ -679,7 +679,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-035",
         "MSG-038"
@@ -822,18 +822,18 @@
       "target": "PAPA_FARM",
       "source_display": "Kilo market",
       "target_display": "Papa farm",
-      "value_lb": 15,
+      "value_lb": 5,
       "agent_values": {
         "scout": 15,
         "receiver": 5,
-        "auditor": 15
+        "auditor": 5
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-051",
         "MSG-052"
@@ -853,7 +853,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -882,8 +882,8 @@
       "node": "TANGO_AIRDROP_LZ",
       "display": "Tango airdrop LZ",
       "law": "mass_balance",
-      "in_lb": 480,
-      "out_lb": 480,
+      "in_lb": 470,
+      "out_lb": 470,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1073,9 +1073,9 @@
       "agent_values": {
         "scout": 340,
         "receiver": 330,
-        "auditor": 340
+        "auditor": 330
       },
-      "kept": 340,
+      "kept": 330,
       "delta": 10
     },
     {
@@ -1109,9 +1109,9 @@
       "agent_values": {
         "scout": 15,
         "receiver": 5,
-        "auditor": 15
+        "auditor": 5
       },
-      "kept": 15,
+      "kept": 5,
       "delta": 10
     }
   ],

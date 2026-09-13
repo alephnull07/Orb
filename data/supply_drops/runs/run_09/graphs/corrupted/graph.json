@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -360,18 +360,18 @@
       "target": "DELTA_FORWARD_CACHE",
       "source_display": "Zulu FOB depot",
       "target_display": "Delta forward cache",
-      "value_lb": 140,
+      "value_lb": 125,
       "agent_values": {
         "scout": 140,
         "receiver": 125,
-        "auditor": 140
+        "auditor": 125
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-004",
         "MSG-006"
@@ -481,7 +481,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-017",
         "MSG-019"
@@ -547,7 +547,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-023",
         "MSG-025"
@@ -712,18 +712,18 @@
       "target": "KILO_FARM",
       "source_display": "Sandpit ridge hub",
       "target_display": "Kilo farm",
-      "value_lb": 220,
+      "value_lb": 210,
       "agent_values": {
         "scout": 220,
         "receiver": 210,
-        "auditor": 220
+        "auditor": 210
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-037",
         "MSG-039"
@@ -921,7 +921,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-059",
         "MSG-061"
@@ -965,7 +965,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-060",
         "MSG-063"
@@ -985,7 +985,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1014,8 +1014,8 @@
       "node": "ZULU_FOB_DEPOT",
       "display": "Zulu FOB depot",
       "law": "mass_balance",
-      "in_lb": 245,
-      "out_lb": 245,
+      "in_lb": 230,
+      "out_lb": 230,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1181,9 +1181,9 @@
       "agent_values": {
         "scout": 140,
         "receiver": 125,
-        "auditor": 140
+        "auditor": 125
       },
-      "kept": 140,
+      "kept": 125,
       "delta": 15
     },
     {
@@ -1217,9 +1217,9 @@
       "agent_values": {
         "scout": 220,
         "receiver": 210,
-        "auditor": 220
+        "auditor": 210
       },
-      "kept": 220,
+      "kept": 210,
       "delta": 10
     },
     {

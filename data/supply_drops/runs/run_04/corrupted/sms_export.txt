@@ -49,7 +49,7 @@ Anchor-O6 this is Anchor-P7. sending 5 lb from Papa schoolhouse to Overlook ware
 Anchor-H5 this is Anchor-L2. sending 5 lb from Lima helipad to Harbor helipad. count it on arrival. over
 
 [2026-09-12T13:21:34Z] (sms) CPT Maya Alvarez / Anchor-I8 -> Watchtower
-got 10 pounds off Tango helipad here at Iron warehouse. logged. alvarez
+got 50 pounds off Tango helipad here at Iron warehouse. logged. alvarez
 
 [2026-09-12T13:40:00Z] (sms) PVT Chris Bennett / Anchor-W4 -> Anchor-G4
 Anchor-G4 this is Anchor-W4. sending 5 lb from Willow water point to Granite tent city. count it on arrival. over

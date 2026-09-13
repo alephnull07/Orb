@@ -199,7 +199,8 @@
       "evidence": [
         "MSG-001"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -212,7 +213,8 @@
       "evidence": [
         "MSG-002"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -225,7 +227,8 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -238,7 +241,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -251,7 +255,8 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -264,7 +269,8 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "sierra fob depot",
@@ -277,7 +283,8 @@
       "evidence": [
         "MSG-011"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -290,7 +297,8 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -303,7 +311,8 @@
       "evidence": [
         "MSG-020"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -316,7 +325,8 @@
       "evidence": [
         "MSG-021"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -329,7 +339,8 @@
       "evidence": [
         "MSG-023"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -342,7 +353,8 @@
       "evidence": [
         "MSG-024"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -355,7 +367,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -368,7 +381,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -381,7 +395,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -394,7 +409,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie transfer yard",
@@ -407,7 +423,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -420,7 +437,8 @@
       "evidence": [
         "MSG-034"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie transfer yard",
@@ -433,7 +451,8 @@
       "evidence": [
         "MSG-038"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -446,7 +465,8 @@
       "evidence": [
         "MSG-041"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -459,7 +479,8 @@
       "evidence": [
         "MSG-042"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -472,7 +493,8 @@
       "evidence": [
         "MSG-043"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -485,7 +507,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -498,7 +521,8 @@
       "evidence": [
         "MSG-047"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa schoolhouse",
@@ -511,7 +535,8 @@
       "evidence": [
         "MSG-052"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "iron warehouse",
@@ -524,7 +549,8 @@
       "evidence": [
         "MSG-053"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook warehouse",
@@ -537,7 +563,8 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa schoolhouse",
@@ -550,7 +577,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo pad",
@@ -563,7 +591,8 @@
       "evidence": [
         "MSG-059"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "tango helipad",
@@ -572,11 +601,12 @@
       "target": "IRON_WAREHOUSE",
       "source_display": "Tango helipad",
       "target_display": "Iron warehouse",
-      "value_lb": 10,
+      "value_lb": 50,
       "evidence": [
         "MSG-061"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "lima helipad",
@@ -589,7 +619,8 @@
       "evidence": [
         "MSG-062"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo pad",
@@ -602,7 +633,8 @@
       "evidence": [
         "MSG-063"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "granite tent city",
@@ -615,7 +647,8 @@
       "evidence": [
         "MSG-069"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "willow water point",
@@ -628,7 +661,8 @@
       "evidence": [
         "MSG-071"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "granite tent city",
@@ -641,7 +675,8 @@
       "evidence": [
         "MSG-072"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "willow water point",
@@ -654,7 +689,8 @@
       "evidence": [
         "MSG-074"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "golf mosque courtyard",
@@ -667,7 +703,8 @@
       "evidence": [
         "MSG-075"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry mosque courtyard",
@@ -680,7 +717,8 @@
       "evidence": [
         "MSG-078"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "golf mosque courtyard",
@@ -693,7 +731,8 @@
       "evidence": [
         "MSG-079"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india bridge",
@@ -706,7 +745,8 @@
       "evidence": [
         "MSG-082"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india bridge",
@@ -719,7 +759,8 @@
       "evidence": [
         "MSG-083"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     }
   ]
 }

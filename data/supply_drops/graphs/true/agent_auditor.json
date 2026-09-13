@@ -152,7 +152,8 @@
         "MSG-001",
         "MSG-005"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -166,7 +167,8 @@
         "MSG-002",
         "MSG-007"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -180,7 +182,8 @@
         "MSG-003",
         "MSG-004"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -194,7 +197,8 @@
         "MSG-006",
         "MSG-008"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -208,7 +212,8 @@
         "MSG-009",
         "MSG-013"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -222,7 +227,8 @@
         "MSG-010",
         "MSG-012"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -236,7 +242,8 @@
         "MSG-011",
         "MSG-014"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -250,7 +257,8 @@
         "MSG-015",
         "MSG-018"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -264,7 +272,8 @@
         "MSG-016",
         "MSG-022"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -278,7 +287,8 @@
         "MSG-017",
         "MSG-019"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -292,7 +302,8 @@
         "MSG-020",
         "MSG-021"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -306,7 +317,8 @@
         "MSG-023",
         "MSG-030"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -320,7 +332,8 @@
         "MSG-024",
         "MSG-027"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -334,7 +347,8 @@
         "MSG-025",
         "MSG-029"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -348,7 +362,8 @@
         "MSG-026",
         "MSG-028"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee transfer yard",
@@ -362,7 +377,8 @@
         "MSG-031",
         "MSG-035"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -376,7 +392,8 @@
         "MSG-032",
         "MSG-037"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee transfer yard",
@@ -390,7 +407,8 @@
         "MSG-033",
         "MSG-038"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -404,7 +422,8 @@
         "MSG-034",
         "MSG-036"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -418,7 +437,8 @@
         "MSG-039",
         "MSG-043"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -432,7 +452,8 @@
         "MSG-040",
         "MSG-046"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform forward cache",
@@ -446,7 +467,8 @@
         "MSG-041",
         "MSG-045"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform forward cache",
@@ -460,7 +482,8 @@
         "MSG-042",
         "MSG-044"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -474,7 +497,8 @@
         "MSG-047",
         "MSG-050"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -488,7 +512,8 @@
         "MSG-048",
         "MSG-049"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha bridge",
@@ -502,7 +527,8 @@
         "MSG-053",
         "MSG-054"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango schoolhouse",
@@ -516,7 +542,8 @@
         "MSG-055",
         "MSG-058"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango schoolhouse",
@@ -530,7 +557,8 @@
         "MSG-056",
         "MSG-060"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha bridge",
@@ -544,7 +572,8 @@
         "MSG-057",
         "MSG-059"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie mill",
@@ -558,7 +587,8 @@
         "MSG-061",
         "MSG-062"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "whiskey checkpoint",
@@ -572,7 +602,8 @@
         "MSG-063",
         "MSG-065"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "golf orchard",
@@ -586,7 +617,8 @@
         "MSG-064",
         "MSG-068"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar schoolhouse",
@@ -600,7 +632,8 @@
         "MSG-066",
         "MSG-067"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar schoolhouse",
@@ -614,7 +647,8 @@
         "MSG-069",
         "MSG-070"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     }
   ],
   "trusted_constraint_rows": [

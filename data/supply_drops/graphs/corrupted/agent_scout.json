@@ -151,7 +151,8 @@
       "evidence": [
         "MSG-002"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": true
     },
     {
       "source_key": "lima convoy origin",
@@ -164,7 +165,8 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "romeo fob depot",
@@ -177,7 +179,8 @@
       "evidence": [
         "MSG-005"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -190,7 +193,8 @@
       "evidence": [
         "MSG-008"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -203,7 +207,8 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "lima convoy origin",
@@ -216,7 +221,8 @@
       "evidence": [
         "MSG-013"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -229,7 +235,8 @@
       "evidence": [
         "MSG-014"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -242,7 +249,8 @@
       "evidence": [
         "MSG-017"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -255,7 +263,8 @@
       "evidence": [
         "MSG-018"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike junction",
@@ -268,7 +277,8 @@
       "evidence": [
         "MSG-021"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -281,7 +291,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -294,7 +305,8 @@
       "evidence": [
         "MSG-023"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -307,7 +319,8 @@
       "evidence": [
         "MSG-025"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -320,7 +333,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": true
     },
     {
       "source_key": "november ridge hub",
@@ -333,7 +347,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee transfer yard",
@@ -346,7 +361,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -359,7 +375,8 @@
       "evidence": [
         "MSG-032"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee transfer yard",
@@ -372,7 +389,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november ridge hub",
@@ -385,7 +403,8 @@
       "evidence": [
         "MSG-034"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -398,7 +417,8 @@
       "evidence": [
         "MSG-039"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform forward cache",
@@ -411,7 +431,8 @@
       "evidence": [
         "MSG-042"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform forward cache",
@@ -424,7 +445,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -437,7 +459,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -450,7 +473,8 @@
       "evidence": [
         "MSG-048"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook forward cache",
@@ -463,7 +487,8 @@
       "evidence": [
         "MSG-050"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha bridge",
@@ -476,7 +501,8 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango schoolhouse",
@@ -489,7 +515,8 @@
       "evidence": [
         "MSG-055"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango schoolhouse",
@@ -502,7 +529,8 @@
       "evidence": [
         "MSG-056"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha bridge",
@@ -515,7 +543,8 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": true
     },
     {
       "source_key": "charlie mill",
@@ -528,7 +557,8 @@
       "evidence": [
         "MSG-062"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "golf orchard",
@@ -541,7 +571,8 @@
       "evidence": [
         "MSG-064"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "whiskey checkpoint",
@@ -554,7 +585,8 @@
       "evidence": [
         "MSG-065"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar schoolhouse",
@@ -567,7 +599,8 @@
       "evidence": [
         "MSG-067"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar schoolhouse",
@@ -580,7 +613,8 @@
       "evidence": [
         "MSG-070"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "golf orchard",
@@ -593,7 +627,8 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "also_sent"
+      "channel_bias": "also_sent",
+      "from_corrupted": true
     }
   ]
 }

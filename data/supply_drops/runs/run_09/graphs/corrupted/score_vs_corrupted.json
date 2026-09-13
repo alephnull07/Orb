@@ -3,27 +3,8 @@
   "target_edges": 32,
   "consensus_edges": 32,
   "matched_hops": 32,
-  "exact_weight_matches": 30,
-  "mean_abs_weight_error_on_matches": 0.78,
-  "differences": [
-    {
-      "hop": [
-        "zulu fob depot",
-        "delta forward cache"
-      ],
-      "target_lb": 125,
-      "consensus_lb": 140,
-      "delta": 15
-    },
-    {
-      "hop": [
-        "sandpit ridge hub",
-        "kilo farm"
-      ],
-      "target_lb": 210,
-      "consensus_lb": 220,
-      "delta": 10
-    }
-  ],
+  "exact_weight_matches": 32,
+  "mean_abs_weight_error_on_matches": 0.0,
+  "differences": [],
   "extra_hops": []
 }

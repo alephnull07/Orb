@@ -2,10 +2,10 @@
   "mutated_message_ids": [
     "MSG-048",
     "MSG-040",
-    "MSG-058",
+    "MSG-073",
     "MSG-044",
     "MSG-010",
-    "MSG-062"
+    "MSG-058"
   ],
   "injected_messages": [
     "MSG-C01",
@@ -42,7 +42,7 @@
     },
     {
       "id": "mutate_weight",
-      "message_id": "MSG-058",
+      "message_id": "MSG-073",
       "true_lb": 20,
       "reported_lb": 35,
       "edge": [
@@ -81,7 +81,7 @@
     },
     {
       "id": "mutate_weight",
-      "message_id": "MSG-062",
+      "message_id": "MSG-058",
       "true_lb": 20,
       "reported_lb": 45,
       "edge": [

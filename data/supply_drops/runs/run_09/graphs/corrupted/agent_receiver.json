@@ -175,7 +175,8 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu fob depot",
@@ -188,7 +189,8 @@
       "evidence": [
         "MSG-004"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "quarry convoy origin",
@@ -201,7 +203,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu fob depot",
@@ -214,7 +217,8 @@
       "evidence": [
         "MSG-008"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry convoy origin",
@@ -227,7 +231,8 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu fob depot",
@@ -240,7 +245,8 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu fob depot",
@@ -253,7 +259,8 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu fob depot",
@@ -266,7 +273,8 @@
       "evidence": [
         "MSG-014"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry convoy origin",
@@ -279,7 +287,8 @@
       "evidence": [
         "MSG-017"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "quarry convoy origin",
@@ -292,7 +301,8 @@
       "evidence": [
         "MSG-018"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha junction",
@@ -305,7 +315,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha junction",
@@ -318,7 +329,8 @@
       "evidence": [
         "MSG-025"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta forward cache",
@@ -331,7 +343,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta forward cache",
@@ -344,7 +357,8 @@
       "evidence": [
         "MSG-028"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit ridge hub",
@@ -357,7 +371,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit ridge hub",
@@ -370,7 +385,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta forward cache",
@@ -383,7 +399,8 @@
       "evidence": [
         "MSG-034"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta forward cache",
@@ -396,7 +413,8 @@
       "evidence": [
         "MSG-036"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit ridge hub",
@@ -409,7 +427,8 @@
       "evidence": [
         "MSG-037"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "sandpit ridge hub",
@@ -422,7 +441,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec crossroads",
@@ -435,7 +455,8 @@
       "evidence": [
         "MSG-044"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec crossroads",
@@ -448,7 +469,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india quarry",
@@ -461,7 +483,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india quarry",
@@ -474,7 +497,8 @@
       "evidence": [
         "MSG-050"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "echo helipad",
@@ -487,7 +511,8 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "echo helipad",
@@ -500,7 +525,8 @@
       "evidence": [
         "MSG-055"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "victor farm",
@@ -513,7 +539,8 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "victor farm",
@@ -526,7 +553,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "romeo checkpoint",
@@ -539,7 +567,8 @@
       "evidence": [
         "MSG-059"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "xray water point",
@@ -552,7 +581,8 @@
       "evidence": [
         "MSG-060"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": true
     },
     {
       "source_key": "romeo checkpoint",
@@ -565,7 +595,8 @@
       "evidence": [
         "MSG-064"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     }
   ]
 }

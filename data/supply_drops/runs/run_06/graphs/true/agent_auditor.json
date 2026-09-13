@@ -176,7 +176,8 @@
         "MSG-001",
         "MSG-003"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango airdrop lz",
@@ -190,7 +191,8 @@
         "MSG-002",
         "MSG-007"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango airdrop lz",
@@ -204,7 +206,8 @@
         "MSG-004",
         "MSG-005"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango airdrop lz",
@@ -218,7 +221,8 @@
         "MSG-006",
         "MSG-008"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform airdrop lz",
@@ -232,7 +236,8 @@
         "MSG-009",
         "MSG-013"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform airdrop lz",
@@ -246,7 +251,8 @@
         "MSG-010",
         "MSG-014"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango airdrop lz",
@@ -260,7 +266,8 @@
         "MSG-011",
         "MSG-015"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform airdrop lz",
@@ -274,7 +281,8 @@
         "MSG-012",
         "MSG-016"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec transfer yard",
@@ -288,7 +296,8 @@
         "MSG-017",
         "MSG-019"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec transfer yard",
@@ -302,7 +311,8 @@
         "MSG-018",
         "MSG-022"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec transfer yard",
@@ -316,7 +326,8 @@
         "MSG-020",
         "MSG-024"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec transfer yard",
@@ -330,7 +341,8 @@
         "MSG-021",
         "MSG-023"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "iron forward cache",
@@ -344,7 +356,8 @@
         "MSG-025",
         "MSG-030"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "iron forward cache",
@@ -358,7 +371,8 @@
         "MSG-026",
         "MSG-028"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "iron forward cache",
@@ -372,7 +386,8 @@
         "MSG-027",
         "MSG-031"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee forward cache",
@@ -386,7 +401,8 @@
         "MSG-029",
         "MSG-032"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee forward cache",
@@ -400,7 +416,8 @@
         "MSG-033",
         "MSG-040"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee forward cache",
@@ -414,7 +431,8 @@
         "MSG-034",
         "MSG-037"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee forward cache",
@@ -428,7 +446,8 @@
         "MSG-035",
         "MSG-038"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee forward cache",
@@ -442,7 +461,8 @@
         "MSG-036",
         "MSG-039"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu pad",
@@ -456,7 +476,8 @@
         "MSG-043",
         "MSG-045"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar warehouse",
@@ -470,7 +491,8 @@
         "MSG-044",
         "MSG-050"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar warehouse",
@@ -484,7 +506,8 @@
         "MSG-046",
         "MSG-047"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo market",
@@ -498,7 +521,8 @@
         "MSG-048",
         "MSG-049"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo market",
@@ -512,7 +536,8 @@
         "MSG-051",
         "MSG-052"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     }
   ],
   "trusted_constraint_rows": [

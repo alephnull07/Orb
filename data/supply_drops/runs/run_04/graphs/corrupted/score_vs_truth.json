@@ -3,8 +3,8 @@
   "target_edges": 41,
   "consensus_edges": 42,
   "matched_hops": 41,
-  "exact_weight_matches": 38,
-  "mean_abs_weight_error_on_matches": 1.83,
+  "exact_weight_matches": 35,
+  "mean_abs_weight_error_on_matches": 2.68,
   "differences": [
     {
       "hop": [
@@ -26,12 +26,39 @@
     },
     {
       "hop": [
-        "overlook warehouse",
+        "zulu port dump",
+        "papa schoolhouse"
+      ],
+      "target_lb": 35,
+      "consensus_lb": 25,
+      "delta": -10
+    },
+    {
+      "hop": [
+        "papa schoolhouse",
+        "lima helipad"
+      ],
+      "target_lb": 25,
+      "consensus_lb": 15,
+      "delta": -10
+    },
+    {
+      "hop": [
+        "tango helipad",
         "iron warehouse"
       ],
       "target_lb": 10,
       "consensus_lb": 50,
       "delta": 40
+    },
+    {
+      "hop": [
+        "willow water point",
+        "harbor helipad"
+      ],
+      "target_lb": 55,
+      "consensus_lb": 40,
+      "delta": -15
     }
   ],
   "extra_hops": [

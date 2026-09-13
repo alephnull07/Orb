@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -473,7 +473,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-010",
         "MSG-016"
@@ -748,18 +748,18 @@
       "target": "ZULU_TENT_CITY",
       "source_display": "Copper transfer yard",
       "target_display": "Zulu tent city",
-      "value_lb": 155,
+      "value_lb": 145,
       "agent_values": {
         "scout": 145,
         "receiver": 155,
-        "auditor": 155
+        "auditor": 145
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-040",
         "MSG-046"
@@ -803,7 +803,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-044",
         "MSG-045"
@@ -880,18 +880,18 @@
       "target": "QUEBEC_CHECKPOINT",
       "source_display": "Whiskey forward cache",
       "target_display": "Quebec checkpoint",
-      "value_lb": 80,
+      "value_lb": 70,
       "agent_values": {
         "scout": 80,
         "receiver": 70,
-        "auditor": 80
+        "auditor": 70
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-048",
         "MSG-052"
@@ -904,8 +904,8 @@
       "target_display": "Willow market",
       "value_lb": 45,
       "agent_values": {
-        "scout": 35,
-        "receiver": 45,
+        "scout": 45,
+        "receiver": 20,
         "auditor": 45
       },
       "votes": [
@@ -913,7 +913,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-058",
         "MSG-062"
@@ -1078,18 +1078,18 @@
       "target": "ZULU_TENT_CITY",
       "source_display": "Juliet quarry",
       "target_display": "Zulu tent city",
-      "value_lb": 20,
+      "value_lb": 35,
       "agent_values": {
-        "scout": 20,
+        "scout": 35,
         "receiver": 20,
-        "auditor": 20
+        "auditor": 35
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-073",
         "MSG-074"
@@ -1109,7 +1109,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1326,9 +1326,9 @@
       "agent_values": {
         "scout": 145,
         "receiver": 155,
-        "auditor": 155
+        "auditor": 145
       },
-      "kept": 155,
+      "kept": 145,
       "delta": 10
     },
     {
@@ -1350,9 +1350,9 @@
       "agent_values": {
         "scout": 80,
         "receiver": 70,
-        "auditor": 80
+        "auditor": 70
       },
-      "kept": 80,
+      "kept": 70,
       "delta": 10
     },
     {
@@ -1360,19 +1360,31 @@
       "source": "zulu tent city",
       "target": "willow market",
       "agent_values": {
-        "scout": 35,
-        "receiver": 45,
+        "scout": 45,
+        "receiver": 20,
         "auditor": 45
       },
       "kept": 45,
-      "delta": 10
+      "delta": 25
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "juliet quarry",
+      "target": "zulu tent city",
+      "agent_values": {
+        "scout": 35,
+        "receiver": 20,
+        "auditor": 35
+      },
+      "kept": 35,
+      "delta": 15
     }
   ],
   "stats": {
     "nodes": 21,
     "edges": 37,
     "outvoted_edges": 0,
-    "discrepancies": 5
+    "discrepancies": 6
   },
   "by_id": {
     "CHARLIE_RAILHEAD": "Charlie railhead",

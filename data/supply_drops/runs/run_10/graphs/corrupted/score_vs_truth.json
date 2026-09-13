@@ -3,9 +3,36 @@
   "target_edges": 39,
   "consensus_edges": 40,
   "matched_hops": 39,
-  "exact_weight_matches": 36,
-  "mean_abs_weight_error_on_matches": 2.31,
+  "exact_weight_matches": 33,
+  "mean_abs_weight_error_on_matches": 3.08,
   "differences": [
+    {
+      "hop": [
+        "copper railhead",
+        "echo forward cache"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 10,
+      "delta": -10
+    },
+    {
+      "hop": [
+        "bravo transfer yard",
+        "victor orchard"
+      ],
+      "target_lb": 20,
+      "consensus_lb": 10,
+      "delta": -10
+    },
+    {
+      "hop": [
+        "foxtrot transfer yard",
+        "xray helipad"
+      ],
+      "target_lb": 40,
+      "consensus_lb": 30,
+      "delta": -10
+    },
     {
       "hop": [
         "kilo transfer yard",

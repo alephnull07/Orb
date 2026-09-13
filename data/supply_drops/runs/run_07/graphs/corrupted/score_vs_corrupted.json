@@ -3,27 +3,8 @@
   "target_edges": 31,
   "consensus_edges": 31,
   "matched_hops": 31,
-  "exact_weight_matches": 29,
-  "mean_abs_weight_error_on_matches": 0.81,
-  "differences": [
-    {
-      "hop": [
-        "bravo airdrop lz",
-        "lima ridge hub"
-      ],
-      "target_lb": 40,
-      "consensus_lb": 50,
-      "delta": 10
-    },
-    {
-      "hop": [
-        "india forward cache",
-        "willow bridge"
-      ],
-      "target_lb": 240,
-      "consensus_lb": 255,
-      "delta": 15
-    }
-  ],
+  "exact_weight_matches": 31,
+  "mean_abs_weight_error_on_matches": 0.0,
+  "differences": [],
   "extra_hops": []
 }

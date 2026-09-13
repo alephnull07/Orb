@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -263,7 +263,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-002",
         "MSG-007"
@@ -351,7 +351,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-010",
         "MSG-012"
@@ -373,7 +373,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-009",
         "MSG-013"
@@ -549,7 +549,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-026",
         "MSG-028"
@@ -571,7 +571,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-024",
         "MSG-027"
@@ -879,7 +879,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-057",
         "MSG-059"
@@ -1009,7 +1009,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]

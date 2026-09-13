@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -457,7 +457,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-010",
         "MSG-014"
@@ -556,18 +556,18 @@
       "target": "PAPA_SCHOOLHOUSE",
       "source_display": "Zulu port dump",
       "target_display": "Papa schoolhouse",
-      "value_lb": 35,
+      "value_lb": 25,
       "agent_values": {
         "scout": 25,
         "receiver": 35,
-        "auditor": 35
+        "auditor": 25
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-019",
         "MSG-023"
@@ -677,7 +677,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-032",
         "MSG-034"
@@ -864,18 +864,18 @@
       "target": "IRON_WAREHOUSE",
       "source_display": "Overlook warehouse",
       "target_display": "Iron warehouse",
-      "value_lb": 50,
+      "value_lb": 10,
       "agent_values": {
-        "scout": 50,
+        "scout": 10,
         "receiver": 10,
-        "auditor": 50
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "unanimous",
       "evidence": [
         "MSG-051",
         "MSG-054"
@@ -886,18 +886,18 @@
       "target": "LIMA_HELIPAD",
       "source_display": "Papa schoolhouse",
       "target_display": "Lima helipad",
-      "value_lb": 25,
+      "value_lb": 15,
       "agent_values": {
         "scout": 25,
         "receiver": 15,
-        "auditor": 25
+        "auditor": 15
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-052",
         "MSG-055"
@@ -996,18 +996,18 @@
       "target": "IRON_WAREHOUSE",
       "source_display": "Tango helipad",
       "target_display": "Iron warehouse",
-      "value_lb": 10,
+      "value_lb": 50,
       "agent_values": {
         "scout": 10,
-        "receiver": 10,
-        "auditor": 10
+        "receiver": 50,
+        "auditor": 50
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-061",
         "MSG-065"
@@ -1106,18 +1106,18 @@
       "target": "HARBOR_HELIPAD",
       "source_display": "Willow water point",
       "target_display": "Harbor helipad",
-      "value_lb": 55,
+      "value_lb": 40,
       "agent_values": {
         "scout": 55,
         "receiver": 40,
-        "auditor": 55
+        "auditor": 40
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-071",
         "MSG-073"
@@ -1247,7 +1247,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1294,8 +1294,8 @@
       "node": "ZULU_PORT_DUMP",
       "display": "Zulu port dump",
       "law": "mass_balance",
-      "in_lb": 225,
-      "out_lb": 225,
+      "in_lb": 215,
+      "out_lb": 215,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1482,9 +1482,9 @@
       "agent_values": {
         "scout": 25,
         "receiver": 35,
-        "auditor": 35
+        "auditor": 25
       },
-      "kept": 35,
+      "kept": 25,
       "delta": 10
     },
     {
@@ -1501,27 +1501,27 @@
     },
     {
       "reason": "sender_receiver_disagreement",
-      "source": "overlook warehouse",
-      "target": "iron warehouse",
-      "agent_values": {
-        "scout": 50,
-        "receiver": 10,
-        "auditor": 50
-      },
-      "kept": 50,
-      "delta": 40
-    },
-    {
-      "reason": "sender_receiver_disagreement",
       "source": "papa schoolhouse",
       "target": "lima helipad",
       "agent_values": {
         "scout": 25,
         "receiver": 15,
-        "auditor": 25
+        "auditor": 15
       },
-      "kept": 25,
+      "kept": 15,
       "delta": 10
+    },
+    {
+      "reason": "sender_receiver_disagreement",
+      "source": "tango helipad",
+      "target": "iron warehouse",
+      "agent_values": {
+        "scout": 10,
+        "receiver": 50,
+        "auditor": 50
+      },
+      "kept": 50,
+      "delta": 40
     },
     {
       "reason": "sender_receiver_disagreement",
@@ -1530,9 +1530,9 @@
       "agent_values": {
         "scout": 55,
         "receiver": 40,
-        "auditor": 55
+        "auditor": 40
       },
-      "kept": 55,
+      "kept": 40,
       "delta": 15
     }
   ],

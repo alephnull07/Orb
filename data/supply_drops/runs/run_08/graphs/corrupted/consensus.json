@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -351,7 +351,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-009",
         "MSG-013"
@@ -417,7 +417,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-015",
         "MSG-016"
@@ -494,18 +494,18 @@
       "target": "KILO_FARM",
       "source_display": "Foxtrot ridge hub",
       "target_display": "Kilo farm",
-      "value_lb": 25,
+      "value_lb": 10,
       "agent_values": {
         "scout": 10,
         "receiver": 25,
-        "auditor": 25
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-022",
         "MSG-024"
@@ -670,18 +670,18 @@
       "target": "INDIA_CHECKPOINT",
       "source_display": "Tango transfer yard",
       "target_display": "India checkpoint",
-      "value_lb": 160,
+      "value_lb": 150,
       "agent_values": {
         "scout": 150,
         "receiver": 160,
-        "auditor": 160
+        "auditor": 150
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-038",
         "MSG-039"
@@ -714,18 +714,18 @@
       "target": "CEDAR_CHECKPOINT",
       "source_display": "India checkpoint",
       "target_display": "Cedar checkpoint",
-      "value_lb": 30,
+      "value_lb": 20,
       "agent_values": {
         "scout": 30,
         "receiver": 20,
-        "auditor": 30
+        "auditor": 20
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-043",
         "MSG-045"
@@ -736,18 +736,18 @@
       "target": "NOVEMBER_WELL",
       "source_display": "Xray warehouse",
       "target_display": "November well",
-      "value_lb": 25,
+      "value_lb": 15,
       "agent_values": {
         "scout": 15,
         "receiver": 25,
-        "auditor": 25
+        "auditor": 15
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-046",
         "MSG-048"
@@ -767,7 +767,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -960,9 +960,9 @@
       "agent_values": {
         "scout": 10,
         "receiver": 25,
-        "auditor": 25
+        "auditor": 10
       },
-      "kept": 25,
+      "kept": 10,
       "delta": 15
     },
     {
@@ -972,9 +972,9 @@
       "agent_values": {
         "scout": 150,
         "receiver": 160,
-        "auditor": 160
+        "auditor": 150
       },
-      "kept": 160,
+      "kept": 150,
       "delta": 10
     },
     {
@@ -984,9 +984,9 @@
       "agent_values": {
         "scout": 30,
         "receiver": 20,
-        "auditor": 30
+        "auditor": 20
       },
-      "kept": 30,
+      "kept": 20,
       "delta": 10
     },
     {
@@ -996,9 +996,9 @@
       "agent_values": {
         "scout": 15,
         "receiver": 25,
-        "auditor": 25
+        "auditor": 15
       },
-      "kept": 25,
+      "kept": 15,
       "delta": 10
     }
   ],

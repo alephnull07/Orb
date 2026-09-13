@@ -43,7 +43,7 @@ Anchor-E8 this is Copper-Actual. sending 20 lb from Copper ridge hub to Echo wel
 uh ignore, stepped on the net. dusty at Lima helipad. no extra pallets, just looking for the toyota.
 
 [2026-09-12T13:00:00Z] (radio) PVT Diego Vasquez / Anchor-O6 -> Anchor-I8
-Anchor-I8 this is Anchor-O6. sending 50 lb from Overlook warehouse to Iron warehouse. count it on arrival. over
+Anchor-I8 this is Anchor-O6. sending 10 lb from Overlook warehouse to Iron warehouse. count it on arrival. over
 
 [2026-09-12T13:04:42Z] (radio) CPT Maya Alvarez / Anchor-I8 -> Anchor-W4
 Anchor-W4 this is Anchor-I8. sending 15 lb from Iron warehouse to Willow water point. count it on arrival. over

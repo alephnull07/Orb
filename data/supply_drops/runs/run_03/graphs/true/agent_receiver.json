@@ -255,7 +255,8 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -268,7 +269,8 @@
       "evidence": [
         "MSG-004"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -281,7 +283,8 @@
       "evidence": [
         "MSG-005"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -294,7 +297,8 @@
       "evidence": [
         "MSG-006"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -307,7 +311,8 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "romeo port dump",
@@ -320,7 +325,8 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -333,7 +339,8 @@
       "evidence": [
         "MSG-015"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "romeo port dump",
@@ -346,7 +353,8 @@
       "evidence": [
         "MSG-016"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -359,7 +367,8 @@
       "evidence": [
         "MSG-018"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -372,7 +381,8 @@
       "evidence": [
         "MSG-019"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -385,7 +395,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "papa fob depot",
@@ -398,7 +409,8 @@
       "evidence": [
         "MSG-024"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -411,7 +423,8 @@
       "evidence": [
         "MSG-025"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -424,7 +437,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -437,7 +451,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -450,7 +465,8 @@
       "evidence": [
         "MSG-030"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -463,7 +479,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima forward cache",
@@ -476,7 +493,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta transfer yard",
@@ -489,7 +507,8 @@
       "evidence": [
         "MSG-037"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "delta transfer yard",
@@ -502,7 +521,8 @@
       "evidence": [
         "MSG-038"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra forward cache",
@@ -515,7 +535,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra forward cache",
@@ -528,7 +549,8 @@
       "evidence": [
         "MSG-044"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform ridge hub",
@@ -541,7 +563,8 @@
       "evidence": [
         "MSG-047"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra forward cache",
@@ -554,7 +577,8 @@
       "evidence": [
         "MSG-049"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra forward cache",
@@ -567,7 +591,8 @@
       "evidence": [
         "MSG-050"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra forward cache",
@@ -580,7 +605,8 @@
       "evidence": [
         "MSG-051"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor transfer yard",
@@ -593,7 +619,8 @@
       "evidence": [
         "MSG-053"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor transfer yard",
@@ -606,7 +633,8 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -619,7 +647,8 @@
       "evidence": [
         "MSG-055"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform ridge hub",
@@ -632,7 +661,8 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -645,7 +675,8 @@
       "evidence": [
         "MSG-061"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar clinic",
@@ -658,7 +689,8 @@
       "evidence": [
         "MSG-066"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar clinic",
@@ -671,7 +703,8 @@
       "evidence": [
         "MSG-067"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit quarry",
@@ -684,7 +717,8 @@
       "evidence": [
         "MSG-068"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "maple orchard",
@@ -697,7 +731,8 @@
       "evidence": [
         "MSG-071"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry water point",
@@ -710,7 +745,8 @@
       "evidence": [
         "MSG-073"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india helipad",
@@ -723,7 +759,8 @@
       "evidence": [
         "MSG-076"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india helipad",
@@ -736,7 +773,8 @@
       "evidence": [
         "MSG-078"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar mosque courtyard",
@@ -749,7 +787,8 @@
       "evidence": [
         "MSG-079"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "granite mill",
@@ -762,7 +801,8 @@
       "evidence": [
         "MSG-081"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "granite mill",
@@ -775,7 +815,8 @@
       "evidence": [
         "MSG-083"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     }
   ]
 }

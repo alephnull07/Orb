@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -266,18 +266,18 @@
       "target": "ECHO_FORWARD_CACHE",
       "source_display": "Copper railhead",
       "target_display": "Echo forward cache",
-      "value_lb": 20,
+      "value_lb": 10,
       "agent_values": {
         "scout": 10,
         "receiver": 20,
-        "auditor": 20
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-002",
         "MSG-004"
@@ -464,18 +464,18 @@
       "target": "VICTOR_ORCHARD",
       "source_display": "Bravo transfer yard",
       "target_display": "Victor orchard",
-      "value_lb": 20,
+      "value_lb": 10,
       "agent_values": {
         "scout": 20,
         "receiver": 10,
-        "auditor": 20
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-019",
         "MSG-020"
@@ -486,18 +486,18 @@
       "target": "XRAY_HELIPAD",
       "source_display": "Foxtrot transfer yard",
       "target_display": "Xray helipad",
-      "value_lb": 40,
+      "value_lb": 30,
       "agent_values": {
         "scout": 30,
         "receiver": 40,
-        "auditor": 40
+        "auditor": 30
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-022",
         "MSG-023"
@@ -849,7 +849,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-054",
         "MSG-059"
@@ -893,7 +893,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-055",
         "MSG-057"
@@ -1069,7 +1069,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-075",
         "MSG-078"
@@ -1133,7 +1133,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1144,8 +1144,8 @@
       "node": "COPPER_RAILHEAD",
       "display": "Copper railhead",
       "law": "mass_balance",
-      "in_lb": 370,
-      "out_lb": 370,
+      "in_lb": 360,
+      "out_lb": 360,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1311,9 +1311,9 @@
       "agent_values": {
         "scout": 10,
         "receiver": 20,
-        "auditor": 20
+        "auditor": 10
       },
-      "kept": 20,
+      "kept": 10,
       "delta": 10
     },
     {
@@ -1323,9 +1323,9 @@
       "agent_values": {
         "scout": 20,
         "receiver": 10,
-        "auditor": 20
+        "auditor": 10
       },
-      "kept": 20,
+      "kept": 10,
       "delta": 10
     },
     {
@@ -1335,9 +1335,9 @@
       "agent_values": {
         "scout": 30,
         "receiver": 40,
-        "auditor": 40
+        "auditor": 30
       },
-      "kept": 40,
+      "kept": 30,
       "delta": 10
     },
     {

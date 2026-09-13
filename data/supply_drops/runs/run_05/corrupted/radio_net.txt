@@ -58,4 +58,4 @@ Anchor-L9 this is Anchor-Y3. sending 5 lb from Yankee warehouse to Lima crossroa
 Anchor-O3 this is Anchor-X5. sending 40 lb from Xray crossroads to Oscar orchard. count it on arrival. over
 
 [2026-09-12T13:40:00Z] (radio) SPC James Hassan / Anchor-J5 -> Anchor-Z3
-Anchor-Z3 this is Anchor-J5. sending 20 lb from Juliet quarry to Zulu tent city. count it on arrival. over
+Anchor-Z3 this is Anchor-J5. sending 35 lb from Juliet quarry to Zulu tent city. count it on arrival. over

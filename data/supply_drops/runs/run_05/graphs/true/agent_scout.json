@@ -183,7 +183,8 @@
       "evidence": [
         "MSG-001"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit airdrop lz",
@@ -196,7 +197,8 @@
       "evidence": [
         "MSG-002"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit airdrop lz",
@@ -209,7 +211,8 @@
       "evidence": [
         "MSG-004"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie railhead",
@@ -222,7 +225,8 @@
       "evidence": [
         "MSG-006"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie railhead",
@@ -235,7 +239,8 @@
       "evidence": [
         "MSG-013"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november port dump",
@@ -248,7 +253,8 @@
       "evidence": [
         "MSG-014"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit airdrop lz",
@@ -261,7 +267,8 @@
       "evidence": [
         "MSG-015"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november port dump",
@@ -274,7 +281,8 @@
       "evidence": [
         "MSG-016"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie railhead",
@@ -287,7 +295,8 @@
       "evidence": [
         "MSG-018"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie railhead",
@@ -300,7 +309,8 @@
       "evidence": [
         "MSG-020"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november port dump",
@@ -313,7 +323,8 @@
       "evidence": [
         "MSG-021"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo transfer yard",
@@ -326,7 +337,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo transfer yard",
@@ -339,7 +351,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo transfer yard",
@@ -352,7 +365,8 @@
       "evidence": [
         "MSG-028"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo transfer yard",
@@ -365,7 +379,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -378,7 +393,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -391,7 +407,8 @@
       "evidence": [
         "MSG-032"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo transfer yard",
@@ -404,7 +421,8 @@
       "evidence": [
         "MSG-035"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -417,7 +435,8 @@
       "evidence": [
         "MSG-038"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -430,7 +449,8 @@
       "evidence": [
         "MSG-039"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "copper transfer yard",
@@ -443,7 +463,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "whiskey forward cache",
@@ -456,7 +477,8 @@
       "evidence": [
         "MSG-043"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "copper transfer yard",
@@ -469,7 +491,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike transfer yard",
@@ -482,7 +505,8 @@
       "evidence": [
         "MSG-047"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike transfer yard",
@@ -495,7 +519,8 @@
       "evidence": [
         "MSG-049"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike transfer yard",
@@ -508,7 +533,8 @@
       "evidence": [
         "MSG-050"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "whiskey forward cache",
@@ -521,7 +547,8 @@
       "evidence": [
         "MSG-052"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu tent city",
@@ -534,7 +561,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar checkpoint",
@@ -547,7 +575,8 @@
       "evidence": [
         "MSG-059"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar checkpoint",
@@ -560,7 +589,8 @@
       "evidence": [
         "MSG-061"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu tent city",
@@ -573,7 +603,8 @@
       "evidence": [
         "MSG-064"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec checkpoint",
@@ -586,7 +617,8 @@
       "evidence": [
         "MSG-066"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee warehouse",
@@ -599,7 +631,8 @@
       "evidence": [
         "MSG-068"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "yankee warehouse",
@@ -612,7 +645,8 @@
       "evidence": [
         "MSG-071"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray crossroads",
@@ -625,7 +659,8 @@
       "evidence": [
         "MSG-072"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet quarry",
@@ -638,7 +673,8 @@
       "evidence": [
         "MSG-073"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     }
   ]
 }

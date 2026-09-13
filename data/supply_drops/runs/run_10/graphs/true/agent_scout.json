@@ -159,7 +159,8 @@
       "evidence": [
         "MSG-002"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "copper railhead",
@@ -172,7 +173,8 @@
       "evidence": [
         "MSG-003"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "copper railhead",
@@ -185,7 +187,8 @@
       "evidence": [
         "MSG-006"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor railhead",
@@ -198,7 +201,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor railhead",
@@ -211,7 +215,8 @@
       "evidence": [
         "MSG-011"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor railhead",
@@ -224,7 +229,8 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo transfer yard",
@@ -237,7 +243,8 @@
       "evidence": [
         "MSG-013"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo transfer yard",
@@ -250,7 +257,8 @@
       "evidence": [
         "MSG-015"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo transfer yard",
@@ -263,7 +271,8 @@
       "evidence": [
         "MSG-016"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo transfer yard",
@@ -276,7 +285,8 @@
       "evidence": [
         "MSG-020"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "foxtrot transfer yard",
@@ -289,7 +299,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo transfer yard",
@@ -302,7 +313,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "foxtrot transfer yard",
@@ -315,7 +327,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "foxtrot transfer yard",
@@ -328,7 +341,8 @@
       "evidence": [
         "MSG-028"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit transfer yard",
@@ -341,7 +355,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit transfer yard",
@@ -354,7 +369,8 @@
       "evidence": [
         "MSG-030"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit transfer yard",
@@ -367,7 +383,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit transfer yard",
@@ -380,7 +397,8 @@
       "evidence": [
         "MSG-034"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo forward cache",
@@ -393,7 +411,8 @@
       "evidence": [
         "MSG-039"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo forward cache",
@@ -406,7 +425,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo forward cache",
@@ -419,7 +439,8 @@
       "evidence": [
         "MSG-042"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo forward cache",
@@ -432,7 +453,8 @@
       "evidence": [
         "MSG-044"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -445,7 +467,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -458,7 +481,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -471,7 +495,8 @@
       "evidence": [
         "MSG-048"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -484,7 +509,8 @@
       "evidence": [
         "MSG-051"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar transfer yard",
@@ -497,7 +523,8 @@
       "evidence": [
         "MSG-054"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar transfer yard",
@@ -510,7 +537,8 @@
       "evidence": [
         "MSG-056"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo transfer yard",
@@ -523,7 +551,8 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar transfer yard",
@@ -536,7 +565,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet tent city",
@@ -549,7 +579,8 @@
       "evidence": [
         "MSG-063"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "delta schoolhouse",
@@ -562,7 +593,8 @@
       "evidence": [
         "MSG-064"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "delta schoolhouse",
@@ -575,7 +607,8 @@
       "evidence": [
         "MSG-068"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "lima aid cage",
@@ -588,7 +621,8 @@
       "evidence": [
         "MSG-070"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike mill",
@@ -601,7 +635,8 @@
       "evidence": [
         "MSG-071"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "victor orchard",
@@ -614,7 +649,8 @@
       "evidence": [
         "MSG-072"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray helipad",
@@ -627,7 +663,8 @@
       "evidence": [
         "MSG-075"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "whiskey well",
@@ -640,7 +677,8 @@
       "evidence": [
         "MSG-077"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray helipad",
@@ -653,7 +691,8 @@
       "evidence": [
         "MSG-079"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     }
   ]
 }

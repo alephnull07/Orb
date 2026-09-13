@@ -1,6 +1,6 @@
 {
   "mutated_message_ids": [
-    "MSG-051",
+    "MSG-061",
     "MSG-071",
     "MSG-032",
     "MSG-052",
@@ -16,7 +16,7 @@
   "attacks": [
     {
       "id": "mutate_weight",
-      "message_id": "MSG-051",
+      "message_id": "MSG-061",
       "true_lb": 10,
       "reported_lb": 50,
       "edge": [

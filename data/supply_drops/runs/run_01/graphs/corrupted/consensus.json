@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -430,18 +430,18 @@
       "target": "JULIET_RIDGE_HUB",
       "source_display": "Sandpit railhead",
       "target_display": "Juliet ridge hub",
-      "value_lb": 110,
+      "value_lb": 95,
       "agent_values": {
         "scout": 110,
         "receiver": 95,
-        "auditor": 110
+        "auditor": 95
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-003",
         "MSG-007"
@@ -474,18 +474,18 @@
       "target": "ALPHA_WATER_POINT",
       "source_display": "Quarry airdrop LZ",
       "target_display": "Alpha water point",
-      "value_lb": 20,
+      "value_lb": 10,
       "agent_values": {
         "scout": 10,
         "receiver": 20,
-        "auditor": 20
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-011",
         "MSG-015"
@@ -573,7 +573,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-019",
         "MSG-021"
@@ -639,7 +639,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-025",
         "MSG-026"
@@ -925,7 +925,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-049",
         "MSG-051"
@@ -1178,18 +1178,18 @@
       "target": "PAPA_CROSSROADS",
       "source_display": "Echo well",
       "target_display": "Papa crossroads",
-      "value_lb": 20,
+      "value_lb": 10,
       "agent_values": {
         "scout": 20,
         "receiver": 10,
-        "auditor": 20
+        "auditor": 10
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-073",
         "MSG-078"
@@ -1297,7 +1297,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1308,8 +1308,8 @@
       "node": "QUARRY_AIRDROP_LZ",
       "display": "Quarry airdrop LZ",
       "law": "mass_balance",
-      "in_lb": 325,
-      "out_lb": 325,
+      "in_lb": 315,
+      "out_lb": 315,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1344,8 +1344,8 @@
       "node": "SANDPIT_RAILHEAD",
       "display": "Sandpit railhead",
       "law": "mass_balance",
-      "in_lb": 365,
-      "out_lb": 365,
+      "in_lb": 350,
+      "out_lb": 350,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1538,9 +1538,9 @@
       "agent_values": {
         "scout": 110,
         "receiver": 95,
-        "auditor": 110
+        "auditor": 95
       },
-      "kept": 110,
+      "kept": 95,
       "delta": 15
     },
     {
@@ -1550,9 +1550,9 @@
       "agent_values": {
         "scout": 10,
         "receiver": 20,
-        "auditor": 20
+        "auditor": 10
       },
-      "kept": 20,
+      "kept": 10,
       "delta": 10
     },
     {
@@ -1598,9 +1598,9 @@
       "agent_values": {
         "scout": 20,
         "receiver": 10,
-        "auditor": 20
+        "auditor": 10
       },
-      "kept": 20,
+      "kept": 10,
       "delta": 10
     }
   ],

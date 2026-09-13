@@ -143,7 +143,8 @@
       "evidence": [
         "MSG-002"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo airdrop lz",
@@ -156,7 +157,8 @@
       "evidence": [
         "MSG-005"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo airdrop lz",
@@ -169,7 +171,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "november airdrop lz",
@@ -182,7 +185,8 @@
       "evidence": [
         "MSG-008"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo airdrop lz",
@@ -195,7 +199,8 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima ridge hub",
@@ -208,7 +213,8 @@
       "evidence": [
         "MSG-011"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima ridge hub",
@@ -221,7 +227,8 @@
       "evidence": [
         "MSG-014"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima ridge hub",
@@ -234,7 +241,8 @@
       "evidence": [
         "MSG-015"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "lima ridge hub",
@@ -247,7 +255,8 @@
       "evidence": [
         "MSG-016"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "tango ridge hub",
@@ -260,7 +269,8 @@
       "evidence": [
         "MSG-021"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "tango ridge hub",
@@ -273,7 +283,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit forward cache",
@@ -286,7 +297,8 @@
       "evidence": [
         "MSG-023"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "tango ridge hub",
@@ -299,7 +311,8 @@
       "evidence": [
         "MSG-025"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit forward cache",
@@ -312,7 +325,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit forward cache",
@@ -325,7 +339,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit forward cache",
@@ -338,7 +353,8 @@
       "evidence": [
         "MSG-030"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit forward cache",
@@ -351,7 +367,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india forward cache",
@@ -364,7 +381,8 @@
       "evidence": [
         "MSG-036"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu junction",
@@ -377,7 +395,8 @@
       "evidence": [
         "MSG-037"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu junction",
@@ -390,7 +409,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu junction",
@@ -403,7 +423,8 @@
       "evidence": [
         "MSG-041"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -416,7 +437,8 @@
       "evidence": [
         "MSG-043"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -429,7 +451,8 @@
       "evidence": [
         "MSG-047"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india forward cache",
@@ -442,7 +465,8 @@
       "evidence": [
         "MSG-048"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "india forward cache",
@@ -455,7 +479,8 @@
       "evidence": [
         "MSG-049"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "xray junction",
@@ -468,7 +493,8 @@
       "evidence": [
         "MSG-052"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar orchard",
@@ -481,7 +507,8 @@
       "evidence": [
         "MSG-056"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha mosque courtyard",
@@ -494,7 +521,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "willow bridge",
@@ -507,7 +535,8 @@
       "evidence": [
         "MSG-060"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     },
     {
       "source_key": "alpha mosque courtyard",
@@ -520,7 +549,8 @@
       "evidence": [
         "MSG-061"
       ],
-      "channel_bias": "receipt"
+      "channel_bias": "receipt",
+      "from_corrupted": false
     }
   ]
 }

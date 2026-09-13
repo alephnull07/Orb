@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -434,18 +434,18 @@
       "target": "XRAY_TRANSFER_YARD",
       "source_display": "Papa FOB depot",
       "target_display": "Xray transfer yard",
-      "value_lb": 390,
+      "value_lb": 380,
       "agent_values": {
         "scout": 380,
         "receiver": 390,
-        "auditor": 390
+        "auditor": 380
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-001",
         "MSG-004"
@@ -489,7 +489,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-006",
         "MSG-007"
@@ -621,7 +621,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-017",
         "MSG-022"
@@ -1028,18 +1028,18 @@
       "target": "GRANITE_MILL",
       "source_display": "Harbor transfer yard",
       "target_display": "Granite mill",
-      "value_lb": 200,
+      "value_lb": 185,
       "agent_values": {
         "scout": 200,
         "receiver": 185,
-        "auditor": 200
+        "auditor": 185
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-054",
         "MSG-058"
@@ -1127,7 +1127,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-065",
         "MSG-068"
@@ -1237,7 +1237,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-075",
         "MSG-079"
@@ -1345,7 +1345,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -1356,8 +1356,8 @@
       "node": "PAPA_FOB_DEPOT",
       "display": "Papa FOB depot",
       "law": "mass_balance",
-      "in_lb": 705,
-      "out_lb": 705,
+      "in_lb": 695,
+      "out_lb": 695,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1631,9 +1631,9 @@
       "agent_values": {
         "scout": 380,
         "receiver": 390,
-        "auditor": 390
+        "auditor": 380
       },
-      "kept": 390,
+      "kept": 380,
       "delta": 10
     },
     {
@@ -1667,9 +1667,9 @@
       "agent_values": {
         "scout": 200,
         "receiver": 185,
-        "auditor": 200
+        "auditor": 185
       },
-      "kept": 200,
+      "kept": 185,
       "delta": 15
     },
     {

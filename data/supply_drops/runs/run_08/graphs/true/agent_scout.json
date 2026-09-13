@@ -151,7 +151,8 @@
       "evidence": [
         "MSG-001"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "iron port dump",
@@ -164,7 +165,8 @@
       "evidence": [
         "MSG-004"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform fob depot",
@@ -177,7 +179,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform fob depot",
@@ -190,7 +193,8 @@
       "evidence": [
         "MSG-008"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform fob depot",
@@ -203,7 +207,8 @@
       "evidence": [
         "MSG-009"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform fob depot",
@@ -216,7 +221,8 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "iron port dump",
@@ -229,7 +235,8 @@
       "evidence": [
         "MSG-014"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "uniform fob depot",
@@ -242,7 +249,8 @@
       "evidence": [
         "MSG-015"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar junction",
@@ -255,7 +263,8 @@
       "evidence": [
         "MSG-017"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar junction",
@@ -268,7 +277,8 @@
       "evidence": [
         "MSG-020"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "foxtrot ridge hub",
@@ -281,7 +291,8 @@
       "evidence": [
         "MSG-021"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "foxtrot ridge hub",
@@ -294,7 +305,8 @@
       "evidence": [
         "MSG-022"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar junction",
@@ -307,7 +319,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar junction",
@@ -320,7 +333,8 @@
       "evidence": [
         "MSG-027"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "hotel transfer yard",
@@ -333,7 +347,8 @@
       "evidence": [
         "MSG-029"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "oscar junction",
@@ -346,7 +361,8 @@
       "evidence": [
         "MSG-031"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "hotel transfer yard",
@@ -359,7 +375,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "hotel transfer yard",
@@ -372,7 +389,8 @@
       "evidence": [
         "MSG-035"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango transfer yard",
@@ -385,7 +403,8 @@
       "evidence": [
         "MSG-036"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango transfer yard",
@@ -398,7 +417,8 @@
       "evidence": [
         "MSG-038"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quebec crossroads",
@@ -411,7 +431,8 @@
       "evidence": [
         "MSG-044"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "india checkpoint",
@@ -424,7 +445,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "xray warehouse",
@@ -437,7 +459,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     }
   ]
 }

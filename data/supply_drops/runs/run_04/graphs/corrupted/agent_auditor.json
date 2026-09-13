@@ -200,7 +200,8 @@
         "MSG-001",
         "MSG-006"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -214,7 +215,8 @@
         "MSG-002",
         "MSG-004"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -228,7 +230,8 @@
         "MSG-003",
         "MSG-008"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -242,7 +245,8 @@
         "MSG-005",
         "MSG-007"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra fob depot",
@@ -256,7 +260,8 @@
         "MSG-009",
         "MSG-016"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -270,7 +275,8 @@
         "MSG-010",
         "MSG-014"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "sierra fob depot",
@@ -284,7 +290,8 @@
         "MSG-011",
         "MSG-015"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -298,7 +305,8 @@
         "MSG-012",
         "MSG-013"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -312,7 +320,8 @@
         "MSG-017",
         "MSG-020"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -326,7 +335,8 @@
         "MSG-018",
         "MSG-024"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -335,12 +345,13 @@
       "target": "PAPA_SCHOOLHOUSE",
       "source_display": "Zulu port dump",
       "target_display": "Papa schoolhouse",
-      "value_lb": 35,
+      "value_lb": 25,
       "evidence": [
         "MSG-019",
         "MSG-023"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "cedar airdrop lz",
@@ -354,7 +365,8 @@
         "MSG-021",
         "MSG-022"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -368,7 +380,8 @@
         "MSG-025",
         "MSG-026"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "zulu port dump",
@@ -382,7 +395,8 @@
         "MSG-027",
         "MSG-028"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "cedar airdrop lz",
@@ -396,7 +410,8 @@
         "MSG-029",
         "MSG-030"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -410,7 +425,8 @@
         "MSG-031",
         "MSG-036"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -424,7 +440,8 @@
         "MSG-032",
         "MSG-034"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "charlie transfer yard",
@@ -438,7 +455,8 @@
         "MSG-033",
         "MSG-035"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie transfer yard",
@@ -452,7 +470,8 @@
         "MSG-037",
         "MSG-038"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -466,7 +485,8 @@
         "MSG-039",
         "MSG-041"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -480,7 +500,8 @@
         "MSG-040",
         "MSG-046"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -494,7 +515,8 @@
         "MSG-042",
         "MSG-044"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "xray transfer yard",
@@ -508,7 +530,8 @@
         "MSG-043",
         "MSG-045"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "copper ridge hub",
@@ -522,7 +545,8 @@
         "MSG-047",
         "MSG-048"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "overlook warehouse",
@@ -531,12 +555,13 @@
       "target": "IRON_WAREHOUSE",
       "source_display": "Overlook warehouse",
       "target_display": "Iron warehouse",
-      "value_lb": 50,
+      "value_lb": 10,
       "evidence": [
         "MSG-051",
         "MSG-054"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "papa schoolhouse",
@@ -545,12 +570,13 @@
       "target": "LIMA_HELIPAD",
       "source_display": "Papa schoolhouse",
       "target_display": "Lima helipad",
-      "value_lb": 25,
+      "value_lb": 15,
       "evidence": [
         "MSG-052",
         "MSG-055"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "iron warehouse",
@@ -564,7 +590,8 @@
         "MSG-053",
         "MSG-057"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "papa schoolhouse",
@@ -578,7 +605,8 @@
         "MSG-056",
         "MSG-058"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo pad",
@@ -592,7 +620,8 @@
         "MSG-059",
         "MSG-064"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "lima helipad",
@@ -606,7 +635,8 @@
         "MSG-060",
         "MSG-062"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "tango helipad",
@@ -615,12 +645,13 @@
       "target": "IRON_WAREHOUSE",
       "source_display": "Tango helipad",
       "target_display": "Iron warehouse",
-      "value_lb": 10,
+      "value_lb": 50,
       "evidence": [
         "MSG-061",
         "MSG-065"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "kilo pad",
@@ -634,7 +665,8 @@
         "MSG-063",
         "MSG-066"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "willow water point",
@@ -648,7 +680,8 @@
         "MSG-067",
         "MSG-074"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "granite tent city",
@@ -662,7 +695,8 @@
         "MSG-068",
         "MSG-069"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "granite tent city",
@@ -676,7 +710,8 @@
         "MSG-070",
         "MSG-072"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "willow water point",
@@ -685,12 +720,13 @@
       "target": "HARBOR_HELIPAD",
       "source_display": "Willow water point",
       "target_display": "Harbor helipad",
-      "value_lb": 55,
+      "value_lb": 40,
       "evidence": [
         "MSG-071",
         "MSG-073"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     },
     {
       "source_key": "golf mosque courtyard",
@@ -704,7 +740,8 @@
         "MSG-075",
         "MSG-081"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "india bridge",
@@ -718,7 +755,8 @@
         "MSG-076",
         "MSG-082"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry mosque courtyard",
@@ -732,7 +770,8 @@
         "MSG-077",
         "MSG-078"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "golf mosque courtyard",
@@ -746,7 +785,8 @@
         "MSG-079",
         "MSG-080"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "india bridge",
@@ -760,7 +800,8 @@
         "MSG-083",
         "MSG-084"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": false
     },
     {
       "source_key": "november aid cage",
@@ -773,7 +814,8 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "audited"
+      "channel_bias": "audited",
+      "from_corrupted": true
     }
   ],
   "trusted_constraint_rows": [

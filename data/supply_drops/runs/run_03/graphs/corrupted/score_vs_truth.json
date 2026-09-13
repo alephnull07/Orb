@@ -3,9 +3,18 @@
   "target_edges": 41,
   "consensus_edges": 42,
   "matched_hops": 41,
-  "exact_weight_matches": 37,
-  "mean_abs_weight_error_on_matches": 3.29,
+  "exact_weight_matches": 35,
+  "mean_abs_weight_error_on_matches": 3.9,
   "differences": [
+    {
+      "hop": [
+        "papa fob depot",
+        "xray transfer yard"
+      ],
+      "target_lb": 390,
+      "consensus_lb": 380,
+      "delta": -10
+    },
     {
       "hop": [
         "papa fob depot",
@@ -14,6 +23,15 @@
       "target_lb": 75,
       "consensus_lb": 115,
       "delta": 40
+    },
+    {
+      "hop": [
+        "harbor transfer yard",
+        "granite mill"
+      ],
+      "target_lb": 200,
+      "consensus_lb": 185,
+      "delta": -15
     },
     {
       "hop": [

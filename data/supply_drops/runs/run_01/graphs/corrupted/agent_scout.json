@@ -215,7 +215,8 @@
       "evidence": [
         "MSG-001"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry airdrop lz",
@@ -228,7 +229,8 @@
       "evidence": [
         "MSG-005"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry airdrop lz",
@@ -241,7 +243,8 @@
       "evidence": [
         "MSG-006"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -254,7 +257,8 @@
       "evidence": [
         "MSG-007"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -267,7 +271,8 @@
       "evidence": [
         "MSG-010"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry airdrop lz",
@@ -280,7 +285,8 @@
       "evidence": [
         "MSG-011"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": true
     },
     {
       "source_key": "sandpit railhead",
@@ -293,7 +299,8 @@
       "evidence": [
         "MSG-012"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -306,7 +313,8 @@
       "evidence": [
         "MSG-016"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry airdrop lz",
@@ -319,7 +327,8 @@
       "evidence": [
         "MSG-017"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -332,7 +341,8 @@
       "evidence": [
         "MSG-019"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": true
     },
     {
       "source_key": "quarry airdrop lz",
@@ -345,7 +355,8 @@
       "evidence": [
         "MSG-023"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -358,7 +369,8 @@
       "evidence": [
         "MSG-024"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sandpit railhead",
@@ -371,7 +383,8 @@
       "evidence": [
         "MSG-026"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "quarry airdrop lz",
@@ -384,7 +397,8 @@
       "evidence": [
         "MSG-028"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "golf forward cache",
@@ -397,7 +411,8 @@
       "evidence": [
         "MSG-030"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie forward cache",
@@ -410,7 +425,8 @@
       "evidence": [
         "MSG-032"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie forward cache",
@@ -423,7 +439,8 @@
       "evidence": [
         "MSG-033"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "golf forward cache",
@@ -436,7 +453,8 @@
       "evidence": [
         "MSG-035"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -449,7 +467,8 @@
       "evidence": [
         "MSG-038"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "charlie forward cache",
@@ -462,7 +481,8 @@
       "evidence": [
         "MSG-039"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -475,7 +495,8 @@
       "evidence": [
         "MSG-040"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -488,7 +509,8 @@
       "evidence": [
         "MSG-042"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango ridge hub",
@@ -501,7 +523,8 @@
       "evidence": [
         "MSG-045"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -514,7 +537,8 @@
       "evidence": [
         "MSG-046"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "tango ridge hub",
@@ -527,7 +551,8 @@
       "evidence": [
         "MSG-047"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -540,7 +565,8 @@
       "evidence": [
         "MSG-051"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november mosque courtyard",
@@ -553,7 +579,8 @@
       "evidence": [
         "MSG-057"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "november mosque courtyard",
@@ -566,7 +593,8 @@
       "evidence": [
         "MSG-058"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo water point",
@@ -579,7 +607,8 @@
       "evidence": [
         "MSG-060"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "bravo water point",
@@ -592,7 +621,8 @@
       "evidence": [
         "MSG-061"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "victor farm",
@@ -605,7 +635,8 @@
       "evidence": [
         "MSG-066"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "lima farm",
@@ -618,7 +649,8 @@
       "evidence": [
         "MSG-067"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "lima farm",
@@ -631,7 +663,8 @@
       "evidence": [
         "MSG-068"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "harbor quarry",
@@ -644,7 +677,8 @@
       "evidence": [
         "MSG-070"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "mike mosque courtyard",
@@ -657,7 +691,8 @@
       "evidence": [
         "MSG-071"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "romeo water point",
@@ -670,7 +705,8 @@
       "evidence": [
         "MSG-074"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra water point",
@@ -683,7 +719,8 @@
       "evidence": [
         "MSG-077"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "echo well",
@@ -696,7 +733,8 @@
       "evidence": [
         "MSG-078"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "sierra water point",
@@ -709,7 +747,8 @@
       "evidence": [
         "MSG-081"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "papa crossroads",
@@ -722,7 +761,8 @@
       "evidence": [
         "MSG-082"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "kilo schoolhouse",
@@ -735,7 +775,8 @@
       "evidence": [
         "MSG-083"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "papa crossroads",
@@ -748,7 +789,8 @@
       "evidence": [
         "MSG-084"
       ],
-      "channel_bias": "send"
+      "channel_bias": "send",
+      "from_corrupted": false
     },
     {
       "source_key": "juliet ridge hub",
@@ -761,7 +803,8 @@
       "evidence": [
         "MSG-C01"
       ],
-      "channel_bias": "also_sent"
+      "channel_bias": "also_sent",
+      "from_corrupted": true
     }
   ]
 }

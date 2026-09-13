@@ -1,6 +1,6 @@
 {
   "scenario": "supply_drops_people_as_sensors",
-  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if weights disagree keep the reported extreme (matches the corrupted observation graph)",
+  "consensus_rule": "keep node/edge if >=2 of 3 agents agree; drop TOC/person sites; if a hop has a corrupted field report, keep that reported weight",
   "agents": [
     "scout",
     "receiver",
@@ -326,18 +326,18 @@
       "target": "LIMA_RIDGE_HUB",
       "source_display": "Bravo airdrop LZ",
       "target_display": "Lima ridge hub",
-      "value_lb": 50,
+      "value_lb": 40,
       "agent_values": {
         "scout": 50,
         "receiver": 40,
-        "auditor": 50
+        "auditor": 40
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-009",
         "MSG-010"
@@ -359,7 +359,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-012",
         "MSG-015"
@@ -469,7 +469,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-020",
         "MSG-022"
@@ -656,18 +656,18 @@
       "target": "WILLOW_BRIDGE",
       "source_display": "India forward cache",
       "target_display": "Willow bridge",
-      "value_lb": 255,
+      "value_lb": 240,
       "agent_values": {
         "scout": 255,
         "receiver": 240,
-        "auditor": 255
+        "auditor": 240
       },
       "votes": [
         "auditor",
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-036",
         "MSG-039"
@@ -755,7 +755,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-046",
         "MSG-048"
@@ -777,7 +777,7 @@
         "receiver",
         "scout"
       ],
-      "method": "reported_extreme",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-049",
         "MSG-050"
@@ -907,7 +907,7 @@
         "auditor",
         "scout"
       ],
-      "method": "unanimous",
+      "method": "corrupted_report",
       "evidence": [
         "MSG-C01"
       ]
@@ -918,8 +918,8 @@
       "node": "BRAVO_AIRDROP_LZ",
       "display": "Bravo airdrop LZ",
       "law": "mass_balance",
-      "in_lb": 200,
-      "out_lb": 200,
+      "in_lb": 190,
+      "out_lb": 190,
       "inventory_eod_lb": 0,
       "source": "consensus_flow"
     },
@@ -1067,9 +1067,9 @@
       "agent_values": {
         "scout": 50,
         "receiver": 40,
-        "auditor": 50
+        "auditor": 40
       },
-      "kept": 50,
+      "kept": 40,
       "delta": 10
     },
     {
@@ -1103,9 +1103,9 @@
       "agent_values": {
         "scout": 255,
         "receiver": 240,
-        "auditor": 255
+        "auditor": 240
       },
-      "kept": 255,
+      "kept": 240,
       "delta": 15
     },
     {
