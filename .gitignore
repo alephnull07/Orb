@@ -3,3 +3,6 @@
 __pycache__/
 *.pyc
 
+ui/.next/
+ui/node_modules/
+node_modules/
