@@ -6,7 +6,8 @@ Aarav & Parth, UCLA CS
 
 ---
 
-<img width="1723" height="950" alt="image" src="https://github.com/user-attachments/assets/ac1979f1-754e-40a6-87ed-00f0dfecd12e" />
+<img width="1725" height="909" alt="image" src="https://github.com/user-attachments/assets/6e2756b4-ebe9-492e-a94d-12620aab1db0" />
+
 
 
 ## The problem
