@@ -47,6 +47,8 @@ export interface DemoResult {
     claims: Array<{
       id: string; type: string; ref?: string; refs?: string[]
       value: any; source?: string; weight?: number
+      channel?: string; timestamp?: string | string[]; n_events?: number
+      record_id?: string | string[]
     }>
     lambda_sink?: number
   }
@@ -112,15 +114,15 @@ export function mockClientProfile(result: DemoResult): ClientProfile {
   let unit = 'units'
   if (/FOB|OP_|PORT|DEPOT|BASE|POST/.test(ids) || /fuel|supply/.test(src)) {
     domain = 'Field logistics'
-    org = 'Joint Sustainment Command (mock)'
+    org = 'Joint Sustainment Command'
     unit = /fuel/.test(src) ? 'gal' : 'lb'
   } else if (/TANK|PUMP|JUNCTION|RESERVOIR|VALVE|NODE_/.test(ids) || /water|leak/.test(src)) {
     domain = 'Water utility'
-    org = 'Westfork Municipal Water (mock)'
+    org = 'Westfork Municipal Water'
     unit = 'm³/h'
   } else if (/WAREHOUSE|DC_|STORE|HUB/.test(ids)) {
     domain = 'Retail inventory'
-    org = 'Meridian Retail Ops (mock)'
+    org = 'Meridian Retail Ops'
     unit = 'units'
   }
   return {
@@ -298,6 +300,12 @@ export function deriveStatus(result: DemoResult): SystemStatus {
 // ─── Text context for the LLM ───────────────────────────────────────────────
 
 const f1 = (v: number | null | undefined) => (v == null ? '—' : v.toFixed(1))
+const tsText = (t: string | string[] | undefined) => {
+  if (!t || (Array.isArray(t) && t.length === 0)) return ''
+  const arr = Array.isArray(t) ? t : [t]
+  if (arr.every(x => x === 'all')) return ''
+  return arr.length === 1 ? ` at=${arr[0]}` : ` at=${arr[0]}..${arr[arr.length - 1]}`
+}
 
 /** Compact, deterministic rendering of the whole run for the system prompt. */
 export function buildContextText(result: DemoResult): string {
@@ -307,7 +315,7 @@ export function buildContextText(result: DemoResult): string {
   const files = (ingest_report.per_file ?? []).map(f => `${baseName(f.source_file)} [${f.mode}]`)
   const L: string[] = []
 
-  L.push('=== CLIENT (mock profile) ===')
+  L.push('=== CLIENT ===')
   L.push(`Organisation: ${status.client.org}`)
   L.push(`Domain: ${status.client.domain}   Unit of measure: ${status.client.unit}`)
   L.push(`Operations desk: ${status.client.deskPhone}`)
@@ -345,19 +353,29 @@ export function buildContextText(result: DemoResult): string {
     )
   }
   L.push('')
+  L.push('Channel semantics: "sender"/"shipment_sent" rows are the origin side of a transfer, ' +
+    '"receiver"/"shipment_received" rows the destination side; they are independent observations of the same ' +
+    'transfer and were deliberately kept separate. "closing"/"eod" rows are end-of-day stock counts.')
+  L.push('')
   L.push(`=== FLAGGED CLAIMS (${status.flagged.length}) ===`)
   if (status.flagged.length === 0) L.push('none — all reports consistent')
   for (const fl of status.flagged) {
     const c = claimById.get(fl.claim_id)
     const ref = c?.ref ?? (c?.refs ?? []).join(',')
-    L.push(`${fl.claim_id} (${fl.type}) ref=${ref} claimed=${c?.value} residual=${fl.residual.toFixed(2)} source=${baseName(fl.source)}`)
+    L.push(
+      `${fl.claim_id} (${fl.type}) ref=${ref} claimed=${c?.value} residual=${fl.residual.toFixed(2)}` +
+      ` source=${baseName(fl.source)}${c?.channel ? ` channel=${c.channel}` : ''}${tsText(c?.timestamp)}`,
+    )
   }
   L.push('')
   const MAX = 120
   L.push(`=== ALL CLAIMS (${graph.claims.length}${graph.claims.length > MAX ? `, first ${MAX} shown` : ''}) ===`)
   for (const c of graph.claims.slice(0, MAX)) {
     const ref = c.ref ?? (c.refs ?? []).join(',')
-    L.push(`${c.id} ${c.type} ref=${ref} value=${c.value} w=${(c.weight ?? 1).toFixed(1)} src=${baseName(c.source)}`)
+    L.push(
+      `${c.id} ${c.type} ref=${ref} value=${c.value} w=${(c.weight ?? 1).toFixed(1)} src=${baseName(c.source)}` +
+      `${c.channel ? ` channel=${c.channel}` : ''}${tsText(c.timestamp)}${c.n_events && c.n_events > 1 ? ` events=${c.n_events}` : ''}`,
+    )
   }
   return L.join('\n')
 }

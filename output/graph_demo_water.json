@@ -3,38 +3,32 @@
     {
       "id": "J_01",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 223.67000000000002
+      "sinks": "unknown"
     },
     {
       "id": "J_02",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 194.75
+      "sinks": "unknown"
     },
     {
       "id": "J_03",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 227.01
+      "sinks": "unknown"
     },
     {
       "id": "J_04",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 216.04000000000002
+      "sinks": "unknown"
     },
     {
       "id": "J_05",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 165.76
+      "sinks": "unknown"
     },
     {
       "id": "J_06",
       "initial": 0.0,
-      "sinks": "none",
-      "known_sinks": 240.05
+      "sinks": "unknown"
     },
     {
       "id": "R_01",
@@ -95,7 +89,10 @@
       "type": "edge",
       "ref": "e0",
       "value": 210.09,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -103,7 +100,10 @@
       "type": "edge",
       "ref": "e1",
       "value": 20.6,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -111,7 +111,10 @@
       "type": "edge",
       "ref": "e2",
       "value": 112.39,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -119,7 +122,10 @@
       "type": "edge",
       "ref": "e3",
       "value": -302.45,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -127,7 +133,10 @@
       "type": "edge",
       "ref": "e4",
       "value": 89.76,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -135,7 +144,10 @@
       "type": "edge",
       "ref": "e5",
       "value": 4.61,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -143,7 +155,10 @@
       "type": "edge",
       "ref": "e6",
       "value": -114.68,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -151,7 +166,10 @@
       "type": "edge",
       "ref": "e7",
       "value": 456.83,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -159,8 +177,231 @@
       "type": "edge",
       "ref": "e8",
       "value": 477.61,
-      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
       "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "J_01",
+      "value": 112.09,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "J_01",
+      "value": 111.58,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "J_02",
+      "value": 98.03,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "J_02",
+      "value": 96.72,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "node",
+      "ref": "J_03",
+      "value": 113.48,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "J_03",
+      "value": 113.53,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "node",
+      "ref": "J_04",
+      "value": 108.26,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "node",
+      "ref": "J_04",
+      "value": 107.78,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "node",
+      "ref": "J_05",
+      "value": 82.81,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "node",
+      "ref": "J_05",
+      "value": 82.95,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "node",
+      "ref": "J_06",
+      "value": 119.9,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "node",
+      "ref": "J_06",
+      "value": 120.15,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "demand",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "sink",
+      "value": 0.65,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_01"
+    },
+    {
+      "id": "c22",
+      "type": "sink",
+      "value": 0.74,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_02"
+    },
+    {
+      "id": "c23",
+      "type": "sink",
+      "value": 300.54,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_03"
+    },
+    {
+      "id": "c24",
+      "type": "sink",
+      "value": 0.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_04"
+    },
+    {
+      "id": "c25",
+      "type": "sink",
+      "value": 0.23,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_05"
+    },
+    {
+      "id": "c26",
+      "type": "sink",
+      "value": 0.12,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_06"
+    },
+    {
+      "id": "c27",
+      "type": "sink",
+      "value": 0.22,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_01"
+    },
+    {
+      "id": "c28",
+      "type": "sink",
+      "value": 0.87,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0,
+      "ref": "J_04"
     }
   ]
 }

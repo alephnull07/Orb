@@ -63,7 +63,10 @@
       "type": "edge",
       "ref": "e0",
       "value": 900.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-15T08:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -71,7 +74,10 @@
       "type": "edge",
       "ref": "e1",
       "value": 600.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-15T08:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -79,7 +85,10 @@
       "type": "edge",
       "ref": "e2",
       "value": 700.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-15T08:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -87,7 +96,10 @@
       "type": "edge",
       "ref": "e3",
       "value": 5000.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-15T08:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -95,7 +107,10 @@
       "type": "edge",
       "ref": "e4",
       "value": 4000.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "flow",
+      "timestamp": "2026-01-15T08:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -103,7 +118,10 @@
       "type": "node",
       "ref": "FOB_IRONSIDE",
       "value": 6300.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "eod",
+      "timestamp": "2026-01-15T18:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -111,7 +129,10 @@
       "type": "node",
       "ref": "FOB_KESTREL",
       "value": 4600.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "eod",
+      "timestamp": "2026-01-15T18:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -119,7 +140,10 @@
       "type": "node",
       "ref": "OP_TALON",
       "value": 1750.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "eod",
+      "timestamp": "2026-01-15T18:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -127,7 +151,10 @@
       "type": "node",
       "ref": "OP_VIPER",
       "value": 980.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "eod",
+      "timestamp": "2026-01-15T18:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     },
     {
@@ -135,7 +162,10 @@
       "type": "node",
       "ref": "PORT_HAVEN",
       "value": 11000.0,
-      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-wEOcoz/fuel_E_consumption.csv",
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/fuel_E_consumption.csv",
+      "channel": "eod",
+      "timestamp": "2026-01-15T18:00:00Z",
+      "n_events": 1,
       "weight": 1.0
     }
   ]

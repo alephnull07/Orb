@@ -1,11 +1,22 @@
 """
 orb/_ingest_record.py
 ---------------------
-RECORD mode: split a free-text / JSONL file into records, run the existing
-3-reader regex extraction, run consensus, and convert to compile.py claims.
+RECORD mode: split a free-text / JSONL file into records, extract ONE
+observation per report, run reader consensus per observation, and emit
+compile.py claims that keep every report as its own row.
 
-Record contract:  {record_id, text, file, line}
-Claim contract:   {id, type, value, ref|refs, source, weight}
+Why per-report:  a sender's "800 cases departed" and the receiver's "800
+cases arrived" are two independent observations of one transfer.  Keeping
+both is what makes a false report catchable.  Nothing in this module sums,
+averages, or majority-votes across *different* reports.  The only voting is
+across the three READERS of the *same* report, which is extraction noise,
+not evidence.
+
+Record contract:  {record_id, text, file, line, timestamp}
+Claim contract:   {id, type, value, ref|refs, source, weight,
+                   timestamp, record_id, file, perspective|kind}
+  source  = channel semantics: "sender" | "receiver" | "third_party" for
+            transfers, "opening" | "closing" | "stock" for stock levels.
 """
 
 from __future__ import annotations
@@ -13,18 +24,27 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from collections import defaultdict
+from src.etl.extract import GraphBuilder
+from src.etl.llm import claude_generate, get_api_key
+from src.etl.textutil import canon, corpus_text, is_site_name
 
-from src.etl import agent_scout, agent_receiver, agent_auditor
-from src.etl.consensus import merge
-from src.etl.llm import extract_llm, get_api_key
-from src.etl.textutil import canon, slug
+
+def _key(name: str) -> str:
+    """Grouping key: lowercase alphanumerics only. 'FOB_ALPHA' == 'FOB Alpha'."""
+    return re.sub(r"[^a-z0-9]", "", name.lower())
+
+
+def _node_id(display: str) -> str:
+    """Stable id that keeps the source's separators: 'FOB Alpha' -> 'FOB_ALPHA'."""
+    nid = re.sub(r"[^A-Za-z0-9]+", "_", display.strip()).strip("_").upper()
+    return nid[:80] or "UNKNOWN"
 
 # ── record splitting ─────────────────────────────────────────────────────────
 
@@ -39,7 +59,7 @@ def split_records(text: str, file_path: str) -> list[dict]:
     Boundaries: bracketed timestamps  [2026-09-12T06:15:47Z],
                 blank lines between non-empty paragraphs,
                 or JSONL (one JSON object per line).
-    Each record: {record_id, text, file, line}.
+    Each record: {record_id, text, file, line, timestamp}.
     """
     # Try JSONL first
     lines = text.splitlines()
@@ -59,7 +79,10 @@ def split_records(text: str, file_path: str) -> list[dict]:
         records = []
         for lineno, obj in json_objects:
             raw = obj.get("raw_text") or json.dumps(obj)
-            ts = obj.get("timestamp", "")
+            ts = obj.get("timestamp") or obj.get("ts") or ""
+            if not ts:
+                m = _ISO_TS_RE.search(raw)
+                ts = m.group(0) if m else ""
             records.append({
                 "record_id": f"{Path(file_path).stem}-L{lineno:04d}",
                 "text": raw,
@@ -126,7 +149,7 @@ def split_records(text: str, file_path: str) -> list[dict]:
 
 def records_to_messages(records: list[dict]) -> list[dict]:
     """
-    Format records as the message dicts the existing readers expect.
+    Format records as the message dicts the readers expect.
     {message_id, timestamp, channel, from_name, callsign, to, raw_text}
     """
     msgs = []
@@ -156,188 +179,322 @@ def records_to_messages(records: list[dict]) -> list[dict]:
     return msgs
 
 
-# ── extraction + consensus ────────────────────────────────────────────────────
+# ── per-report extraction ─────────────────────────────────────────────────────
+#
+# An "item" is one observation from one report:
+#   transfer: {kind:"transfer", src, dst, value, perspective, evidence, approx}
+#   stock:    {kind:"stock",    site, value, stock_kind, evidence, approx}
+# src/dst/site are display names; keys are canon(display).
 
-_REGEX_AGENTS = {
-    "scout":    agent_scout.extract,
-    "receiver": agent_receiver.extract,
-    "auditor":  agent_auditor.extract,
+PERSPECTIVES = ("sender", "receiver", "third_party")
+STOCK_KINDS  = ("opening", "closing", "other")
+
+_PERSONAS = {
+    "scout": (
+        "You are Scout, a literal field-log reader. You record exactly what each "
+        "message states, one item per message, with no interpretation."
+    ),
+    "receiver": (
+        "You are Receiver, an arrivals-focused reader. You are careful about which "
+        "side of a transfer a message speaks from and what was actually counted."
+    ),
+    "auditor": (
+        "You are Auditor, a skeptical conservation checker. You record each message's "
+        "figure separately even when it contradicts another message — contradictions "
+        "are evidence, not errors to reconcile."
+    ),
+}
+
+_ITEM_PROMPT = """{persona}
+
+Below are messages from a conserved-flow network (supplies, fuel, water, or any
+commodity moving between physical sites). Each message starts with a header line
+"[<message_id>] ...". Extract every quantitative observation as a SEPARATE item.
+
+Output ONLY valid JSON matching this schema — no markdown fences, no commentary:
+{{
+  "transfers": [
+    {{"from": "<site>", "to": "<site>", "quantity": 800,
+      "perspective": "sender" | "receiver" | "third_party",
+      "evidence": "<message_id>", "approx": false}}
+  ],
+  "stocks": [
+    {{"site": "<site>", "quantity": 600,
+      "kind": "opening" | "closing" | "other",
+      "evidence": "<message_id>", "approx": false}}
+  ]
+}}
+
+Rules:
+1. ONE item per message per stated figure. Never add, combine, or reconcile
+   numbers from different messages. If two messages describe the same transfer,
+   output two items — one per message.
+2. "evidence" is the single message_id the item came from.
+3. Sites are physical places or assets only: never people, callsigns, convoys,
+   drivers, TOC, HQ, or "ALL". Use the fullest site name as written in the
+   corpus (e.g. "FOB ALPHA", "MAIN DEPOT") and spell it the same way everywhere.
+   A convoy or driver reporting from a site speaks FOR that site.
+4. "perspective": "sender" when the message comes from the origin side
+   (dispatched, departed, sent, pushed, loaded); "receiver" when it comes from
+   the destination side (received, arrived, got, took, counted off the truck);
+   "third_party" otherwise.
+5. "kind": "opening" for start-of-day / opening counts; "closing" for
+   end-of-day / EOD / closing counts; "other" for any other on-hand level.
+6. If a figure is vague ("about 300", "roughly"), include it with "approx": true.
+   If a message states no number, do not invent one — skip it.
+7. Do not output totals, balances, or figures the corpus does not state.
+
+Messages:
+{corpus}
+"""
+
+
+def _parse_items(blob: str, agent: str) -> list[dict]:
+    """Parse the LLM JSON blob into a flat list of items."""
+    match = re.search(r"\{.*\}", blob, re.DOTALL)
+    if not match:
+        return []
+    try:
+        data = json.loads(match.group(0))
+    except json.JSONDecodeError:
+        return []
+
+    items: list[dict] = []
+    for t in data.get("transfers") or []:
+        src = str(t.get("from") or "").strip()
+        dst = str(t.get("to") or "").strip()
+        val = _num(t.get("quantity"))
+        ev  = str(t.get("evidence") or "").strip()
+        if val is None or not src or not dst or not ev:
+            continue
+        if not is_site_name(src) or not is_site_name(dst) or _key(src) == _key(dst):
+            continue
+        persp = str(t.get("perspective") or "third_party").strip().lower()
+        if persp not in PERSPECTIVES:
+            persp = "third_party"
+        items.append({
+            "kind": "transfer", "agent": agent,
+            "src": src, "dst": dst, "value": val,
+            "perspective": persp, "evidence": ev,
+            "approx": bool(t.get("approx")),
+        })
+    for s in data.get("stocks") or []:
+        site = str(s.get("site") or "").strip()
+        val  = _num(s.get("quantity"))
+        ev   = str(s.get("evidence") or "").strip()
+        if val is None or not site or not ev or not is_site_name(site):
+            continue
+        sk = str(s.get("kind") or "other").strip().lower()
+        if sk not in STOCK_KINDS:
+            sk = "other"
+        items.append({
+            "kind": "stock", "agent": agent,
+            "site": site, "value": val,
+            "stock_kind": sk, "evidence": ev,
+            "approx": bool(s.get("approx")),
+        })
+    return items
+
+
+def _num(v: Any) -> float | None:
+    if v is None or isinstance(v, bool):
+        return None
+    try:
+        return float(str(v).strip().replace(",", ""))
+    except (TypeError, ValueError):
+        return None
+
+
+def _extract_llm_items(agent: str, messages: list[dict], api_key: str) -> list[dict]:
+    prompt = _ITEM_PROMPT.format(persona=_PERSONAS[agent], corpus=corpus_text(messages))
+    blob = claude_generate(prompt, api_key=api_key)
+    return _parse_items(blob, agent)
+
+
+_REGEX_BIAS_PERSPECTIVE = {
+    "send": "sender", "transfer": "sender", "flow": "third_party",
+    "also_sent": "sender", "got": "receiver",
 }
 
 
-def _union_agent(primary: dict, secondary: dict, allow_new_edges: bool = True) -> dict:
-    """Merge two agent graphs (primary wins on conflicts). Mirrors src/etl/run.py."""
-    nodes = {n["key"]: dict(n) for n in primary.get("nodes") or []}
-    for n in secondary.get("nodes") or []:
-        if n["key"] not in nodes:
-            nodes[n["key"]] = dict(n)
-        else:
-            existing = set(nodes[n["key"]].get("aliases", []))
-            existing.update(n.get("aliases", []))
-            nodes[n["key"]]["aliases"] = sorted(existing)
+def _extract_regex_items(agent: str, messages: list[dict]) -> list[dict]:
+    """Regex fallback (no API key): per-mention items from GraphBuilder."""
+    g = GraphBuilder()
+    if agent == "scout":
+        g.ingest_text(messages, outbound=True, also_sent=True)
+    elif agent == "receiver":
+        g.ingest_text(messages, inbound=True)
+    else:
+        g.ingest_text(messages, outbound=True, inbound=True, also_sent=True,
+                      eod=True, skip_suspicious=True)
 
-    edges = {(e["source_key"], e["target_key"]): dict(e) for e in primary.get("edges") or []}
-    for e in secondary.get("edges") or []:
-        k = (e["source_key"], e["target_key"])
-        if k not in edges:
-            if allow_new_edges:
-                edges[k] = dict(e)
-        else:
-            ev = list(edges[k].get("evidence") or [])
-            for mid in e.get("evidence") or []:
-                if mid not in ev:
-                    ev.append(mid)
-            edges[k]["evidence"] = ev
-
-    constraints = list(primary.get("trusted_constraint_rows") or [])
-    seen_nodes = {c["node"] for c in constraints}
-    for c in secondary.get("trusted_constraint_rows") or []:
-        if c["node"] not in seen_nodes:
-            constraints.append(c)
-            seen_nodes.add(c["node"])
-
-    out = dict(primary)
-    out["nodes"] = list(nodes.values())
-    out["edges"] = list(edges.values())
-    out["trusted_constraint_rows"] = constraints
-    return out
+    items: list[dict] = []
+    for (sk, dk), rec in g.edges.items():
+        src = g.nodes[sk]["display"]
+        dst = g.nodes[dk]["display"]
+        persp = _REGEX_BIAS_PERSPECTIVE.get(rec.get("bias", ""), "third_party")
+        for m in rec["mentions"]:
+            items.append({
+                "kind": "transfer", "agent": agent,
+                "src": src, "dst": dst, "value": float(m["value_lb"]),
+                "perspective": persp, "evidence": m["mid"], "approx": False,
+            })
+    for key, row in g.eod.items():
+        inv = row.get("inventory_eod_lb")
+        if inv is None:
+            continue
+        items.append({
+            "kind": "stock", "agent": agent,
+            "site": g.nodes[key]["display"], "value": float(inv),
+            "stock_kind": "closing", "evidence": row["evidence"], "approx": False,
+        })
+    return items
 
 
 def _run_agent(agent_name: str, messages: list[dict],
-               api_key: str | None = None, cache=None) -> dict:
-    """Run regex extraction as baseline, optionally overlay LLM extraction."""
-    regex_graph = _REGEX_AGENTS[agent_name](messages, topology=None)
-
+               api_key: str | None = None, cache=None) -> list[dict]:
+    """Return per-report items for one reader persona."""
     key = get_api_key(api_key)
     if not key:
-        n_nodes = len(regex_graph.get("nodes", []))
-        n_edges = len(regex_graph.get("edges", []))
-        if n_nodes == 0 and n_edges == 0:
-            print(
-                f"  [WARNING] {agent_name}: LLM unavailable (no ANTHROPIC_API_KEY), "
-                f"regex extractors matched 0 nodes and 0 edges. "
-                f"Set ANTHROPIC_API_KEY for LLM-based extraction.",
-                file=sys.stderr,
-            )
-        return regex_graph
-
-    # LLM extraction via extract_llm (builds prompt, calls API, parses JSON)
+        return _extract_regex_items(agent_name, messages)
     try:
-        llm_graph = extract_llm(agent_name, messages, api_key=key, topology=None)
+        items = _extract_llm_items(agent_name, messages, key)
         if cache:
-            cache.llm_calls += 1  # track for reporting
-    except Exception as e:
+            cache.llm_calls += 1
+        return items
+    except Exception as e:  # noqa: BLE001
         print(f"  [warn] LLM call failed for {agent_name}: {e}", file=sys.stderr)
-        llm_graph = None
-
-    if llm_graph:
-        regex_empty = (
-            not regex_graph.get("nodes")
-            and not regex_graph.get("edges")
-        )
-        if regex_empty:
-            # Regex found nothing — LLM is the only source, use it directly
-            return llm_graph
-        # Scout: regex gates topology (no new edges from LLM)
-        if agent_name == "scout":
-            return _union_agent(regex_graph, llm_graph, allow_new_edges=False)
-        return _union_agent(llm_graph, regex_graph)
-
-    return regex_graph
+        return _extract_regex_items(agent_name, messages)
 
 
-def _collapse_node_aliases(graphs: dict[str, dict]) -> None:
+# ── alias collapse (regex mode only) ─────────────────────────────────────────
+
+def _collapse_aliases(items: list[dict]) -> None:
     """
-    Collapse node aliases across agent graphs by leading token.
-
-    Different agents may produce "Alpha depot" (key="alpha depot"),
-    "Alpha-1" (key="alpha 1"), "ALPHA" (key="alpha") — three distinct keys
-    that should merge to one node. Groups by the first word of the canon key
-    and rewrites all graphs in-place so merge() sees a single key per group.
+    Regex extractors surface 'Alpha depot', 'Alpha-1', 'ALPHA' as different
+    sites. Group by leading token and rewrite to the longest display, in place.
+    Not used with LLM readers (they are told to spell sites consistently, and
+    leading-token grouping would merge 'FOB ALPHA' with 'FOB BRAVO').
     """
-    # Collect all nodes across all agent graphs
-    all_nodes: list[dict] = []
-    for g in graphs.values():
-        all_nodes.extend(g.get("nodes") or [])
-
-    # Group by leading token of canon key
-    groups: dict[str, list[dict]] = defaultdict(list)
-    for n in all_nodes:
-        leading = n["key"].split()[0] if n["key"].strip() else n["key"]
-        groups[leading].append(n)
-
-    # Build rewrite maps: old_key -> canonical_key, old_id -> canonical_id
-    key_map: dict[str, str] = {}   # old canon key → canonical canon key
-    id_map: dict[str, str] = {}    # old slug id → canonical slug id
-    id_display: dict[str, str] = {}  # old slug id → canonical display
-
-    for leading, members in groups.items():
-        unique_keys = {n["key"] for n in members}
-        if len(unique_keys) <= 1:
-            continue  # no aliasing needed
-
-        # Pick canonical = longest display name
-        canonical_node = max(members, key=lambda n: len(n.get("display", "")))
-        c_key = canonical_node["key"]
-        c_id = canonical_node["id"]
-        c_display = canonical_node["display"]
-
-        # Collect all aliases from the group
-        all_aliases: set[str] = set()
-        for n in members:
-            all_aliases.update(n.get("aliases", []))
-            all_aliases.add(n.get("display", ""))
-
-        for n in members:
-            if n["key"] != c_key:
-                key_map[n["key"]] = c_key
-                id_map[n["id"]] = c_id
-                id_display[n["id"]] = c_display
-
-        # Update canonical node's aliases to include all
-        canonical_node["aliases"] = sorted(all_aliases - {""})
-
-    if not key_map:
+    names: set[str] = set()
+    for it in items:
+        names.update([it.get("src", ""), it.get("dst", ""), it.get("site", "")])
+    names.discard("")
+    groups: dict[str, list[str]] = defaultdict(list)
+    for n in names:
+        k = canon(n)
+        lead = k.split()[0] if k.split() else k
+        groups[lead].append(n)
+    rewrite: dict[str, str] = {}
+    for members in groups.values():
+        if len({canon(m) for m in members}) <= 1:
+            continue
+        best = max(members, key=len)
+        for m in members:
+            rewrite[m] = best
+    if not rewrite:
         return
+    for it in items:
+        for f in ("src", "dst", "site"):
+            if it.get(f) in rewrite:
+                it[f] = rewrite[it[f]]
 
-    # Rewrite every graph in-place
-    for g in graphs.values():
-        # Rewrite nodes: merge aliased nodes into canonical
-        seen_keys: set[str] = set()
-        new_nodes = []
-        for n in (g.get("nodes") or []):
-            old_key = n["key"]
-            new_key = key_map.get(old_key, old_key)
-            if new_key in seen_keys:
-                # Already have canonical node; just merge aliases
-                existing = next(nn for nn in new_nodes if nn["key"] == new_key)
-                for a in n.get("aliases", []):
-                    if a not in existing["aliases"]:
-                        existing["aliases"].append(a)
-                existing["aliases"] = sorted(existing["aliases"])
-                continue
-            if old_key in key_map:
-                old_id = n["id"]
-                n["key"] = new_key
-                n["id"] = id_map.get(old_id, old_id)
-                n["display"] = id_display.get(old_id, n["display"])
-            seen_keys.add(new_key)
-            new_nodes.append(n)
-        g["nodes"] = new_nodes
 
-        # Rewrite edges
-        for e in (g.get("edges") or []):
-            e["source_key"] = key_map.get(e["source_key"], e["source_key"])
-            e["target_key"] = key_map.get(e["target_key"], e["target_key"])
-            e["source"] = id_map.get(e["source"], e["source"])
-            e["target"] = id_map.get(e["target"], e["target"])
+# ── consensus per report ──────────────────────────────────────────────────────
 
-        # Rewrite trusted_constraint_rows
-        for c in (g.get("trusted_constraint_rows") or []):
-            old_id = c.get("node", "")
-            if old_id in id_map:
-                c["node"] = id_map[old_id]
-                c["display"] = id_display.get(old_id, c.get("display", ""))
+def _vote_value(vals: list[float], lambda_w: float) -> tuple[float, float]:
+    """
+    Resolve the READERS' values for one report.  Majority value; on a
+    three-way split the middle value.  Weight shrinks with reader spread.
+    This is extraction noise on a single report — not a merge of reports.
+    """
+    counts = Counter(vals)
+    top = max(counts.values())
+    winners = sorted(v for v, c in counts.items() if c == top)
+    value = winners[len(winners) // 2]
+    spread = max(vals) - min(vals)
+    weight = round(1.0 / (spread + lambda_w), 6)
+    return value, weight
+
+
+def _vote_label(labels: list[str], default: str) -> str:
+    counts = Counter(labels)
+    top = max(counts.values())
+    winners = [l for l, c in counts.items() if c == top]
+    return winners[0] if len(winners) == 1 else (default if default in winners else winners[0])
+
+
+def consensus_items(agent_items: dict[str, list[dict]], lambda_w: float = 1.0) -> dict:
+    """
+    Cross-reader consensus, per report.
+
+    Returns {nodes: [{id, display, key, votes}], transfers: [...], stocks: [...]}
+    where every transfer / stock is ONE report that >= majority of readers saw.
+    """
+    n_agents = len(agent_items)
+    majority = max(1, min(2, (n_agents + 1) // 2))
+
+    # Node votes: a site counts once per agent that mentioned it anywhere.
+    site_votes: dict[str, set[str]] = defaultdict(set)
+    site_display: dict[str, Counter] = defaultdict(Counter)
+    for agent, items in agent_items.items():
+        for it in items:
+            for name in (it.get("src"), it.get("dst"), it.get("site")):
+                if name:
+                    k = _key(name)
+                    site_votes[k].add(agent)
+                    site_display[k][name] += 1
+
+    kept: dict[str, dict] = {}
+    for k, agents in site_votes.items():
+        display = max(site_display[k].items(), key=lambda kv: (kv[1], len(kv[0])))[0]
+        if len(agents) < majority or not is_site_name(display):
+            continue
+        kept[k] = {"id": _node_id(display), "display": display, "key": k,
+                   "votes": sorted(agents)}
+
+    # Transfer votes keyed by (src, dst, evidence) — one report.
+    t_groups: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
+    s_groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for items in agent_items.values():
+        for it in items:
+            if it["kind"] == "transfer":
+                t_groups[(_key(it["src"]), _key(it["dst"]), it["evidence"])].append(it)
+            else:
+                s_groups[(_key(it["site"]), it["evidence"])].append(it)
+
+    transfers = []
+    for (sk, dk, ev), votes in sorted(t_groups.items()):
+        agents = {v["agent"] for v in votes}
+        if len(agents) < majority or sk not in kept or dk not in kept:
+            continue
+        value, weight = _vote_value([v["value"] for v in votes], lambda_w)
+        if any(v["approx"] for v in votes):
+            weight = round(weight * 0.5, 6)
+        transfers.append({
+            "src": kept[sk]["id"], "dst": kept[dk]["id"],
+            "value": value, "weight": weight,
+            "perspective": _vote_label([v["perspective"] for v in votes], "third_party"),
+            "evidence": ev, "votes": sorted(agents),
+            "reader_values": {v["agent"]: v["value"] for v in votes},
+        })
+
+    stocks = []
+    for (k, ev), votes in sorted(s_groups.items()):
+        agents = {v["agent"] for v in votes}
+        if len(agents) < majority or k not in kept:
+            continue
+        value, weight = _vote_value([v["value"] for v in votes], lambda_w)
+        if any(v["approx"] for v in votes):
+            weight = round(weight * 0.5, 6)
+        stocks.append({
+            "site": kept[k]["id"], "value": value, "weight": weight,
+            "stock_kind": _vote_label([v["stock_kind"] for v in votes], "other"),
+            "evidence": ev, "votes": sorted(agents),
+            "reader_values": {v["agent"]: v["value"] for v in votes},
+        })
+
+    return {"nodes": list(kept.values()), "transfers": transfers, "stocks": stocks}
 
 
 def extract_records(
@@ -345,103 +502,102 @@ def extract_records(
     api_key: str | None = None,
     cache=None,
     max_workers: int = 10,
-) -> tuple[list[dict], dict]:
+) -> tuple[dict, dict]:
     """
     Run 3-reader extraction on *records*.
-    Returns (consensus, meta).
-    Concurrency: 3 agent calls run concurrently inside this function;
-    callers may call extract_records() concurrently for multiple batches
-    (max_workers is forwarded from build_graph).
+    Returns (consensus, meta).  consensus has per-report transfers and stocks.
     """
     if not records:
-        return [], {}
+        return {"nodes": [], "transfers": [], "stocks": []}, {}
 
     messages = records_to_messages(records)
 
-    # Run 3 agents concurrently (regex + LLM when api_key present)
     with ThreadPoolExecutor(max_workers=3) as pool:
         futs = {
             pool.submit(_run_agent, name, messages, api_key=api_key, cache=cache): name
             for name in ["scout", "receiver", "auditor"]
         }
-        graphs = {}
+        agent_items: dict[str, list[dict]] = {}
         for fut in as_completed(futs):
-            name = futs[fut]
-            graphs[name] = fut.result()
+            agent_items[futs[fut]] = fut.result()
 
-    # Collapse aliased node names only when using regex extractors.
-    # LLM readers produce clean, consistent names — collapsing by leading
-    # token would merge distinct sites like "FOB ALPHA" and "FOB BRAVO".
-    key = get_api_key(api_key)
-    if not key:
-        _collapse_node_aliases(graphs)
+    if not get_api_key(api_key):
+        for items in agent_items.values():
+            _collapse_aliases(items)
 
-    consensus = merge([graphs["scout"], graphs["receiver"], graphs["auditor"]])
-    return consensus, {}
+    consensus = consensus_items(agent_items)
+    meta = {
+        "n_readers": len(agent_items),
+        "items_per_reader": {a: len(v) for a, v in agent_items.items()},
+    }
+    return consensus, meta
 
 
 # ── consensus → compile.py format ─────────────────────────────────────────────
 
-def consensus_to_graph(consensus: dict, lambda_w: float = 1.0) -> dict:
+_STOCK_SOURCE = {"opening": "opening", "closing": "closing", "other": "stock"}
+
+
+def consensus_to_graph(consensus: dict, lambda_w: float = 1.0,
+                       records: list[dict] | None = None) -> dict:
     """
-    Convert a consensus graph dict to the format compile.py expects:
+    Convert per-report consensus into the format compile.py expects:
       {nodes, edges, claims}
 
-    Nodes: initial=0 (unknown starting stock); override via EOD if available.
-    Edges: each consensus edge becomes a graph edge + an edge claim.
-    EOD rows: become node claims.
-    w = 1 / (spread + lambda_w)  where spread = max(reader values) - min(reader values).
+    One claim per report.  Edge claims carry perspective as `source`
+    ("sender" / "receiver" / "third_party"); stock claims carry
+    "opening" / "closing" / "stock".  The merge step turns "opening" into
+    the node's initial and sums same-perspective transfers across events.
+    Nothing here derives a figure the corpus did not state.
     """
-    c_nodes: list[dict] = []
+    ts_by_record = {r["record_id"]: r.get("timestamp", "") for r in (records or [])}
+    file_by_record = {r["record_id"]: r.get("file", "") for r in (records or [])}
+
+    c_nodes = [{"id": n["id"], "initial": 0.0, "sinks": "none"}
+               for n in sorted(consensus.get("nodes", []), key=lambda n: n["id"])]
+    node_ids = {n["id"] for n in c_nodes}
+
+    edge_ids: dict[tuple[str, str], str] = {}
     c_edges: list[dict] = []
+    for t in consensus.get("transfers", []):
+        key = (t["src"], t["dst"])
+        if key not in edge_ids and t["src"] in node_ids and t["dst"] in node_ids:
+            eid = f"e{len(c_edges)}"
+            edge_ids[key] = eid
+            c_edges.append({"id": eid, "from": t["src"], "to": t["dst"]})
+
     c_claims: list[dict] = []
-
-    # Nodes — initial=0 for all (starting stock unknown);
-    # EOD inventory is used ONLY as a node claim, not as initial,
-    # to avoid double-counting in the balance constraint.
-    node_ids = {n["id"] for n in consensus.get("nodes", [])}
-    for n in consensus.get("nodes", []):
-        c_nodes.append({"id": n["id"], "initial": 0.0, "sinks": "none"})
-
-    # Edges → edge claims
-    claim_idx = 0
-    for ei, e in enumerate(consensus.get("edges", [])):
-        src, tgt = e["source"], e["target"]
-        eid = f"e{ei}"
-        c_edges.append({"id": eid, "from": src, "to": tgt})
-
-        # Spread across agent values for this edge
-        agent_vals = [v for v in e.get("agent_values", {}).values()]
-        if not agent_vals:
-            agent_vals = [e["value_lb"]]
-        spread = max(agent_vals) - min(agent_vals)
-        w = round(1.0 / (spread + lambda_w), 6)
-        median_val = sorted(agent_vals)[len(agent_vals) // 2]
-
+    for t in consensus.get("transfers", []):
+        eid = edge_ids.get((t["src"], t["dst"]))
+        if not eid:
+            continue
         c_claims.append({
-            "id": f"c{claim_idx}",
+            "id": f"c{len(c_claims)}",
             "type": "edge",
             "ref": eid,
-            "value": float(median_val),
-            "source": "consensus",
-            "weight": w,
+            "value": float(t["value"]),
+            "source": t["perspective"],
+            "weight": t["weight"],
+            "timestamp": ts_by_record.get(t["evidence"], ""),
+            "record_id": t["evidence"],
+            "file": file_by_record.get(t["evidence"], ""),
+            "readers": t["votes"],
         })
-        claim_idx += 1
-
-    # EOD inventory → node claims  (only if non-zero)
-    for row in consensus.get("trusted_constraint_rows", []):
-        nid = row.get("node")
-        inv = row.get("inventory_eod_lb")
-        if nid and inv and float(inv) != 0.0 and nid in node_ids:
-            c_claims.append({
-                "id": f"c{claim_idx}",
-                "type": "node",
-                "ref": nid,
-                "value": float(inv),
-                "source": row.get("source", "auditor_eod"),
-                "weight": 1.0,
-            })
-            claim_idx += 1
+    for s in consensus.get("stocks", []):
+        if s["site"] not in node_ids:
+            continue
+        c_claims.append({
+            "id": f"c{len(c_claims)}",
+            "type": "node",
+            "ref": s["site"],
+            "value": float(s["value"]),
+            "source": _STOCK_SOURCE.get(s["stock_kind"], "stock"),
+            "weight": s["weight"],
+            "timestamp": ts_by_record.get(s["evidence"], ""),
+            "record_id": s["evidence"],
+            "file": file_by_record.get(s["evidence"], ""),
+            "readers": s["votes"],
+        })
 
     return {"nodes": c_nodes, "edges": c_edges, "claims": c_claims}
 
@@ -462,7 +618,6 @@ def run_record_mode(
     text = path.read_text(encoding="utf-8", errors="replace")
     records = split_records(text, str(path))
 
-    # Determine extraction mode: LLM if key available, else regex-only
     key = get_api_key(api_key)
     using_llm = bool(key)
     extraction_mode = "LLM" if using_llm else "REGEX_ONLY"
@@ -475,11 +630,10 @@ def run_record_mode(
             file=sys.stderr,
         )
 
-    consensus, _ = extract_records(records, api_key=api_key, cache=cache, max_workers=max_workers)
-    graph = consensus_to_graph(consensus, lambda_w=lambda_w)
+    consensus, meta = extract_records(records, api_key=api_key, cache=cache, max_workers=max_workers)
+    graph = consensus_to_graph(consensus, lambda_w=lambda_w, records=records)
+    graph["_timestamp"] = "all"
 
-    # Group by timestamp bucket ("all" window for text files)
-    ts_bucket = "all"
     graphs = [graph] if (graph["nodes"] or graph["claims"]) else []
 
     if not graphs and not using_llm:
@@ -500,8 +654,9 @@ def run_record_mode(
         "source_file": str(path),
         "record_count": len(records),
         "records": report_records,
+        "readers": meta,
         "timestamp_buckets": [
-            {"timestamp": ts_bucket, "n_claims": len(graph.get("claims", []))}
+            {"timestamp": "all", "n_claims": len(graph.get("claims", []))}
         ],
         "llm_calls": cache.llm_calls if cache else 0,
     }
@@ -524,8 +679,9 @@ def run_record_mode_multi(
         text = p.read_text(encoding="utf-8", errors="replace")
         all_records.extend(split_records(text, str(p)))
 
-    consensus, _ = extract_records(all_records, api_key=api_key, cache=cache, max_workers=max_workers)
-    graph = consensus_to_graph(consensus, lambda_w=lambda_w)
+    consensus, meta = extract_records(all_records, api_key=api_key, cache=cache, max_workers=max_workers)
+    graph = consensus_to_graph(consensus, lambda_w=lambda_w, records=all_records)
+    graph["_timestamp"] = "all"
 
     graphs = [graph] if (graph["nodes"] or graph["claims"]) else []
 
@@ -539,6 +695,7 @@ def run_record_mode_multi(
         "source_files": [str(p) for p in paths],
         "record_count": len(all_records),
         "records": report_records,
+        "readers": meta,
         "timestamp_buckets": [
             {"timestamp": "all", "n_claims": len(graph.get("claims", []))}
         ],

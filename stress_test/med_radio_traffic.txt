@@ -1,0 +1,17 @@
+[2026-09-15T09:52:00Z] AID_STN_1 / MEDIC
+Convoy in from FWD_HOSP_NORTH. Counted 300 units off the truck, all sealed.
+
+[2026-09-15T11:58:00Z] AID_STN_3 / SUPPLY NCO
+FWD_HOSP_SOUTH delivery received, 180 units. Signed for it myself.
+
+[2026-09-15T13:10:00Z] AID_STN_4
+Got the FWD_HOSP_SOUTH run. 220 units, matches their manifest.
+
+[2026-09-15T14:40:00Z] AID_STN_3 / SUPPLY NCO
+Second run today, this one from FWD_HOSP_NORTH. We're logging 340 units received.
+
+[2026-09-15T17:20:00Z] FWD_HOSP_NORTH / LOG OFFICER
+End of day on hand 1810 units.
+
+[2026-09-15T17:25:00Z] AID_STN_1 / MEDIC
+Closing count 440.

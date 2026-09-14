@@ -106,8 +106,11 @@ def build_graph_multi(
     Ingest multiple files, merge into ONE graph.
 
     Each file is ingested via build_graph (per-file routing unchanged).
-    Then merge_graphs canonicalizes node names, sums edge events,
-    deduplicates claims, and collapses timestamp buckets within *window_hours*.
+    Then merge_graphs canonicalizes node names, turns opening counts into
+    initials, and sums separate events on an edge within one observer stream
+    (file + channel).  Every independent observation — sender vs receiver,
+    file A vs file B — stays its own claim row; nothing is averaged or
+    deduplicated.  Conflicts are left for the L1 estimator.
 
     Returns (graph_dict, merge_report).
     """

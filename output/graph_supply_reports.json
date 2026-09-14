@@ -1,0 +1,267 @@
+{
+  "nodes": [
+    {
+      "id": "FOB_ALPHA",
+      "initial": 600.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_BRAVO",
+      "initial": 450.0,
+      "sinks": "none"
+    },
+    {
+      "id": "MAIN_DEPOT",
+      "initial": 4000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_CRESCENT",
+      "initial": 120.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_DELTA",
+      "initial": 90.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_ECHO",
+      "initial": 75.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "FOB_ALPHA",
+      "to": "OP_CRESCENT"
+    },
+    {
+      "id": "e1",
+      "from": "FOB_ALPHA",
+      "to": "OP_DELTA"
+    },
+    {
+      "id": "e2",
+      "from": "FOB_BRAVO",
+      "to": "OP_ECHO"
+    },
+    {
+      "id": "e3",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_ALPHA"
+    },
+    {
+      "id": "e4",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_BRAVO"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 220.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "receiver",
+      "timestamp": "2026-09-14T09:05:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0012",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e0",
+      "value": 220.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-14T09:05:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0011",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e1",
+      "value": 180.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "receiver",
+      "timestamp": "2026-09-14T09:50:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0014",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e1",
+      "value": 180.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-14T09:50:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0013",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e2",
+      "value": 150.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "receiver",
+      "timestamp": "2026-09-14T10:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0016",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e2",
+      "value": 150.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-14T10:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0015",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1100.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "receiver",
+      "timestamp": [
+        "2026-09-14T06:40:00Z",
+        "2026-09-14T13:20:00Z"
+      ],
+      "n_events": 2,
+      "record_id": [
+        "supply_reports-L0008",
+        "supply_reports-L0018"
+      ],
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1100.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "sender",
+      "timestamp": [
+        "2026-09-14T06:40:00Z",
+        "2026-09-14T13:20:00Z"
+      ],
+      "n_events": 2,
+      "record_id": [
+        "supply_reports-L0007",
+        "supply_reports-L0017"
+      ],
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e4",
+      "value": 600.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "receiver",
+      "timestamp": "2026-09-14T07:15:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0010",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e4",
+      "value": 600.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-14T07:15:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0009",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "FOB_ALPHA",
+      "value": 1300.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0020",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "FOB_BRAVO",
+      "value": 900.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0021",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "MAIN_DEPOT",
+      "value": 2300.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0019",
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "node",
+      "ref": "OP_CRESCENT",
+      "value": 340.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0022",
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "OP_DELTA",
+      "value": 520.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0023",
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "node",
+      "ref": "OP_ECHO",
+      "value": 225.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/supply/supply_reports.jsonl",
+      "channel": "closing",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "record_id": "supply_reports-L0024",
+      "weight": 1.0
+    }
+  ]
+}

@@ -75,13 +75,12 @@ export function SystemOverview({ status }: { status: SystemStatus }) {
         <span className="sys-count-flag"><b>{flagged.length}</b> flagged</span>
       </div>
 
-      {/* Client card (mock) */}
+      {/* Client card */}
       <div className="sys-client">
         <div className="sys-client-org">{client.org}</div>
         <div className="sys-client-row"><span>domain</span>{client.domain}</div>
         <div className="sys-client-row"><span>ops desk</span>{client.deskPhone}</div>
         <div className="sys-client-row"><span>escalation</span>{client.escalation}<br />{client.escalationPhone}</div>
-        <div className="sys-client-note">mock client profile — replace with CRM data</div>
       </div>
 
       <div className="section-label" style={{ marginTop: 18 }}>

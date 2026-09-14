@@ -145,7 +145,7 @@ def compile(graph: dict) -> dict:  # noqa: A001
     HA        = np.vstack([H, A_eq])
     rank_HA   = int(np.linalg.matrix_rank(HA))
     identifiable   = rank_HA >= n_vars
-    correctable_k  = _correctable_k(H, A_eq, n_vars)
+    correctable_k, k_exact = correctable_k_search(H, A_eq, n_vars)
 
     report = {
         "n_vars":         n_vars,
@@ -153,6 +153,7 @@ def compile(graph: dict) -> dict:  # noqa: A001
         "rank":           rank_HA,
         "identifiable":   identifiable,
         "correctable_k":  correctable_k,
+        "correctable_k_exact": k_exact,
         "sink_node_ids":  list(sink_cols.keys()),
     }
 
@@ -173,29 +174,111 @@ def compile(graph: dict) -> dict:  # noqa: A001
 # Identifiability helpers
 # ---------------------------------------------------------------------------
 
+_K_CAP         = 5          # never report more than this
+_SEARCH_BUDGET = 300_000    # rank evaluations before giving up on exactness
+
+
 def _correctable_k(H: np.ndarray, A_eq: np.ndarray, n_vars: int) -> int:
+    """Backward-compatible wrapper: just the k."""
+    return correctable_k_search(H, A_eq, n_vars)[0]
+
+
+def correctable_k_search(H: np.ndarray, A_eq: np.ndarray, n_vars: int) -> tuple[int, bool]:
     """
     Largest k such that dropping ANY 2k rows of H still leaves
-    rank([H_remaining; A_eq]) == n_vars.
+    rank([H_remaining; A_eq]) == n_vars, capped at min(m // 2, 5).
 
-    Exhaustive search capped at min(m // 2, 5) for tractability.
-    Returns 0 if even one corruption cannot be corrected.
+    Equivalent statement: let d be the smallest number of H rows whose
+    removal makes the system rank-deficient; then k = floor((d - 1) / 2).
+
+    When every H row measures a single variable (node / edge / sink claims)
+    d is found by searching VARIABLE subsets instead of row subsets:
+    removing rows breaks rank iff the variables they free (every claim on
+    the variable removed), together with the never-claimed variables, admit
+    a nonzero vector in the nullspace of the balance equations.  Freeing
+    variable j costs m_j rows (its claim count), so d = min cost(F) over
+    deficient F.  This is exact, and its size depends on the number of
+    variables rather than on how many reports were kept — which matters now
+    that the merge keeps every sender / receiver / per-file row as evidence.
+
+    Aggregate claims (rows with several nonzeros) fall back to the
+    row-subset search.  Both searches are budgeted; if the budget runs out
+    the returned k is the largest one fully verified and exact is False.
+
+    Returns (k, exact).
     """
     m = H.shape[0]
-    max_k = min(m // 2, 5)
+    max_k = min(m // 2, _K_CAP)
+    if max_k == 0:
+        return 0, True
+    if _unit_rows(H):
+        return _k_by_variables(H, A_eq, n_vars, max_k)
+    return _k_by_rows(H, A_eq, n_vars, max_k)
 
+
+def _unit_rows(H: np.ndarray) -> bool:
+    return bool(H.shape[0] > 0 and np.all(np.count_nonzero(H, axis=1) == 1))
+
+
+def _k_by_variables(H: np.ndarray, A_eq: np.ndarray, n_vars: int, max_k: int) -> tuple[int, bool]:
+    counts = np.count_nonzero(H, axis=0)                 # claims per variable
+    unclaimed = [j for j in range(n_vars) if counts[j] == 0]
+    claimed   = sorted((j for j in range(n_vars) if counts[j] > 0), key=lambda j: counts[j])
+    cost      = {j: int(counts[j]) for j in claimed}
+
+    def deficient(cols: list[int]) -> bool:
+        if not cols:
+            return False
+        return np.linalg.matrix_rank(A_eq[:, cols]) < len(cols)
+
+    if deficient(unclaimed):          # unidentifiable before dropping anything
+        return 0, True
+
+    limit = 2 * max_k                 # only costs <= limit can change the answer
+    best: int | None = None           # cheapest deficient F found
+    evals = 0
+    sorted_costs = [cost[j] for j in claimed]
+
+    for size in range(1, len(claimed) + 1):
+        min_cost = sum(sorted_costs[:size])
+        if min_cost > limit or (best is not None and min_cost >= best):
+            break
+        for F in itertools.combinations(claimed, size):
+            c = sum(cost[j] for j in F)
+            if c > limit or (best is not None and c >= best):
+                continue
+            evals += 1
+            if evals > _SEARCH_BUDGET:
+                # Every F of size < `size` was examined, and cost >= size,
+                # so no deficient F costs less than `size`.
+                if best is not None and best <= size:
+                    d = best
+                    exact = True
+                else:
+                    d = size
+                    exact = False
+                return min(max_k, (d - 1) // 2), exact
+            if deficient(unclaimed + list(F)):
+                best = c
+
+    d = best if best is not None else limit + 1
+    return min(max_k, (d - 1) // 2), True
+
+
+def _k_by_rows(H: np.ndarray, A_eq: np.ndarray, n_vars: int, max_k: int) -> tuple[int, bool]:
+    """Original exhaustive row-subset search, budgeted."""
+    m = H.shape[0]
+    evals = 0
     for k in range(1, max_k + 1):
         n_drop = 2 * k
         if n_drop > m:
-            return k - 1
+            return k - 1, True
         for dropped in itertools.combinations(range(m), n_drop):
+            evals += 1
+            if evals > _SEARCH_BUDGET:
+                return k - 1, False
             kept = [i for i in range(m) if i not in dropped]
-            if kept:
-                H_sub = H[np.array(kept)]
-                HA_sub = np.vstack([H_sub, A_eq])
-            else:
-                HA_sub = A_eq
+            HA_sub = np.vstack([H[np.array(kept)], A_eq]) if kept else A_eq
             if np.linalg.matrix_rank(HA_sub) < n_vars:
-                return k - 1
-
-    return max_k
+                return k - 1, True
+    return max_k, True

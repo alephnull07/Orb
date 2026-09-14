@@ -1,0 +1,8 @@
+{"movement_id": "T1", "origin": "REGIONAL_HUB", "destination": "FWD_HOSP_NORTH", "channel": "shipment_sent", "units": 1200, "ts": "2026-09-15T06:20:00Z", "commodity": "medical_supply_units", "convoy": "C-1"}
+{"movement_id": "T2", "origin": "REGIONAL_HUB", "destination": "FWD_HOSP_SOUTH", "channel": "shipment_sent", "units": 900, "ts": "2026-09-15T07:05:00Z", "commodity": "medical_supply_units", "convoy": "C-2"}
+{"movement_id": "T3", "origin": "FWD_HOSP_NORTH", "destination": "AID_STN_1", "channel": "shipment_sent", "units": 300, "ts": "2026-09-15T09:15:00Z", "commodity": "medical_supply_units", "convoy": "C-3"}
+{"movement_id": "T4", "origin": "FWD_HOSP_NORTH", "destination": "AID_STN_2", "channel": "shipment_sent", "units": 250, "ts": "2026-09-15T10:00:00Z", "commodity": "medical_supply_units", "convoy": "C-4"}
+{"movement_id": "T5", "origin": "FWD_HOSP_SOUTH", "destination": "AID_STN_3", "channel": "shipment_sent", "units": 180, "ts": "2026-09-15T11:30:00Z", "commodity": "medical_supply_units", "convoy": "C-5"}
+{"movement_id": "T6", "origin": "FWD_HOSP_SOUTH", "destination": "AID_STN_4", "channel": "shipment_sent", "units": 220, "ts": "2026-09-15T12:45:00Z", "commodity": "medical_supply_units", "convoy": "C-6"}
+{"movement_id": "T7", "origin": "FWD_HOSP_NORTH", "destination": "AID_STN_3", "channel": "shipment_sent", "units": 140, "ts": "2026-09-15T14:10:00Z", "commodity": "medical_supply_units", "convoy": "C-7"}
+{"movement_id": "T8", "origin": "REGIONAL_HUB", "destination": "FWD_HOSP_NORTH", "channel": "shipment_sent", "units": 500, "ts": "2026-09-15T15:30:00Z", "commodity": "medical_supply_units", "convoy": "C-8"}

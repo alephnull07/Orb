@@ -1,0 +1,8 @@
+site_id,channel,value,timestamp
+REGIONAL_HUB,opening_on_hand,6000,2026-09-15T05:45:00Z
+FWD_HOSP_NORTH,opening_on_hand,800,2026-09-15T05:45:00Z
+FWD_HOSP_SOUTH,opening_on_hand,650,2026-09-15T05:45:00Z
+AID_STN_1,opening_on_hand,140,2026-09-15T05:45:00Z
+AID_STN_2,opening_on_hand,120,2026-09-15T05:45:00Z
+AID_STN_3,opening_on_hand,95,2026-09-15T05:45:00Z
+AID_STN_4,opening_on_hand,110,2026-09-15T05:45:00Z

@@ -193,6 +193,7 @@ export default function Page() {
   const [chat, setChat]         = useState<ChatMessage[]>([])
   const [graphEnterKey, setGraphEnterKey] = useState(0)
   const [graphEntering, setGraphEntering] = useState(false)
+  const [insightsToast, setInsightsToast] = useState(false)
   const insightsAbort           = useRef<AbortController | null>(null)
 
   const generateInsights = useCallback(async (r: DemoResult) => {
@@ -231,6 +232,7 @@ export default function Page() {
   useEffect(() => {
     if (!result) return
     setChat([])
+    setInsightsToast(true)
     setGraphEnterKey(k => k + 1)
     setGraphEntering(true)
     const t = window.setTimeout(() => setGraphEntering(false), 620)
@@ -809,6 +811,30 @@ export default function Page() {
         </aside>
 
       </section>
+      )}
+      {insightsToast && result && screen === 'graph' && (
+        <div className="insights-toast" role="status">
+          <span className={`status-dot ${insights.streaming ? 'running' : 'complete'}`} />
+          <div className="insights-toast-text">
+            <div className="insights-toast-title">
+              {insights.streaming ? 'Generating insights…' : 'Insights ready'}
+            </div>
+            <div className="insights-toast-sub">Briefing, systems at risk, and next steps</div>
+          </div>
+          <button
+            className="insights-toast-cta"
+            onClick={() => { setInsightsToast(false); setScreen('insights') }}
+          >
+            <Sparkles size={12} /> view insights
+          </button>
+          <button
+            className="insights-toast-close"
+            aria-label="Dismiss"
+            onClick={() => setInsightsToast(false)}
+          >
+            <X size={13} />
+          </button>
+        </div>
       )}
     </main>
   )
