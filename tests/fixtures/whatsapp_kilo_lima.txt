@@ -1,0 +1,14 @@
+WhatsApp Chat with Railhead Logistics
+Same net as radio_kilo_lima.txt. Informal phrasing, same aliases.
+
+[2026-09-14T07:02:00Z] (whatsapp) WO PARK / RAIL-1 -> KILO-6
+rolling 500 crates Railhead -> Camp Kilo. count it on arrival
+
+[2026-09-14T08:02:00Z] (whatsapp) WO PARK / RAIL-1 -> LIMA-ACTUAL
+sending 300 crates from Railhead to FOB Lima. over
+
+[2026-09-14T10:02:00Z] (whatsapp) SGT REEVES / KILO-6 -> NORTH-1
+pushed 120 crates forward to the North site on the morning run
+
+[2026-09-14T10:42:00Z] (whatsapp) SGT REEVES / KILO-6 -> SOUTH-2
+sent 80 over to OP South, ground route

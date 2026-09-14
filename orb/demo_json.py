@@ -33,10 +33,7 @@ def demo_json(path: str, truth_path: str | None = None) -> dict:
     with contextlib.redirect_stdout(io.StringIO()):
         result = run_demo(path, truth_path=truth_path)
 
-    if not result:
-        return {"error": "No graphs produced"}
-
-    return _clean(_result_to_dict(result))
+    return _clean(_result_or_error(result))
 
 
 def demo_json_multi(paths: list[str]) -> dict:
@@ -45,10 +42,23 @@ def demo_json_multi(paths: list[str]) -> dict:
     with contextlib.redirect_stdout(io.StringIO()):
         result = run_demo_multi(paths)
 
-    if not result:
-        return {"error": "No graphs produced"}
+    return _clean(_result_or_error(result))
 
-    return _clean(_result_to_dict(result))
+
+def _result_or_error(result: dict | None) -> dict:
+    result = result or {}
+    if not result.get("graph"):
+        skipped = (result.get("ingest_report") or {}).get("skipped") or []
+        extra = ""
+        if skipped:
+            extra = " Skipped: " + "; ".join(
+                f"{s.get('file')} ({s.get('reason')})" for s in skipped
+            )
+        return {
+            "error": "No graphs produced." + extra,
+            "ingest_report": result.get("ingest_report"),
+        }
+    return _result_to_dict(result)
 
 
 def _result_to_dict(result: dict) -> dict:
@@ -66,13 +76,25 @@ def _result_to_dict(result: dict) -> dict:
 
 
 if __name__ == "__main__":
+    import traceback
+
     paths = sys.argv[1:]
     if not paths:
         print('{"error": "No file paths provided"}')
         sys.exit(1)
 
-    if len(paths) == 1:
-        out = demo_json(paths[0])
-    else:
-        out = demo_json_multi(paths)
-    json.dump(out, sys.stdout, default=str)
+    try:
+        if len(paths) == 1:
+            out = demo_json(paths[0])
+        else:
+            out = demo_json_multi(paths)
+        json.dump(out, sys.stdout, default=str)
+        if out.get("error"):
+            print(out["error"], file=sys.stderr)
+            sys.exit(1)
+    except Exception as e:
+        msg = f"{type(e).__name__}: {e}"
+        print(msg, file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
+        json.dump({"error": msg}, sys.stdout)
+        sys.exit(1)

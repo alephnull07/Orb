@@ -86,7 +86,9 @@ function inferNodeType(
   return 'junction'
 }
 
-/** Average of all claims of a given type pointing at a given ref. */
+/** Average of stock/qty claims of a given type. Withdrawals (consumption) are not stock. */
+const QTY_SKIP_SOURCE = /consum|used|usage|issued|burned|withdraw/i
+
 function buildClaimedMap(
   claims: DemoResult['graph']['claims'],
   type: string,
@@ -94,6 +96,7 @@ function buildClaimedMap(
   const sums = new Map<string, { total: number; count: number }>()
   for (const c of claims) {
     if (c.type !== type || c.ref == null) continue
+    if (type === 'node' && QTY_SKIP_SOURCE.test(c.source || '')) continue
     const v = Number(c.value)
     if (isNaN(v)) continue
     const prev = sums.get(c.ref) ?? { total: 0, count: 0 }

@@ -1,0 +1,57 @@
+=== RAILHEAD NET 14 SEP 26 ===
+# Six sites. FOB Kilo and FOB Lima MUST stay distinct.
+# Honest hops; Kilo closeout is the planted lie (EOD 900 vs books 500).
+
+[2026-09-14T06:00:00Z] (radio) WO PARK / RAIL-1 -> ALL
+Railhead opening 2000 crates. Two FOBs on the board today: Kilo and Lima. Do not mix them.
+
+[2026-09-14T06:05:00Z] (radio) SGT REEVES / KILO-6 -> RAIL-1
+Camp Kilo opening 200 crates on hand. KILO-6.
+
+[2026-09-14T06:08:00Z] (radio) LT VASQUEZ / LIMA-ACTUAL -> RAIL-1
+FOB Lima opening count 150 crates. LIMA-ACTUAL.
+
+[2026-09-14T06:10:00Z] (radio) CPL NGUYEN / NORTH-1 -> KILO-6
+OP North opening 40 crates.
+
+[2026-09-14T06:12:00Z] (radio) PFC COLE / SOUTH-2 -> KILO-6
+OP South opening 30 crates.
+
+[2026-09-14T07:00:00Z] (radio) WO PARK / RAIL-1 -> KILO-6
+KILO-6 this is RAIL-1. sending 500 crates from Railhead to FOB Kilo. count it on arrival. over.
+
+[2026-09-14T07:40:00Z] (radio) SGT REEVES / KILO-6 -> RAIL-1
+RAIL-1, KILO-6. got 500 crates off Railhead here at Camp Kilo. logged. reeves.
+
+[2026-09-14T08:00:00Z] (radio) WO PARK / RAIL-1 -> LIMA-ACTUAL
+LIMA-ACTUAL this is RAIL-1. sending 300 crates from Railhead to FOB Lima. over.
+
+[2026-09-14T08:35:00Z] (radio) LT VASQUEZ / LIMA-ACTUAL -> RAIL-1
+RAIL-1, LIMA-ACTUAL. got 300 crates off Railhead here at FOB Lima. logged. vasquez.
+
+[2026-09-14T10:00:00Z] (radio) SGT REEVES / KILO-6 -> NORTH-1
+NORTH-1 this is KILO-6. sending 120 crates from FOB Kilo to OP North. count it on arrival. over.
+
+[2026-09-14T10:25:00Z] (radio) CPL NGUYEN / NORTH-1 -> KILO-6
+got 120 crates off Camp Kilo here at OP North. logged. nguyen.
+
+[2026-09-14T10:40:00Z] (radio) SGT REEVES / KILO-6 -> SOUTH-2
+SOUTH-2 this is KILO-6. sending 80 crates from Kilo FOB to OP South. over.
+
+[2026-09-14T11:05:00Z] (radio) PFC COLE / SOUTH-2 -> KILO-6
+got 80 crates off FOB Kilo here at OP South. logged. cole.
+
+[2026-09-14T17:00:00Z] (radio) WO PARK / RAIL-1 -> ALL
+EOD Railhead: in 0 crates, out 800 crates, on-hand 1200 crates
+
+[2026-09-14T17:10:00Z] (radio) SGT REEVES / KILO-6 -> RAIL-1
+EOD Camp Kilo: in 500 crates, out 200 crates, on-hand 900 crates
+
+[2026-09-14T17:15:00Z] (radio) LT VASQUEZ / LIMA-ACTUAL -> RAIL-1
+EOD FOB Lima: in 300 crates, out 0 crates, on-hand 450 crates
+
+[2026-09-14T17:20:00Z] (radio) CPL NGUYEN / NORTH-1 -> KILO-6
+EOD OP North: in 120 crates, out 0 crates, on-hand 160 crates
+
+[2026-09-14T17:22:00Z] (radio) PFC COLE / SOUTH-2 -> KILO-6
+EOD OP South: in 80 crates, out 0 crates, on-hand 110 crates

@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "DEPOT",
+      "initial": 1000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "BASE_A",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "BASE_B",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "BASE_C",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "DEPOT",
+      "to": "BASE_A"
+    },
+    {
+      "id": "e2",
+      "from": "DEPOT",
+      "to": "BASE_B"
+    },
+    {
+      "id": "e3",
+      "from": "DEPOT",
+      "to": "BASE_C"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "node",
+      "ref": "DEPOT",
+      "value": 200,
+      "source": "depot_manifest",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e2",
+      "value": 99,
+      "source": "agent_B",
+      "weight": 0.8
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e1",
+      "value": 300,
+      "source": "agent_A",
+      "weight": 0.8
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 100,
+      "source": "agent_C",
+      "weight": 0.8
+    },
+    {
+      "id": "c4",
+      "type": "node",
+      "ref": "BASE_A",
+      "value": 300,
+      "source": "agent_A",
+      "weight": 0.8
+    },
+    {
+      "id": "c5",
+      "type": "node",
+      "ref": "BASE_B",
+      "value": 400,
+      "source": "agent_B",
+      "weight": 0.8
+    },
+    {
+      "id": "c6",
+      "type": "node",
+      "ref": "BASE_C",
+      "value": 100,
+      "source": "agent_C",
+      "weight": 0.8
+    }
+  ]
+}

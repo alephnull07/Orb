@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Run the three ETL agents (Scout, Receiver, Auditor) in parallel, then write a consensus graph.
 
-Uses Anthropic Claude agents by default when an API key is present.
+Uses Anthropic Claude as the primary reader when an API key is present;
+regex personas fill gaps only.
 
 Example:
   python -m src.etl.run --source true
@@ -49,22 +50,23 @@ def run_dataset(
     graphs = {}
 
     def job(agent_name: str):
-        # Base regex extraction as baseline / fallback
         regex_graph = AGENTS[agent_name](messages, topology=topology)
-        if use_llm:
-            llm_graph = extract_llm(
-                agent_name,
-                messages,
-                model=model,
-                api_key=api_key,
-                topology=topology,
-            )
-            if llm_graph:
-                # Scout regex is the topology gate so Claude cannot add Watchtower / person hops.
-                if agent_name == "scout":
-                    return agent_name, _union_agent(regex_graph, llm_graph, allow_new_edges=False)
-                return agent_name, _union_agent(llm_graph, regex_graph)
-        return agent_name, regex_graph
+        if not use_llm:
+            return agent_name, regex_graph
+        llm_graph = extract_llm(
+            agent_name,
+            messages,
+            model=model,
+            api_key=api_key,
+            topology=topology,
+        )
+        if not llm_graph:
+            return agent_name, regex_graph
+        llm_n = len(llm_graph.get("nodes") or []) + len(llm_graph.get("edges") or [])
+        if llm_n == 0:
+            return agent_name, regex_graph
+        # LLM is primary for every persona. Regex only fills gaps.
+        return agent_name, _union_agent(llm_graph, regex_graph, allow_new_edges=True)
 
     with ThreadPoolExecutor(max_workers=3) as pool:
         futs = [pool.submit(job, agent) for agent in AGENTS]

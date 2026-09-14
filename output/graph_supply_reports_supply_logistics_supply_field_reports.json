@@ -1,0 +1,383 @@
+{
+  "nodes": [
+    {
+      "id": "FOB_ALPHA",
+      "initial": 600.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_BRAVO",
+      "initial": 450.0,
+      "sinks": "none"
+    },
+    {
+      "id": "MAIN_DEPOT",
+      "initial": 4000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_CRESCENT",
+      "initial": 120.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_DELTA",
+      "initial": 90.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_ECHO",
+      "initial": 75.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_FOB_ALPHA_OP_CRESCENT",
+      "from": "FOB_ALPHA",
+      "to": "OP_CRESCENT"
+    },
+    {
+      "id": "e_FOB_ALPHA_OP_DELTA",
+      "from": "FOB_ALPHA",
+      "to": "OP_DELTA"
+    },
+    {
+      "id": "e_FOB_BRAVO_OP_ECHO",
+      "from": "FOB_BRAVO",
+      "to": "OP_ECHO"
+    },
+    {
+      "id": "e_MAIN_DEPOT_FOB_ALPHA",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_ALPHA"
+    },
+    {
+      "id": "e_MAIN_DEPOT_FOB_BRAVO",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_BRAVO"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 800.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 800.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_BRAVO",
+      "value": 600.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_BRAVO",
+      "value": 600.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_CRESCENT",
+      "value": 220.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_CRESCENT",
+      "value": 220.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_DELTA",
+      "value": 180.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_DELTA",
+      "value": 180.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e_FOB_BRAVO_OP_ECHO",
+      "value": 150.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e_FOB_BRAVO_OP_ECHO",
+      "value": 150.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 300.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 300.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "MAIN_DEPOT",
+      "value": 2300.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "node",
+      "ref": "FOB_ALPHA",
+      "value": 1300.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "FOB_BRAVO",
+      "value": 900.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "node",
+      "ref": "OP_CRESCENT",
+      "value": 340.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "node",
+      "ref": "OP_DELTA",
+      "value": 520.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "node",
+      "ref": "OP_ECHO",
+      "value": 225.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 1100.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c19",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_BRAVO",
+      "value": 600.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c20",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_CRESCENT",
+      "value": 220.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c21",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_DELTA",
+      "value": 180.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c22",
+      "type": "edge",
+      "ref": "e_FOB_BRAVO_OP_ECHO",
+      "value": 150.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c23",
+      "type": "node",
+      "ref": "MAIN_DEPOT",
+      "value": 2300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "node",
+      "ref": "FOB_ALPHA",
+      "value": 1300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "node",
+      "ref": "FOB_BRAVO",
+      "value": 900.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "node",
+      "ref": "OP_CRESCENT",
+      "value": 340.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "node",
+      "ref": "OP_DELTA",
+      "value": 520.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "node",
+      "ref": "OP_ECHO",
+      "value": 225.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c29",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_ALPHA",
+      "value": 800.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c30",
+      "type": "edge",
+      "ref": "e_MAIN_DEPOT_FOB_BRAVO",
+      "value": 600.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c31",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_CRESCENT",
+      "value": 220.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c32",
+      "type": "edge",
+      "ref": "e_FOB_ALPHA_OP_DELTA",
+      "value": 180.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c33",
+      "type": "edge",
+      "ref": "e_FOB_BRAVO_OP_ECHO",
+      "value": 150.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c34",
+      "type": "node",
+      "ref": "MAIN_DEPOT",
+      "value": 2300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c35",
+      "type": "node",
+      "ref": "FOB_ALPHA",
+      "value": 1300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c36",
+      "type": "node",
+      "ref": "FOB_BRAVO",
+      "value": 900.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c37",
+      "type": "node",
+      "ref": "OP_CRESCENT",
+      "value": 340.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c38",
+      "type": "node",
+      "ref": "OP_DELTA",
+      "value": 520.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c39",
+      "type": "node",
+      "ref": "OP_ECHO",
+      "value": 225.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    }
+  ]
+}

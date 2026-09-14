@@ -11,17 +11,19 @@ the existing estimator.py does not.  This module never calls estimator.py.
 
 LP formulation
 --------------
-Variables: x = state vector (n_vars),  t = residual slacks (m_claims)
+Variables: x (n),  t+ (m),  t- (m)
 
-  minimize    w_sink @ x[:n]  +  w @ t
+  minimize    w_sink @ x  +  w @ (t+ + t-)
   subject to:
-     H x - t  ≤  y          (residual upper bound)
-    -H x - t  ≤ -y          (residual lower bound)
-    A_eq x     = b_eq        (hard balance)
-    t          ≥ 0
-    sink cols of x ≥ 0       (leaks are non-negative)
+     H x + t+ - t-  =  y     (residual r = t+ - t- = y - Hx)
+     A_eq x         =  b_eq  (hard conservation)
+     t+, t-         >= 0
+     sink cols of x >= 0
+     all x bounded  in [-M, M] so rank-deficient graphs stay bounded
 
 Solved with scipy.optimize.linprog(method="highs").
+If the hard-balance LP is infeasible or unbounded, balance is relaxed
+with a large slack penalty and (last resort) a least-squares fallback.
 """
 
 from __future__ import annotations
@@ -75,54 +77,132 @@ def run_graph(graph_path: str) -> dict:
 
 def _l1_solve(compiled: dict) -> tuple[np.ndarray, np.ndarray]:
     """Solve the L1 LP with hard balance constraints. Returns (x_hat, residuals)."""
-    H      = compiled["H"]
-    y      = compiled["y"]
-    w      = compiled["w"]
-    w_sink = compiled["w_sink"]
-    A_eq   = compiled["A_eq"]
-    b_eq   = compiled["b_eq"]
+    H      = np.asarray(compiled["H"], dtype=float)
+    y      = np.asarray(compiled["y"], dtype=float)
+    w      = np.asarray(compiled["w"], dtype=float)
+    w_sink = np.asarray(compiled["w_sink"], dtype=float)
+    A_eq   = np.asarray(compiled["A_eq"], dtype=float)
+    b_eq   = np.asarray(compiled["b_eq"], dtype=float)
     idx    = compiled["index"]
 
+    if H.ndim != 2:
+        H = H.reshape(len(y), -1)
     m, n = H.shape
-    p    = A_eq.shape[0]
+    if A_eq.size == 0:
+        A_eq = np.zeros((0, n))
+        b_eq = np.zeros(0)
 
-    # Objective: sink penalties on state vars + slack costs on residuals
-    c_obj = np.concatenate([w_sink, w])
+    if n == 0:
+        return np.zeros(0), np.zeros(m)
 
-    # Inequality: H x - t ≤ y  and  -H x - t ≤ -y
-    A_ub = np.block([
-        [ H, -np.eye(m)],
-        [-H, -np.eye(m)],
-    ])
-    b_ub = np.concatenate([y, -y])
+    y = np.nan_to_num(y, nan=0.0, posinf=0.0, neginf=0.0)
+    w = np.where(np.isfinite(w) & (w > 0), w, 1.0)
+    b_eq = np.nan_to_num(b_eq, nan=0.0, posinf=0.0, neginf=0.0)
+    w_sink = np.nan_to_num(w_sink, nan=0.0)
 
-    # Equality: A_eq x = b_eq  (pad t block with zeros)
-    A_eq_full = np.hstack([A_eq, np.zeros((p, m))])
-
-    # Bounds: sink cols ≥ 0, others unrestricted; t ≥ 0
     sink_col_set = {col for name, col in idx.items() if name.startswith("sink_")}
-    x_bounds = [
-        (0.0, None) if c in sink_col_set else (None, None)
-        for c in range(n)
-    ]
-    bounds = x_bounds + [(0.0, None)] * m
+
+    x_hat = _solve_l1_lp(H, y, w, A_eq, b_eq, w_sink, sink_col_set, soft_balance=False)
+    if x_hat is None:
+        x_hat = _solve_l1_lp(H, y, w, A_eq, b_eq, w_sink, sink_col_set, soft_balance=True)
+    if x_hat is None:
+        x_hat = _lstsq_fallback(H, y, A_eq, b_eq, sink_col_set)
+
+    residuals = y - H @ x_hat if m else np.zeros(0)
+    return x_hat, residuals
+
+
+def _bound_M(y: np.ndarray, b_eq: np.ndarray) -> float:
+    mag = [abs(float(v)) for v in np.concatenate([y.ravel(), b_eq.ravel()]) if np.isfinite(v)]
+    peak = max(mag) if mag else 1.0
+    return max(1e6, 1e3 * peak)
+
+
+def _solve_l1_lp(
+    H, y, w, A_eq, b_eq, w_sink, sink_col_set, *, soft_balance: bool,
+) -> np.ndarray | None:
+    m, n = H.shape
+    p = A_eq.shape[0]
+    M = _bound_M(y, b_eq)
+
+    # x, t+, t- [, s+, s-]
+    n_slack_bal = p if soft_balance else 0
+    n_tot = n + 2 * m + 2 * n_slack_bal
+
+    c_obj = np.zeros(n_tot)
+    c_obj[:n] = w_sink
+    if m:
+        c_obj[n:n + m] = w
+        c_obj[n + m:n + 2 * m] = w
+    if n_slack_bal:
+        penalty = 1e6 * max(float(np.max(w)) if m else 1.0, 1.0)
+        c_obj[n + 2 * m:] = penalty
+
+    eq_rows = []
+    eq_rhs = []
+    if m:
+        # H x + t+ - t- = y
+        row = np.zeros((m, n_tot))
+        row[:, :n] = H
+        row[:, n:n + m] = np.eye(m)
+        row[:, n + m:n + 2 * m] = -np.eye(m)
+        eq_rows.append(row)
+        eq_rhs.append(y)
+    if p:
+        # A_eq x [+ s+ - s-] = b_eq
+        row = np.zeros((p, n_tot))
+        row[:, :n] = A_eq
+        if n_slack_bal:
+            row[:, n + 2 * m:n + 2 * m + p] = np.eye(p)
+            row[:, n + 2 * m + p:] = -np.eye(p)
+        eq_rows.append(row)
+        eq_rhs.append(b_eq)
+
+    if eq_rows:
+        A_full = np.vstack(eq_rows)
+        b_full = np.concatenate(eq_rhs)
+    else:
+        A_full = None
+        b_full = None
+
+    bounds = []
+    for i in range(n):
+        if i in sink_col_set:
+            bounds.append((0.0, M))
+        else:
+            bounds.append((-M, M))
+    bounds.extend([(0.0, None)] * (2 * m + 2 * n_slack_bal))
 
     result = linprog(
         c_obj,
-        A_ub=A_ub,   b_ub=b_ub,
-        A_eq=A_eq_full, b_eq=b_eq,
+        A_eq=A_full,
+        b_eq=b_full,
         bounds=bounds,
         method="highs",
+        options={"presolve": True, "time_limit": 60},
     )
+    if result.status != 0 or result.x is None:
+        return None
+    return np.asarray(result.x[:n], dtype=float)
 
-    if result.status != 0:
-        raise RuntimeError(
-            f"LP solver failed (status {result.status}): {result.message}"
-        )
 
-    x_hat    = result.x[:n]
-    residuals = y - H @ x_hat
-    return x_hat, residuals
+def _lstsq_fallback(H, y, A_eq, b_eq, sink_col_set) -> np.ndarray:
+    n = H.shape[1]
+    blocks, rhs = [], []
+    if H.shape[0]:
+        blocks.append(H)
+        rhs.append(y)
+    if A_eq.shape[0]:
+        blocks.append(1e3 * A_eq)
+        rhs.append(1e3 * b_eq)
+    if not blocks:
+        x = np.zeros(n)
+    else:
+        x, *_ = np.linalg.lstsq(np.vstack(blocks), np.concatenate(rhs), rcond=None)
+    for i in sink_col_set:
+        if 0 <= i < n:
+            x[i] = max(0.0, x[i])
+    return x
 
 
 # ---------------------------------------------------------------------------

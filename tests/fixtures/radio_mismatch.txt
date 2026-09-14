@@ -1,0 +1,24 @@
+=== MISMATCH NET 14 SEP 26 ===
+# Sender/receiver disagreement on one hop (not an EOD lie).
+# Depot -> Hub 400 sent, Hub reports 250 received. Other hops agree.
+
+[2026-09-14T08:00:00Z] (radio) CPT SHAW / DEPOT-1 -> HUB-9
+HUB-9 this is DEPOT-1. sending 400 lb from West Depot to Ridge Hub. count it on arrival. over.
+
+[2026-09-14T08:25:00Z] (radio) SGT ORTIZ / HUB-9 -> DEPOT-1
+DEPOT-1, HUB-9. got 250 pounds off West Depot here at Ridge Hub. logged. ortiz.
+
+[2026-09-14T09:00:00Z] (radio) SGT ORTIZ / HUB-9 -> POST-4
+POST-4 this is HUB-9. sending 100 lb from Ridge Hub to East Post. over.
+
+[2026-09-14T09:20:00Z] (radio) PFC BROOKS / POST-4 -> HUB-9
+got 100 pounds off Ridge Hub here at East Post. logged. brooks.
+
+[2026-09-14T17:00:00Z] (field_log) CPT SHAW / DEPOT-1 -> TOC
+EOD West Depot: in 0 lb, out 400 lb, on-hand 600 lb
+
+[2026-09-14T17:05:00Z] (field_log) SGT ORTIZ / HUB-9 -> TOC
+EOD Ridge Hub: in 250 lb, out 100 lb, on-hand 150 lb
+
+[2026-09-14T17:10:00Z] (field_log) PFC BROOKS / POST-4 -> TOC
+EOD East Post: in 100 lb, out 0 lb, on-hand 100 lb

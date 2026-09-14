@@ -1,0 +1,46 @@
+{
+  "links": {
+    "1": {"source_name": "Reservoir 1", "target_name": "Junction A", "pipe_id": "1"},
+    "Link_1": {"source_name": "Reservoir 1", "target_name": "Junction A", "pipe_id": "1"},
+    "2": {"source_name": "Junction A", "target_name": "Junction B", "pipe_id": "2"},
+    "Link_2": {"source_name": "Junction A", "target_name": "Junction B", "pipe_id": "2"},
+    "3": {"source_name": "Junction C", "target_name": "Junction B", "pipe_id": "3"},
+    "Link_3": {"source_name": "Junction C", "target_name": "Junction B", "pipe_id": "3"},
+    "4": {"source_name": "Reservoir 1", "target_name": "Junction C", "pipe_id": "4"},
+    "Link_4": {"source_name": "Reservoir 1", "target_name": "Junction C", "pipe_id": "4"}
+  },
+  "nodes": [
+    {
+      "id": "R_01",
+      "nato": "1",
+      "type": "source",
+      "kind": "reservoir",
+      "display": "Reservoir 1",
+      "aliases": ["Reservoir 1", "R1", "R_01", "1"]
+    },
+    {
+      "id": "J_A",
+      "nato": "A",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction A",
+      "aliases": ["Junction A", "JA", "J-A", "J_A", "Node_A"]
+    },
+    {
+      "id": "J_B",
+      "nato": "B",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction B",
+      "aliases": ["Junction B", "JB", "J-B", "J_B", "Node_B"]
+    },
+    {
+      "id": "J_C",
+      "nato": "C",
+      "type": "junction",
+      "kind": "demand junction",
+      "display": "Junction C",
+      "aliases": ["Junction C", "JC", "J-C", "J_C", "Node_C"]
+    }
+  ]
+}

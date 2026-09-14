@@ -24,6 +24,7 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
+from orb.compile       import compile as compile_graph
 from orb.ingest        import build_graph, leakage_guard, validate_claims
 from orb._ingest_record import split_records
 
@@ -162,3 +163,141 @@ def test_cache_hit_zero_llm_calls():
     assert report2["llm_calls"] == 0, (
         f"Second run must make 0 LLM calls (cache hit), got {report2['llm_calls']}"
     )
+
+
+# ---------------------------------------------------------------------------
+# LeakDB mixed upload: skip labels, bind topology, don't LLM the sidecars
+# ---------------------------------------------------------------------------
+
+LEAKDB_DIR = os.path.join(
+    os.path.dirname(__file__), "..",
+    "data", "leakdb", "runs", "run_07", "corrupted",
+)
+
+
+def test_leakdb_bundle_skips_labels_and_joins_topology():
+    """
+    The UI upload of a LeakDB corrupted/ folder must:
+      - skip Labels.csv / scenario_info (ground truth + metadata)
+      - treat topology.json as a link schema, not a free-text LLM record
+      - resolve Link_* flow rows onto real endpoints
+      - produce a compile-able graph without an API key
+    """
+    from orb.ingest import ingest_paths
+
+    bundle = [
+        os.path.join(LEAKDB_DIR, name)
+        for name in (
+            "Labels.csv",
+            "messages.jsonl",
+            "scada_snapshot.csv",
+            "scenario_info.csv",
+            "topology.json",
+        )
+    ]
+    for p in bundle:
+        assert os.path.exists(p), p
+
+    graph, report = ingest_paths(bundle)
+    skipped_names = {s["file"] for s in report.get("skipped") or []}
+    assert "Labels.csv" in skipped_names
+    assert "scenario_info.csv" in skipped_names
+    assert report.get("schema_links", 0) > 0
+
+    assert graph is not None, f"expected a graph; report={report}"
+    assert graph["edges"], "topology/SCADA must produce edges (Link_* → endpoints)"
+    assert graph["claims"], "SCADA must produce claims"
+    assert any(c["type"] == "edge" for c in graph["claims"]), (
+        "flow rows must become edge claims once topology is applied"
+    )
+    assert not any("leak" in str(c.get("source", "")).lower() for c in graph["claims"])
+
+    compiled = compile_graph(graph)
+    assert compiled["report"]["n_claims"] == len(graph["claims"])
+
+
+def test_observation_csv_named_corruptions_is_not_skipped():
+    """Scenario names like fuel_B_two_corruptions.csv are data, not GT sidecars."""
+    from orb._ingest_schema import skip_reason
+    from orb.ingest import build_graph
+
+    path = os.path.join(FIXTURES, "fuel_B_two_corruptions.csv")
+    assert os.path.exists(path)
+    assert skip_reason(path) is None
+    graphs, report = build_graph(path)
+    assert report["mode"] != "SKIP", report
+    assert graphs, report
+    g = graphs[0]
+    assert len(g["nodes"]) == 5, [n["id"] for n in g["nodes"]]
+    assert len(g["edges"]) == 5, g["edges"]
+
+
+def test_site_core_does_not_smush_prefixed_sites():
+    from src.etl.textutil import site_core
+
+    assert site_core("FOB ALPHA") == "alpha"
+    assert site_core("FOB BRAVO") == "bravo"
+    assert site_core("OP CRESCENT") == "crescent"
+    assert site_core("OP DELTA") == "delta"
+    assert site_core("OP ECHO") == "echo"
+    assert site_core("MAIN") == site_core("MAIN DEPOT") == "depot"
+    assert site_core("FOB ALPHA") != site_core("FOB BRAVO")
+    assert site_core("Alpha-1") == site_core("FOB ALPHA") == site_core("Alpha depot")
+    assert site_core("MAIN DEPOT") == site_core("Depot-Main") == site_core("the depot") == site_core("MAIN")
+    assert site_core("Junction 10") != site_core("Junction 11")
+    assert site_core("Junction 10") == "junction 10"
+
+
+def test_collapse_keeps_fob_and_op_sites_distinct():
+    from orb._ingest_record import _collapse_node_aliases
+    from src.etl.textutil import canon, slug
+
+    def node(display):
+        return {
+            "id": slug(display),
+            "key": canon(display),
+            "display": display,
+            "aliases": [display],
+        }
+
+    graphs = {
+        "scout": {
+            "nodes": [
+                node("FOB ALPHA"),
+                node("FOB BRAVO"),
+                node("OP CRESCENT"),
+                node("OP DELTA"),
+                node("OP ECHO"),
+                node("MAIN DEPOT"),
+                node("Alpha-1"),
+            ],
+            "edges": [],
+            "trusted_constraint_rows": [],
+        }
+    }
+    _collapse_node_aliases(graphs)
+    keys = {n["key"] for n in graphs["scout"]["nodes"]}
+    ids = {n["id"] for n in graphs["scout"]["nodes"]}
+    assert len(keys) == 6, keys
+    assert any("BRAVO" in i for i in ids)
+    assert any("DELTA" in i for i in ids)
+    assert any("ECHO" in i for i in ids)
+    assert canon("Alpha-1") not in keys
+
+
+def test_field_reports_keeps_six_sites():
+    """supply_field_reports.txt is six sites, five hops — not 3 nodes / 2 edges."""
+    from orb.ingest import build_graph
+
+    path = os.path.join(FIXTURES, "supply_field_reports.txt")
+    if not os.path.exists(path):
+        return
+    graphs, _report = build_graph(path)
+    assert graphs, "expected a graph from field reports"
+    g = graphs[0]
+    ids = {n["id"] for n in g["nodes"]}
+    joined = " ".join(ids).upper()
+    assert len(g["nodes"]) >= 6, f"smushed sites: {ids}"
+    for token in ("ALPHA", "BRAVO", "CRESCENT", "DELTA", "ECHO", "DEPOT"):
+        assert token in joined, f"missing {token} in {ids}"
+    assert len(g["edges"]) >= 5, f"too few hops: {g['edges']}"

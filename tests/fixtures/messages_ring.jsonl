@@ -1,0 +1,12 @@
+{"message_id": "demand-R_01", "timestamp": "2026-02-10T12:00:00Z", "channel": "demand", "sensor": "R_01", "value": -300.0, "raw_text": "reservoir supply -300.0"}
+{"message_id": "demand-J_A", "timestamp": "2026-02-10T12:00:00Z", "channel": "demand", "sensor": "J_A", "value": 100.0, "raw_text": "Junction A demand 100.0"}
+{"message_id": "demand-J_B", "timestamp": "2026-02-10T12:00:00Z", "channel": "demand", "sensor": "J_B", "value": 80.0, "raw_text": "Junction B demand 80.0"}
+{"message_id": "demand-J_C", "timestamp": "2026-02-10T12:00:00Z", "channel": "demand", "sensor": "J_C", "value": 70.0, "raw_text": "Junction C demand 70.0"}
+{"message_id": "flow-P_01", "timestamp": "2026-02-10T12:00:00Z", "channel": "flow", "sensor": "Link_1", "value": 180.0, "raw_text": "P_01 R_01 -> J_A 180.0"}
+{"message_id": "flow-P_02", "timestamp": "2026-02-10T12:00:00Z", "channel": "flow", "sensor": "Link_2", "value": 80.0, "raw_text": "P_02 J_A -> J_B 80.0"}
+{"message_id": "flow-P_03", "timestamp": "2026-02-10T12:00:00Z", "channel": "flow", "sensor": "Link_3", "value": 50.0, "raw_text": "P_03 J_C -> J_B 50.0"}
+{"message_id": "flow-P_04", "timestamp": "2026-02-10T12:00:00Z", "channel": "flow", "sensor": "Link_4", "value": 120.0, "raw_text": "P_04 R_01 -> J_C 120.0"}
+{"message_id": "sink-J_A", "timestamp": "2026-02-10T12:00:00Z", "channel": "sink_meter", "sensor": "J_A", "value": 0.2, "raw_text": "J_A sink_meter 0.2"}
+{"message_id": "sink-J_B", "timestamp": "2026-02-10T12:00:00Z", "channel": "sink_meter", "sensor": "J_B", "value": 50.4, "raw_text": "J_B sink_meter 50.4"}
+{"message_id": "sink-J_C", "timestamp": "2026-02-10T12:00:00Z", "channel": "sink_meter", "sensor": "J_C", "value": 0.1, "raw_text": "J_C sink_meter 0.1"}
+{"message_id": "leak-J_B", "timestamp": "2026-02-10T12:00:00Z", "channel": "leak_demand", "sensor": "Leak_B", "value": 50.0, "raw_text": "DO NOT USE — ground truth leak"}

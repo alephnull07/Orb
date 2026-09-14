@@ -10,10 +10,15 @@ from __future__ import annotations
 
 from .textutil import (
     ALSO_SENT_RE,
+    DEPARTED_FOR_RE,
+    EOD_ONHAND_RE,
     EOD_RE,
     FLOW_ARROW_RE,
     GOT_RE,
+    RECEIVED_FROM_RE,
+    ROLLING_RE,
     SEND_RE,
+    SENT_TO_RE,
     SUSPICIOUS,
     TRANSFER_RE,
     as_number,
@@ -91,6 +96,23 @@ class GraphBuilder:
                         "inventory_eod_lb": as_number(match.group(4)),
                         "evidence": mid,
                     }
+                for match in EOD_ONHAND_RE.finditer(text):
+                    place = (match.group(1) or match.group(3) or "").strip()
+                    qty = as_number(match.group(2) or match.group(4))
+                    if not place or qty is None:
+                        speaker = (m.get("from_name") or "").strip()
+                        if speaker and is_site_name(speaker):
+                            place = speaker
+                    if not place or qty is None or not is_site_name(place):
+                        continue
+                    key = self.touch(place)
+                    self.eod[key] = {
+                        "in_lb": None,
+                        "out_lb": None,
+                        "inventory_eod_lb": qty,
+                        "evidence": mid,
+                    }
+            speaker = (m.get("from_name") or "").strip()
             if outbound:
                 for match in SEND_RE.finditer(text):
                     self.add_edge(match.group(2), match.group(3), match.group(1), mid, "send", flagged)
@@ -98,9 +120,19 @@ class GraphBuilder:
                     self.add_edge(match.group(2), match.group(3), match.group(1), mid, "transfer", flagged)
                 for match in FLOW_ARROW_RE.finditer(text):
                     self.add_edge(match.group(2), match.group(3), match.group(1), mid, "flow", flagged)
+                for match in DEPARTED_FOR_RE.finditer(text):
+                    self.add_edge(match.group(1), match.group(2), match.group(3), mid, "departed", flagged)
+                for match in ROLLING_RE.finditer(text):
+                    self.add_edge(match.group(1), match.group(2), match.group(3), mid, "rolling", flagged)
+                if speaker and is_site_name(speaker):
+                    for match in SENT_TO_RE.finditer(text):
+                        self.add_edge(speaker, match.group(2), match.group(1), mid, "sent_to", flagged)
             if inbound:
                 for match in GOT_RE.finditer(text):
                     self.add_edge(match.group(2), match.group(3), match.group(1), mid, "got", flagged)
+                if speaker and is_site_name(speaker):
+                    for match in RECEIVED_FROM_RE.finditer(text):
+                        self.add_edge(match.group(2), speaker, match.group(1), mid, "received_from", flagged)
             if also_sent:
                 for match in ALSO_SENT_RE.finditer(text):
                     dst = match.group(2).strip()

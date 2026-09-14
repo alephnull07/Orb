@@ -16,87 +16,38 @@ from pathlib import Path
 
 from .compile   import compile as compile_graph
 from .decode    import decode
-from .ingest    import build_graph
+from .ingest    import ingest_paths
 from .run_graph import _l1_solve
-from .water_world import WATER_COLUMN_MAPPING
 
 
 def run_demo_multi(paths: list[str | Path]) -> dict:
+    """Run the pipeline on any mix of files (tables, logs, jsonl)."""
+    return run_demo(paths)
+
+
+def run_demo(path: str | Path | list[str | Path], truth_path: str | Path | None = None) -> dict:
     """
-    Run the full ORB pipeline on multiple text files simultaneously.
-    All files are ingested together into a single consensus graph.
+    Run the full ORB pipeline on one file or an assortment of files.
+
+    LLM is the primary reader (column mapping + record extraction).
+    Regex only fills gaps when the model is missing or returns nothing.
     """
-    from ._ingest_record import run_record_mode_multi
+    paths = [Path(p) for p in (path if isinstance(path, list) else [path])]
 
-    paths = [Path(p) for p in paths]
+    graph, ingest_report = ingest_paths(paths, lambda_w=0.1)
 
-    graphs, ingest_report = run_record_mode_multi(paths, lambda_w=0.1)
-
-    if not graphs:
-        print(f"[demo] No graphs produced from {[p.name for p in paths]}")
-        return {}
-
-    graph = graphs[0]
-
-    compiled  = compile_graph(graph)
-    x_hat, residuals = _l1_solve(compiled)
-    decoded   = decode(x_hat, residuals, compiled, graph)
-    report    = compiled["report"]
-
-    out_dir = Path("output")
-    out_dir.mkdir(exist_ok=True)
-    stem = "_".join(p.stem for p in paths)[:80]
-    graph_out = out_dir / f"graph_{stem}.json"
-    with open(graph_out, "w") as fh:
-        json.dump(graph, fh, indent=2, default=str)
-
-    print(f"\n{'='*60}")
-    print(f"  run_demo_multi({[p.name for p in paths]})   mode=RECORD")
-    print(f"{'='*60}")
-    _print_record_header(ingest_report, graph)
-    _print_common(report, decoded, graph)
-    print(f"\n  graph.json → {graph_out}")
-    print()
-
-    return {
-        "graph":         graph,
-        "compiled":      compiled,
-        "decoded":       decoded,
-        "report":        report,
-        "ingest_report": ingest_report,
-    }
-
-
-def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
-    """
-    Run the full ORB pipeline on *path* and print a formatted report.
-
-    Parameters
-    ----------
-    path        Input file (CSV or TXT).
-    truth_path  Optional ground-truth JSON for scoring (water CSV only).
-
-    Returns
-    -------
-    dict with keys: graphs, compiled, decoded, report, ingest_report
-    """
-    path = Path(path)
-    ext  = path.suffix.lower()
-
-    # ── ingest (routes by extension) ──────────────────────────────────────────
-    if ext in {".csv", ".tsv", ".xlsx"}:
-        graphs, ingest_report = build_graph(
-            path, sinks="unknown", column_mapping=WATER_COLUMN_MAPPING,
-        )
-    else:
-        # lambda_w=0.1: unanimous consensus edges get weight 10× vs single-source
-        graphs, ingest_report = build_graph(path, lambda_w=0.1)
-
-    if not graphs:
-        print(f"[demo] No graphs produced from {path}")
-        return {}
-
-    graph = graphs[0]
+    if not graph or not graph.get("claims"):
+        names = [p.name for p in paths]
+        print(f"[demo] No graphs produced from {names}")
+        skipped = ingest_report.get("skipped") or []
+        if skipped:
+            print("  skipped:")
+            for s in skipped:
+                print(f"    {s.get('file')}: {s.get('reason')}")
+        return {
+            "graph": None,
+            "ingest_report": ingest_report,
+        }
 
     # ── compile → L1 → decode (SAME path for both) ───────────────────────────
     compiled  = compile_graph(graph)
@@ -107,14 +58,16 @@ def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
     # ── write graph.json ────────────────────────────────────────────────────
     out_dir = Path("output")
     out_dir.mkdir(exist_ok=True)
-    graph_out = out_dir / f"graph_{path.stem}.json"
+    stem = paths[0].stem if len(paths) == 1 else "_".join(p.stem for p in paths)[:80]
+    graph_out = out_dir / f"graph_{stem}.json"
     with open(graph_out, "w") as fh:
         json.dump(graph, fh, indent=2, default=str)
 
     # ── print report ──────────────────────────────────────────────────────────
     mode = ingest_report.get("mode", "?")
+    label = paths[0].name if len(paths) == 1 else [p.name for p in paths]
     print(f"\n{'='*60}")
-    print(f"  run_demo({path.name})   mode={mode}")
+    print(f"  run_demo({label})   mode={mode}")
     print(f"{'='*60}")
 
     # Mode-specific header
@@ -147,7 +100,9 @@ def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
 # ---------------------------------------------------------------------------
 
 def _print_tabular_header(ingest_report):
-    mapping = ingest_report.get("mapping", {})
+    mapping = ingest_report.get("mapping") or {}
+    if not mapping:
+        return
     print(f"\n  Column mapping:")
     for k, v in mapping.items():
         print(f"    {k}: {v}")
@@ -241,7 +196,15 @@ def _print_truth_scoring(decoded, truth_path):
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print("Usage: python -m orb.demo <file> [truth.json]", file=sys.stderr)
+        print("Usage: python -m orb.demo <file> [file ...] [truth.json]", file=sys.stderr)
         sys.exit(1)
-    truth = sys.argv[2] if len(sys.argv) > 2 else None
-    run_demo(sys.argv[1], truth_path=truth)
+    args = [Path(a) for a in sys.argv[1:]]
+    truth = None
+    if args[-1].suffix.lower() == ".json":
+        try:
+            obj = json.loads(args[-1].read_text(encoding="utf-8"))
+            if isinstance(obj, dict) and "leak_node" in obj:
+                truth = args.pop()
+        except Exception:
+            pass
+    run_demo(args if len(args) > 1 else args[0], truth_path=truth)

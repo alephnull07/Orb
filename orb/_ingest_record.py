@@ -1,8 +1,8 @@
 """
 orb/_ingest_record.py
 ---------------------
-RECORD mode: split a free-text / JSONL file into records, run the existing
-3-reader regex extraction, run consensus, and convert to compile.py claims.
+RECORD mode: split a free-text / JSONL file into records, run the 3-reader
+extraction (LLM primary, regex fallback), consensus, compile.py claims.
 
 Record contract:  {record_id, text, file, line}
 Claim contract:   {id, type, value, ref|refs, source, weight}
@@ -24,7 +24,7 @@ from collections import defaultdict
 from src.etl import agent_scout, agent_receiver, agent_auditor
 from src.etl.consensus import merge
 from src.etl.llm import extract_llm, get_api_key
-from src.etl.textutil import canon, slug
+from src.etl.textutil import canon, slug, site_core
 
 # ── record splitting ─────────────────────────────────────────────────────────
 
@@ -143,6 +143,16 @@ def records_to_messages(records: list[dict]) -> list[dict]:
             from_name = m.group(2).strip()
             callsign  = m.group(3).strip()
             to        = m.group(4).strip()
+        else:
+            # Field-log header: [ts] SITE / CALLSIGN   or   [ts] SITE
+            m = re.match(
+                r"\[[^\]]+\]\s+([^/\n]+?)(?:\s*/\s*(\S+))?\s*$",
+                text.splitlines()[0] if text else "",
+            )
+            if m:
+                from_name = m.group(1).strip()
+                callsign  = (m.group(2) or "").strip()
+                channel   = "field_log"
 
         msgs.append({
             "message_id": r["record_id"],
@@ -204,58 +214,59 @@ def _union_agent(primary: dict, secondary: dict, allow_new_edges: bool = True) -
 
 
 def _run_agent(agent_name: str, messages: list[dict],
-               api_key: str | None = None, cache=None) -> dict:
-    """Run regex extraction as baseline, optionally overlay LLM extraction."""
-    regex_graph = _REGEX_AGENTS[agent_name](messages, topology=None)
+               api_key: str | None = None, cache=None,
+               topology: dict | None = None) -> dict:
+    """LLM extracts the graph; regex only fills gaps if the LLM is missing or thin."""
+    regex_graph = _REGEX_AGENTS[agent_name](messages, topology=topology)
 
     key = get_api_key(api_key)
     if not key:
         return regex_graph
 
-    # LLM extraction via extract_llm (builds prompt, calls API, parses JSON)
     try:
-        llm_graph = extract_llm(agent_name, messages, api_key=key, topology=None)
+        llm_graph = extract_llm(agent_name, messages, api_key=key, topology=topology)
         if cache:
-            cache.llm_calls += 1  # track for reporting
+            cache.llm_calls += 1
     except Exception as e:
         print(f"  [warn] LLM call failed for {agent_name}: {e}", file=sys.stderr)
         llm_graph = None
 
-    if llm_graph:
-        # Scout: regex gates topology (no new edges from LLM)
-        if agent_name == "scout":
-            return _union_agent(regex_graph, llm_graph, allow_new_edges=False)
-        return _union_agent(llm_graph, regex_graph)
+    if not llm_graph:
+        return regex_graph
 
-    return regex_graph
+    llm_n = len(llm_graph.get("nodes") or []) + len(llm_graph.get("edges") or [])
+    if llm_n == 0:
+        return regex_graph
+
+    # LLM is primary for every persona, including Scout — regex may add
+    # extra edges/nodes the model missed, but cannot veto LLM topology.
+    return _union_agent(llm_graph, regex_graph, allow_new_edges=True)
 
 
 def _collapse_node_aliases(graphs: dict[str, dict]) -> None:
     """
-    Collapse node aliases across agent graphs by leading token.
+    Collapse true aliases, not sites that merely share a facility prefix.
 
-    Different agents may produce "Alpha depot" (key="alpha depot"),
-    "Alpha-1" (key="alpha 1"), "ALPHA" (key="alpha") — three distinct keys
-    that should merge to one node. Groups by the first word of the canon key
-    and rewrites all graphs in-place so merge() sees a single key per group.
+    ``Alpha depot`` / ``Alpha-1`` / ``FOB Alpha`` → one node (core ``alpha``).
+    ``FOB Alpha`` / ``FOB Bravo`` stay two nodes (cores ``alpha`` vs ``bravo``).
+    ``OP Crescent`` / ``OP Delta`` / ``OP Echo`` stay three nodes.
     """
-    # Collect all nodes across all agent graphs
     all_nodes: list[dict] = []
     for g in graphs.values():
         all_nodes.extend(g.get("nodes") or [])
 
-    # Group by leading token of canon key
     groups: dict[str, list[dict]] = defaultdict(list)
     for n in all_nodes:
-        leading = n["key"].split()[0] if n["key"].strip() else n["key"]
-        groups[leading].append(n)
+        groups[site_core(n.get("key") or n.get("display") or "")].append(n)
 
     # Build rewrite maps: old_key -> canonical_key, old_id -> canonical_id
     key_map: dict[str, str] = {}   # old canon key → canonical canon key
     id_map: dict[str, str] = {}    # old slug id → canonical slug id
     id_display: dict[str, str] = {}  # old slug id → canonical display
 
-    for leading, members in groups.items():
+    for core, members in groups.items():
+        if not core:
+            continue
         unique_keys = {n["key"] for n in members}
         if len(unique_keys) <= 1:
             continue  # no aliasing needed
@@ -329,6 +340,7 @@ def extract_records(
     api_key: str | None = None,
     cache=None,
     max_workers: int = 10,
+    topology: dict | None = None,
 ) -> tuple[list[dict], dict]:
     """
     Run 3-reader extraction on *records*.
@@ -345,7 +357,10 @@ def extract_records(
     # Run 3 agents concurrently (regex + LLM when api_key present)
     with ThreadPoolExecutor(max_workers=3) as pool:
         futs = {
-            pool.submit(_run_agent, name, messages, api_key=api_key, cache=cache): name
+            pool.submit(
+                _run_agent, name, messages,
+                api_key=api_key, cache=cache, topology=topology,
+            ): name
             for name in ["scout", "receiver", "auditor"]
         }
         graphs = {}
@@ -353,8 +368,8 @@ def extract_records(
             name = futs[fut]
             graphs[name] = fut.result()
 
-    # Collapse aliased node names (e.g. "Alpha depot" / "Alpha-1" / "ALPHA")
-    # before merge so consensus sees a single key per physical site.
+    # Collapse true aliases (FOB Alpha / Alpha-1) before merge; do not
+    # merge sites that only share a facility prefix (FOB Alpha / FOB Bravo).
     _collapse_node_aliases(graphs)
 
     consensus = merge([graphs["scout"], graphs["receiver"], graphs["auditor"]])
@@ -435,6 +450,7 @@ def run_record_mode(
     lambda_w: float = 1.0,
     cache=None,
     max_workers: int = 10,
+    topology: dict | None = None,
 ) -> tuple[list[dict], dict]:
     """
     RECORD mode for a single file.
@@ -443,7 +459,10 @@ def run_record_mode(
     text = path.read_text(encoding="utf-8", errors="replace")
     records = split_records(text, str(path))
 
-    consensus, _ = extract_records(records, api_key=api_key, cache=cache, max_workers=max_workers)
+    consensus, _ = extract_records(
+        records, api_key=api_key, cache=cache, max_workers=max_workers,
+        topology=topology,
+    )
     graph = consensus_to_graph(consensus, lambda_w=lambda_w)
 
     # Group by timestamp bucket ("all" window for text files)
@@ -474,6 +493,7 @@ def run_record_mode_multi(
     lambda_w: float = 1.0,
     cache=None,
     max_workers: int = 10,
+    topology: dict | None = None,
 ) -> tuple[list[dict], dict]:
     """
     RECORD mode for multiple files — reads each, concatenates records,
@@ -484,7 +504,10 @@ def run_record_mode_multi(
         text = p.read_text(encoding="utf-8", errors="replace")
         all_records.extend(split_records(text, str(p)))
 
-    consensus, _ = extract_records(all_records, api_key=api_key, cache=cache, max_workers=max_workers)
+    consensus, _ = extract_records(
+        all_records, api_key=api_key, cache=cache, max_workers=max_workers,
+        topology=topology,
+    )
     graph = consensus_to_graph(consensus, lambda_w=lambda_w)
 
     graphs = [graph] if (graph["nodes"] or graph["claims"]) else []

@@ -1,0 +1,112 @@
+{
+  "nodes": [
+    {
+      "id": "PUMP_A",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "PUMP_B",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "TANK_FARM",
+      "initial": 8000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "TERMINAL",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_PUMP_A_TERMINAL",
+      "from": "PUMP_A",
+      "to": "TERMINAL"
+    },
+    {
+      "id": "e_PUMP_B_TERMINAL",
+      "from": "PUMP_B",
+      "to": "TERMINAL"
+    },
+    {
+      "id": "e_TANK_FARM_PUMP_A",
+      "from": "TANK_FARM",
+      "to": "PUMP_A"
+    },
+    {
+      "id": "e_TANK_FARM_PUMP_B",
+      "from": "TANK_FARM",
+      "to": "PUMP_B"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_TANK_FARM_PUMP_A",
+      "value": 2000.0,
+      "source": "flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_TANK_FARM_PUMP_B",
+      "value": 1500.0,
+      "source": "flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e_PUMP_A_TERMINAL",
+      "value": 1800.0,
+      "source": "flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e_PUMP_B_TERMINAL",
+      "value": 1500.0,
+      "source": "flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "node",
+      "ref": "TANK_FARM",
+      "value": 4500.0,
+      "source": "eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "node",
+      "ref": "PUMP_A",
+      "value": 200.0,
+      "source": "eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "node",
+      "ref": "PUMP_B",
+      "value": 0.0,
+      "source": "eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "node",
+      "ref": "TERMINAL",
+      "value": 3600.0,
+      "source": "eod",
+      "weight": 1.0
+    }
+  ]
+}

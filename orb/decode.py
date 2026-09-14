@@ -37,19 +37,33 @@ def decode(
     idx       = compiled["index"]
     claim_ids = compiled["claim_ids"]
 
-    # Build a fast claim lookup
-    claims_by_id = {c["id"]: c for c in graph.get("claims", [])}
+    # Prefer compile-time (possibly coalesced) claims; fall back to the graph.
+    claims_by_id: dict[str, dict] = {}
+    for c in graph.get("claims", []) or []:
+        cid = c.get("id")
+        if cid is not None:
+            claims_by_id[cid] = c
+    for c in compiled.get("claims") or []:
+        cid = c.get("id")
+        if cid is not None:
+            claims_by_id[cid] = c
+
+    n_x = len(x_hat)
 
     # ── Node quantities ──────────────────────────────────────────────────────
     nodes_out = []
-    for n in graph["nodes"]:
-        col = idx[f"qty_{n['id']}"]
+    for n in graph.get("nodes") or []:
+        col = idx.get(f"qty_{n['id']}")
+        if col is None or col >= n_x:
+            continue
         nodes_out.append({"id": n["id"], "qty": _r(x_hat[col])})
 
     # ── Edge flows ───────────────────────────────────────────────────────────
     edges_out = []
-    for e in graph["edges"]:
-        col = idx[f"flow_{e['id']}"]
+    for e in graph.get("edges") or []:
+        col = idx.get(f"flow_{e['id']}")
+        if col is None or col >= n_x:
+            continue
         edges_out.append({
             "id":   e["id"],
             "from": e["from"],
@@ -59,11 +73,12 @@ def decode(
 
     # ── Sink amounts (unknown leaks / losses) ────────────────────────────────
     sinks_out = []
-    for n in graph["nodes"]:
+    for n in graph.get("nodes") or []:
         key = f"sink_{n['id']}"
-        if key in idx:
-            col = idx[key]
-            sinks_out.append({"id": n["id"], "sink": _r(x_hat[col])})
+        col = idx.get(key)
+        if col is None or col >= n_x:
+            continue
+        sinks_out.append({"id": n["id"], "sink": _r(x_hat[col])})
 
     # ── Flagged claims ───────────────────────────────────────────────────────
     flagged = []

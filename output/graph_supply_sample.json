@@ -45,7 +45,7 @@
       "ref": "e0",
       "value": 75.0,
       "source": "consensus",
-      "weight": 0.004442
+      "weight": 10.0
     },
     {
       "id": "c1",

@@ -1,0 +1,13 @@
+timestamp,channel,sensor,value
+2026-02-10T12:00:00Z,demand,Node_1,-300.0
+2026-02-10T12:00:00Z,demand,Node_A,100.0
+2026-02-10T12:00:00Z,demand,Node_B,80.0
+2026-02-10T12:00:00Z,demand,Node_C,70.0
+2026-02-10T12:00:00Z,flow,Link_1,180.0
+2026-02-10T12:00:00Z,flow,Link_2,80.0
+2026-02-10T12:00:00Z,flow,Link_3,50.0
+2026-02-10T12:00:00Z,flow,Link_4,120.0
+2026-02-10T12:00:00Z,pressure,Node_A,62.1
+2026-02-10T12:00:00Z,pressure,Node_B,58.4
+2026-02-10T12:00:00Z,pressure,Node_C,59.0
+2026-02-10T12:00:00Z,leak_demand,Leak_B,50.0

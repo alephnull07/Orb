@@ -1,0 +1,17 @@
+mbox-ish closeout thread — same net as radio_kilo_lima.txt
+Upload with the radio log. Kilo EOD 900 is the planted inflation (books say 500).
+
+[2026-09-14T17:08:00Z] (email) WO PARK / RAIL-1 -> TOC
+EOD Railhead: in 0 lb, out 800 lb, on-hand 1200 lb. RAIL-1 closing books.
+
+[2026-09-14T17:12:00Z] (email) SGT REEVES / KILO-6 -> TOC
+EOD Camp Kilo: in 500 lb, out 200 lb, on-hand 900 lb. KILO-6 closing books.
+
+[2026-09-14T17:16:00Z] (email) LT VASQUEZ / LIMA-ACTUAL -> TOC
+EOD FOB Lima: in 300 lb, out 0 lb, on-hand 450 lb. LIMA-ACTUAL closing books.
+
+[2026-09-14T17:21:00Z] (email) CPL NGUYEN / NORTH-1 -> TOC
+EOD OP North: in 120 lb, out 0 lb, on-hand 160 lb. NORTH-1 closing books.
+
+[2026-09-14T17:23:00Z] (email) PFC COLE / SOUTH-2 -> TOC
+EOD OP South: in 80 lb, out 0 lb, on-hand 110 lb. SOUTH-2 closing books.

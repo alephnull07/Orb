@@ -1,0 +1,157 @@
+{
+  "nodes": [
+    {
+      "id": "FOB_KILO",
+      "initial": 200.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_LIMA",
+      "initial": 150.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_NORTH",
+      "initial": 40.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_SOUTH",
+      "initial": 30.0,
+      "sinks": "none"
+    },
+    {
+      "id": "RAILHEAD",
+      "initial": 2000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_FOB_KILO_OP_NORTH",
+      "from": "FOB_KILO",
+      "to": "OP_NORTH"
+    },
+    {
+      "id": "e_FOB_KILO_OP_SOUTH",
+      "from": "FOB_KILO",
+      "to": "OP_SOUTH"
+    },
+    {
+      "id": "e_RAILHEAD_FOB_KILO",
+      "from": "RAILHEAD",
+      "to": "FOB_KILO"
+    },
+    {
+      "id": "e_RAILHEAD_FOB_LIMA",
+      "from": "RAILHEAD",
+      "to": "FOB_LIMA"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_RAILHEAD_FOB_KILO",
+      "value": 500.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_RAILHEAD_FOB_KILO",
+      "value": 500.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e_RAILHEAD_FOB_LIMA",
+      "value": 300.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e_RAILHEAD_FOB_LIMA",
+      "value": 300.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e_FOB_KILO_OP_NORTH",
+      "value": 120.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e_FOB_KILO_OP_NORTH",
+      "value": 120.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e_FOB_KILO_OP_SOUTH",
+      "value": 80.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e_FOB_KILO_OP_SOUTH",
+      "value": 80.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "node",
+      "ref": "RAILHEAD",
+      "value": 1200.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "FOB_KILO",
+      "value": 900.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "FOB_LIMA",
+      "value": 450.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "OP_NORTH",
+      "value": 160.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "OP_SOUTH",
+      "value": 110.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    }
+  ]
+}

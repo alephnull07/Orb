@@ -1,0 +1,14 @@
+SMS backup — same net as radio_kilo_lima.txt
+Receipts only. Aliases: Camp Kilo / FOB Kilo / KILO-6 and Camp Lima / FOB Lima.
+
+[2026-09-14T07:42:00Z] (sms) SGT REEVES / KILO-6 -> TOC
+got 500 crates off Railhead here at FOB Kilo. logged. reeves
+
+[2026-09-14T08:36:00Z] (sms) LT VASQUEZ / LIMA-ACTUAL -> TOC
+got 300 crates off Railhead here at Camp Lima. logged. vasquez
+
+[2026-09-14T10:26:00Z] (sms) CPL NGUYEN / NORTH-1 -> TOC
+got 120 crates off Kilo FOB here at OP North. logged. nguyen
+
+[2026-09-14T11:06:00Z] (sms) PFC COLE / SOUTH-2 -> TOC
+got 80 crates off Camp Kilo here at OP South. logged. cole

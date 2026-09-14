@@ -1,0 +1,74 @@
+[2026-09-14T05:55:00Z] MAIN DEPOT / LOG-CHIEF
+Start of day count complete. Depot holding 4000 cases of water. Three runs scheduled today, two north two south depending on road status.
+
+[2026-09-14T06:05:00Z] FOB ALPHA / ALPHA-1
+Alpha start of day on hand 600 cases. We are the distribution point for Crescent and Delta today.
+
+[2026-09-14T06:10:00Z] FOB BRAVO / BRAVO-ACTUAL
+Bravo opening count 450 cases water. Echo is the only site pulling from us.
+
+[2026-09-14T06:12:00Z] OP CRESCENT
+Crescent opening 120. Running low, requesting resupply priority.
+
+[2026-09-14T06:14:00Z] OP DELTA
+Delta outpost opening count 90 cases.
+
+[2026-09-14T06:16:00Z] OP ECHO
+Echo site start of day 75 cases on hand.
+
+[2026-09-14T06:40:00Z] CONVOY 2 / DRIVER
+Departed the depot for Alpha with 800 cases. Road clear, ETA about ninety minutes.
+
+[2026-09-14T07:15:00Z] CONVOY 4 / DRIVER
+Rolling out of MAIN toward Bravo, 600 cases loaded and manifested.
+
+[2026-09-14T08:05:00Z] FOB ALPHA / ALPHA-1
+Convoy 2 arrived. Received 800 cases from the depot, count confirmed against manifest.
+
+[2026-09-14T08:40:00Z] FOB BRAVO / BRAVO-ACTUAL
+Convoy 4 offloaded. We took 600 from Depot-Main. No damage, no shortfall.
+
+[2026-09-14T09:05:00Z] FOB ALPHA / LOG-NCO
+Pushed 220 cases forward to the Crescent site on the morning run.
+
+[2026-09-14T09:35:00Z] OP CRESCENT
+Received 220 from Alpha. Thanks, that gets us through tomorrow.
+
+[2026-09-14T09:50:00Z] FOB ALPHA / LOG-NCO
+Second run out to Delta. 180 cases on the truck.
+
+[2026-09-14T10:20:00Z] OP DELTA
+Got the Alpha delivery. 180 cases received and stacked.
+
+[2026-09-14T10:30:00Z] FOB BRAVO / LOG-NCO
+Sent 150 over to Echo, ground route, no escort needed.
+
+[2026-09-14T11:02:00Z] OP ECHO
+Echo confirms 150 cases in from Bravo.
+
+[2026-09-14T13:20:00Z] CONVOY 7 / DRIVER
+Second depot run to Alpha complete, about 300 cases dropped. Did not get an exact recount at the ramp, manifest said 300.
+
+[2026-09-14T13:45:00Z] FOB ALPHA / ALPHA-1
+Convoy 7 in. 300 from the depot, matches their manifest.
+
+[2026-09-14T14:10:00Z] FOB BRAVO / LOG-NCO
+Moved the rest of the damaged pallets off to the side, will sort them tomorrow. Not counting them against stock today.
+
+[2026-09-14T17:30:00Z] MAIN DEPOT / LOG-CHIEF
+EOD depot on hand 2300 cases.
+
+[2026-09-14T17:35:00Z] FOB ALPHA / ALPHA-1
+Alpha EOD on hand 1300.
+
+[2026-09-14T17:40:00Z] FOB BRAVO / BRAVO-ACTUAL
+Bravo EOD on hand 900 cases.
+
+[2026-09-14T17:44:00Z] OP CRESCENT
+Crescent EOD 340 on hand.
+
+[2026-09-14T17:48:00Z] OP DELTA
+Delta EOD on hand 520 cases.
+
+[2026-09-14T17:52:00Z] OP ECHO
+Echo EOD on hand 225.

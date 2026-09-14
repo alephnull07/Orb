@@ -1,0 +1,178 @@
+{
+  "nodes": [
+    {
+      "id": "FOB_IRONSIDE",
+      "initial": 3000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_KESTREL",
+      "initial": 2500.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_TALON",
+      "initial": 400.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_VIPER",
+      "initial": 350.0,
+      "sinks": "none"
+    },
+    {
+      "id": "PORT_HAVEN",
+      "initial": 20000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_FOB_IRONSIDE_OP_TALON",
+      "from": "FOB_IRONSIDE",
+      "to": "OP_TALON"
+    },
+    {
+      "id": "e_FOB_KESTREL_OP_TALON",
+      "from": "FOB_KESTREL",
+      "to": "OP_TALON"
+    },
+    {
+      "id": "e_FOB_KESTREL_OP_VIPER",
+      "from": "FOB_KESTREL",
+      "to": "OP_VIPER"
+    },
+    {
+      "id": "e_PORT_HAVEN_FOB_IRONSIDE",
+      "from": "PORT_HAVEN",
+      "to": "FOB_IRONSIDE"
+    },
+    {
+      "id": "e_PORT_HAVEN_FOB_KESTREL",
+      "from": "PORT_HAVEN",
+      "to": "FOB_KESTREL"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_PORT_HAVEN_FOB_IRONSIDE",
+      "value": 5000.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_PORT_HAVEN_FOB_IRONSIDE",
+      "value": 5000.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e_PORT_HAVEN_FOB_KESTREL",
+      "value": 4000.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e_PORT_HAVEN_FOB_KESTREL",
+      "value": 4000.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e_FOB_IRONSIDE_OP_TALON",
+      "value": 900.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e_FOB_IRONSIDE_OP_TALON",
+      "value": 900.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e_FOB_KESTREL_OP_TALON",
+      "value": 600.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e_FOB_KESTREL_OP_TALON",
+      "value": 600.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e_FOB_KESTREL_OP_VIPER",
+      "value": 700.0,
+      "source": "shipment_sent",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e_FOB_KESTREL_OP_VIPER",
+      "value": 700.0,
+      "source": "shipment_received",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "PORT_HAVEN",
+      "value": 11000.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "FOB_IRONSIDE",
+      "value": 7100.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "FOB_KESTREL",
+      "value": 5200.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "node",
+      "ref": "OP_TALON",
+      "value": 1900.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "OP_VIPER",
+      "value": 1050.0,
+      "source": "eod_on_hand",
+      "weight": 1.0
+    }
+  ]
+}

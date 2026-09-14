@@ -397,3 +397,281 @@ def test_direction_asymmetry_c6():
         assert flagged_ids, (
             f"Edge claim c3 corruption ({label}) must be flagged, got none"
         )
+
+
+# ---------------------------------------------------------------------------
+# Helpers for ingested logistics fixtures
+# ---------------------------------------------------------------------------
+
+def _ingest(name: str) -> dict:
+    from orb.ingest import ingest_paths
+    graph, report = ingest_paths([os.path.join(FIXTURES, name)])
+    assert graph and graph.get("claims"), f"{name}: no graph ({report})"
+    return graph
+
+
+def _qty(decoded: dict, nid: str) -> float:
+    node = next((n for n in decoded["nodes"] if n["id"] == nid), None)
+    assert node is not None, f"missing node {nid} in { [n['id'] for n in decoded['nodes']] }"
+    return node["qty"]
+
+
+def _flow(decoded: dict, frm: str, to: str) -> float:
+    edge = next((e for e in decoded["edges"] if e["from"] == frm and e["to"] == to), None)
+    assert edge is not None, f"missing edge {frm}->{to}"
+    return edge["flow"]
+
+
+# ---------------------------------------------------------------------------
+# Test 11 — two shipments on one hop are net flow, not a fight
+# ---------------------------------------------------------------------------
+
+def test_supply_logistics_nets_two_shipments():
+    """
+    supply_logistics.csv has two Depot→Alpha trucks (800 then 300) plus a
+    planted +250 lie on OP_DELTA's EOD.
+
+    Before coalescing, L1 treated 800 and 300 as conflicting sensors of one
+    flow, picked ~800, and then falsely flagged Depot/Alpha EOD. Net flow
+    must be 1100, books must match, and only Delta's EOD is the lie.
+    """
+    graph = _ingest("supply_logistics.csv")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+
+    assert abs(_flow(decoded, "MAIN_DEPOT", "FOB_ALPHA") - 1100) < 1.0
+    assert abs(_qty(decoded, "MAIN_DEPOT") - 2300) < 1.0
+    assert abs(_qty(decoded, "FOB_ALPHA") - 1300) < 1.0
+    assert abs(_qty(decoded, "FOB_BRAVO") - 900) < 1.0
+    assert abs(_qty(decoded, "OP_DELTA") - 270) < 1.0  # 90 + 180, not the 520 lie
+
+    flagged_ids = {f["claim_id"] for f in decoded["flagged"]}
+    by_id = {c["id"]: c for c in compiled["claims"]}
+    flagged_node_refs = {
+        by_id[cid]["ref"] for cid in flagged_ids
+        if by_id.get(cid, {}).get("type") == "node"
+    }
+    assert "OP_DELTA" in flagged_node_refs, (
+        f"Delta EOD must be flagged, got {decoded['flagged']}"
+    )
+    assert "MAIN_DEPOT" not in flagged_node_refs
+    assert "FOB_ALPHA" not in flagged_node_refs
+
+
+def test_fuel_tanks_flags_terminal_eod():
+    """Terminal EOD 3600 vs conserved 3300. L1 recovers 3300 and flags the +300."""
+    graph = _ingest("fuel_tanks.csv")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+
+    assert abs(_qty(decoded, "TERMINAL") - 3300) < 1.0
+    by_id = {c["id"]: c for c in compiled["claims"]}
+    flagged_refs = {
+        by_id[f["claim_id"]]["ref"]
+        for f in decoded["flagged"]
+        if f["claim_id"] in by_id
+    }
+    assert "TERMINAL" in flagged_refs, decoded["flagged"]
+    assert abs(_qty(decoded, "TANK_FARM") - 4500) < 1.0
+
+
+def test_kilo_lima_flags_kilo_eod():
+    """Kilo EOD 900 vs books 500. L1 recovers 500 and flags the EOD lie."""
+    graph = _ingest("kilo_lima_logistics.csv")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+
+    assert abs(_qty(decoded, "FOB_KILO") - 500) < 1.0
+    by_id = {c["id"]: c for c in compiled["claims"]}
+    flagged_refs = {
+        by_id[f["claim_id"]]["ref"]
+        for f in decoded["flagged"]
+        if f["claim_id"] in by_id
+    }
+    assert "FOB_KILO" in flagged_refs, decoded["flagged"]
+    assert "RAILHEAD" not in flagged_refs
+    assert abs(_qty(decoded, "RAILHEAD") - 1200) < 1.0
+
+
+def test_fuel_b_two_corruptions():
+    """
+    Ironside→Talon sent 1300 / received 900. Ironside EOD matches 900.
+    Talon EOD 1450 is a second lie (would be 1900 if flow=900).
+    L1 must pick flow=900, keep Ironside, flag the sent 1300 and Talon EOD.
+    """
+    graph = _ingest("fuel_B_two_corruptions.csv")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+
+    assert abs(_flow(decoded, "FOB_IRONSIDE", "OP_TALON") - 900) < 1.0
+    assert abs(_qty(decoded, "FOB_IRONSIDE") - 7100) < 1.0
+    assert abs(_qty(decoded, "OP_TALON") - 1900) < 1.0
+
+    by_id = {c["id"]: c for c in compiled["claims"]}
+    flagged = [by_id[f["claim_id"]] for f in decoded["flagged"] if f["claim_id"] in by_id]
+    flagged_edge = [
+        c for c in flagged
+        if c.get("type") == "edge" and c.get("ref") == "e_FOB_IRONSIDE_OP_TALON"
+    ]
+    flagged_nodes = {c["ref"] for c in flagged if c.get("type") == "node"}
+    assert any(abs(float(c["value"]) - 1300) < 1 or "sent" in str(c.get("source", "")).lower()
+               for c in flagged_edge), flagged
+    assert "OP_TALON" in flagged_nodes, decoded["flagged"]
+    assert "FOB_IRONSIDE" not in flagged_nodes
+
+
+def test_coalesce_sums_shipments_not_flow_replicates():
+    """shipment_sent rows add; water-style `flow` replicates stay separate."""
+    graph = {
+        "nodes": [
+            {"id": "A", "initial": 2000, "sinks": "none"},
+            {"id": "B", "initial": 0, "sinks": "none"},
+        ],
+        "edges": [{"id": "e_A_B", "from": "A", "to": "B"}],
+        "claims": [
+            {"id": "s1", "type": "edge", "ref": "e_A_B", "value": 800, "source": "shipment_sent", "weight": 1},
+            {"id": "s2", "type": "edge", "ref": "e_A_B", "value": 300, "source": "shipment_sent", "weight": 1},
+            {"id": "r1", "type": "edge", "ref": "e_A_B", "value": 800, "source": "shipment_received", "weight": 1},
+            {"id": "r2", "type": "edge", "ref": "e_A_B", "value": 300, "source": "shipment_received", "weight": 1},
+            {"id": "eod_a", "type": "node", "ref": "A", "value": 900, "source": "eod_on_hand", "weight": 1},
+            {"id": "eod_b", "type": "node", "ref": "B", "value": 1100, "source": "eod_on_hand", "weight": 1},
+        ],
+    }
+    compiled = compile_graph(graph)
+    # 2 coalesced edge rows (sent sum, received sum) + 2 node rows
+    assert compiled["report"]["n_claims"] == 4
+    assert 1100.0 in set(compiled["y"])
+
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+    assert abs(_flow(decoded, "A", "B") - 1100) < 1e-3
+    assert not decoded["flagged"]
+
+    flow_graph = {
+        "nodes": [
+            {"id": "J1", "initial": 0, "sinks": "none"},
+            {"id": "J2", "initial": 0, "sinks": "none"},
+        ],
+        "edges": [{"id": "e_J1_J2", "from": "J1", "to": "J2"}],
+        "claims": [
+            {"id": "f1", "type": "edge", "ref": "e_J1_J2", "value": 10.0, "source": "flow", "weight": 1},
+            {"id": "f2", "type": "edge", "ref": "e_J1_J2", "value": 10.2, "source": "flow", "weight": 1},
+        ],
+    }
+    flow_c = compile_graph(flow_graph)
+    assert flow_c["report"]["n_claims"] == 2, "flow replicates must not be summed"
+
+
+def test_l1_skips_missing_refs_and_empty_claims():
+    """Missing claim refs must not crash; empty claim sets must still solve."""
+    graph = {
+        "nodes": [{"id": "A", "initial": 5, "sinks": "none"}],
+        "edges": [],
+        "claims": [
+            {"id": "bad", "type": "edge", "ref": "nope", "value": 1, "source": "x", "weight": 1},
+            {"id": "ok", "type": "node", "ref": "A", "value": 5, "source": "eod", "weight": 1},
+        ],
+    }
+    compiled = compile_graph(graph)
+    assert compiled["claim_ids"] == ["ok"]
+    x_hat, residuals = _l1_solve(compiled)
+    assert abs(x_hat[compiled["index"]["qty_A"]] - 5) < 1e-6
+
+    empty = compile_graph({
+        "nodes": [{"id": "A", "initial": 3, "sinks": "none"}],
+        "edges": [],
+        "claims": [],
+    })
+    x_hat, residuals = _l1_solve(empty)
+    assert abs(x_hat[empty["index"]["qty_A"]] - 3) < 1e-6
+    assert list(residuals) == []
+
+
+def test_known_consumption_enters_balance():
+    """
+    Consumption is a known withdrawal, not a second reading of final stock.
+
+    FOB: opening 600 + 1000 received - 200 used = 1400 EOD.
+    If consumption were compiled as qty, L1 would fight 200 vs 1400.
+    """
+    graph = {
+        "nodes": [
+            {"id": "DEPOT", "initial": 4000, "sinks": "none"},
+            {"id": "FOB", "initial": 600, "sinks": "none"},
+        ],
+        "edges": [{"id": "e_DEPOT_FOB", "from": "DEPOT", "to": "FOB"}],
+        "claims": [
+            {"id": "s", "type": "edge", "ref": "e_DEPOT_FOB", "value": 1000, "source": "shipment_sent", "weight": 1},
+            {"id": "r", "type": "edge", "ref": "e_DEPOT_FOB", "value": 1000, "source": "shipment_received", "weight": 1},
+            {"id": "use", "type": "node", "ref": "FOB", "value": 200, "source": "consumption", "weight": 1},
+            {"id": "eod_d", "type": "node", "ref": "DEPOT", "value": 3000, "source": "eod_on_hand", "weight": 1},
+            {"id": "eod_f", "type": "node", "ref": "FOB", "value": 1400, "source": "eod_on_hand", "weight": 1},
+        ],
+    }
+    compiled = compile_graph(graph)
+    assert "sink_FOB" not in compiled["index"]
+    assert compiled["known_sinks"].get("FOB") == 200
+    assert all(c.get("type") != "sink" for c in compiled["claims"])
+    assert compiled["report"]["n_claims"] == 4  # 2 edge + 2 eod; consumption is a balance offset
+
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+    assert abs(_qty(decoded, "FOB") - 1400) < 1.0
+    assert abs(_qty(decoded, "DEPOT") - 3000) < 1.0
+    assert not decoded["sinks"], decoded["sinks"]
+    assert not decoded["flagged"], decoded["flagged"]
+
+
+def test_node_known_sink_constant():
+    """sinks='known' with a numeric sink subtracts from the balance (no extra var)."""
+    graph = {
+        "nodes": [
+            {"id": "A", "initial": 1000, "sinks": "known", "sink": 200},
+            {"id": "B", "initial": 0, "sinks": "none"},
+        ],
+        "edges": [{"id": "e", "from": "A", "to": "B"}],
+        "claims": [
+            {"id": "f", "type": "edge", "ref": "e", "value": 300, "source": "flow", "weight": 1},
+            {"id": "ea", "type": "node", "ref": "A", "value": 500, "source": "eod_on_hand", "weight": 1},
+            {"id": "eb", "type": "node", "ref": "B", "value": 300, "source": "eod_on_hand", "weight": 1},
+        ],
+    }
+    compiled = compile_graph(graph)
+    assert "sink_A" not in compiled["index"]
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+    assert abs(_qty(decoded, "A") - 500) < 1e-3
+    assert abs(_qty(decoded, "B") - 300) < 1e-3
+    assert not decoded["flagged"]
+
+
+def test_water_demand_stays_qty():
+    """Water demand claims must remain qty observations, not known-sink withdrawals."""
+    graph = _load("toy_water_sinks.json")
+    compiled = compile_graph(graph)
+    assert all(c.get("type") != "sink" for c in compiled["claims"])
+    assert "sink_BASE_B" in compiled["index"]
+    assert compiled["report"]["n_claims"] == len(graph["claims"])
+
+
+def test_fuel_e_consumption_is_clean():
+    """fuel_E_consumption.csv is an uncorrupted daily snapshot with known use."""
+    graph = _ingest("fuel_E_consumption.csv")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+
+    assert compiled["known_sinks"].get("FOB_IRONSIDE") == 800
+    assert compiled["known_sinks"].get("OP_VIPER") == 120
+    assert "sink_FOB_IRONSIDE" not in compiled["index"]
+    assert not decoded["sinks"], decoded["sinks"]
+    assert not decoded["flagged"], decoded["flagged"]
+    assert abs(_qty(decoded, "FOB_IRONSIDE") - 6300) < 1.0
+    assert abs(_qty(decoded, "FOB_KESTREL") - 4600) < 1.0
+    assert abs(_qty(decoded, "OP_TALON") - 1750) < 1.0
+    assert abs(_qty(decoded, "OP_VIPER") - 930) < 1.0
+    assert abs(_qty(decoded, "PORT_HAVEN") - 11000) < 1.0
