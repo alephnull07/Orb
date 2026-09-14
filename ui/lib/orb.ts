@@ -249,8 +249,6 @@ export function deriveStatus(result: DemoResult): SystemStatus {
 
     if (qty == null) {
       health = 'down'; reasons.push('No estimate could be produced for this node')
-    } else if (qty <= 0) {
-      health = 'down'; reasons.push(`Estimated stock is ${qty.toFixed(1)} — effectively empty`)
     } else if (own.length > 0 && ownFlagged.length === own.length) {
       health = 'down'; reasons.push('Every report from this node was rejected as inconsistent')
     }

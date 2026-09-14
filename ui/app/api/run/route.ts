@@ -1,18 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { exec } from 'child_process'
-import { promisify } from 'util'
 import path from 'path'
 import fs from 'fs'
+import { ORB_ROOT, runPy } from '@/lib/python'
 
-const execAsync = promisify(exec)
-const ORB = path.join(process.cwd(), '..')
-
-function execSafe(cmd: string, opts: { cwd: string; timeout?: number }) {
-  return execAsync(cmd, opts).catch((e: any) => {
-    const detail = (e.stderr || e.stdout || '').trim().slice(-3000)
-    throw new Error(detail || e.message)
-  })
-}
+const ORB = ORB_ROOT
 
 /** Return true if the buffer looks like a valid consensus/flow graph JSON */
 function isGraphJson(buf: Buffer): boolean {
@@ -31,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     if (files.length === 0) {
       // No files — run L1 on default supply_drops data
-      await execSafe('python3 bridge.py', { cwd: ORB, timeout: 60_000 })
+      await runPy(['bridge.py'], { cwd: ORB, timeout: 60_000 })
       fs.writeFileSync(
         path.join(ORB, 'data', 'supply_drops', '.last_run'),
         path.join(ORB, 'data', 'supply_drops')
@@ -98,14 +89,14 @@ export async function POST(req: NextRequest) {
       // Detect API key → use LLM mode if available, else regex-only
       const apiKey = process.env.ANTHROPIC_API_KEY || ''
       const llmFlag = apiKey ? '' : '--no-llm'
-      await execSafe(
-        `python3 -m src.etl.run --source corrupted ${llmFlag} --data-root "${runDir}"`,
-        { cwd: ORB, timeout: 120_000 }
+      await runPy(
+        ['-m', 'src.etl.run', '--source', 'corrupted', ...(llmFlag ? [llmFlag] : []), '--data-root', runDir],
+        { cwd: ORB, timeout: 120_000 },
       )
     }
 
     // Run L1 on whatever graph we now have
-    await execSafe(`python3 bridge.py "${runDir}"`, { cwd: ORB, timeout: 60_000 })
+    await runPy(['bridge.py', runDir], { cwd: ORB, timeout: 60_000 })
 
     // Tag this run so /api/graphs knows which dir to serve
     fs.writeFileSync(path.join(ORB, 'data', 'supply_drops', '.last_run'), runDir)

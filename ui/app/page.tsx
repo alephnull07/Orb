@@ -14,7 +14,7 @@ import {
   Activity, AlertTriangle, ChevronDown, ChevronUp,
   Loader2, Network, ShieldAlert, ShieldCheck, Sparkles, Upload, X,
 } from 'lucide-react'
-import { DELTA_THRESHOLD, buildClaimedMap, type DemoResult } from '../lib/orb'
+import { DELTA_THRESHOLD, buildClaimedMap, deriveStatus, type DemoResult } from '../lib/orb'
 import { InsightsDashboard, type InsightsState } from './components/InsightsDashboard'
 import type { ChatMessage } from './components/ChatPanel'
 
@@ -78,12 +78,18 @@ function OrbNode({ data }: NodeProps) {
   const border = (hasSink || hasDelta) ? '#e8952a' : color
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 110 }}>
+    <div
+      className="orb-node-body"
+      style={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center', width: 110,
+        ['--enter-i' as string]: data.enterIndex ?? 0,
+      }}
+    >
       <Handle type="target" position={Position.Left}
         style={{ top: size / 2, opacity: 0, width: 6, height: 6 }} />
       <Handle type="source" position={Position.Right}
         style={{ top: size / 2, opacity: 0, width: 6, height: 6 }} />
-      <div style={{
+      <div className="orb-node-core" style={{
         width: size, height: size, borderRadius: '50%',
         background: `radial-gradient(circle at 35% 32%, ${border}44 0%, ${border}11 70%)`,
         border: `2px solid ${border}`, boxShadow: glow, flexShrink: 0,
@@ -141,7 +147,7 @@ function OrbEdge({
         strokeWidth: isCorrected ? 2.5 : 1.5,
         strokeDasharray: isCorrected ? '7 5' : undefined,
         filter: selected ? `drop-shadow(0 0 6px ${color})` : undefined,
-      }} className={isCorrected ? 'edge-flow' : ''} />
+      }} className={isCorrected ? 'edge-flow orb-edge-path' : 'orb-edge-path'} />
       {data.flowLabel && (
         <EdgeLabelRenderer>
           <div className="edge-label" style={{
@@ -185,6 +191,8 @@ export default function Page() {
   const [screen, setScreen]     = useState<Screen>('graph')
   const [insights, setInsights] = useState<InsightsState>({ text: '', streaming: false, error: null })
   const [chat, setChat]         = useState<ChatMessage[]>([])
+  const [graphEnterKey, setGraphEnterKey] = useState(0)
+  const [graphEntering, setGraphEntering] = useState(false)
   const insightsAbort           = useRef<AbortController | null>(null)
 
   const generateInsights = useCallback(async (r: DemoResult) => {
@@ -219,13 +227,18 @@ export default function Page() {
     }
   }, [])
 
-  // New estimation result → reset chat, stream a fresh briefing, show the dashboard.
+  // New estimation result → stream a briefing in the background; stay on the graph.
   useEffect(() => {
     if (!result) return
     setChat([])
-    setScreen('insights')
+    setGraphEnterKey(k => k + 1)
+    setGraphEntering(true)
+    const t = window.setTimeout(() => setGraphEntering(false), 620)
     generateInsights(result)
-    return () => insightsAbort.current?.abort()
+    return () => {
+      window.clearTimeout(t)
+      insightsAbort.current?.abort()
+    }
   }, [result, generateInsights])
 
   const acceptFiles = (list: FileList | null | undefined) => {
@@ -240,7 +253,7 @@ export default function Page() {
 
   const handleRun = async () => {
     if (rawFiles.length === 0) return
-    setStatus('RUNNING'); setRunError(null); setResult(null)
+    setStatus('RUNNING'); setRunError(null); setResult(null); setScreen('graph')
     try {
       const form = new FormData()
       for (const f of rawFiles) form.append('file', f)
@@ -273,7 +286,7 @@ export default function Page() {
 
     const pos = computeLayout(graph.nodes, graph.edges)
 
-    const flowNodes: Node[] = graph.nodes.map(n => {
+    const flowNodes: Node[] = graph.nodes.map((n, i) => {
       const reported = claimedNodeQty.get(n.id)
       const l1       = l1Qty.get(n.id)
       const sink     = sinkMap.get(n.id) ?? 0
@@ -301,6 +314,7 @@ export default function Page() {
           corrected,
           qtyLabel,
           wasLabel,
+          enterIndex: i,
         },
       }
     })
@@ -339,6 +353,19 @@ export default function Page() {
     [decoded],
   )
 
+  const nodeStatus = useMemo(
+    () => (result ? deriveStatus(result) : null),
+    [result],
+  )
+
+  const insightsPreview = useMemo(() => {
+    if (insights.error) return insights.error
+    const t = insights.text.replace(/^##\s+/m, '').replace(/\s+/g, ' ').trim()
+    if (t) return t.slice(0, 160) + (t.length > 160 ? '…' : '')
+    if (insights.streaming) return 'Writing the operations briefing…'
+    return 'Open the operations briefing'
+  }, [insights])
+
   const VIEW_LABELS: Record<ViewMode, string> = {
     REPORTED: 'Reported',
     L1: 'L1 corrected',
@@ -354,12 +381,12 @@ export default function Page() {
           <div className="brand-divider" />
           <span className="brand-sub">outlier-robust estimation</span>
         </div>
-        {result && (
+        {result && screen === 'insights' && (
           <div className="screen-toggle">
-            <button className={screen === 'graph' ? 'active' : ''} onClick={() => setScreen('graph')}>
+            <button onClick={() => setScreen('graph')}>
               <Network size={12} /> graph
             </button>
-            <button className={screen === 'insights' ? 'active' : ''} onClick={() => setScreen('insights')}>
+            <button className="active" onClick={() => setScreen('insights')}>
               <Sparkles size={12} /> insights
               {insights.streaming && <span className="status-dot running" style={{ marginLeft: 4 }} />}
             </button>
@@ -382,6 +409,7 @@ export default function Page() {
           result={result}
           insights={insights}
           onRegenerate={() => generateInsights(result)}
+          onClose={() => setScreen('graph')}
           chat={chat}
           setChat={setChat}
         />
@@ -531,22 +559,25 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="flow-wrap">
+          <div className={`flow-wrap ${graphEntering ? 'graph-enter' : ''}`} key={graphEnterKey || 'empty'}>
             {flowNodes.length > 0 ? (
-              <ReactFlow
-                nodes={flowNodes} edges={flowEdges}
-                nodeTypes={nodeTypes} edgeTypes={edgeTypes}
-                fitView minZoom={0.25}
-              >
-                <Background color="#1a2230" gap={24} size={1} />
-                <Controls showInteractive={false} />
-                <MiniMap
-                  nodeColor={n =>
-                    n.data?.type === 'source' ? '#5b8def'
-                      : (n.data?.sinkVal ?? 0) > 1 ? '#e8952a' : '#5ec2b7'}
-                  maskColor="rgba(7,9,13,.8)"
-                />
-              </ReactFlow>
+              <>
+                <div className="graph-enter-fx" aria-hidden />
+                <ReactFlow
+                  nodes={flowNodes} edges={flowEdges}
+                  nodeTypes={nodeTypes} edgeTypes={edgeTypes}
+                  fitView minZoom={0.25}
+                >
+                  <Background color="#1a2230" gap={24} size={1} />
+                  <Controls showInteractive={false} />
+                  <MiniMap
+                    nodeColor={n =>
+                      n.data?.type === 'source' ? '#5b8def'
+                        : (n.data?.sinkVal ?? 0) > 1 ? '#e8952a' : '#5ec2b7'}
+                    maskColor="rgba(7,9,13,.8)"
+                  />
+                </ReactFlow>
+              </>
             ) : (
               <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -576,6 +607,27 @@ export default function Page() {
             </div>
           ) : (
             <>
+              <button
+                className="insights-rail"
+                onClick={() => setScreen('insights')}
+                type="button"
+              >
+                <div className="insights-rail-head">
+                  <Sparkles size={13} />
+                  <span>insights</span>
+                  {insights.streaming && <span className="ins-live">live</span>}
+                </div>
+                <p className="insights-rail-preview">{insightsPreview}</p>
+                {nodeStatus && (
+                  <div className="insights-rail-meta">
+                    <span>{decoded!.flagged.length} flagged</span>
+                    <span>{nodeStatus.counts.degraded + nodeStatus.counts.down} inconsistent</span>
+                    <span>k={report!.correctable_k}</span>
+                  </div>
+                )}
+                <span className="insights-rail-hint">click to expand</span>
+              </button>
+
               {/* ── Identifiability card ── */}
               <div className="ident-card">
                 <div className="ident-header">

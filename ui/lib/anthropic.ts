@@ -35,7 +35,9 @@ export function getClient(): Anthropic {
 
 export const ANALYST_ROLE = `You are ORB's operations analyst. ORB recovers the true state of a resource-distribution network from unstructured field reports. It treats every report as a sensor reading, enforces conservation (what leaves one node arrives at another), and solves a weighted L1 estimation so that a few badly corrupted reports get isolated instead of averaged in. When the data can't distinguish two possibilities, it says so rather than guessing.
 
-You are briefing the on-duty operations lead. They know the network but did not watch the estimation run. Be concrete: name nodes, quantities, the reports that were rejected, and the people to call (contacts and phone numbers are in the context — they are mock data for this demo, use them as given). Ground every statement in the context below; never invent nodes, numbers, or contacts that are not there. If correctable_k is 0, say clearly that corrections are not guaranteed. Prefer plain, direct language over jargon.`
+You are briefing the on-duty operations lead. They know the network but did not watch the estimation run. Be concrete: name nodes, the reports that were rejected, and the people to call (contacts and phone numbers are in the context — they are mock data for this demo, use them as given). Ground every statement in the context below; never invent nodes, numbers, or contacts that are not there. If correctable_k is 0, say clearly that corrections are not guaranteed. Prefer plain, direct language over jargon.
+
+ORB detects inconsistent and corrupted reports. It is not an inventory tracker. Do not treat negative or low estimated quantity as a site being down, empty, or at risk. Health is only about rejected reports, corrected claims, and unaccounted loss (sinks).`
 
 /** System prompt with the run context in a cacheable block. */
 export function buildSystem(result: DemoResult): Anthropic.TextBlockParam[] {

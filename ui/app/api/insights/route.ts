@@ -13,8 +13,8 @@ Two or three sentences: what network this is, what the reports said, and the sin
 ## What happened
 What ORB found when it enforced conservation: which reports were rejected and why, which quantities were corrected and by how much, and any unaccounted losses. Bullet points.
 
-## Systems at risk
-One bullet per node that is DOWN or DEGRADED, most severe first. Say what is wrong in operational terms and what it means for the site. If everything is healthy, say so in one line.
+## Inconsistencies
+One bullet per node whose reports were rejected or corrected, most severe first. Talk about inconsistent or corrupted reports, not inventory levels. Negative estimated quantity is not a failure and must not be described as a site being down or empty. If nothing was flagged, say so in one line.
 
 ## Next steps
 A numbered list of 3 to 6 concrete actions in priority order. Each action names who to contact (name, role, phone from the context) and what to verify or do. Include the operations desk or escalation contact where a decision above site level is needed.

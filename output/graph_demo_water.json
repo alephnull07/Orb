@@ -3,32 +3,38 @@
     {
       "id": "J_01",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 223.67000000000002
     },
     {
       "id": "J_02",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 194.75
     },
     {
       "id": "J_03",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 227.01
     },
     {
       "id": "J_04",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 216.04000000000002
     },
     {
       "id": "J_05",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 165.76
     },
     {
       "id": "J_06",
       "initial": 0.0,
-      "sinks": "unknown"
+      "sinks": "none",
+      "known_sinks": 240.05
     },
     {
       "id": "R_01",
@@ -89,7 +95,7 @@
       "type": "edge",
       "ref": "e0",
       "value": 210.09,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -97,7 +103,7 @@
       "type": "edge",
       "ref": "e1",
       "value": 20.6,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -105,7 +111,7 @@
       "type": "edge",
       "ref": "e2",
       "value": 112.39,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -113,7 +119,7 @@
       "type": "edge",
       "ref": "e3",
       "value": -302.45,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -121,7 +127,7 @@
       "type": "edge",
       "ref": "e4",
       "value": 89.76,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -129,7 +135,7 @@
       "type": "edge",
       "ref": "e5",
       "value": 4.61,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -137,7 +143,7 @@
       "type": "edge",
       "ref": "e6",
       "value": -114.68,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -145,7 +151,7 @@
       "type": "edge",
       "ref": "e7",
       "value": 456.83,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
     },
     {
@@ -153,168 +159,8 @@
       "type": "edge",
       "ref": "e8",
       "value": 477.61,
-      "source": "tests/fixtures/demo_water.csv",
+      "source": "C:\\Users\\saxen\\AppData\\Local\\Temp\\orb-zae7NG\\demo_water.csv",
       "weight": 1.0
-    },
-    {
-      "id": "c9",
-      "type": "node",
-      "ref": "J_01",
-      "value": 112.09,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c10",
-      "type": "node",
-      "ref": "J_01",
-      "value": 111.58,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c11",
-      "type": "node",
-      "ref": "J_02",
-      "value": 96.72,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c12",
-      "type": "node",
-      "ref": "J_02",
-      "value": 98.03,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c13",
-      "type": "node",
-      "ref": "J_03",
-      "value": 113.48,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c14",
-      "type": "node",
-      "ref": "J_03",
-      "value": 113.53,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c15",
-      "type": "node",
-      "ref": "J_04",
-      "value": 108.26,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c16",
-      "type": "node",
-      "ref": "J_04",
-      "value": 107.78,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c17",
-      "type": "node",
-      "ref": "J_05",
-      "value": 82.81,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c18",
-      "type": "node",
-      "ref": "J_05",
-      "value": 82.95,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c19",
-      "type": "node",
-      "ref": "J_06",
-      "value": 119.9,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c20",
-      "type": "node",
-      "ref": "J_06",
-      "value": 120.15,
-      "source": "tests/fixtures/demo_water.csv",
-      "weight": 1.0
-    },
-    {
-      "id": "c21",
-      "type": "sink",
-      "value": 0.65,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_01"
-    },
-    {
-      "id": "c22",
-      "type": "sink",
-      "value": 0.74,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_02"
-    },
-    {
-      "id": "c23",
-      "type": "sink",
-      "value": 300.54,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_03"
-    },
-    {
-      "id": "c24",
-      "type": "sink",
-      "value": 0.0,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_04"
-    },
-    {
-      "id": "c25",
-      "type": "sink",
-      "value": 0.23,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_05"
-    },
-    {
-      "id": "c26",
-      "type": "sink",
-      "value": 0.12,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_06"
-    },
-    {
-      "id": "c27",
-      "type": "sink",
-      "value": 0.22,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_01"
-    },
-    {
-      "id": "c28",
-      "type": "sink",
-      "value": 0.87,
-      "source": "sink_meter",
-      "weight": 1.0,
-      "ref": "J_04"
     }
   ]
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { RefreshCw, Sparkles } from 'lucide-react'
+import { Network, RefreshCw, Sparkles } from 'lucide-react'
 import { deriveStatus, type DemoResult } from '../../lib/orb'
 import { ChatPanel, type ChatMessage } from './ChatPanel'
 import { StreamText } from './StreamText'
@@ -14,11 +14,12 @@ export interface InsightsState {
 }
 
 export function InsightsDashboard({
-  result, insights, onRegenerate, chat, setChat,
+  result, insights, onRegenerate, onClose, chat, setChat,
 }: {
   result: DemoResult
   insights: InsightsState
   onRegenerate: () => void
+  onClose: () => void
   chat: ChatMessage[]
   setChat: (fn: (prev: ChatMessage[]) => ChatMessage[]) => void
 }) {
@@ -38,9 +39,14 @@ export function InsightsDashboard({
             operations briefing
             {insights.streaming && <span className="ins-live">live</span>}
           </div>
-          <button className="ins-regen" onClick={onRegenerate} disabled={insights.streaming} title="Regenerate">
-            <RefreshCw size={12} className={insights.streaming ? 'spin' : ''} /> regenerate
-          </button>
+          <div className="ins-toolbar-actions">
+            <button className="ins-regen" onClick={onClose} title="Back to graph">
+              <Network size={12} /> graph
+            </button>
+            <button className="ins-regen" onClick={onRegenerate} disabled={insights.streaming} title="Regenerate">
+              <RefreshCw size={12} className={insights.streaming ? 'spin' : ''} /> regenerate
+            </button>
+          </div>
         </div>
 
         <div className="ins-body">
