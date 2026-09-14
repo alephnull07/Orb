@@ -1,8 +1,8 @@
 # ORB
 
-**Operational observability for resource networks.**
+The Datadog for Defense Logistics
 
-Orb is the the Datadog for defense logistics. Typically, defense logistics run on reports from people, sensors, warehouses, vehicles, and disconnected systems. Those reports are often messy, inconsistent, stale, duplicated, or simply wrong.
+**Operational observability for resource networks.**. Typically, defense logistics run on reports from people, sensors, warehouses, vehicles, and disconnected systems. Those reports are often messy, inconsistent, stale, duplicated, or simply wrong.
 
 ORB turns those reports into a single view of the network — showing **what's happening, what the real recovered state is, what's inconsistent, which reports can't be trusted, and when there isn't enough information to know.**
 
