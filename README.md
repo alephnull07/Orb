@@ -2,7 +2,7 @@
 
 ## The Datadog for Defense Logistics
 
-**Operational observability for resource networks.**. Typically, defense logistics run on reports from people, sensors, warehouses, vehicles, and disconnected systems. Those reports are often messy, inconsistent, stale, duplicated, or simply wrong.
+**Operational observability for resource networks.**. Typically, defense logistics run on reports from people, sensors, warehouses, vehicles, and disconnected systems. Those reports come from sensors that consistently have corruption, are in a messy format, or noisy enough for a human to be unable to discern the truth. 
 
 ORB turns those reports into a single view of the network — showing **what the real recovered state is, what's inconsistent, which reports can't be trusted, and when there isn't enough information to know.**
 
