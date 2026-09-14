@@ -55,7 +55,8 @@ def test_blind_hop_recommends_closeout_sensor():
     assert "verify_hop" in kinds
     assert "place_sensor" in kinds
     assert advice["severity"] in {"watch", "critical"}
-    assert not any(a["kind"] == "resupply" for a in advice["actions"])
+    assert advice.get("unable_to_detect")
+    assert "unable to detect" in (advice.get("headline") or "").lower()
     for row in advice["on_hand"]:
         assert "do not plan" in row["action"].lower(), row
 
@@ -224,3 +225,25 @@ def test_demo_json_includes_advice():
     assert "advice" in out
     assert out["advice"].get("actions")
     assert out["advice"].get("sensors")
+
+
+def test_clean_fifteen_is_certified():
+    """Honest 15-node net with EOD + tank_level: no flags, not unable_to_detect."""
+    from orb.ingest import ingest_paths
+
+    path = os.path.join(FIXTURES, "clean", "fifteen_node.csv")
+    graph, report = ingest_paths([path])
+    assert graph and graph.get("claims"), report
+    assert len(graph["nodes"]) == 15
+    compiled, decoded, advice = _run(graph)
+    assert compiled["report"]["correctable_k"] >= 1
+    assert not decoded["flagged"], decoded["flagged"]
+    assert not decoded["loss"], decoded["loss"]
+    assert not decoded["ambiguous"], decoded["ambiguous"]
+    assert not decoded["undetectable"], decoded["undetectable"]
+    assert not advice.get("unable_to_detect")
+    assert advice["severity"] == "clear"
+    assert "unable to detect" not in (advice.get("headline") or "").lower()
+    assert not any(
+        s["kind"] == "independent_count" for s in advice["sensors"]
+    )

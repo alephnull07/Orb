@@ -1,0 +1,172 @@
+{
+  "nodes": [
+    {
+      "id": "AID_STN_2",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_3",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_4",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FWD_HOSP_SOUTH",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "REGIONAL_HUB",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FWD_HOSP_NORTH",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_1",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "REGIONAL_HUB",
+      "to": "FWD_HOSP_NORTH"
+    },
+    {
+      "id": "e1",
+      "from": "REGIONAL_HUB",
+      "to": "FWD_HOSP_SOUTH"
+    },
+    {
+      "id": "e2",
+      "from": "FWD_HOSP_NORTH",
+      "to": "AID_STN_1"
+    },
+    {
+      "id": "e3",
+      "from": "FWD_HOSP_SOUTH",
+      "to": "AID_STN_1"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "node",
+      "ref": "REGIONAL_HUB",
+      "value": 3400.0,
+      "source": "eod_on_hand",
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
+    },
+    {
+      "id": "c1",
+      "type": "node",
+      "ref": "FWD_HOSP_SOUTH",
+      "value": 1150.0,
+      "source": "eod_on_hand",
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
+    },
+    {
+      "id": "c2",
+      "type": "node",
+      "ref": "AID_STN_2",
+      "value": 620.0,
+      "source": "eod_on_hand",
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
+    },
+    {
+      "id": "c3",
+      "type": "node",
+      "ref": "AID_STN_3",
+      "value": 415.0,
+      "source": "eod_on_hand",
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
+    },
+    {
+      "id": "c4",
+      "type": "node",
+      "ref": "AID_STN_4",
+      "value": 330.0,
+      "source": "eod_on_hand",
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e0",
+      "value": 1700.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e1",
+      "value": 900.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e2",
+      "value": 140.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e3",
+      "value": 220.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e2",
+      "value": 340.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e3",
+      "value": 220.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "FWD_HOSP_NORTH",
+      "value": 1810.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "AID_STN_1",
+      "value": 440.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    }
+  ]
+}

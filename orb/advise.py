@@ -75,6 +75,7 @@ def generate_advice(graph: dict, compiled: dict, decoded: dict) -> dict:
                 "claimed": claimed,
             })
 
+    qty_sources = _node_qty_source_counts(claims)
     sensors = _sensor_plan(
         blinds=blinds,
         ambiguous=ambiguous,
@@ -82,6 +83,7 @@ def generate_advice(graph: dict, compiled: dict, decoded: dict) -> dict:
         flagged=flagged,
         k=k,
         qty_obs=qty_obs,
+        qty_sources=qty_sources,
         metered=metered,
         degree=degree,
         nodes=nodes,
@@ -116,10 +118,14 @@ def generate_advice(graph: dict, compiled: dict, decoded: dict) -> dict:
     severity, headline = _headline(
         loss, flagged, blinds, ambiguous, k, sensors, corrected_hops,
     )
+    unable_to_detect = _unable_to_detect(
+        loss, flagged, blinds, ambiguous, k, sensors, corrected_hops,
+    )
 
     return {
         "headline": headline,
         "severity": severity,
+        "unable_to_detect": unable_to_detect,
         "correctable_k": k,
         "actions": actions,
         "sensors": sensors,
@@ -147,9 +153,11 @@ def _sensor_plan(
     l1_flow,
     thresh,
     corrected_hops,
+    qty_sources=None,
 ) -> list[dict]:
     sensors: list[dict] = []
     used_at_kind: set[tuple[str, str]] = set()
+    qty_sources = qty_sources or {}
 
     def add(item: dict) -> None:
         key = (item["at"], item["kind"])
@@ -252,9 +260,14 @@ def _sensor_plan(
             if int(qty_obs.get(str(h.get("from")), 0) or 0) > 0
             and int(qty_obs.get(str(h.get("to")), 0) or 0) > 0
         ]
-        if both_counted:
+        unverified_books = [
+            h for h in both_counted
+            if int(qty_sources.get(str(h.get("from")), 0) or 0) < 2
+            or int(qty_sources.get(str(h.get("to")), 0) or 0) < 2
+        ]
+        if unverified_books:
             hop = max(
-                both_counted,
+                unverified_books,
                 key=lambda h: abs(float(l1_flow.get(h.get("id"), h.get("sent") or 0))),
             )
             frm, to = str(hop.get("from")), str(hop.get("to"))
@@ -682,32 +695,58 @@ def _headline(loss, flagged, blinds, ambiguous, k, sensors, corrected_hops) -> t
             f"{len(flagged)} report(s) fail conservation. Recount before the next lift."
         )
     if blinds:
+        n = len(blinds)
+        hops = "hop" if n == 1 else "hops"
         return "watch", (
-            f"{len(blinds)} hop(s) have no independent count. "
-            "Do not treat those transfers as verified — place a closeout."
+            f"Unable to detect corruption. {n} {hops} have no independent count. "
+            "L1 on-hand is not a verified count — take the steps below."
         )
     if ambiguous:
         a = ambiguous[0]
         return "watch", (
-            f"Possible leak or false closeout at {a.get('id')} "
-            f"({abs(float(a.get('sink') or 0)):.0f}). Count it; do not assume a leak."
+            f"Unable to detect corruption. Missing {abs(float(a.get('sink') or 0)):.0f} at "
+            f"{a.get('id')} is either loss or a false closeout. Do not name it — "
+            "take the steps below."
         )
     if k == 0:
         return "watch", (
-            "L1 cannot certify this picture (correctable_k = 0). "
-            "Add a drain meter and a stock sensor before you treat shortages as real."
+            "Unable to detect corruption (correctable_k = 0). "
+            "Do not treat L1 shortages as real — take the steps below."
         )
-    if any(s.get("kind") == "independent_count" and s.get("required") for s in sensors):
+    if any(s.get("kind") == "independent_count" for s in sensors):
         return "watch", (
-            "Books conserve, but a coordinated lie can still hide. "
-            "Place an independent sensor on the dual-reported hop."
+            "Unable to detect a coordinated rewrite of send, receive, and closeout. "
+            "Matching books are not proof — take the steps below."
         )
     return "clear", "Books conserve. Plan on L1 on-hand for this snapshot."
+
+
+def _unable_to_detect(loss, flagged, blinds, ambiguous, k, sensors, corrected_hops) -> bool:
+    if blinds or ambiguous:
+        return True
+    if k == 0 and not loss:
+        return True
+    if not loss and not flagged and not corrected_hops:
+        if any(s.get("kind") == "independent_count" for s in sensors):
+            return True
+    return False
 
 
 # ---------------------------------------------------------------------------
 # Claim helpers
 # ---------------------------------------------------------------------------
+
+def _node_qty_source_counts(claims) -> dict[str, int]:
+    """Distinct node-claim sources per site (eod vs tank_level, not two copies of EOD)."""
+    bags: dict[str, set[str]] = defaultdict(set)
+    for c in claims:
+        if c.get("type") != "node" or not c.get("ref"):
+            continue
+        src = str(c.get("source") or "").strip().lower()
+        if src:
+            bags[str(c["ref"])].add(src)
+    return {nid: len(srcs) for nid, srcs in bags.items()}
+
 
 def _claimed_node_qty(claims) -> dict[str, float]:
     sums: dict[str, list[float]] = defaultdict(list)

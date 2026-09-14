@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "EAST_PIER",
+      "initial": 800.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_VEIL",
+      "initial": 25.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_EAST_PIER_OP_VEIL",
+      "from": "EAST_PIER",
+      "to": "OP_VEIL"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_EAST_PIER_OP_VEIL",
+      "value": 250.0,
+      "source": "shipment_sent",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T09:20:00Z"
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_EAST_PIER_OP_VEIL",
+      "value": 250.0,
+      "source": "shipment_received",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T09:20:00Z"
+    }
+  ]
+}

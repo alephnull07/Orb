@@ -1,0 +1,9 @@
+sensor_id,channel,value,timestamp,from_node,to_node
+R_01,demand,-300.0,2026-02-10T12:00:00Z,,
+J_A,demand,100.0,2026-02-10T12:00:00Z,,
+J_B,demand,80.0,2026-02-10T12:00:00Z,,
+J_C,demand,70.0,2026-02-10T12:00:00Z,,
+P_01,flow,180.0,2026-02-10T12:00:00Z,R_01,J_A
+P_02,flow,80.0,2026-02-10T12:00:00Z,J_A,J_B
+P_03,flow,50.0,2026-02-10T12:00:00Z,J_C,J_B
+P_04,flow,120.0,2026-02-10T12:00:00Z,R_01,J_C

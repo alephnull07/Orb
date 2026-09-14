@@ -1,0 +1,4 @@
+entity_id,channel,value,timestamp,from_node,to_node
+WELLHEAD,demand,-400,2026-09-14T12:00:00Z,,
+TANK_7,demand,220,2026-09-14T12:00:00Z,,
+WELLHEAD->TANK_7,flow,400,2026-09-14T12:00:00Z,WELLHEAD,TANK_7

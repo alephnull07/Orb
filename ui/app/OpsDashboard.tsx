@@ -43,6 +43,7 @@ export interface AdviceHop {
 export interface Advice {
   headline: string
   severity: 'critical' | 'watch' | 'clear' | string
+  unable_to_detect?: boolean
   correctable_k?: number
   actions: AdviceAction[]
   sensors: AdviceSensor[]
@@ -81,18 +82,26 @@ export function OpsDashboard({ advice }: { advice: Advice }) {
   const audit = advice.hops?.audit || []
   const trust = advice.hops?.trust || []
   const sev = advice.severity || 'watch'
+  const unable = Boolean(advice.unable_to_detect)
 
   return (
     <div className="ops-dash">
-      <div className={`ops-hero ${sev}`}>
-        <div className="ops-hero-kicker">what to do</div>
+      <div className={`ops-hero ${unable ? 'unable' : sev}`}>
+        <div className="ops-hero-kicker">
+          {unable ? 'unable to detect corruption' : 'what to do'}
+        </div>
         <div className="ops-hero-line">{advice.headline}</div>
+        {unable && (
+          <div className="ops-hero-note">
+            A conserving L1 picture is not proof. Do not plan on those numbers until the steps below land.
+          </div>
+        )}
       </div>
 
       <section className="ops-section">
         <div className="section-label">
           <ListChecks size={11} style={{ marginRight: 6, verticalAlign: -1 }} />
-          do this now
+          {unable ? 'so take these steps' : 'do this now'}
           <span className="ops-count">{actions.length}</span>
         </div>
         <ol className="ops-actions">
@@ -205,7 +214,7 @@ export function NextActions({ advice, onOpen }: { advice: Advice; onOpen: () => 
     <button className="ops-next" onClick={onOpen} type="button">
       <div className="ops-next-head">
         <AlertTriangle size={12} />
-        <span>what to do</span>
+        <span>{advice.unable_to_detect ? 'unable to detect corruption' : 'what to do'}</span>
         <span className={`ops-pill ${advice.severity}`}>{advice.severity}</span>
       </div>
       <div className="ops-next-line">{advice.headline}</div>

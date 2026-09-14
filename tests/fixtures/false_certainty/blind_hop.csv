@@ -1,0 +1,5 @@
+entity_id,channel,value,timestamp,from_node,to_node
+EAST_PIER,opening_on_hand,800,2026-09-14T06:00:00Z,,
+OP_VEIL,opening_on_hand,25,2026-09-14T06:00:00Z,,
+EAST_PIER->OP_VEIL,shipment_sent,250,2026-09-14T09:20:00Z,EAST_PIER,OP_VEIL
+EAST_PIER->OP_VEIL,shipment_received,250,2026-09-14T09:20:00Z,EAST_PIER,OP_VEIL

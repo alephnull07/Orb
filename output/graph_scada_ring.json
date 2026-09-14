@@ -1,0 +1,147 @@
+{
+  "nodes": [
+    {
+      "id": "J_A",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "J_B",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "J_C",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "R_01",
+      "initial": 0.0,
+      "sinks": "unknown"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_J_A_J_B",
+      "from": "J_A",
+      "to": "J_B"
+    },
+    {
+      "id": "e_J_C_J_B",
+      "from": "J_C",
+      "to": "J_B"
+    },
+    {
+      "id": "e_R_01_J_A",
+      "from": "R_01",
+      "to": "J_A"
+    },
+    {
+      "id": "e_R_01_J_C",
+      "from": "R_01",
+      "to": "J_C"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "node",
+      "ref": "R_01",
+      "value": -300.0,
+      "source": "demand",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c1",
+      "type": "node",
+      "ref": "J_A",
+      "value": 100.0,
+      "source": "demand",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c2",
+      "type": "node",
+      "ref": "J_B",
+      "value": 80.0,
+      "source": "demand",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c3",
+      "type": "node",
+      "ref": "J_C",
+      "value": 70.0,
+      "source": "demand",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e_R_01_J_A",
+      "value": 180.0,
+      "source": "flow",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e_J_A_J_B",
+      "value": 80.0,
+      "source": "flow",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e_J_C_J_B",
+      "value": 50.0,
+      "source": "flow",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e_R_01_J_C",
+      "value": 120.0,
+      "source": "flow",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c8",
+      "type": "node",
+      "ref": "J_A",
+      "value": 0.2,
+      "source": "sink_meter",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "J_B",
+      "value": 50.4,
+      "source": "sink_meter",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "J_C",
+      "value": 0.1,
+      "source": "sink_meter",
+      "weight": 1.0,
+      "timestamp": "2026-02-10T12:00:00Z"
+    }
+  ]
+}

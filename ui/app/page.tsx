@@ -620,10 +620,10 @@ export default function Page() {
                   <div className="ident-warning">
                     <AlertTriangle size={11} />
                     {(decoded!.ambiguous?.length ?? 0) > 0
-                      ? 'Cannot tell loss from downward corruption — returning the set'
+                      ? 'Unable to detect corruption: cannot tell loss from a downward lie'
                       : (decoded!.undetectable?.length ?? 0) > 0
-                        ? 'Unmetered hops: a matched send/receive lie is undetectable'
-                        : 'correctable_k is 0 — this snapshot is not uniquely recoverable'}
+                        ? 'Unable to detect corruption: matched send/receive has no third channel'
+                        : 'Unable to detect corruption — this snapshot is not uniquely recoverable'}
                   </div>
                 )}
                 <div className="ident-details">

@@ -50,7 +50,8 @@
       "ref": "e_TANK_FARM_PUMP_A",
       "value": 2000.0,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T08:00:00Z"
     },
     {
       "id": "c1",
@@ -58,7 +59,8 @@
       "ref": "e_TANK_FARM_PUMP_B",
       "value": 1500.0,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T08:15:00Z"
     },
     {
       "id": "c2",
@@ -66,7 +68,8 @@
       "ref": "e_PUMP_A_TERMINAL",
       "value": 1800.0,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T12:00:00Z"
     },
     {
       "id": "c3",
@@ -74,7 +77,8 @@
       "ref": "e_PUMP_B_TERMINAL",
       "value": 1500.0,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T12:30:00Z"
     },
     {
       "id": "c4",
@@ -82,7 +86,8 @@
       "ref": "TANK_FARM",
       "value": 4500.0,
       "source": "eod",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T18:00:00Z"
     },
     {
       "id": "c5",
@@ -90,7 +95,8 @@
       "ref": "PUMP_A",
       "value": 200.0,
       "source": "eod",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T18:00:00Z"
     },
     {
       "id": "c6",
@@ -98,7 +104,8 @@
       "ref": "PUMP_B",
       "value": 0.0,
       "source": "eod",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T18:00:00Z"
     },
     {
       "id": "c7",
@@ -106,7 +113,8 @@
       "ref": "TERMINAL",
       "value": 3600.0,
       "source": "eod",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-03-02T18:00:00Z"
     }
   ]
 }

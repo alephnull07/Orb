@@ -1,0 +1,15 @@
+=== VEIL HOP NET 14 SEP 26 ===
+# Matched 250 both ends. Openings only. No EOD. Data is insufficient to
+# detect a coordinated send/receive lie.
+
+[2026-09-14T06:00:00Z] (radio) WO LEE / PIER-2 -> ALL
+East Pier opening 800 crates. Veil OP is on the board today.
+
+[2026-09-14T06:06:00Z] (radio) SGT ORTIZ / VEIL-4 -> PIER-2
+Veil OP opening 25 crates. VEIL-4.
+
+[2026-09-14T09:20:00Z] (radio) WO LEE / PIER-2 -> VEIL-4
+VEIL-4 this is PIER-2. sending 250 crates from East Pier to Veil OP. count it on arrival. over.
+
+[2026-09-14T09:48:00Z] (radio) SGT ORTIZ / VEIL-4 -> PIER-2
+PIER-2, VEIL-4. got 250 crates off East Pier here at Veil OP. logged. ortiz.
