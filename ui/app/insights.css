@@ -326,3 +326,140 @@ a.sys-contact-line:hover { color: var(--blue); }
   .insights-toast { left: 16px; right: 16px; width: auto; }
   .insights-toast-sub { display: none; }
 }
+
+/* ── Sink-mode toggle (upload panel) ── */
+.sinks-toggle {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 2px;
+  margin-bottom: 8px;
+}
+.sinks-toggle button {
+  background: transparent; border: none; border-radius: 4px;
+  color: var(--text2); font-size: 10.5px; font-weight: 500; letter-spacing: 0.04em;
+  padding: 6px 0; transition: background 0.15s, color 0.15s;
+}
+.sinks-toggle button:hover:not(:disabled) { color: var(--text); }
+.sinks-toggle button.active { background: var(--surface3); color: #fff; }
+.sinks-toggle button:disabled { opacity: 0.5; cursor: default; }
+.sinks-help { color: var(--text3); font-size: 9.5px; line-height: 1.45; margin-bottom: 16px; min-height: 28px; }
+
+/* ── Mode line inside the identifiability card ── */
+.ident-mode {
+  display: flex; align-items: baseline; gap: 8px; margin-top: 10px; padding-top: 8px;
+  border-top: 1px solid var(--border); font-size: 10px;
+}
+.ident-mode-key { color: var(--text3); text-transform: uppercase; letter-spacing: 0.12em; font-size: 9px; }
+.ident-mode-val { font-family: var(--font-mono), ui-monospace, monospace; font-weight: 600; color: var(--text); }
+.ident-mode-desc { color: var(--text2); }
+.ident-mode-unknown .ident-mode-val { color: var(--amber); }
+.ident-mode-known .ident-mode-val   { color: var(--teal); }
+
+/* ── Try a demo (upload panel) ── */
+.preset-list { display: flex; flex-direction: column; gap: 4px; }
+.preset-item {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  width: 100%; text-align: left;
+  background: transparent; border: 1px solid var(--border); border-left: 3px solid var(--border2);
+  border-radius: 0 6px 6px 0; padding: 8px 10px; color: var(--text);
+  transition: background 0.15s, border-color 0.15s;
+}
+.preset-item:hover:not(:disabled) { background: var(--surface2); border-left-color: var(--blue); }
+.preset-item.active { background: var(--surface2); border-left-color: var(--blue); }
+.preset-item:disabled { opacity: 0.55; cursor: default; }
+.preset-name { font-size: 11.5px; font-weight: 600; line-height: 1.3; }
+.preset-meta { display: flex; gap: 8px; align-items: center; font-size: 9px; color: var(--text3); }
+.preset-mode {
+  font-family: var(--font-mono), ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 3px; border: 1px solid var(--border2); color: var(--text2);
+}
+.preset-mode-unknown { color: var(--amber); border-color: rgba(232,149,42,.4); }
+.preset-mode-known   { color: var(--teal);  border-color: rgba(46,196,169,.4); }
+.preset-caption { font-size: 10px; color: var(--text2); line-height: 1.4; }
+.file-item.preset-file .file-name { color: var(--text2); }
+
+/* ── Scenario card (results panel) ── */
+.scenario-card {
+  border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0;
+  background: var(--surface2); padding: 10px 12px; margin-bottom: 14px;
+}
+.scenario-label { color: var(--text3); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; }
+.scenario-name { color: #fff; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+.scenario-caption { color: var(--text); font-size: 11px; line-height: 1.45; }
+.scenario-files { color: var(--text3); font-size: 9.5px; margin-top: 6px; font-family: var(--font-mono), ui-monospace, monospace; }
+.scenario-files b { color: var(--text2); font-weight: 600; }
+
+/* ── Preset tags: what each demo demonstrates ── */
+.preset-tag {
+  display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px; line-height: 1.3;
+  border: 1px solid currentColor; color: var(--text2);
+}
+.preset-kind-clean      { color: var(--green); }
+.preset-kind-corruption { color: var(--amber); }
+.preset-kind-correlated { color: #f0b967; }
+.preset-kind-overload   { color: var(--red); }
+.preset-kind-leak       { color: var(--blue); }
+.preset-kind-merge      { color: var(--teal); }
+.preset-kind-mode       { color: #b48be0; }
+
+.ident-warning-over { align-items: flex-start; }
+.ident-warning-over svg { flex-shrink: 0; margin-top: 2px; }
+.ident-warning-over { color: var(--red); border-color: rgba(232,64,64,.35); background: rgba(232,64,64,.06); line-height: 1.4; }
+
+/* ── File viewer ── */
+.file-view {
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none; color: var(--text3); padding: 2px; margin-left: auto; flex-shrink: 0;
+}
+.file-view:hover { color: var(--blue); }
+.preset-view {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: auto;
+  color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; font-size: 9px; cursor: pointer;
+}
+.preset-view:hover { color: var(--blue); }
+.preset-meta { width: 100%; }
+.scenario-view {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+  background: transparent; border: 1px solid var(--border2); border-radius: 4px;
+  color: var(--text2); font-size: 10px; padding: 4px 8px;
+}
+.scenario-view:hover { color: var(--text); border-color: var(--blue); }
+
+.fv-overlay {
+  position: fixed; inset: 0; z-index: 80; background: rgba(4,6,10,.72);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  animation: word-in 0.2s ease both;
+}
+.fv-modal {
+  width: min(980px, 100%); max-height: calc(100vh - 48px);
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border2); border-radius: 10px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.55); overflow: hidden;
+}
+.fv-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.fv-title { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 12px; font-weight: 600; }
+.fv-close { background: none; border: none; color: var(--text3); display: flex; padding: 4px; border-radius: 4px; }
+.fv-close:hover { color: var(--text); background: var(--surface3); }
+.fv-tabs { display: flex; gap: 2px; padding: 8px 12px 0; border-bottom: 1px solid var(--border); overflow-x: auto; }
+.fv-tabs button {
+  display: flex; align-items: center; gap: 8px; background: transparent; border: none;
+  border-bottom: 2px solid transparent; color: var(--text2); font-size: 11px; padding: 6px 10px 8px; white-space: nowrap;
+}
+.fv-tabs button.active { color: #fff; border-bottom-color: var(--blue); }
+.fv-tab-name { font-family: var(--font-mono), ui-monospace, monospace; }
+.fv-kind {
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px;
+  border: 1px solid currentColor; color: var(--text3);
+}
+.fv-kind-free-text  { color: var(--amber); }
+.fv-kind-JSON-lines { color: #b48be0; }
+.fv-kind-table      { color: var(--teal); }
+.fv-meta { display: flex; align-items: center; gap: 12px; padding: 10px 16px 0; font-size: 10px; color: var(--text2); }
+.fv-trunc { color: var(--amber); }
+.fv-note { padding: 6px 16px 0; font-size: 10.5px; color: var(--text2); line-height: 1.45; }
+.fv-body {
+  margin: 10px 16px 16px; padding: 12px 14px; flex: 1; min-height: 0; overflow: auto;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text); font-family: var(--font-mono), ui-monospace, monospace; font-size: 11px; line-height: 1.55;
+  white-space: pre; tab-size: 4;
+}

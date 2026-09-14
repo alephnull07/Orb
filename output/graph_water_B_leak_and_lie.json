@@ -1,0 +1,433 @@
+{
+  "nodes": [
+    {
+      "id": "PUMP_A",
+      "initial": 1200.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "PUMP_B",
+      "initial": 1100.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "RESERVOIR",
+      "initial": 50000.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "TOWER_N",
+      "initial": 900.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "ZONE_1",
+      "initial": 300.0,
+      "sinks": "unknown",
+      "known_sinks": 1500.0
+    },
+    {
+      "id": "ZONE_2",
+      "initial": 280.0,
+      "sinks": "unknown",
+      "known_sinks": 2200.0
+    },
+    {
+      "id": "ZONE_3",
+      "initial": 260.0,
+      "sinks": "unknown",
+      "known_sinks": 1700.0
+    },
+    {
+      "id": "ZONE_4",
+      "initial": 310.0,
+      "sinks": "unknown",
+      "known_sinks": 1900.0
+    },
+    {
+      "id": "ZONE_5",
+      "initial": 290.0,
+      "sinks": "unknown",
+      "known_sinks": 2000.0
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "PUMP_A",
+      "to": "TOWER_N"
+    },
+    {
+      "id": "e1",
+      "from": "PUMP_A",
+      "to": "ZONE_1"
+    },
+    {
+      "id": "e2",
+      "from": "PUMP_A",
+      "to": "ZONE_2"
+    },
+    {
+      "id": "e3",
+      "from": "PUMP_B",
+      "to": "ZONE_3"
+    },
+    {
+      "id": "e4",
+      "from": "PUMP_B",
+      "to": "ZONE_4"
+    },
+    {
+      "id": "e5",
+      "from": "PUMP_B",
+      "to": "ZONE_5"
+    },
+    {
+      "id": "e6",
+      "from": "RESERVOIR",
+      "to": "PUMP_A"
+    },
+    {
+      "id": "e7",
+      "from": "RESERVOIR",
+      "to": "PUMP_B"
+    },
+    {
+      "id": "e8",
+      "from": "TOWER_N",
+      "to": "ZONE_2"
+    },
+    {
+      "id": "e9",
+      "from": "TOWER_N",
+      "to": "ZONE_5"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 3200.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T09:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e0",
+      "value": 3200.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T09:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e1",
+      "value": 2100.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T07:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e1",
+      "value": 2100.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T07:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1800.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T08:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1800.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T08:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e3",
+      "value": 2400.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T09:45:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e3",
+      "value": 2400.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T09:45:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e4",
+      "value": 2600.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T10:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e4",
+      "value": 2600.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T10:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e5",
+      "value": 1200.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T14:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e5",
+      "value": 1200.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T14:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e6",
+      "value": 13000.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": [
+        "2026-09-16T05:00:00Z",
+        "2026-09-16T16:00:00Z"
+      ],
+      "n_events": 2,
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e6",
+      "value": 13000.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": [
+        "2026-09-16T05:00:00Z",
+        "2026-09-16T16:00:00Z"
+      ],
+      "n_events": 2,
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "edge",
+      "ref": "e7",
+      "value": 7500.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T05:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "edge",
+      "ref": "e7",
+      "value": 7500.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T05:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1400.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T12:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1400.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T12:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "edge",
+      "ref": "e9",
+      "value": 1600.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_confirmed",
+      "timestamp": "2026-09-16T13:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "edge",
+      "ref": "e9",
+      "value": 1600.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "flow_dispatched",
+      "timestamp": "2026-09-16T13:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "node",
+      "ref": "PUMP_A",
+      "value": 7100.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "node",
+      "ref": "PUMP_B",
+      "value": 2400.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c22",
+      "type": "node",
+      "ref": "RESERVOIR",
+      "value": 29500.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c23",
+      "type": "node",
+      "ref": "TOWER_N",
+      "value": 1100.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "node",
+      "ref": "ZONE_1",
+      "value": 1500.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "node",
+      "ref": "ZONE_2",
+      "value": 1280.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "node",
+      "ref": "ZONE_3",
+      "value": 480.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "node",
+      "ref": "ZONE_4",
+      "value": 1010.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "node",
+      "ref": "ZONE_5",
+      "value": 1090.0,
+      "source": "tests/fixtures/water/water_B_leak_and_lie.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-16T18:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    }
+  ]
+}

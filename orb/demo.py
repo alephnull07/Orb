@@ -86,7 +86,11 @@ def run_demo(
     ----------
     path            Input file (CSV, TXT, JSONL, etc.).
     truth_path      Optional ground-truth JSON for scoring (water CSV only).
-    sinks           "none" (supply chain) or "unknown" (water/leak search).
+    sinks           "none" | "known" | "unknown" — a caller decision, never
+                    detected.  none: strict conservation (declared consumption
+                    channels are fixed draws).  known: consumption channels are
+                    metered sink variables with claim rows.  unknown: every
+                    claimed node gets a free sink variable (leak search).
     column_mapping  Pre-supplied mapping for TABULAR mode — skips LLM call.
 
     Returns
@@ -158,7 +162,10 @@ def _print_merge_header(ingest_report, graph):
     canon_map = ingest_report.get("canon_map", {})
     initials = ingest_report.get("opening_initials", {})
 
-    print(f"\n  Files merged: {n_files}")
+    print(f"\n  Sinks mode: {ingest_report.get('sinks_mode', 'none')}"
+          + (f"  (sink variables: {', '.join(ingest_report['sink_variable_nodes'])})"
+             if ingest_report.get('sink_variable_nodes') else ""))
+    print(f"  Files merged: {n_files}")
     print(f"  Total claims: {total}  (multi-source: {multi})")
     print(f"  Timestamp span: {span:.1f}h  (window: {window}h)")
     if canon_map:

@@ -109,8 +109,10 @@ def merge_graphs(
     raw_node_ids: dict[str, set[str]] = defaultdict(set)     # canon -> {raw}
     opening_rows: dict[str, list[dict]] = defaultdict(list)   # canon -> rows
     edge_rows: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    sink_rows: dict[str, list[dict]] = defaultdict(list)       # canon -> rows
     node_rows: list[dict] = []
-    passthrough_rows: list[dict] = []                         # sink, aggregate
+    passthrough_rows: list[dict] = []                         # aggregate
+    sink_var_nodes: set[str] = set()                          # per-file sink flags
     all_timestamps: list[str] = []
     known_sinks_merged: dict[str, float] = defaultdict(float)
     file_order: dict[str, int] = {}
@@ -144,6 +146,8 @@ def merge_graphs(
             for n in g.get("nodes", []):
                 cn = canon_id(n["id"])
                 raw_node_ids[cn].add(n["id"])
+                if n.get("sinks") == "unknown":
+                    sink_var_nodes.add(cn)
                 if "known_sinks" in n and cn not in file_known_sinks:
                     file_known_sinks[cn] = n["known_sinks"]
 
@@ -175,10 +179,13 @@ def merge_graphs(
                     endpoints = edge_endpoint_map.get(c["ref"])
                     if endpoints:
                         edge_rows[endpoints].append(row)
-                elif ctype in ("sink", "aggregate"):
+                elif ctype == "sink":
+                    cn = canon_id(c["ref"])
+                    row["canon_ref"] = cn
+                    sink_rows[cn].append(row)
+                    sink_var_nodes.add(cn)
+                elif ctype == "aggregate":
                     row["type"] = ctype
-                    row["canon_ref"] = canon_id(c["ref"]) if ctype == "sink" else None
-                    row["ref"] = c.get("ref")
                     row["refs"] = c.get("refs")
                     passthrough_rows.append(row)
 
@@ -259,6 +266,30 @@ def merge_graphs(
                     "n_events": len(lane_rows),
                 })
 
+    # Sink meters are draws (events), so they follow the same stream rule.
+    merged_sinks: list[dict] = []
+    for cn in sorted(sink_rows):
+        streams: dict[tuple[str, str], list[dict]] = defaultdict(list)
+        for r in sink_rows[cn]:
+            streams[(r["file"], r["channel"])].append(r)
+        for (fname, channel) in sorted(streams, key=lambda k: (file_order[k[0]], k[1])):
+            rows = streams[(fname, channel)]
+            by_ts: dict[str, list[dict]] = defaultdict(list)
+            for r in sorted(rows, key=lambda r: r["order"]):
+                by_ts[r["ts"]].append(r)
+            n_lanes = max(len(v) for v in by_ts.values())
+            for lane in range(n_lanes):
+                lane_rows = [by_ts[ts][lane] for ts in sorted(by_ts, key=_ts_sort_key) if lane < len(by_ts[ts])]
+                merged_sinks.append({
+                    "canon_ref": cn,
+                    "value": sum(r["value"] for r in lane_rows),
+                    "file": fname, "channel": channel,
+                    "timestamps": [r["ts"] for r in lane_rows],
+                    "record_ids": [r["record_id"] for r in lane_rows if r["record_id"]],
+                    "weight": min(r["weight"] for r in lane_rows),
+                    "n_events": len(lane_rows),
+                })
+
     # ------------------------------------------------------------------
     # Phase 6: node rows -> one claim per row (levels are never summed)
     # ------------------------------------------------------------------
@@ -276,14 +307,21 @@ def merge_graphs(
     for r in node_rows:
         all_canons.add(r["canon_ref"])
         canon_display.setdefault(r["canon_ref"], r["canon_ref"].upper())
+    for ms in merged_sinks:
+        all_canons.add(ms["canon_ref"])
+        canon_display.setdefault(ms["canon_ref"], ms["canon_ref"].upper())
 
     claimed_canons = {r["canon_ref"] for r in node_rows}
+
+    def _has_sink_var(cn: str) -> bool:
+        # Leak search on claimed nodes, or some file metered this node's draw.
+        return (sinks == "unknown" and cn in claimed_canons) or cn in sink_var_nodes
 
     graph_nodes = []
     for cn in sorted(all_canons):
         disp = canon_display[cn]
-        node_sinks = sinks if (sinks != "unknown" or cn in claimed_canons) else "none"
-        node: dict = {"id": disp, "initial": initials.get(cn, 0.0), "sinks": node_sinks}
+        node: dict = {"id": disp, "initial": initials.get(cn, 0.0),
+                      "sinks": "unknown" if _has_sink_var(cn) else "none"}
         if cn in known_sinks_merged:
             node["known_sinks"] = known_sinks_merged[cn]
         graph_nodes.append(node)
@@ -335,10 +373,28 @@ def merge_graphs(
         })
         files_per_ref[disp].add(r["file"])
 
-    for r in passthrough_rows:
-        claim: dict = {
+    for ms in merged_sinks:
+        disp = canon_display[ms["canon_ref"]]
+        claims.append({
             "id":        f"c{len(claims)}",
-            "type":      r["type"],
+            "type":      "sink",
+            "ref":       disp,
+            "value":     ms["value"],
+            "source":    ms["file"],
+            "channel":   ms["channel"],
+            "timestamp": _ts_field(ms["timestamps"]),
+            "n_events":  ms["n_events"],
+            "record_id": (ms["record_ids"][0] if len(ms["record_ids"]) == 1
+                          else (ms["record_ids"] or None)),
+            "weight":    ms["weight"],
+        })
+        files_per_ref[disp].add(ms["file"])
+
+    for r in passthrough_rows:
+        claims.append({
+            "id":        f"c{len(claims)}",
+            "type":      "aggregate",
+            "refs":      r.get("refs") or [],
             "value":     r["value"],
             "source":    r["file"],
             "channel":   r["channel"],
@@ -346,14 +402,7 @@ def merge_graphs(
             "n_events":  1,
             "record_id": r["record_id"],
             "weight":    r["weight"],
-        }
-        if r["type"] == "sink" and r["canon_ref"]:
-            claim["ref"] = canon_display.get(r["canon_ref"], r["ref"])
-        elif r["type"] == "aggregate" and r.get("refs"):
-            claim["refs"] = r["refs"]
-        else:
-            claim["ref"] = r.get("ref", "")
-        claims.append(claim)
+        })
 
     # Drop None record_id keys to keep JSON tidy
     for c in claims:
@@ -373,6 +422,8 @@ def merge_graphs(
                 canon_map[r] = disp
 
     merge_report = {
+        "sinks_mode": sinks,
+        "sink_variable_nodes": sorted(canon_display[cn] for cn in all_canons if _has_sink_var(cn)),
         "n_files": len(per_file_results),
         "total_claims": len(claims),
         "multi_source_claims": sum(1 for fs in files_per_ref.values() if len(fs) > 1),

@@ -22,7 +22,7 @@ from pathlib import Path
 
 from ._cache import Cache
 from ._ingest_record  import run_record_mode
-from ._ingest_tabular import run_tabular_mode
+from ._ingest_tabular import run_tabular_mode, normalize_sinks, SINK_MODES  # re-export
 from ._ingest_utils   import leakage_guard, validate_claims, VALID_TYPES  # re-export
 from ._merge import merge_graphs
 
@@ -81,6 +81,7 @@ def build_graph(
 
     cache = Cache(cache_dir)
     mode  = _route(path)
+    sinks = normalize_sinks(sinks)
 
     if mode == "TABULAR":
         graphs, report = run_tabular_mode(
@@ -114,6 +115,7 @@ def build_graph_multi(
 
     Returns (graph_dict, merge_report).
     """
+    sinks = normalize_sinks(sinks)
     per_file: list[tuple[list[dict], dict]] = []
     for p in paths:
         graphs, report = build_graph(
@@ -126,5 +128,5 @@ def build_graph_multi(
     return merge_graphs(
         per_file,
         window_hours=window_hours,
-        sinks=sinks or "none",
+        sinks=sinks,
     )

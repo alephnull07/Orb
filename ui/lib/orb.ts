@@ -5,9 +5,39 @@
 
 // ─── Result shape returned by /api/demo ────────────────────────────────────
 
+export type SinksMode = 'none' | 'known' | 'unknown'
+
+export const SINKS_MODE_LABEL: Record<SinksMode, string> = {
+  none: 'no losses',
+  known: 'metered losses',
+  unknown: 'unknown losses',
+}
+
+export const SINKS_MODE_HELP: Record<SinksMode, string> = {
+  none: 'Strict conservation. Declared consumption channels are fixed draws. Any real loss lands on a report as a residual.',
+  known: 'Consumption channels become metered sink variables with their own claim rows, so a wrong meter can be flagged.',
+  unknown: 'Every reported node gets a free sink variable (leak search). Costs identifiability: correctable_k drops.',
+}
+
+export type PresetKind = 'clean' | 'corruption' | 'correlated' | 'overload' | 'leak' | 'merge' | 'mode'
+
+export interface Preset {
+  id: string
+  name: string
+  tag: string
+  kind: PresetKind
+  caption: string
+  sinks: SinksMode
+  files: string[]
+  paths?: string[]
+}
+
 export interface DemoResult {
+  preset?: Preset
   ingest_report: {
     mode?: 'TABULAR' | 'RECORD'
+    sinks_mode?: SinksMode
+    sink_variable_nodes?: string[]
     mapping?: Record<string, any>
     exclusions?: string[]
     record_count?: number
@@ -315,6 +345,11 @@ export function buildContextText(result: DemoResult): string {
   const files = (ingest_report.per_file ?? []).map(f => `${baseName(f.source_file)} [${f.mode}]`)
   const L: string[] = []
 
+  if (result.preset) {
+    L.push('=== SCENARIO ===')
+    L.push(`${result.preset.name} [${result.preset.tag}]: ${result.preset.caption}`)
+    L.push('')
+  }
   L.push('=== CLIENT ===')
   L.push(`Organisation: ${status.client.org}`)
   L.push(`Domain: ${status.client.domain}   Unit of measure: ${status.client.unit}`)
@@ -327,11 +362,20 @@ export function buildContextText(result: DemoResult): string {
   if (ingest_report.timestamp_span_hours != null)
     L.push(`Timestamp span: ${ingest_report.timestamp_span_hours}h (window ${ingest_report.window_hours}h)`)
   L.push('')
+  L.push(`=== SINK MODE: ${ingest_report.sinks_mode ?? 'none'} ===`)
+  L.push(SINKS_MODE_HELP[ingest_report.sinks_mode ?? 'none'])
+  if (ingest_report.sinks_mode === 'unknown')
+    L.push('Ranked unaccounted losses (sink per node) are listed in the NODES section as sink=; the largest is the leak candidate.')
+  L.push('')
   L.push('=== IDENTIFIABILITY ===')
   L.push(`rank ${report.rank}/${report.n_vars}  identifiable=${report.identifiable}  correctable_k=${report.correctable_k}`)
   L.push(report.correctable_k > 0
     ? `Up to ${report.correctable_k} corrupted report(s) can be provably located and corrected.`
     : 'correctable_k = 0: corruption CANNOT be guaranteed detectable; treat corrections as suggestive only.')
+  if (report.correctable_k > 0 && status.flagged.length > report.correctable_k)
+    L.push(`WARNING: ${status.flagged.length} claims are flagged, which EXCEEDS the guarantee of ${report.correctable_k}. ` +
+      'The system is past the point where it can promise correct attribution: some flagged rows may be honest and some ' +
+      'corrected values may be wrong. Say this plainly and recommend independent verification before acting.')
   L.push('')
   L.push(`=== NODES (${status.nodes.length}) — health: ok ${status.counts.ok}, degraded ${status.counts.degraded}, down ${status.counts.down} ===`)
   for (const n of status.nodes) {

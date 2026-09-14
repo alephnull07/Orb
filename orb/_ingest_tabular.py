@@ -37,6 +37,20 @@ from typing import Any
 
 from ._ingest_utils import leakage_guard, validate_claims
 
+# Sink modes — a modeling decision made by the caller, never detected:
+#   none     strict conservation; declared consumption channels are fixed draws
+#   known    consumption channels are METERED: each becomes a sink variable with
+#            a claim row, so a wrong meter can be flagged like any other report
+#   unknown  every claimed node gets a free sink variable (leak search)
+SINK_MODES = ("none", "known", "unknown")
+
+
+def normalize_sinks(mode) -> str:
+    m = (mode or "none").strip().lower()
+    if m not in SINK_MODES:
+        raise ValueError(f"sinks must be one of {SINK_MODES}, got {mode!r}")
+    return m
+
 _MAPPING_PROMPT = """\
 You are analyzing a tabular dataset to map its columns to a conserved-flow network \
 (supply chain, water distribution, power grid, etc.).
@@ -74,6 +88,11 @@ and the value is a quantity observation (stock level, demand, etc.).
 - For "edge" channels the entity_column value identifies a link; \
 from_column / to_column supply explicit endpoints if present, \
 otherwise the link ID is used as the edge identifier.
+- A transfer is often reported from BOTH sides — sender-side channels \
+(sent, dispatched, shipped, departed, loaded) and receiver-side channels \
+(received, confirmed, delivered, arrived). These are two independent \
+observations of the same link. Map EVERY such channel to "edge"; never \
+drop one side as a duplicate of the other.
 - For "sink" channels (consumption, burn, usage, loss, drawdown) \
 the entity_column value identifies the node consuming the resource \
 and the value is the known quantity consumed. These are NOT stock \
@@ -93,10 +112,30 @@ def _load_csv(path: Path) -> tuple[list[str], list[dict]]:
     return headers, rows
 
 
-def _sample_rows(headers: list[str], rows: list[dict], n: int = 20) -> str:
-    """Return a TSV-formatted sample: header + n rows spread across the file."""
+def _sample_rows(headers: list[str], rows: list[dict], n: int = 20,
+                 max_distinct: int = 12, cap: int = 48) -> str:
+    """
+    Return a TSV-formatted sample for the mapping call: header + n rows spread
+    across the file, PLUS the first row of every distinct value of any
+    low-cardinality column.  A strided sample alone can skip a whole channel
+    (e.g. sender rows on odd lines, receiver rows on even) and the model would
+    then never see it — so every categorical value is guaranteed to appear.
+    """
     step = max(1, len(rows) // n)
-    sampled = [rows[i] for i in range(0, len(rows), step)][:n]
+    picked: list[int] = list(range(0, len(rows), step))[:n]
+    seen = set(picked)
+    for col in headers:
+        values = [r.get(col, "") for r in rows]
+        distinct = {v for v in values if v not in ("", None)}
+        if 1 < len(distinct) <= max_distinct:
+            first_idx = {}
+            for i, v in enumerate(values):
+                if v not in ("", None) and v not in first_idx:
+                    first_idx[v] = i
+            for i in first_idx.values():
+                if i not in seen and len(picked) < cap:
+                    picked.append(i); seen.add(i)
+    sampled = [rows[i] for i in sorted(picked)]
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=headers, delimiter="\t")
     w.writeheader()
@@ -123,11 +162,12 @@ def _apply_mapping(
     rows: list[dict],
     mapping: dict,
     exclusions: list[dict],
-) -> tuple[dict[str, list[dict]], set[str], set[tuple], dict[str, float], set[str]]:
+    sinks_mode: str = "none",
+) -> tuple[dict[str, list[dict]], set[str], set[tuple], dict[str, float], set[str], set[str], set[str]]:
     """
     Apply the column mapping to every row in pure Python.
     Returns (claims_by_ts, node_ids_seen, edge_tuples_seen, known_sinks,
-             unmapped_channels).
+             unmapped_channels, sink_nodes, inferred_edge_channels).
     Zero LLM calls.
     """
     entity_col   = mapping.get("entity_column", "")
@@ -149,6 +189,8 @@ def _apply_mapping(
     edges_seen: set[tuple] = set()
     known_sinks: dict[str, float] = {}          # node_id -> total consumption
     unmapped_channels: set[str] = set()
+    sink_nodes: set[str] = set()        # nodes that need a sink VARIABLE in any mode
+    inferred_edge_channels: set[str] = set()
     claim_idx = 0
 
     for row in rows:
@@ -180,22 +222,31 @@ def _apply_mapping(
         ts = row.get(time_col, "all") if time_col else "all"
         primitive = channel_map.get(channel)
 
-        # Channels not in channel_map are unmapped — skip, don't guess "node"
+        # Channels not in channel_map are unmapped — never guessed as "node".
+        # One structural exception: a row that carries explicit from/to
+        # endpoints IS an edge observation by construction (e.g. a sender-side
+        # "dispatched" channel the mapping call dropped as a duplicate of the
+        # receiver-side one).  Both sides are independent evidence; keep it.
         if primitive is None:
-            if channel:
+            if channel and from_col and to_col and row.get(from_col, "").strip() \
+                    and row.get(to_col, "").strip():
+                primitive = "edge"
+                inferred_edge_channels.add(channel)
+            elif channel:
                 unmapped_channels.add(channel)
             else:
                 primitive = "node"      # no channel column → everything is node
 
-        if primitive == "sink":
-            # Known consumption — goes to node's known_sinks, NOT a claim row
+        if primitive == "sink" and sinks_mode != "known":
+            # Declared consumption: a fixed draw on the balance, NOT a claim row
             nodes_seen.add(entity)
             known_sinks[entity] = known_sinks.get(entity, 0.0) + value
             continue
-        elif primitive == "sink_obs":
-            # Observation of an unknown sink variable (e.g. leak meter).
-            # Creates a type="sink" claim — a row in H, not a known value.
+        elif primitive in ("sink", "sink_obs"):
+            # A metered sink: the node gets a sink variable and this row is an
+            # observation of it (a row in H), so a wrong meter can be flagged.
             nodes_seen.add(entity)
+            sink_nodes.add(entity)
             claim = {
                 "id": f"c{claim_idx}",
                 "type": "sink",
@@ -236,7 +287,8 @@ def _apply_mapping(
         claims_by_ts.setdefault(ts, []).append(claim)
         claim_idx += 1
 
-    return claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped_channels
+    return (claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped_channels,
+            sink_nodes, inferred_edge_channels)
 
 
 def _build_graphs(
@@ -245,8 +297,10 @@ def _build_graphs(
     edges_seen: set[tuple],
     sinks: str | None = None,
     known_sinks: dict[str, float] | None = None,
+    sink_nodes: set[str] | None = None,
 ) -> list[dict]:
     """Build one compile.py-format graph per timestamp bucket."""
+    sink_nodes = sink_nodes or set()
     # Include all edge endpoints as nodes so compile.py balance rows are valid
     endpoint_nodes = {n for pair in edges_seen for n in pair}
     all_nodes = nodes_seen | endpoint_nodes
@@ -254,7 +308,9 @@ def _build_graphs(
     # When sinks="unknown", mark nodes that were direct claim targets
     # (nodes_seen) as unknown; endpoint-only nodes stay "none".
     def _sink_mode(nid: str) -> str:
-        if sinks == "unknown" and nid in nodes_seen:
+        # "unknown": every direct claim target gets a sink variable.
+        # Any mode: a metered node (sink_nodes) gets one.
+        if nid in sink_nodes or (sinks == "unknown" and nid in nodes_seen):
             return "unknown"
         return "none"
 
@@ -292,6 +348,7 @@ def run_tabular_mode(
     Returns (graphs, report).  One LLM call total (cached), or zero if
     *column_mapping* is pre-supplied.
     """
+    sinks = normalize_sinks(sinks)
     if path.suffix.lower() == ".xlsx":
         try:
             import openpyxl
@@ -340,9 +397,13 @@ def run_tabular_mode(
     ]]
 
     # Apply mapping (pure Python, zero LLM)
-    claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped = _apply_mapping(
-        headers, rows, mapping, all_exclusions
+    (claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped,
+     sink_nodes, inferred_edges) = _apply_mapping(
+        headers, rows, mapping, all_exclusions, sinks_mode=sinks,
     )
+    if inferred_edges:
+        print(f"[ingest] Channels mapped to edge from explicit endpoints "
+              f"(not in the model's channel_map): {sorted(inferred_edges)}")
     validate_claims([c for cs in claims_by_ts.values() for c in cs])
 
     if unmapped:
@@ -355,7 +416,7 @@ def run_tabular_mode(
 
     graphs = _build_graphs(
         claims_by_ts, nodes_seen, edges_seen,
-        sinks=sinks, known_sinks=known_sinks,
+        sinks=sinks, known_sinks=known_sinks, sink_nodes=sink_nodes,
     )
 
     report = {
@@ -363,7 +424,10 @@ def run_tabular_mode(
         "source_file": str(path),
         "mapping": mapping,
         "exclusions": all_exclusions,
+        "sinks_mode": sinks,
+        "inferred_edge_channels": sorted(inferred_edges),
         "known_sinks": known_sinks,
+        "metered_sink_nodes": sorted(sink_nodes),
         "timestamp_buckets": [
             {"timestamp": ts, "n_claims": len(cs)}
             for ts, cs in sorted(claims_by_ts.items())

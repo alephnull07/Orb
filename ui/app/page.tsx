@@ -11,12 +11,16 @@ import ReactFlow, {
 } from 'reactflow'
 import 'reactflow/dist/style.css'
 import {
-  Activity, AlertTriangle, ChevronDown, ChevronUp,
+  Activity, AlertTriangle, ChevronDown, ChevronUp, Eye,
   Loader2, Network, ShieldAlert, ShieldCheck, Sparkles, Upload, X,
 } from 'lucide-react'
-import { DELTA_THRESHOLD, buildClaimedMap, deriveStatus, type DemoResult } from '../lib/orb'
+import {
+  DELTA_THRESHOLD, SINKS_MODE_HELP, SINKS_MODE_LABEL, baseName, buildClaimedMap, deriveStatus,
+  type DemoResult, type Preset, type SinksMode,
+} from '../lib/orb'
 import { InsightsDashboard, type InsightsState } from './components/InsightsDashboard'
 import type { ChatMessage } from './components/ChatPanel'
+import { FileViewer, type ViewFile } from './components/FileViewer'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -179,6 +183,47 @@ export default function Page() {
   const [status, setStatus]         = useState<'IDLE' | 'RUNNING' | 'DONE'>('IDLE')
   const [view, setView]             = useState<ViewMode>('L1')
   const [rawFiles, setRawFiles]     = useState<File[]>([])
+  const [sinksMode, setSinksMode]   = useState<SinksMode>('none')
+  const [presets, setPresets]       = useState<Preset[]>([])
+  const [activePreset, setActivePreset] = useState<Preset | null>(null)
+  const [viewer, setViewer] = useState<{ title: string; files: ViewFile[] } | null>(null)
+
+  const kindOf = (name: string) => {
+    const ext = name.split('.').pop()?.toLowerCase()
+    return ext === 'txt' || ext === 'log' || ext === 'md' ? 'free text'
+      : ext === 'jsonl' ? 'JSON lines' : ext === 'csv' || ext === 'tsv' ? 'table' : ext ?? 'file'
+  }
+
+  /** Show a preset's raw fixture files, read in place on the server. */
+  const openPresetFiles = async (p: Preset) => {
+    try {
+      const r = await fetch(`/api/preset/files?id=${encodeURIComponent(p.id)}`)
+      const d = await r.json()
+      if (d.error) throw new Error(d.error)
+      setViewer({ title: p.name, files: d.files })
+    } catch (e: any) {
+      setRunError(String(e.message || e))
+    }
+  }
+
+  /** Show the user's own uploads, read in the browser. */
+  const openUploadFiles = async (only?: File) => {
+    const list = only ? [only] : rawFiles
+    const files: ViewFile[] = await Promise.all(list.map(async f => {
+      const content = await f.text()
+      return {
+        name: f.name, kind: kindOf(f.name), bytes: f.size,
+        lines: content.split(/\r?\n/).filter(l => l.trim()).length,
+        truncated: content.length > 400_000,
+        content: content.slice(0, 400_000),
+      }
+    }))
+    setViewer({ title: only ? only.name : 'uploaded files', files })
+  }
+
+  useEffect(() => {
+    fetch('/api/presets').then(r => r.json()).then(d => { if (Array.isArray(d)) setPresets(d) }).catch(() => {})
+  }, [])
   const [isDragging, setIsDragging] = useState(false)
   const [result, setResult]         = useState<DemoResult | null>(null)
   const [runError, setRunError]     = useState<string | null>(null)
@@ -228,23 +273,35 @@ export default function Page() {
     }
   }, [])
 
-  // New estimation result → stream a briefing in the background; stay on the graph.
+  // New estimation result → stay on the graph. The briefing is NOT generated
+  // until the user opens the insights screen (openInsights below).
   useEffect(() => {
     if (!result) return
+    insightsAbort.current?.abort()
+    setInsights({ text: '', streaming: false, error: null })
     setChat([])
     setInsightsToast(true)
     setGraphEnterKey(k => k + 1)
     setGraphEntering(true)
     const t = window.setTimeout(() => setGraphEntering(false), 620)
-    generateInsights(result)
     return () => {
       window.clearTimeout(t)
       insightsAbort.current?.abort()
     }
-  }, [result, generateInsights])
+  }, [result])
+
+  /** Open the insights screen; start the briefing only if nothing has been generated for this result. */
+  const openInsights = useCallback(() => {
+    if (!result) return
+    setInsightsToast(false)
+    setScreen('insights')
+    const idle = !insights.streaming && !insights.text && !insights.error
+    if (idle) generateInsights(result)
+  }, [result, insights, generateInsights])
 
   const acceptFiles = (list: FileList | null | undefined) => {
     if (!list) return
+    setActivePreset(null)
     const valid = Array.from(list).filter(f => /\.(txt|csv|json|jsonl|tsv|xlsx)$/i.test(f.name))
     setRawFiles(prev => {
       const names = new Set(prev.map(f => f.name))
@@ -254,12 +311,37 @@ export default function Page() {
   }
 
   const handleRun = async () => {
-    if (rawFiles.length === 0) return
+    if (rawFiles.length === 0) {
+      if (activePreset) return runPreset(activePreset)
+      return
+    }
+    setActivePreset(null)
     setStatus('RUNNING'); setRunError(null); setResult(null); setScreen('graph')
     try {
       const form = new FormData()
       for (const f of rawFiles) form.append('file', f)
+      form.append('sinks', sinksMode)
       const r = await fetch('/api/demo', { method: 'POST', body: form })
+      const d = await r.json()
+      if (d.error) throw new Error(d.error)
+      setResult(d); setStatus('DONE')
+    } catch (e: any) {
+      setRunError(String(e.message || e)); setStatus('IDLE')
+    }
+  }
+
+  /** Run a demo preset: fixtures + its own losses mode, full pipeline every time. */
+  const runPreset = async (p: Preset) => {
+    if (status === 'RUNNING') return
+    setActivePreset(p)
+    setRawFiles([])
+    setSinksMode(p.sinks)            // show the mode that ran; the preset decides it
+    setStatus('RUNNING'); setRunError(null); setResult(null); setScreen('graph')
+    try {
+      const r = await fetch('/api/preset', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: p.id }),
+      })
       const d = await r.json()
       if (d.error) throw new Error(d.error)
       setResult(d); setStatus('DONE')
@@ -365,7 +447,7 @@ export default function Page() {
     const t = insights.text.replace(/^##\s+/m, '').replace(/\s+/g, ' ').trim()
     if (t) return t.slice(0, 160) + (t.length > 160 ? '…' : '')
     if (insights.streaming) return 'Writing the operations briefing…'
-    return 'Open the operations briefing'
+    return 'Click to generate the operations briefing'
   }, [insights])
 
   const VIEW_LABELS: Record<ViewMode, string> = {
@@ -388,7 +470,7 @@ export default function Page() {
             <button onClick={() => setScreen('graph')}>
               <Network size={12} /> graph
             </button>
-            <button className="active" onClick={() => setScreen('insights')}>
+            <button className="active" onClick={openInsights}>
               <Sparkles size={12} /> insights
               {insights.streaming && <span className="status-dot running" style={{ marginLeft: 4 }} />}
             </button>
@@ -400,7 +482,7 @@ export default function Page() {
           {status === 'DONE' && (
             <>
               <span className="status-dot complete" />
-              {ingest?.mode} · {report?.n_claims} claims · k={report?.correctable_k}
+              {ingest?.mode} · sinks {ingest?.sinks_mode ?? 'none'} · {report?.n_claims} claims · k={report?.correctable_k}
             </>
           )}
         </div>
@@ -437,12 +519,28 @@ export default function Page() {
             <span className="drop-zone-sub">.csv  .txt  .json</span>
           </div>
 
+          {rawFiles.length === 0 && activePreset && (
+            <div className="file-list">
+              {activePreset.files.map(f => (
+                <div key={f} className="file-item preset-file" title="demo fixture">
+                  <span className="file-ext">{f.split('.').pop()}</span>
+                  <span className="file-name">{f}</span>
+                  <button className="file-view" title="View file" onClick={() => openPresetFiles(activePreset)}>
+                    <Eye size={11} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
           {rawFiles.length > 0 && (
             <div className="file-list">
               {rawFiles.map(f => (
                 <div key={f.name} className="file-item">
                   <span className="file-ext">{f.name.split('.').pop()}</span>
                   <span className="file-name">{f.name}</span>
+                  <button className="file-view" title="View file" onClick={() => openUploadFiles(f)}>
+                    <Eye size={11} />
+                  </button>
                   <button className="file-remove"
                     onClick={() => setRawFiles(p => p.filter(x => x.name !== f.name))}
                   ><X size={10} /></button>
@@ -451,8 +549,24 @@ export default function Page() {
             </div>
           )}
 
+          {/* ── Sink mode: a modeling decision, never detected ── */}
+          <div className="section-label" style={{ marginTop: 18 }}>losses</div>
+          <div className="sinks-toggle" role="radiogroup" aria-label="Sink mode">
+            {(['none', 'known', 'unknown'] as SinksMode[]).map(m => (
+              <button key={m} type="button" role="radio" aria-checked={sinksMode === m}
+                className={sinksMode === m ? 'active' : ''}
+                onClick={() => setSinksMode(m)}
+                disabled={status === 'RUNNING'}
+                title={SINKS_MODE_HELP[m]}
+              >
+                {m}
+              </button>
+            ))}
+          </div>
+          <div className="sinks-help">{SINKS_MODE_HELP[sinksMode]}</div>
+
           <button className="run-button"
-            disabled={rawFiles.length === 0 || status === 'RUNNING'}
+            disabled={(rawFiles.length === 0 && !activePreset) || status === 'RUNNING'}
             onClick={handleRun}
           >
             {status === 'RUNNING'
@@ -468,6 +582,37 @@ export default function Page() {
               maxHeight: 120, overflow: 'auto',
               fontFamily: 'var(--font-mono), ui-monospace, monospace',
             }}>{runError}</pre>
+          )}
+
+          {/* ── Try a demo: fixtures + their own losses mode, full pipeline each click ── */}
+          {presets.length > 0 && (
+            <>
+              <div className="section-label" style={{ marginTop: 24 }}>try a demo</div>
+              <div className="preset-list">
+                {presets.map(p => (
+                  <button key={p.id}
+                    className={`preset-item ${activePreset?.id === p.id ? 'active' : ''}`}
+                    disabled={status === 'RUNNING'}
+                    onClick={() => runPreset(p)}
+                    title={p.caption}
+                  >
+                    <span className="preset-name">{p.name}</span>
+                    <span className={`preset-tag preset-kind-${p.kind}`}>{p.tag}</span>
+                    <span className="preset-meta">
+                      <span className={`preset-mode preset-mode-${p.sinks}`}>{p.sinks}</span>
+                      <span className="preset-files">{p.files.length} file{p.files.length > 1 ? 's' : ''}</span>
+                      <span className="preset-view" role="button" tabIndex={0}
+                        onClick={e => { e.stopPropagation(); openPresetFiles(p) }}
+                        onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); openPresetFiles(p) } }}
+                      >
+                        <Eye size={10} /> view files
+                      </span>
+                    </span>
+                    <span className="preset-caption">{p.caption}</span>
+                  </button>
+                ))}
+              </div>
+            </>
           )}
 
           {/* ── Mode-specific info ── */}
@@ -611,7 +756,7 @@ export default function Page() {
             <>
               <button
                 className="insights-rail"
-                onClick={() => setScreen('insights')}
+                onClick={openInsights}
                 type="button"
               >
                 <div className="insights-rail-head">
@@ -627,16 +772,35 @@ export default function Page() {
                     <span>k={report!.correctable_k}</span>
                   </div>
                 )}
-                <span className="insights-rail-hint">click to expand</span>
+                <span className="insights-rail-hint">
+                  {!insights.text && !insights.streaming && !insights.error ? 'click to generate' : 'click to expand'}
+                </span>
               </button>
+
+              {result.preset && (
+                <div className="scenario-card">
+                  <div className="scenario-label">scenario</div>
+                  <div className="scenario-name">{result.preset.name}</div>
+                  <div className={`preset-tag preset-kind-${result.preset.kind}`} style={{ marginBottom: 6 }}>
+                    {result.preset.tag}
+                  </div>
+                  <div className="scenario-caption">{result.preset.caption}</div>
+                  <div className="scenario-files">
+                    {result.preset.files.join(' · ')} · losses <b>{result.preset.sinks}</b>
+                  </div>
+                  <button className="scenario-view" onClick={() => openPresetFiles(result.preset!)}>
+                    <Eye size={11} /> view the raw files
+                  </button>
+                </div>
+              )}
 
               {/* ── Identifiability card ── */}
               <div className="ident-card">
                 <div className="ident-header">
                   <span className="section-label" style={{ margin: 0 }}>identifiability</span>
-                  {report!.correctable_k > 0
+                  {report!.correctable_k > 0 && decoded!.flagged.length <= report!.correctable_k
                     ? <ShieldCheck size={16} style={{ color: 'var(--green)' }} />
-                    : <ShieldAlert size={16} style={{ color: 'var(--amber)' }} />}
+                    : <ShieldAlert size={16} style={{ color: decoded!.flagged.length > report!.correctable_k && report!.correctable_k > 0 ? 'var(--red)' : 'var(--amber)' }} />}
                 </div>
                 <div className="ident-k">
                   <span className="ident-k-label">correctable_k</span>
@@ -650,17 +814,29 @@ export default function Page() {
                     Cannot guarantee corruption detection
                   </div>
                 )}
+                {report!.correctable_k > 0 && decoded!.flagged.length > report!.correctable_k && (
+                  <div className="ident-warning ident-warning-over">
+                    <AlertTriangle size={11} />
+                    {decoded!.flagged.length} flagged exceeds the guarantee of {report!.correctable_k}.
+                    Past this point the estimator can misattribute: corrections are not trustworthy.
+                  </div>
+                )}
                 <div className="ident-details">
                   <span>rank {report!.rank} / {report!.n_vars}</span>
                   <span>{report!.identifiable ? 'full rank' : 'rank deficient'}</span>
                 </div>
+                <div className={`ident-mode ident-mode-${ingest?.sinks_mode ?? 'none'}`}>
+                  <span className="ident-mode-key">sinks</span>
+                  <span className="ident-mode-val">{ingest?.sinks_mode ?? 'none'}</span>
+                  <span className="ident-mode-desc">{SINKS_MODE_LABEL[ingest?.sinks_mode ?? 'none']}</span>
+                </div>
               </div>
 
-              {/* ── Sinks (ranked by magnitude) ── */}
-              {sinks.length > 0 && (
+              {/* ── Sinks (ranked by magnitude) — shown whenever sink variables exist ── */}
+              {(ingest?.sinks_mode === 'unknown' || sinks.length > 0) && (
                 <>
                   <div className="section-label" style={{ marginTop: 18 }}>
-                    sinks (ranked)
+                    {ingest?.sinks_mode === 'unknown' ? 'unaccounted losses (ranked)' : 'metered sinks'}
                     <span style={{
                       float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
                     }}>{sinks.length}</span>
@@ -702,7 +878,7 @@ export default function Page() {
                             {f.claim_id} ({f.type})
                           </span>
                           <span className="claim-residual">
-                            |r| = {Math.abs(f.residual).toFixed(2)} · source: {f.source}
+                            |r| = {Math.abs(f.residual).toFixed(2)} · source: {baseName(f.source)}
                           </span>
                           {claim && (
                             <span className="claim-residual">
@@ -814,16 +990,14 @@ export default function Page() {
       )}
       {insightsToast && result && screen === 'graph' && (
         <div className="insights-toast" role="status">
-          <span className={`status-dot ${insights.streaming ? 'running' : 'complete'}`} />
+          <span className="status-dot complete" />
           <div className="insights-toast-text">
-            <div className="insights-toast-title">
-              {insights.streaming ? 'Generating insights…' : 'Insights ready'}
-            </div>
-            <div className="insights-toast-sub">Briefing, systems at risk, and next steps</div>
+            <div className="insights-toast-title">Estimation complete</div>
+            <div className="insights-toast-sub">Generate a briefing, systems at risk, and next steps</div>
           </div>
           <button
             className="insights-toast-cta"
-            onClick={() => { setInsightsToast(false); setScreen('insights') }}
+            onClick={openInsights}
           >
             <Sparkles size={12} /> view insights
           </button>
@@ -836,6 +1010,7 @@ export default function Page() {
           </button>
         </div>
       )}
+      {viewer && <FileViewer title={viewer.title} files={viewer.files} onClose={() => setViewer(null)} />}
     </main>
   )
 }

@@ -305,9 +305,15 @@ def _num(v: Any) -> float | None:
         return None
 
 
-def _extract_llm_items(agent: str, messages: list[dict], api_key: str) -> list[dict]:
+def _extract_llm_items(agent: str, messages: list[dict], api_key: str, cache=None) -> list[dict]:
+    """
+    One reader pass over the corpus.  Goes through the disk cache keyed by
+    prompt hash when a cache is supplied — the prompt embeds every record, so
+    identical input means identical extraction and no repeat API call.  The
+    pipeline downstream (merge, compile, solve) still runs in full.
+    """
     prompt = _ITEM_PROMPT.format(persona=_PERSONAS[agent], corpus=corpus_text(messages))
-    blob = claude_generate(prompt, api_key=api_key)
+    blob = cache.call(prompt, api_key=api_key) if cache is not None else claude_generate(prompt, api_key=api_key)
     return _parse_items(blob, agent)
 
 
@@ -358,10 +364,7 @@ def _run_agent(agent_name: str, messages: list[dict],
     if not key:
         return _extract_regex_items(agent_name, messages)
     try:
-        items = _extract_llm_items(agent_name, messages, key)
-        if cache:
-            cache.llm_calls += 1
-        return items
+        return _extract_llm_items(agent_name, messages, key, cache=cache)
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] LLM call failed for {agent_name}: {e}", file=sys.stderr)
         return _extract_regex_items(agent_name, messages)

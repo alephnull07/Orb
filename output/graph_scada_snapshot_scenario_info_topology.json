@@ -1,0 +1,1591 @@
+{
+  "nodes": [
+    {
+      "id": "Link_1",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_10",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_11",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_12",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_13",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_14",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_15",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_16",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_17",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_18",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_19",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_2",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_20",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_21",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_22",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_23",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_24",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_25",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_26",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_27",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_28",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_29",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_3",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_30",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_31",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_32",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_33",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_34",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_4",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_5",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_6",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_7",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_8",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Link_9",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "NETWORK",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "Node_1",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_10",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_11",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_12",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_13",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_14",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_15",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_16",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_17",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_18",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_19",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_2",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_20",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_21",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_22",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_23",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_24",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_25",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_26",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_27",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_28",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_29",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_3",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_30",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_31",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_32",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_4",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_5",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_6",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_7",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_8",
+      "initial": 0.0,
+      "sinks": "unknown"
+    },
+    {
+      "id": "Node_9",
+      "initial": 0.0,
+      "sinks": "unknown"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "Link_1",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e1",
+      "from": "Link_10",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e2",
+      "from": "Link_11",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e3",
+      "from": "Link_12",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e4",
+      "from": "Link_13",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e5",
+      "from": "Link_14",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e6",
+      "from": "Link_15",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e7",
+      "from": "Link_16",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e8",
+      "from": "Link_17",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e9",
+      "from": "Link_18",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e10",
+      "from": "Link_19",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e11",
+      "from": "Link_2",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e12",
+      "from": "Link_20",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e13",
+      "from": "Link_21",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e14",
+      "from": "Link_22",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e15",
+      "from": "Link_23",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e16",
+      "from": "Link_24",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e17",
+      "from": "Link_25",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e18",
+      "from": "Link_26",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e19",
+      "from": "Link_27",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e20",
+      "from": "Link_28",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e21",
+      "from": "Link_29",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e22",
+      "from": "Link_3",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e23",
+      "from": "Link_30",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e24",
+      "from": "Link_31",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e25",
+      "from": "Link_32",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e26",
+      "from": "Link_33",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e27",
+      "from": "Link_34",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e28",
+      "from": "Link_4",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e29",
+      "from": "Link_5",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e30",
+      "from": "Link_6",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e31",
+      "from": "Link_7",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e32",
+      "from": "Link_8",
+      "to": "NETWORK"
+    },
+    {
+      "id": "e33",
+      "from": "Link_9",
+      "to": "NETWORK"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 5868.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 518.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 363.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 219.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 234.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 43.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": -50.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e7",
+      "value": 169.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e8",
+      "value": -453.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e9",
+      "value": -828.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e10",
+      "value": -846.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e11",
+      "value": 5630.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e12",
+      "value": 2332.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e13",
+      "value": 421.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "edge",
+      "ref": "e14",
+      "value": 129.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "edge",
+      "ref": "e15",
+      "value": 1515.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "edge",
+      "ref": "e16",
+      "value": 1033.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "edge",
+      "ref": "e17",
+      "value": 759.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "edge",
+      "ref": "e18",
+      "value": -370.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "edge",
+      "ref": "e19",
+      "value": -72.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "edge",
+      "ref": "e20",
+      "value": 32.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "edge",
+      "ref": "e21",
+      "value": 212.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c22",
+      "type": "edge",
+      "ref": "e22",
+      "value": 2199.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c23",
+      "type": "edge",
+      "ref": "e23",
+      "value": 140.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "edge",
+      "ref": "e24",
+      "value": 25.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "edge",
+      "ref": "e25",
+      "value": -97.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "edge",
+      "ref": "e26",
+      "value": 129.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "edge",
+      "ref": "e27",
+      "value": 338.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "edge",
+      "ref": "e28",
+      "value": 2160.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c29",
+      "type": "edge",
+      "ref": "e29",
+      "value": 1922.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c30",
+      "type": "edge",
+      "ref": "e30",
+      "value": 1652.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c31",
+      "type": "edge",
+      "ref": "e31",
+      "value": 1292.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c32",
+      "type": "edge",
+      "ref": "e32",
+      "value": 1105.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c33",
+      "type": "edge",
+      "ref": "e33",
+      "value": 928.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "flow",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c34",
+      "type": "node",
+      "ref": "Node_1",
+      "value": -5868.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c35",
+      "type": "node",
+      "ref": "Node_1",
+      "value": 0.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c36",
+      "type": "node",
+      "ref": "Node_10",
+      "value": 180.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c37",
+      "type": "node",
+      "ref": "Node_10",
+      "value": 63.456,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c38",
+      "type": "node",
+      "ref": "Node_11",
+      "value": 154.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c39",
+      "type": "node",
+      "ref": "Node_11",
+      "value": 63.258,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c40",
+      "type": "node",
+      "ref": "Node_12",
+      "value": 140.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c41",
+      "type": "node",
+      "ref": "Node_12",
+      "value": 63.1,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c42",
+      "type": "node",
+      "ref": "Node_13",
+      "value": 219.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c43",
+      "type": "node",
+      "ref": "Node_13",
+      "value": 62.9,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c44",
+      "type": "node",
+      "ref": "Node_14",
+      "value": 190.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c45",
+      "type": "node",
+      "ref": "Node_14",
+      "value": 62.688,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c46",
+      "type": "node",
+      "ref": "Node_15",
+      "value": 93.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c47",
+      "type": "node",
+      "ref": "Node_15",
+      "value": 62.673,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c48",
+      "type": "node",
+      "ref": "Node_16",
+      "value": 86.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c49",
+      "type": "node",
+      "ref": "Node_16",
+      "value": 62.773,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c50",
+      "type": "node",
+      "ref": "Node_17",
+      "value": 280.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c51",
+      "type": "node",
+      "ref": "Node_17",
+      "value": 63.199,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c52",
+      "type": "node",
+      "ref": "Node_18",
+      "value": 374.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c53",
+      "type": "node",
+      "ref": "Node_18",
+      "value": 64.012,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c54",
+      "type": "node",
+      "ref": "Node_19",
+      "value": 18.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c55",
+      "type": "node",
+      "ref": "Node_19",
+      "value": 65.464,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c56",
+      "type": "node",
+      "ref": "Node_2",
+      "value": 237.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c57",
+      "type": "node",
+      "ref": "Node_2",
+      "value": 69.655,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c58",
+      "type": "node",
+      "ref": "Node_20",
+      "value": 392.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c59",
+      "type": "node",
+      "ref": "Node_20",
+      "value": 64.643,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c60",
+      "type": "node",
+      "ref": "Node_21",
+      "value": 291.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c61",
+      "type": "node",
+      "ref": "Node_21",
+      "value": 64.045,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c62",
+      "type": "node",
+      "ref": "Node_22",
+      "value": 129.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c63",
+      "type": "node",
+      "ref": "Node_22",
+      "value": 63.631,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c64",
+      "type": "node",
+      "ref": "Node_23",
+      "value": 270.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c65",
+      "type": "node",
+      "ref": "Node_23",
+      "value": 63.686,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c66",
+      "type": "node",
+      "ref": "Node_24",
+      "value": 273.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c67",
+      "type": "node",
+      "ref": "Node_24",
+      "value": 63.288,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c68",
+      "type": "node",
+      "ref": "Node_25",
+      "value": 46.8,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c69",
+      "type": "node",
+      "ref": "Node_25",
+      "value": 63.139,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c70",
+      "type": "node",
+      "ref": "Node_26",
+      "value": 295.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c71",
+      "type": "node",
+      "ref": "Node_26",
+      "value": 62.874,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c72",
+      "type": "node",
+      "ref": "Node_27",
+      "value": 104.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c73",
+      "type": "node",
+      "ref": "Node_27",
+      "value": 62.738,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c74",
+      "type": "node",
+      "ref": "Node_28",
+      "value": 75.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c75",
+      "type": "node",
+      "ref": "Node_28",
+      "value": 62.929,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c76",
+      "type": "node",
+      "ref": "Node_29",
+      "value": 111.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c77",
+      "type": "node",
+      "ref": "Node_29",
+      "value": 62.146,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c78",
+      "type": "node",
+      "ref": "Node_3",
+      "value": 252.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c79",
+      "type": "node",
+      "ref": "Node_3",
+      "value": 65.686,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c80",
+      "type": "node",
+      "ref": "Node_30",
+      "value": 122.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c81",
+      "type": "node",
+      "ref": "Node_30",
+      "value": 62.079,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c82",
+      "type": "node",
+      "ref": "Node_31",
+      "value": 32.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c83",
+      "type": "node",
+      "ref": "Node_31",
+      "value": 62.178,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c84",
+      "type": "node",
+      "ref": "Node_32",
+      "value": 212.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c85",
+      "type": "node",
+      "ref": "Node_32",
+      "value": 62.423,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c86",
+      "type": "node",
+      "ref": "Node_4",
+      "value": 39.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c87",
+      "type": "node",
+      "ref": "Node_4",
+      "value": 65.132,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c88",
+      "type": "node",
+      "ref": "Node_5",
+      "value": 237.6,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c89",
+      "type": "node",
+      "ref": "Node_5",
+      "value": 64.327,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c90",
+      "type": "node",
+      "ref": "Node_6",
+      "value": 270.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c91",
+      "type": "node",
+      "ref": "Node_6",
+      "value": 63.999,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c92",
+      "type": "node",
+      "ref": "Node_7",
+      "value": 360.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c93",
+      "type": "node",
+      "ref": "Node_7",
+      "value": 63.804,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c94",
+      "type": "node",
+      "ref": "Node_8",
+      "value": 187.2,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c95",
+      "type": "node",
+      "ref": "Node_8",
+      "value": 63.634,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c96",
+      "type": "node",
+      "ref": "Node_9",
+      "value": 176.4,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "demand",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c97",
+      "type": "node",
+      "ref": "Node_9",
+      "value": 63.549,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-GSy2qu/scada_snapshot.csv",
+      "channel": "pressure",
+      "timestamp": "2017-12-22T09:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    }
+  ]
+}

@@ -318,90 +318,90 @@
     {
       "id": "c21",
       "type": "sink",
+      "ref": "J_01",
       "value": 0.65,
       "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
       "channel": "sink_meter",
       "timestamp": "2026-01-01T00:00:00Z",
       "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_01"
+      "weight": 1.0
     },
     {
       "id": "c22",
       "type": "sink",
-      "value": 0.74,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
-      "channel": "sink_meter",
-      "timestamp": "2026-01-01T00:00:00Z",
-      "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_02"
-    },
-    {
-      "id": "c23",
-      "type": "sink",
-      "value": 300.54,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
-      "channel": "sink_meter",
-      "timestamp": "2026-01-01T00:00:00Z",
-      "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_03"
-    },
-    {
-      "id": "c24",
-      "type": "sink",
-      "value": 0.0,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
-      "channel": "sink_meter",
-      "timestamp": "2026-01-01T00:00:00Z",
-      "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_04"
-    },
-    {
-      "id": "c25",
-      "type": "sink",
-      "value": 0.23,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
-      "channel": "sink_meter",
-      "timestamp": "2026-01-01T00:00:00Z",
-      "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_05"
-    },
-    {
-      "id": "c26",
-      "type": "sink",
-      "value": 0.12,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
-      "channel": "sink_meter",
-      "timestamp": "2026-01-01T00:00:00Z",
-      "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_06"
-    },
-    {
-      "id": "c27",
-      "type": "sink",
+      "ref": "J_01",
       "value": 0.22,
       "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
       "channel": "sink_meter",
       "timestamp": "2026-01-01T00:00:00Z",
       "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_01"
+      "weight": 1.0
     },
     {
-      "id": "c28",
+      "id": "c23",
       "type": "sink",
+      "ref": "J_02",
+      "value": 0.74,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "sink",
+      "ref": "J_03",
+      "value": 300.54,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "sink",
+      "ref": "J_04",
+      "value": 0.0,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "sink",
+      "ref": "J_04",
       "value": 0.87,
       "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
       "channel": "sink_meter",
       "timestamp": "2026-01-01T00:00:00Z",
       "n_events": 1,
-      "weight": 1.0,
-      "ref": "J_04"
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "sink",
+      "ref": "J_05",
+      "value": 0.23,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "sink",
+      "ref": "J_06",
+      "value": 0.12,
+      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "channel": "sink_meter",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
     }
   ]
 }

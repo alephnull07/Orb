@@ -79,11 +79,11 @@
       "type": "edge",
       "ref": "e0",
       "value": 300.0,
-      "source": "tests/fixtures/medical/med_convoy_log.jsonl",
-      "channel": "sender",
-      "timestamp": "2026-09-15T09:15:00Z",
+      "source": "tests/fixtures/medical/med_radio_traffic.txt",
+      "channel": "receiver",
+      "timestamp": "2026-09-15T09:52:00Z",
       "n_events": 1,
-      "record_id": "med_convoy_log-L0003",
+      "record_id": "med_radio_traffic-L0001",
       "weight": 1.0
     },
     {
@@ -91,11 +91,11 @@
       "type": "edge",
       "ref": "e0",
       "value": 300.0,
-      "source": "tests/fixtures/medical/med_radio_traffic.txt",
-      "channel": "receiver",
-      "timestamp": "2026-09-15T09:52:00Z",
+      "source": "tests/fixtures/medical/med_convoy_log.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-15T09:15:00Z",
       "n_events": 1,
-      "record_id": "med_radio_traffic-L0001",
+      "record_id": "med_convoy_log-L0003",
       "weight": 1.0
     },
     {
@@ -114,18 +114,6 @@
       "id": "c3",
       "type": "edge",
       "ref": "e2",
-      "value": 140.0,
-      "source": "tests/fixtures/medical/med_convoy_log.jsonl",
-      "channel": "sender",
-      "timestamp": "2026-09-15T14:10:00Z",
-      "n_events": 1,
-      "record_id": "med_convoy_log-L0007",
-      "weight": 1.0
-    },
-    {
-      "id": "c4",
-      "type": "edge",
-      "ref": "e2",
       "value": 340.0,
       "source": "tests/fixtures/medical/med_radio_traffic.txt",
       "channel": "receiver",
@@ -135,19 +123,19 @@
       "weight": 1.0
     },
     {
-      "id": "c5",
+      "id": "c4",
       "type": "edge",
-      "ref": "e3",
-      "value": 180.0,
+      "ref": "e2",
+      "value": 140.0,
       "source": "tests/fixtures/medical/med_convoy_log.jsonl",
       "channel": "sender",
-      "timestamp": "2026-09-15T11:30:00Z",
+      "timestamp": "2026-09-15T14:10:00Z",
       "n_events": 1,
-      "record_id": "med_convoy_log-L0005",
+      "record_id": "med_convoy_log-L0007",
       "weight": 1.0
     },
     {
-      "id": "c6",
+      "id": "c5",
       "type": "edge",
       "ref": "e3",
       "value": 180.0,
@@ -159,19 +147,19 @@
       "weight": 1.0
     },
     {
-      "id": "c7",
+      "id": "c6",
       "type": "edge",
-      "ref": "e4",
-      "value": 220.0,
+      "ref": "e3",
+      "value": 180.0,
       "source": "tests/fixtures/medical/med_convoy_log.jsonl",
       "channel": "sender",
-      "timestamp": "2026-09-15T12:45:00Z",
+      "timestamp": "2026-09-15T11:30:00Z",
       "n_events": 1,
-      "record_id": "med_convoy_log-L0006",
+      "record_id": "med_convoy_log-L0005",
       "weight": 1.0
     },
     {
-      "id": "c8",
+      "id": "c7",
       "type": "edge",
       "ref": "e4",
       "value": 220.0,
@@ -180,6 +168,18 @@
       "timestamp": "2026-09-15T13:10:00Z",
       "n_events": 1,
       "record_id": "med_radio_traffic-L0007",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e4",
+      "value": 220.0,
+      "source": "tests/fixtures/medical/med_convoy_log.jsonl",
+      "channel": "sender",
+      "timestamp": "2026-09-15T12:45:00Z",
+      "n_events": 1,
+      "record_id": "med_convoy_log-L0006",
       "weight": 1.0
     },
     {

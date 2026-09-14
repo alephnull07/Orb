@@ -334,3 +334,47 @@ def test_fuel_consumption_known_sink():
     assert report["correctable_k"] >= 1, (
         f"Expected correctable_k >= 1, got {report['correctable_k']}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Test 6 — sink mode is a caller decision: same file, two answers
+# ---------------------------------------------------------------------------
+
+WATER_A = os.path.join(FIXTURES, "water", "water_A_leak_only.csv")
+_WATER_A_TRUE = {
+    "RESERVOIR": 29500, "PUMP_A": 7100, "PUMP_B": 2400, "TOWER_N": 1100,
+    "ZONE_1": 900, "ZONE_2": 1280, "ZONE_3": 480, "ZONE_4": 1010, "ZONE_5": 1090,
+}
+
+
+def test_water_a_sinks_none_vs_unknown():
+    """
+    water_A_leak_only.csv: ZONE_3 loses 480 to a leak.  With sinks="none"
+    conservation is strict, so the loss lands on ZONE_3's closing report as
+    a -480 residual and the node is wrong by 480.  With sinks="unknown" every
+    node gets a sink variable: all nine nodes recover exactly, the sink at
+    ZONE_3 is 480, and nothing is flagged.  Nothing about this is detected.
+    """
+    none = run_demo(WATER_A, sinks="none")
+    assert none["ingest_report"]["sinks_mode"] == "none"
+    flagged = none["decoded"]["flagged"]
+    assert len(flagged) == 1, flagged
+    claim = next(c for c in none["graph"]["claims"] if c["id"] == flagged[0]["claim_id"])
+    assert claim["ref"] == "ZONE_3" and abs(flagged[0]["residual"] + 480) < 1.0
+    qty = {n["id"]: n["qty"] for n in none["decoded"]["nodes"]}
+    assert abs(qty["ZONE_3"] - (_WATER_A_TRUE["ZONE_3"] + 480)) < 1.0
+
+    unknown = run_demo(WATER_A, sinks="unknown")
+    assert unknown["ingest_report"]["sinks_mode"] == "unknown"
+    assert unknown["decoded"]["flagged"] == []
+    qty = {n["id"]: n["qty"] for n in unknown["decoded"]["nodes"]}
+    for nid, tv in _WATER_A_TRUE.items():
+        assert abs(qty[nid] - tv) < 1.0, (nid, qty[nid], tv)
+    sinks = {s["id"]: s["sink"] for s in unknown["decoded"]["sinks"]}
+    assert abs(sinks["ZONE_3"] - 480) < 1.0
+    assert all(abs(v) < 1.0 for k, v in sinks.items() if k != "ZONE_3"), sinks
+
+
+def test_sinks_mode_rejects_garbage():
+    with pytest.raises(ValueError):
+        run_demo(WATER_A, sinks="auto")

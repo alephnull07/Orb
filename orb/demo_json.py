@@ -26,12 +26,12 @@ def _clean(obj):
     return obj
 
 
-def demo_json(path: str, truth_path: str | None = None) -> dict:
+def demo_json(path: str, truth_path: str | None = None, sinks: str = "none") -> dict:
     from .demo import run_demo
 
     # Suppress print output from run_demo
     with contextlib.redirect_stdout(io.StringIO()):
-        result = run_demo(path, truth_path=truth_path)
+        result = run_demo(path, truth_path=truth_path, sinks=sinks)
 
     if not result:
         return {"error": "No graphs produced"}
@@ -39,11 +39,11 @@ def demo_json(path: str, truth_path: str | None = None) -> dict:
     return _clean(_result_to_dict(result))
 
 
-def demo_json_multi(paths: list[str]) -> dict:
+def demo_json_multi(paths: list[str], sinks: str = "none") -> dict:
     from .demo import run_demo_multi
 
     with contextlib.redirect_stdout(io.StringIO()):
-        result = run_demo_multi(paths)
+        result = run_demo_multi(paths, sinks=sinks)
 
     if not result:
         return {"error": "No graphs produced"}
@@ -66,13 +66,33 @@ def _result_to_dict(result: dict) -> dict:
 
 
 if __name__ == "__main__":
-    paths = sys.argv[1:]
-    if not paths:
+    import argparse
+    ap = argparse.ArgumentParser(description="ORB demo → JSON")
+    ap.add_argument("paths", nargs="*")
+    ap.add_argument("--sinks", default="none", choices=["none", "known", "unknown"],
+                    help="sink mode (caller decision, never detected)")
+    ap.add_argument("--preset", default=None,
+                    help="run a demo preset from orb/presets.py (its own sinks mode applies)")
+    args = ap.parse_args()
+    if args.preset:
+        from .presets import run_preset
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                result = run_preset(args.preset)
+            out = _clean(_result_to_dict(result))
+            out["preset"] = result["preset"]
+        except Exception as e:  # noqa: BLE001
+            out = {"error": f"{type(e).__name__}: {e}"}
+        json.dump(out, sys.stdout, default=str)
+        sys.exit(0)
+    if not args.paths:
         print('{"error": "No file paths provided"}')
         sys.exit(1)
-
-    if len(paths) == 1:
-        out = demo_json(paths[0])
-    else:
-        out = demo_json_multi(paths)
+    try:
+        if len(args.paths) == 1:
+            out = demo_json(args.paths[0], sinks=args.sinks)
+        else:
+            out = demo_json_multi(args.paths, sinks=args.sinks)
+    except Exception as e:  # noqa: BLE001
+        out = {"error": f"{type(e).__name__}: {e}"}
     json.dump(out, sys.stdout, default=str)

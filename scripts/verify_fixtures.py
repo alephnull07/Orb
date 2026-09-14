@@ -151,6 +151,27 @@ def run_water() -> dict[str, bool]:
     return {"demo_water": ok}
 
 
+WATER_A_TRUE = {"RESERVOIR": 29500, "PUMP_A": 7100, "PUMP_B": 2400, "TOWER_N": 1100,
+                "ZONE_1": 900, "ZONE_2": 1280, "ZONE_3": 480, "ZONE_4": 1010, "ZONE_5": 1090}
+
+
+def run_water_a() -> dict[str, bool]:
+    f = FIX / "water" / "water_A_leak_only.csv"
+    out = {}
+    r = _quiet(run_demo, f, sinks="none")
+    truth_none = dict(WATER_A_TRUE, ZONE_3=WATER_A_TRUE["ZONE_3"] + 480)   # strict conservation puts the leak on the node
+    out["water_A sinks=none"] = print_result("WATER_A — sinks=none (strict; expect ZONE_3 flagged -480)", r, truth_none, 1)
+    r = _quiet(run_demo, f, sinks="unknown")
+    ok = print_result("WATER_A — sinks=unknown (leak search; expect exact, sink ZONE_3=480, no flags)", r, WATER_A_TRUE, 0)
+    sinks = {s["id"]: s["sink"] for s in r["decoded"]["sinks"]}
+    print("  sinks:", ", ".join(f"{k}={v:.1f}" for k, v in sorted(sinks.items(), key=lambda kv: -abs(kv[1]))))
+    ok = ok and abs(sinks.get("ZONE_3", 0) - 480) < 1.0
+    out["water_A sinks=unknown"] = ok
+    r = _quiet(run_demo, f, sinks="known")
+    out["water_A sinks=known"] = print_result("WATER_A — sinks=known (metered draws become sink claims)", r, None, "informational")
+    return out
+
+
 def run_medical() -> dict[str, bool]:
     d = FIX / "medical"
     files = [d / "med_opening_manifest.csv", d / "med_convoy_log.jsonl", d / "med_radio_traffic.txt", d / "med_eod_counts.csv"]
@@ -160,10 +181,11 @@ def run_medical() -> dict[str, bool]:
 
 
 if __name__ == "__main__":
-    which = sys.argv[1:] or ["supply", "fuel", "water", "medical"]
+    which = sys.argv[1:] or ["supply", "fuel", "water", "water_a", "medical"]
     results: dict[str, bool] = {}
     for w in which:
-        results.update({"supply": run_supply, "fuel": run_fuel, "water": run_water, "medical": run_medical}[w]())
+        results.update({"supply": run_supply, "fuel": run_fuel, "water": run_water,
+                        "water_a": run_water_a, "medical": run_medical}[w]())
     print(f"\n{'=' * 96}\n  SUMMARY\n{'=' * 96}")
     for k, v in results.items():
         print(f"  {'PASS' if v else 'FAIL':<5} {k}")
