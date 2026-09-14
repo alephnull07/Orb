@@ -1,0 +1,385 @@
+{
+  "nodes": [
+    {
+      "id": "CAMP_DUNE",
+      "initial": 180.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_MARSH",
+      "initial": 200.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_RIDGE",
+      "initial": 300.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_ANVIL",
+      "initial": 2800.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_IRONSIDE",
+      "initial": 4000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_KESTREL",
+      "initial": 3500.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_SABLE",
+      "initial": 2200.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_DRAKE",
+      "initial": 400.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_HERON",
+      "initial": 300.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_LYNX",
+      "initial": 350.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_QUILL",
+      "initial": 250.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_TALON",
+      "initial": 500.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_VIPER",
+      "initial": 400.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_WREN",
+      "initial": 450.0,
+      "sinks": "none"
+    },
+    {
+      "id": "PORT_HAVEN",
+      "initial": 50000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "FOB_ANVIL",
+      "to": "OP_DRAKE"
+    },
+    {
+      "id": "e1",
+      "from": "FOB_ANVIL",
+      "to": "OP_QUILL"
+    },
+    {
+      "id": "e2",
+      "from": "FOB_IRONSIDE",
+      "to": "CAMP_RIDGE"
+    },
+    {
+      "id": "e3",
+      "from": "FOB_IRONSIDE",
+      "to": "OP_TALON"
+    },
+    {
+      "id": "e4",
+      "from": "FOB_IRONSIDE",
+      "to": "OP_VIPER"
+    },
+    {
+      "id": "e5",
+      "from": "FOB_KESTREL",
+      "to": "OP_LYNX"
+    },
+    {
+      "id": "e6",
+      "from": "FOB_KESTREL",
+      "to": "OP_WREN"
+    },
+    {
+      "id": "e7",
+      "from": "FOB_SABLE",
+      "to": "CAMP_DUNE"
+    },
+    {
+      "id": "e8",
+      "from": "FOB_SABLE",
+      "to": "CAMP_MARSH"
+    },
+    {
+      "id": "e9",
+      "from": "FOB_SABLE",
+      "to": "OP_HERON"
+    },
+    {
+      "id": "e10",
+      "from": "PORT_HAVEN",
+      "to": "FOB_ANVIL"
+    },
+    {
+      "id": "e11",
+      "from": "PORT_HAVEN",
+      "to": "FOB_IRONSIDE"
+    },
+    {
+      "id": "e12",
+      "from": "PORT_HAVEN",
+      "to": "FOB_KESTREL"
+    },
+    {
+      "id": "e13",
+      "from": "PORT_HAVEN",
+      "to": "FOB_SABLE"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 2000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 1400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 2400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 1800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 1600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": 2200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e7",
+      "value": 1000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e9",
+      "value": 1800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e10",
+      "value": 12000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e11",
+      "value": 16000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e12",
+      "value": 14000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e13",
+      "value": 10000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "CAMP_DUNE",
+      "value": 680.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "node",
+      "ref": "CAMP_MARSH",
+      "value": 800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "node",
+      "ref": "CAMP_RIDGE",
+      "value": 1100.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "node",
+      "ref": "FOB_ANVIL",
+      "value": 7100.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "node",
+      "ref": "FOB_IRONSIDE",
+      "value": 9100.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "node",
+      "ref": "FOB_KESTREL",
+      "value": 8600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "node",
+      "ref": "FOB_SABLE",
+      "value": 5200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "node",
+      "ref": "OP_DRAKE",
+      "value": 1400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c22",
+      "type": "node",
+      "ref": "OP_HERON",
+      "value": 1200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c23",
+      "type": "node",
+      "ref": "OP_LYNX",
+      "value": 1150.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "node",
+      "ref": "OP_QUILL",
+      "value": 950.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "node",
+      "ref": "OP_TALON",
+      "value": 1700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "node",
+      "ref": "OP_VIPER",
+      "value": 1300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "node",
+      "ref": "OP_WREN",
+      "value": 1550.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "node",
+      "ref": "PORT_HAVEN",
+      "value": 24000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-6G0Tue/fifteen_node.csv",
+      "weight": 1.0
+    }
+  ]
+}

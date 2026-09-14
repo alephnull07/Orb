@@ -89,7 +89,7 @@
       "type": "edge",
       "ref": "e0",
       "value": 210.09,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -97,7 +97,7 @@
       "type": "edge",
       "ref": "e1",
       "value": 20.6,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -105,7 +105,7 @@
       "type": "edge",
       "ref": "e2",
       "value": 112.39,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -113,7 +113,7 @@
       "type": "edge",
       "ref": "e3",
       "value": -302.45,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -121,7 +121,7 @@
       "type": "edge",
       "ref": "e4",
       "value": 89.76,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -129,7 +129,7 @@
       "type": "edge",
       "ref": "e5",
       "value": 4.61,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -137,7 +137,7 @@
       "type": "edge",
       "ref": "e6",
       "value": -114.68,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -145,7 +145,7 @@
       "type": "edge",
       "ref": "e7",
       "value": 456.83,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -153,7 +153,7 @@
       "type": "edge",
       "ref": "e8",
       "value": 477.61,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -161,7 +161,7 @@
       "type": "node",
       "ref": "J_01",
       "value": 112.09,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -169,7 +169,7 @@
       "type": "node",
       "ref": "J_01",
       "value": 111.58,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -177,7 +177,7 @@
       "type": "node",
       "ref": "J_02",
       "value": 96.72,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -185,7 +185,7 @@
       "type": "node",
       "ref": "J_02",
       "value": 98.03,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -193,7 +193,7 @@
       "type": "node",
       "ref": "J_03",
       "value": 113.48,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -201,7 +201,7 @@
       "type": "node",
       "ref": "J_03",
       "value": 113.53,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -209,7 +209,7 @@
       "type": "node",
       "ref": "J_04",
       "value": 108.26,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -217,7 +217,7 @@
       "type": "node",
       "ref": "J_04",
       "value": 107.78,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -225,7 +225,7 @@
       "type": "node",
       "ref": "J_05",
       "value": 82.81,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -233,7 +233,7 @@
       "type": "node",
       "ref": "J_05",
       "value": 82.95,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -241,7 +241,7 @@
       "type": "node",
       "ref": "J_06",
       "value": 119.9,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {
@@ -249,7 +249,7 @@
       "type": "node",
       "ref": "J_06",
       "value": 120.15,
-      "source": "/Users/aaravmaheshwari/Orb/tests/fixtures/demo_water.csv",
+      "source": "tests/fixtures/demo_water.csv",
       "weight": 1.0
     },
     {

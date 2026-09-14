@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Dagre from '@dagrejs/dagre'
 import ReactFlow, {
   Background, Controls, MiniMap,
@@ -12,50 +12,21 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 import {
   Activity, AlertTriangle, ChevronDown, ChevronUp,
-  Loader2, Network, ShieldAlert, ShieldCheck, Upload, X,
+  Loader2, Network, ShieldAlert, ShieldCheck, Sparkles, Upload, X,
 } from 'lucide-react'
+import { DELTA_THRESHOLD, buildClaimedMap, type DemoResult } from '../lib/orb'
+import { InsightsDashboard, type InsightsState } from './components/InsightsDashboard'
+import type { ChatMessage } from './components/ChatPanel'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 type ViewMode = 'REPORTED' | 'L1'
-
-interface DemoResult {
-  ingest_report: {
-    mode: 'TABULAR' | 'RECORD'
-    mapping?: Record<string, any>
-    exclusions?: string[]
-    record_count?: number
-  }
-  report: {
-    n_claims: number
-    n_vars: number
-    rank: number
-    identifiable: boolean
-    correctable_k: number
-  }
-  decoded: {
-    nodes: Array<{ id: string; qty: number }>
-    edges: Array<{ id: string; from: string; to: string; flow: number }>
-    sinks: Array<{ id: string; sink: number }>
-    flagged: Array<{ claim_id: string; residual: number; source: string; type: string }>
-  }
-  graph: {
-    nodes: Array<{ id: string; initial?: number; sinks?: string }>
-    edges: Array<{ id: string; from: string; to: string }>
-    claims: Array<{
-      id: string; type: string; ref?: string; refs?: string[]
-      value: any; source?: string; weight?: number
-    }>
-    lambda_sink?: number
-  }
-  error?: string
-}
+type Screen = 'graph' | 'insights'
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 const NODE_W = 120
 const NODE_H = 90
-const DELTA_THRESHOLD = 5.0
 
 function computeLayout(
   nodes: Array<{ id: string }>,
@@ -84,24 +55,6 @@ function inferNodeType(
   if (!hasIncoming) return 'source'
   if (node.sinks === 'unknown') return 'sink'
   return 'junction'
-}
-
-/** Average of all claims of a given type pointing at a given ref. */
-function buildClaimedMap(
-  claims: DemoResult['graph']['claims'],
-  type: string,
-): Map<string, number> {
-  const sums = new Map<string, { total: number; count: number }>()
-  for (const c of claims) {
-    if (c.type !== type || c.ref == null) continue
-    const v = Number(c.value)
-    if (isNaN(v)) continue
-    const prev = sums.get(c.ref) ?? { total: 0, count: 0 }
-    sums.set(c.ref, { total: prev.total + v, count: prev.count + 1 })
-  }
-  const out = new Map<string, number>()
-  for (const [ref, { total, count }] of sums) out.set(ref, total / count)
-  return out
 }
 
 const NODE_COLOR: Record<string, string> = {
@@ -227,6 +180,53 @@ export default function Page() {
   const [edgesOpen, setEdgesOpen]   = useState(false)
   const [nodesOpen, setNodesOpen]   = useState(false)
   const fileInputRef                = useRef<HTMLInputElement>(null)
+
+  // ── Insights dashboard state (lifted so it survives switching screens) ──
+  const [screen, setScreen]     = useState<Screen>('graph')
+  const [insights, setInsights] = useState<InsightsState>({ text: '', streaming: false, error: null })
+  const [chat, setChat]         = useState<ChatMessage[]>([])
+  const insightsAbort           = useRef<AbortController | null>(null)
+
+  const generateInsights = useCallback(async (r: DemoResult) => {
+    insightsAbort.current?.abort()
+    const ctrl = new AbortController()
+    insightsAbort.current = ctrl
+    setInsights({ text: '', streaming: true, error: null })
+    try {
+      const res = await fetch('/api/insights', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ result: r }),
+        signal: ctrl.signal,
+      })
+      if (!res.ok || !res.body) {
+        let msg = `HTTP ${res.status}`
+        try { msg = (await res.json()).error ?? msg } catch { /* ignore */ }
+        throw new Error(msg)
+      }
+      const reader = res.body.getReader()
+      const dec = new TextDecoder()
+      for (;;) {
+        const { value, done } = await reader.read()
+        if (done) break
+        const chunk = dec.decode(value, { stream: true })
+        setInsights(s => ({ ...s, text: s.text + chunk }))
+      }
+      setInsights(s => ({ ...s, streaming: false }))
+    } catch (e: any) {
+      if (e?.name === 'AbortError') return
+      setInsights(s => ({ ...s, streaming: false, error: e?.message ?? String(e) }))
+    }
+  }, [])
+
+  // New estimation result → reset chat, stream a fresh briefing, show the dashboard.
+  useEffect(() => {
+    if (!result) return
+    setChat([])
+    setScreen('insights')
+    generateInsights(result)
+    return () => insightsAbort.current?.abort()
+  }, [result, generateInsights])
 
   const acceptFiles = (list: FileList | null | undefined) => {
     if (!list) return
@@ -354,6 +354,17 @@ export default function Page() {
           <div className="brand-divider" />
           <span className="brand-sub">outlier-robust estimation</span>
         </div>
+        {result && (
+          <div className="screen-toggle">
+            <button className={screen === 'graph' ? 'active' : ''} onClick={() => setScreen('graph')}>
+              <Network size={12} /> graph
+            </button>
+            <button className={screen === 'insights' ? 'active' : ''} onClick={() => setScreen('insights')}>
+              <Sparkles size={12} /> insights
+              {insights.streaming && <span className="status-dot running" style={{ marginLeft: 4 }} />}
+            </button>
+          </div>
+        )}
         <div className="header-status">
           {status === 'IDLE' && <><span className="status-dot idle" /> awaiting data</>}
           {status === 'RUNNING' && <><span className="status-dot running" /> estimating...</>}
@@ -366,6 +377,15 @@ export default function Page() {
         </div>
       </header>
 
+      {screen === 'insights' && result ? (
+        <InsightsDashboard
+          result={result}
+          insights={insights}
+          onRegenerate={() => generateInsights(result)}
+          chat={chat}
+          setChat={setChat}
+        />
+      ) : (
       <section className="orb-workspace">
 
         {/* ── Left: upload + mode info ── */}
@@ -737,6 +757,7 @@ export default function Page() {
         </aside>
 
       </section>
+      )}
     </main>
   )
 }

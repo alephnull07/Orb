@@ -1,0 +1,246 @@
+{
+  "nodes": [
+    {
+      "id": "AID_STN_1",
+      "initial": 140.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_2",
+      "initial": 120.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_3",
+      "initial": 95.0,
+      "sinks": "none"
+    },
+    {
+      "id": "AID_STN_4",
+      "initial": 110.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FWD_HOSP_NORTH",
+      "initial": 800.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FWD_HOSP_SOUTH",
+      "initial": 650.0,
+      "sinks": "none"
+    },
+    {
+      "id": "REGIONAL_HUB",
+      "initial": 6000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "FWD_HOSP_NORTH",
+      "to": "AID_STN_1"
+    },
+    {
+      "id": "e1",
+      "from": "FWD_HOSP_NORTH",
+      "to": "AID_STN_2"
+    },
+    {
+      "id": "e2",
+      "from": "FWD_HOSP_NORTH",
+      "to": "AID_STN_3"
+    },
+    {
+      "id": "e3",
+      "from": "FWD_HOSP_SOUTH",
+      "to": "AID_STN_3"
+    },
+    {
+      "id": "e4",
+      "from": "FWD_HOSP_SOUTH",
+      "to": "AID_STN_4"
+    },
+    {
+      "id": "e5",
+      "from": "REGIONAL_HUB",
+      "to": "FWD_HOSP_NORTH"
+    },
+    {
+      "id": "e6",
+      "from": "REGIONAL_HUB",
+      "to": "FWD_HOSP_SOUTH"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 300.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 240.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 180.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 220.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 1700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": 900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "node",
+      "ref": "AID_STN_1",
+      "value": 300.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "node",
+      "ref": "AID_STN_1",
+      "value": 300.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "AID_STN_2",
+      "value": 250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "AID_STN_2",
+      "value": 620.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_eod_counts.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "AID_STN_3",
+      "value": 320.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "AID_STN_3",
+      "value": 415.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_eod_counts.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "node",
+      "ref": "AID_STN_3",
+      "value": 520.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_radio_traffic.txt",
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "node",
+      "ref": "AID_STN_4",
+      "value": 220.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "node",
+      "ref": "AID_STN_4",
+      "value": 220.0,
+      "source": "merged(2)",
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "node",
+      "ref": "AID_STN_4",
+      "value": 330.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_eod_counts.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "node",
+      "ref": "FWD_HOSP_NORTH",
+      "value": 1010.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "node",
+      "ref": "FWD_HOSP_SOUTH",
+      "value": 500.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_convoy_log.jsonl",
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "node",
+      "ref": "FWD_HOSP_SOUTH",
+      "value": 1150.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_eod_counts.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "node",
+      "ref": "REGIONAL_HUB",
+      "value": 3400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-EJ7deO/med_eod_counts.csv",
+      "weight": 1.0
+    }
+  ]
+}
