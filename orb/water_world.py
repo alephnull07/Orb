@@ -403,5 +403,200 @@ def find_good_config(
     return None
 
 
+def generate_water_graph(
+    seed: int,
+    n_junctions: int = 6,
+    leak_idx: int = 2,
+    leak_size: float = 300.0,
+    k: int = 0,
+    corruption_type: str = "random",
+    noise_sigma: float = 1.0,
+) -> tuple[dict, dict]:
+    """
+    Build a water-network graph dict directly (no CSV, no file I/O).
+
+    Parameters
+    ----------
+    seed             RNG seed.
+    n_junctions      Number of junctions (excluding reservoir).
+    leak_idx         0-based index of the leaking junction.
+    leak_size        Leak magnitude at that junction.
+    k                Number of claims to corrupt.
+    corruption_type  "random", "correlated", or "directional".
+    noise_sigma      Small honest noise on claim values.
+
+    Returns
+    -------
+    (graph, truth) where:
+      graph  = compile()-ready dict {nodes, edges, claims}
+      truth  = {true_state, leak_node, leak_size, corrupt_indices, corrupt_mask}
+    """
+    truth_net = generate_network(seed, n_junctions, leak_idx, leak_size)
+    rng = np.random.default_rng(seed + 10000)  # separate RNG for claims
+
+    junctions = truth_net["junctions"]
+    pipes = truth_net["pipes"]
+    leak_nid = truth_net["leak_node"]
+
+    # ── nodes: reservoir (source) + junctions (sinks="unknown") ────────
+    res_id = truth_net["reservoir"]["id"]
+    total_supply = truth_net["reservoir"]["supply"]
+    nodes = []
+    # Reservoir: initial = total_supply (all water enters here), sinks="none"
+    nodes.append({"id": res_id, "initial": total_supply, "sinks": "none"})
+    for j in junctions:
+        nodes.append({"id": j["id"], "initial": 0.0, "sinks": "unknown"})
+
+    # ── edges: one per pipe ──────────────────────────────────────────────
+    edges = []
+    for p in pipes:
+        edges.append({"id": p["id"], "from": p["from"], "to": p["to"]})
+
+    # ── claims: demand (node), flow (edge), sink_meter (sink) ────────────
+    claims = []
+    cid = 0
+
+    # Demand sensors (report BASE demand, not total)
+    for j in junctions:
+        noisy = j["base_demand"] + rng.normal(0, noise_sigma)
+        claims.append({
+            "id": f"c{cid}", "type": "node", "ref": j["id"],
+            "value": round(float(noisy), 2),
+            "source": "demand_sensor", "weight": 1.0,
+        })
+        cid += 1
+
+    # Flow sensors
+    for p in pipes:
+        noisy = p["flow"] + rng.normal(0, noise_sigma)
+        claims.append({
+            "id": f"c{cid}", "type": "edge", "ref": p["id"],
+            "value": round(float(noisy), 2),
+            "source": "flow_sensor", "weight": 1.0,
+        })
+        cid += 1
+
+    # Sink meters at all junctions
+    for j in junctions:
+        true_sink = leak_size if j["id"] == leak_nid else 0.0
+        noisy = true_sink + rng.normal(0, noise_sigma)
+        noisy = max(0.0, noisy)
+        claims.append({
+            "id": f"c{cid}", "type": "sink", "ref": j["id"],
+            "value": round(float(noisy), 2),
+            "source": "sink_meter", "weight": 1.0,
+        })
+        cid += 1
+
+    # Extra demand sensors for redundancy
+    for j in junctions:
+        noisy = j["base_demand"] + rng.normal(0, noise_sigma)
+        claims.append({
+            "id": f"c{cid}", "type": "node", "ref": j["id"],
+            "value": round(float(noisy), 2),
+            "source": "demand_sensor_2", "weight": 0.9,
+        })
+        cid += 1
+
+    # Extra sink meters at reservoir-target junctions
+    res_targets = set()
+    for p in pipes:
+        if p["from"] == truth_net["reservoir"]["id"]:
+            res_targets.add(p["to"])
+    for j in junctions:
+        if j["id"] in res_targets:
+            true_sink = leak_size if j["id"] == leak_nid else 0.0
+            noisy = true_sink + rng.normal(0, noise_sigma)
+            noisy = max(0.0, noisy)
+            claims.append({
+                "id": f"c{cid}", "type": "sink", "ref": j["id"],
+                "value": round(float(noisy), 2),
+                "source": "sink_meter_2", "weight": 0.9,
+            })
+            cid += 1
+
+    # ── corruption injection ────────────────────────────────────────────
+    n_claims = len(claims)
+    corrupt_mask = [False] * n_claims
+    corrupt_indices = []
+
+    if k > 0 and k <= n_claims:
+        corr_rng = np.random.default_rng(seed + 20000)
+
+        if corruption_type == "random":
+            indices = corr_rng.choice(n_claims, size=min(k, n_claims), replace=False)
+            for idx in indices:
+                delta = float(corr_rng.uniform(50, 200)) * corr_rng.choice([-1, 1])
+                claims[idx]["value"] = round(claims[idx]["value"] + delta, 2)
+                corrupt_mask[idx] = True
+                corrupt_indices.append(int(idx))
+
+        elif corruption_type == "correlated":
+            edge_claims = [i for i, c in enumerate(claims) if c["type"] == "edge"]
+            node_claims_map = {}
+            for i, c in enumerate(claims):
+                if c["type"] == "node":
+                    node_claims_map.setdefault(c["ref"], []).append(i)
+            corrupted = 0
+            for ei in corr_rng.permutation(len(edge_claims)):
+                if corrupted >= k:
+                    break
+                ec_idx = edge_claims[ei]
+                ec = claims[ec_idx]
+                edge = next(e for e in edges if e["id"] == ec["ref"])
+                delta = float(corr_rng.uniform(50, 200))
+                claims[ec_idx]["value"] = round(claims[ec_idx]["value"] + delta, 2)
+                corrupt_mask[ec_idx] = True
+                corrupt_indices.append(ec_idx)
+                corrupted += 1
+                if corrupted >= k:
+                    break
+                target_claims = node_claims_map.get(edge["to"], [])
+                if target_claims:
+                    nc_idx = target_claims[0]
+                    claims[nc_idx]["value"] = round(claims[nc_idx]["value"] + delta, 2)
+                    corrupt_mask[nc_idx] = True
+                    corrupt_indices.append(nc_idx)
+                    corrupted += 1
+
+        elif corruption_type == "directional":
+            indices = corr_rng.choice(n_claims, size=min(k, n_claims), replace=False)
+            for idx in indices:
+                delta = float(corr_rng.uniform(50, 200))
+                claims[idx]["value"] = round(claims[idx]["value"] + delta, 2)
+                corrupt_mask[idx] = True
+                corrupt_indices.append(int(idx))
+
+    graph = {"nodes": nodes, "edges": edges, "claims": claims}
+
+    # True state vector must match compile()'s layout:
+    # [qty_R01, qty_J01, ..., qty_J0n, flow_P01, ..., sink_J01, ...]
+    true_state_parts = []
+    # qty_R01 = 0 (reservoir sends everything out)
+    true_state_parts.append(0.0)
+    # qty per junction = base_demand (what demand sensors measure)
+    for j in junctions:
+        true_state_parts.append(j["base_demand"])
+    # flows
+    for p in pipes:
+        true_state_parts.append(p["flow"])
+    # sinks (only junctions have sinks="unknown", not reservoir)
+    for j in junctions:
+        true_state_parts.append(leak_size if j["id"] == leak_nid else 0.0)
+
+    true_state = np.array(true_state_parts)
+
+    truth_dict = {
+        "true_state": true_state,
+        "leak_node": leak_nid,
+        "leak_size": leak_size,
+        "corrupt_indices": sorted(corrupt_indices),
+        "corrupt_mask": corrupt_mask,
+        "all_sites": [res_id] + [j["id"] for j in junctions],
+    }
+
+    return graph, truth_dict
+
+
 if __name__ == "__main__":
     find_good_config()
