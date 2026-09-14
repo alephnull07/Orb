@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "FOB_ALPHA",
+      "initial": 600.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_BRAVO",
+      "initial": 450.0,
+      "sinks": "none"
+    },
+    {
+      "id": "MAIN_DEPOT",
+      "initial": 4000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_CRESCENT",
+      "initial": 120.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_DELTA",
+      "initial": 90.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_ECHO",
+      "initial": 75.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "FOB_ALPHA",
+      "to": "OP_CRESCENT"
+    },
+    {
+      "id": "e1",
+      "from": "FOB_ALPHA",
+      "to": "OP_DELTA"
+    },
+    {
+      "id": "e2",
+      "from": "FOB_BRAVO",
+      "to": "OP_ECHO"
+    },
+    {
+      "id": "e3",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_ALPHA"
+    },
+    {
+      "id": "e4",
+      "from": "MAIN_DEPOT",
+      "to": "FOB_BRAVO"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 220.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 180.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 150.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1100.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "node",
+      "ref": "FOB_ALPHA",
+      "value": 1300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "node",
+      "ref": "FOB_BRAVO",
+      "value": 900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "node",
+      "ref": "MAIN_DEPOT",
+      "value": 2300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "node",
+      "ref": "OP_CRESCENT",
+      "value": 340.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "OP_DELTA",
+      "value": 520.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "OP_ECHO",
+      "value": 225.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-20QVQe/supply_logistics.csv",
+      "weight": 1.0
+    }
+  ]
+}

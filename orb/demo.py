@@ -2,6 +2,7 @@
 orb/demo.py
 -----------
 run_demo(path) — unified demo entry point for any file.
+run_demo_multi(paths) — multi-file merge entry point.
 
     any file  →  ingest (routes by extension)  →  claims  →  compile  →  L1  →  decode
 
@@ -12,31 +13,36 @@ No per-path special casing downstream of ingest.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from .compile   import compile as compile_graph
 from .decode    import decode
-from .ingest    import build_graph
+from .ingest    import build_graph, build_graph_multi
 from .run_graph import _l1_solve
-from .water_world import WATER_COLUMN_MAPPING
 
 
-def run_demo_multi(paths: list[str | Path]) -> dict:
+def _get_api_key() -> str | None:
+    return os.environ.get("ANTHROPIC_API_KEY") or None
+
+
+def run_demo_multi(paths: list[str | Path], sinks: str = "none") -> dict:
     """
-    Run the full ORB pipeline on multiple text files simultaneously.
-    All files are ingested together into a single consensus graph.
+    Run the full ORB pipeline on multiple files simultaneously.
+    Each file is ingested via its native mode (CSV→TABULAR, TXT→RECORD, etc.),
+    then all graphs are merged into one via build_graph_multi.
     """
-    from ._ingest_record import run_record_mode_multi
-
     paths = [Path(p) for p in paths]
 
-    graphs, ingest_report = run_record_mode_multi(paths, lambda_w=0.1)
+    graph, ingest_report = build_graph_multi(
+        paths,
+        api_key=_get_api_key(),
+        sinks=sinks,
+    )
 
-    if not graphs:
+    if not graph or not graph.get("claims"):
         print(f"[demo] No graphs produced from {[p.name for p in paths]}")
         return {}
-
-    graph = graphs[0]
 
     compiled  = compile_graph(graph)
     x_hat, residuals = _l1_solve(compiled)
@@ -51,9 +57,9 @@ def run_demo_multi(paths: list[str | Path]) -> dict:
         json.dump(graph, fh, indent=2, default=str)
 
     print(f"\n{'='*60}")
-    print(f"  run_demo_multi({[p.name for p in paths]})   mode=RECORD")
+    print(f"  run_demo_multi({[p.name for p in paths]})   mode=MERGED")
     print(f"{'='*60}")
-    _print_record_header(ingest_report, graph)
+    _print_merge_header(ingest_report, graph)
     _print_common(report, decoded, graph)
     print(f"\n  graph.json → {graph_out}")
     print()
@@ -67,36 +73,39 @@ def run_demo_multi(paths: list[str | Path]) -> dict:
     }
 
 
-def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
+def run_demo(
+    path: str | Path,
+    truth_path: str | Path | None = None,
+    sinks: str = "none",
+    column_mapping: dict | None = None,
+) -> dict:
     """
     Run the full ORB pipeline on *path* and print a formatted report.
 
     Parameters
     ----------
-    path        Input file (CSV or TXT).
-    truth_path  Optional ground-truth JSON for scoring (water CSV only).
+    path            Input file (CSV, TXT, JSONL, etc.).
+    truth_path      Optional ground-truth JSON for scoring (water CSV only).
+    sinks           "none" (supply chain) or "unknown" (water/leak search).
+    column_mapping  Pre-supplied mapping for TABULAR mode — skips LLM call.
 
     Returns
     -------
-    dict with keys: graphs, compiled, decoded, report, ingest_report
+    dict with keys: graph, compiled, decoded, report, ingest_report
     """
     path = Path(path)
-    ext  = path.suffix.lower()
 
-    # ── ingest (routes by extension) ──────────────────────────────────────────
-    if ext in {".csv", ".tsv", ".xlsx"}:
-        graphs, ingest_report = build_graph(
-            path, sinks="unknown", column_mapping=WATER_COLUMN_MAPPING,
-        )
-    else:
-        # lambda_w=0.1: unanimous consensus edges get weight 10× vs single-source
-        graphs, ingest_report = build_graph(path, lambda_w=0.1)
+    # Single file: use build_graph_multi for consistent timestamp collapse
+    graph, ingest_report = build_graph_multi(
+        [path],
+        api_key=_get_api_key(),
+        sinks=sinks,
+        column_mapping=column_mapping,
+    )
 
-    if not graphs:
+    if not graph or not graph.get("claims"):
         print(f"[demo] No graphs produced from {path}")
         return {}
-
-    graph = graphs[0]
 
     # ── compile → L1 → decode (SAME path for both) ───────────────────────────
     compiled  = compile_graph(graph)
@@ -112,16 +121,10 @@ def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
         json.dump(graph, fh, indent=2, default=str)
 
     # ── print report ──────────────────────────────────────────────────────────
-    mode = ingest_report.get("mode", "?")
     print(f"\n{'='*60}")
-    print(f"  run_demo({path.name})   mode={mode}")
+    print(f"  run_demo({path.name})   mode=MERGED")
     print(f"{'='*60}")
-
-    # Mode-specific header
-    if mode == "TABULAR":
-        _print_tabular_header(ingest_report)
-    elif mode == "RECORD":
-        _print_record_header(ingest_report, graph)
+    _print_merge_header(ingest_report, graph)
 
     # Shared sections: claims, identifiability, decoded result, flagged
     _print_common(report, decoded, graph)
@@ -146,23 +149,26 @@ def run_demo(path: str | Path, truth_path: str | Path | None = None) -> dict:
 # Formatted output printers
 # ---------------------------------------------------------------------------
 
-def _print_tabular_header(ingest_report):
-    mapping = ingest_report.get("mapping", {})
-    print(f"\n  Column mapping:")
-    for k, v in mapping.items():
-        print(f"    {k}: {v}")
+def _print_merge_header(ingest_report, graph):
+    n_files = ingest_report.get("n_files", 1)
+    total = ingest_report.get("total_claims", len(graph.get("claims", [])))
+    multi = ingest_report.get("multi_source_claims", 0)
+    span = ingest_report.get("timestamp_span_hours", 0)
+    window = ingest_report.get("window_hours", 24)
+    canon_map = ingest_report.get("canon_map", {})
+    initials = ingest_report.get("opening_initials", {})
 
-
-def _print_record_header(ingest_report, graph):
-    record_count = ingest_report.get("record_count", 0)
-    claims = graph.get("claims", [])
-    weights = [c.get("weight", 1.0) for c in claims]
-    edges = graph.get("edges", [])
-    print(f"\n  Record count: {record_count}")
-    if weights:
-        print(f"  Claim weights: min={min(weights):.4f}  max={max(weights):.4f}  "
-              f"mean={sum(weights)/len(weights):.4f}")
-    print(f"  Reader agreement: {len(edges)} edges extracted")
+    print(f"\n  Files merged: {n_files}")
+    print(f"  Total claims: {total}  (multi-source: {multi})")
+    print(f"  Timestamp span: {span:.1f}h  (window: {window}h)")
+    if canon_map:
+        print(f"  Canonicalized: {len(canon_map)} aliases")
+        for raw, canon in sorted(canon_map.items()):
+            print(f"    {raw} -> {canon}")
+    if initials:
+        print(f"  Opening initials:")
+        for nid, val in sorted(initials.items()):
+            print(f"    {nid}: {val}")
 
 
 def _print_common(report, decoded, graph):

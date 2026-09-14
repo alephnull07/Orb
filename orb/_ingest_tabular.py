@@ -17,7 +17,7 @@ Column mapping schema (returned by LLM):
     "value_column":       "value",
     "time_column":        "timestamp",        // or null
     "channel_column":     "channel",          // or null
-    "channel_map":        {"demand": "node", "flow": "edge"},
+    "channel_map":        {"demand": "node", "flow": "edge", "consumption": "sink"},
     "from_column":        null,               // for edge rows with explicit src
     "to_column":          null,               // for edge rows with explicit tgt
     "id_pattern":         null,               // regex to clean entity_column values
@@ -53,7 +53,7 @@ Return ONLY valid JSON matching this exact schema — no markdown fences, no com
   "time_column":       "<column containing timestamps, or null>",
   "channel_column":    "<column that distinguishes claim types, or null>",
   "channel_map":       {{
-    "<channel_value>": "node" | "edge"
+    "<channel_value>": "node" | "edge" | "sink"
   }},
   "from_column":       "<explicit source-node column for edge rows, or null>",
   "to_column":         "<explicit target-node column for edge rows, or null>",
@@ -64,14 +64,22 @@ Return ONLY valid JSON matching this exact schema — no markdown fences, no com
 
 Rules:
 - Include ONLY channels that represent raw physical observations \
-(flow, demand, pressure, stock, temperature, current…).
+(flow, demand, pressure, stock, temperature, current…) or known \
+consumption/losses (consumption, burn, usage, loss, drawdown).
 - EXCLUDE any channel whose name or values encode labels, anomalies, \
 faults, corruptions, ground truth, or the quantity being estimated \
 (e.g. leak_demand, label, is_anomaly, ground_truth, fault_flag).
-- For "node" channels the entity_column value identifies a node.
+- For "node" channels the entity_column value identifies a node \
+and the value is a quantity observation (stock level, demand, etc.).
 - For "edge" channels the entity_column value identifies a link; \
-  from_column / to_column supply explicit endpoints if present, \
-  otherwise the link ID is used as the edge identifier.
+from_column / to_column supply explicit endpoints if present, \
+otherwise the link ID is used as the edge identifier.
+- For "sink" channels (consumption, burn, usage, loss, drawdown) \
+the entity_column value identifies the node consuming the resource \
+and the value is the known quantity consumed. These are NOT stock \
+observations — they are known outflows that adjust the balance.
+- If a channel cannot be confidently classified as node, edge, or \
+sink, add it to excluded_channels — do NOT guess "node".
 """
 
 
@@ -115,10 +123,11 @@ def _apply_mapping(
     rows: list[dict],
     mapping: dict,
     exclusions: list[dict],
-) -> tuple[dict[str, list[dict]], set[str], set[tuple]]:
+) -> tuple[dict[str, list[dict]], set[str], set[tuple], dict[str, float], set[str]]:
     """
     Apply the column mapping to every row in pure Python.
-    Returns (claims_by_ts, node_ids_seen, edge_tuples_seen).
+    Returns (claims_by_ts, node_ids_seen, edge_tuples_seen, known_sinks,
+             unmapped_channels).
     Zero LLM calls.
     """
     entity_col   = mapping.get("entity_column", "")
@@ -130,6 +139,7 @@ def _apply_mapping(
     to_col       = mapping.get("to_column")
     id_pattern   = mapping.get("id_pattern")
     excluded     = set(mapping.get("excluded_channels", []))
+    excluded    |= {e["name"] for e in exclusions}     # leakage guard + LLM
     excluded_col_names = {e["name"] for e in exclusions}
 
     id_re = re.compile(id_pattern) if id_pattern else None
@@ -137,6 +147,8 @@ def _apply_mapping(
     claims_by_ts: dict[str, list[dict]] = {}
     nodes_seen: set[str] = set()
     edges_seen: set[tuple] = set()
+    known_sinks: dict[str, float] = {}          # node_id -> total consumption
+    unmapped_channels: set[str] = set()
     claim_idx = 0
 
     for row in rows:
@@ -166,9 +178,33 @@ def _apply_mapping(
             continue
 
         ts = row.get(time_col, "all") if time_col else "all"
-        primitive = channel_map.get(channel, "node")
+        primitive = channel_map.get(channel)
 
-        if primitive == "edge":
+        # Channels not in channel_map are unmapped — skip, don't guess "node"
+        if primitive is None:
+            if channel:
+                unmapped_channels.add(channel)
+            else:
+                primitive = "node"      # no channel column → everything is node
+
+        if primitive == "sink":
+            # Known consumption — goes to node's known_sinks, NOT a claim row
+            nodes_seen.add(entity)
+            known_sinks[entity] = known_sinks.get(entity, 0.0) + value
+            continue
+        elif primitive == "sink_obs":
+            # Observation of an unknown sink variable (e.g. leak meter).
+            # Creates a type="sink" claim — a row in H, not a known value.
+            nodes_seen.add(entity)
+            claim = {
+                "id": f"c{claim_idx}",
+                "type": "sink",
+                "ref": entity,
+                "value": value,
+                "source": channel or entity_col,
+                "weight": 1.0,
+            }
+        elif primitive == "edge":
             src = row.get(from_col, entity).strip() if from_col else entity
             tgt = row.get(to_col, "NETWORK").strip() if to_col else "NETWORK"
             edge_key = (src, tgt)
@@ -182,17 +218,7 @@ def _apply_mapping(
                 "source": channel or entity_col,
                 "weight": 1.0,
             }
-        elif primitive == "sink":
-            nodes_seen.add(entity)
-            claim = {
-                "id": f"c{claim_idx}",
-                "type": "sink",
-                "ref": entity,
-                "value": value,
-                "source": channel or entity_col,
-                "weight": 1.0,
-            }
-        else:
+        elif primitive == "node":
             nodes_seen.add(entity)
             claim = {
                 "id": f"c{claim_idx}",
@@ -202,11 +228,15 @@ def _apply_mapping(
                 "source": channel or entity_col,
                 "weight": 1.0,
             }
+        else:
+            # Unknown primitive value in channel_map — skip
+            unmapped_channels.add(channel)
+            continue
 
         claims_by_ts.setdefault(ts, []).append(claim)
         claim_idx += 1
 
-    return claims_by_ts, nodes_seen, edges_seen
+    return claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped_channels
 
 
 def _build_graphs(
@@ -214,6 +244,7 @@ def _build_graphs(
     nodes_seen: set[str],
     edges_seen: set[tuple],
     sinks: str | None = None,
+    known_sinks: dict[str, float] | None = None,
 ) -> list[dict]:
     """Build one compile.py-format graph per timestamp bucket."""
     # Include all edge endpoints as nodes so compile.py balance rows are valid
@@ -227,10 +258,12 @@ def _build_graphs(
             return "unknown"
         return "none"
 
-    graph_nodes = [
-        {"id": nid, "initial": 0.0, "sinks": _sink_mode(nid)}
-        for nid in sorted(all_nodes)
-    ]
+    graph_nodes = []
+    for nid in sorted(all_nodes):
+        node: dict = {"id": nid, "initial": 0.0, "sinks": _sink_mode(nid)}
+        if known_sinks and nid in known_sinks:
+            node["known_sinks"] = known_sinks[nid]
+        graph_nodes.append(node)
     graph_edges = [
         {"id": f"e_{src}_{tgt}", "from": src, "to": tgt}
         for (src, tgt) in sorted(edges_seen)
@@ -287,27 +320,50 @@ def run_tabular_mode(
 
     print(f"\n[ingest] Column mapping:\n{json.dumps(mapping, indent=2)}\n")
 
+    # Leakage guard on channel VALUES (e.g. "leak_demand" inside the channel col)
+    ch_col = mapping.get("channel_column")
+    if ch_col and ch_col in headers:
+        ch_idx = headers.index(ch_col)
+        unique_channels = sorted({r[ch_col] if isinstance(r, dict) else r[ch_idx]
+                                   for r in rows if (r[ch_col] if isinstance(r, dict) else r[ch_idx])})
+        _, ch_val_exclusions = leakage_guard(unique_channels)
+    else:
+        ch_val_exclusions = []
+
     # Merge LLM-requested exclusions with leakage-guard exclusions
     llm_excluded = set(mapping.get("excluded_channels", []))
-    all_exclusions = [*col_exclusions, *[
+    already_excluded = {e["name"] for e in col_exclusions} | {e["name"] for e in ch_val_exclusions}
+    all_exclusions = [*col_exclusions, *ch_val_exclusions, *[
         {"name": ch, "reason": "excluded by column-mapping LLM"}
         for ch in llm_excluded
-        if ch not in {e["name"] for e in col_exclusions}
+        if ch not in already_excluded
     ]]
 
     # Apply mapping (pure Python, zero LLM)
-    claims_by_ts, nodes_seen, edges_seen = _apply_mapping(
+    claims_by_ts, nodes_seen, edges_seen, known_sinks, unmapped = _apply_mapping(
         headers, rows, mapping, all_exclusions
     )
     validate_claims([c for cs in claims_by_ts.values() for c in cs])
 
-    graphs = _build_graphs(claims_by_ts, nodes_seen, edges_seen, sinks=sinks)
+    if unmapped:
+        # Auto-exclude unmapped channels and warn
+        for ch in sorted(unmapped):
+            all_exclusions.append({
+                "name": ch,
+                "reason": "channel not in channel_map — excluded rather than guessing",
+            })
+
+    graphs = _build_graphs(
+        claims_by_ts, nodes_seen, edges_seen,
+        sinks=sinks, known_sinks=known_sinks,
+    )
 
     report = {
         "mode": "TABULAR",
         "source_file": str(path),
         "mapping": mapping,
         "exclusions": all_exclusions,
+        "known_sinks": known_sinks,
         "timestamp_buckets": [
             {"timestamp": ts, "n_claims": len(cs)}
             for ts, cs in sorted(claims_by_ts.items())

@@ -210,6 +210,15 @@ def _run_agent(agent_name: str, messages: list[dict],
 
     key = get_api_key(api_key)
     if not key:
+        n_nodes = len(regex_graph.get("nodes", []))
+        n_edges = len(regex_graph.get("edges", []))
+        if n_nodes == 0 and n_edges == 0:
+            print(
+                f"  [WARNING] {agent_name}: LLM unavailable (no ANTHROPIC_API_KEY), "
+                f"regex extractors matched 0 nodes and 0 edges. "
+                f"Set ANTHROPIC_API_KEY for LLM-based extraction.",
+                file=sys.stderr,
+            )
         return regex_graph
 
     # LLM extraction via extract_llm (builds prompt, calls API, parses JSON)
@@ -222,6 +231,13 @@ def _run_agent(agent_name: str, messages: list[dict],
         llm_graph = None
 
     if llm_graph:
+        regex_empty = (
+            not regex_graph.get("nodes")
+            and not regex_graph.get("edges")
+        )
+        if regex_empty:
+            # Regex found nothing — LLM is the only source, use it directly
+            return llm_graph
         # Scout: regex gates topology (no new edges from LLM)
         if agent_name == "scout":
             return _union_agent(regex_graph, llm_graph, allow_new_edges=False)
@@ -353,9 +369,12 @@ def extract_records(
             name = futs[fut]
             graphs[name] = fut.result()
 
-    # Collapse aliased node names (e.g. "Alpha depot" / "Alpha-1" / "ALPHA")
-    # before merge so consensus sees a single key per physical site.
-    _collapse_node_aliases(graphs)
+    # Collapse aliased node names only when using regex extractors.
+    # LLM readers produce clean, consistent names — collapsing by leading
+    # token would merge distinct sites like "FOB ALPHA" and "FOB BRAVO".
+    key = get_api_key(api_key)
+    if not key:
+        _collapse_node_aliases(graphs)
 
     consensus = merge([graphs["scout"], graphs["receiver"], graphs["auditor"]])
     return consensus, {}
@@ -443,12 +462,32 @@ def run_record_mode(
     text = path.read_text(encoding="utf-8", errors="replace")
     records = split_records(text, str(path))
 
+    # Determine extraction mode: LLM if key available, else regex-only
+    key = get_api_key(api_key)
+    using_llm = bool(key)
+    extraction_mode = "LLM" if using_llm else "REGEX_ONLY"
+
+    if not using_llm:
+        print(
+            f"\n  *** LLM UNAVAILABLE — using regex extractors only ***\n"
+            f"  Regex patterns are narrow and may miss most records.\n"
+            f"  Set ANTHROPIC_API_KEY for LLM-based extraction.\n",
+            file=sys.stderr,
+        )
+
     consensus, _ = extract_records(records, api_key=api_key, cache=cache, max_workers=max_workers)
     graph = consensus_to_graph(consensus, lambda_w=lambda_w)
 
     # Group by timestamp bucket ("all" window for text files)
     ts_bucket = "all"
     graphs = [graph] if (graph["nodes"] or graph["claims"]) else []
+
+    if not graphs and not using_llm:
+        print(
+            f"  *** NO GRAPH PRODUCED — regex extractors found nothing. ***\n"
+            f"  This file requires LLM readers. Set ANTHROPIC_API_KEY.\n",
+            file=sys.stderr,
+        )
 
     report_records = [
         {"record_id": r["record_id"], "file": r["file"], "line": r["line"]}
@@ -457,6 +496,7 @@ def run_record_mode(
 
     report = {
         "mode": "RECORD",
+        "extraction_mode": extraction_mode,
         "source_file": str(path),
         "record_count": len(records),
         "records": report_records,

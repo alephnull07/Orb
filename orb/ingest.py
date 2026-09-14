@@ -1,7 +1,9 @@
 """
 orb/ingest.py
 -------------
-Public entry point: build_graph(path) → (list[graph_dict], report_dict)
+Public entry points:
+  build_graph(path)            → (list[graph_dict], report_dict)  per-file
+  build_graph_multi(paths)     → (graph_dict, merge_report)       merged
 
 Routing (by extension, no LLM):
   .csv / .tsv / .xlsx  → TABULAR mode  (_ingest_tabular.run_tabular_mode)
@@ -22,6 +24,7 @@ from ._cache import Cache
 from ._ingest_record  import run_record_mode
 from ._ingest_tabular import run_tabular_mode
 from ._ingest_utils   import leakage_guard, validate_claims, VALID_TYPES  # re-export
+from ._merge import merge_graphs
 
 
 # ── routing ────────────────────────────────────────────────────────────────────
@@ -88,3 +91,37 @@ def build_graph(
         graphs, report = run_record_mode(path, api_key=api_key, lambda_w=lambda_w, cache=cache)
 
     return graphs, report
+
+
+def build_graph_multi(
+    paths: list[str | Path],
+    api_key: str | None = None,
+    lambda_w: float = 1.0,
+    cache_dir: str | Path | None = None,
+    sinks: str | None = None,
+    window_hours: float = 24.0,
+    column_mapping: dict | None = None,
+) -> tuple[dict, dict]:
+    """
+    Ingest multiple files, merge into ONE graph.
+
+    Each file is ingested via build_graph (per-file routing unchanged).
+    Then merge_graphs canonicalizes node names, sums edge events,
+    deduplicates claims, and collapses timestamp buckets within *window_hours*.
+
+    Returns (graph_dict, merge_report).
+    """
+    per_file: list[tuple[list[dict], dict]] = []
+    for p in paths:
+        graphs, report = build_graph(
+            Path(p), api_key=api_key, lambda_w=lambda_w,
+            cache_dir=cache_dir, sinks=sinks,
+            column_mapping=column_mapping,
+        )
+        per_file.append((graphs, report))
+
+    return merge_graphs(
+        per_file,
+        window_hours=window_hours,
+        sinks=sinks or "none",
+    )

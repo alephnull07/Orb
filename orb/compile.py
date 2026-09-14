@@ -24,7 +24,7 @@ Claim types:
   "aggregate" — measures sum of qty[refs]    H row: +1 at each qty col
 
 Balance constraint for node i  (one row of A_eq):
-  qty[i]  -  Σ flow_in[j]  +  Σ flow_out[j]  +  sink[i]  =  initial[i]
+  qty[i]  -  Σ flow_in[j]  +  Σ flow_out[j]  +  sink[i]  =  initial[i] - known_sinks[i]
 
 Returns dict:
   H, y, w       — observation matrix, values, weights   (shapes m×n, m, m)
@@ -134,7 +134,7 @@ def compile(graph: dict) -> dict:  # noqa: A001
             A_eq[i, flow_cols[eid]] = 1.0
         if nid in sink_cols:
             A_eq[i, sink_cols[nid]] = 1.0
-        b_eq[i] = float(n.get("initial", 0.0))
+        b_eq[i] = float(n.get("initial", 0.0)) - float(n.get("known_sinks", 0.0))
 
     # ── 4. Sink penalty in objective ─────────────────────────────────────────
     w_sink = np.zeros(n_vars)

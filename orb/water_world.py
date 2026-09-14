@@ -34,7 +34,7 @@ WATER_COLUMN_MAPPING = {
     "value_column": "value",
     "time_column": "timestamp",
     "channel_column": "channel",
-    "channel_map": {"demand": "node", "flow": "edge", "sink_meter": "sink"},
+    "channel_map": {"demand": "node", "flow": "edge", "sink_meter": "sink_obs"},
     "from_column": "from_node",
     "to_column": "to_node",
     "id_pattern": None,
