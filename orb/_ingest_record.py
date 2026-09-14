@@ -19,8 +19,12 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from collections import defaultdict
+
 from src.etl import agent_scout, agent_receiver, agent_auditor
 from src.etl.consensus import merge
+from src.etl.llm import extract_llm, get_api_key
+from src.etl.textutil import canon, slug
 
 # ── record splitting ─────────────────────────────────────────────────────────
 
@@ -154,13 +158,170 @@ def records_to_messages(records: list[dict]) -> list[dict]:
 
 # ── extraction + consensus ────────────────────────────────────────────────────
 
-def _run_agent(agent_name: str, messages: list[dict]) -> dict:
-    agents = {
-        "scout":    agent_scout.extract,
-        "receiver": agent_receiver.extract,
-        "auditor":  agent_auditor.extract,
-    }
-    return agents[agent_name](messages, topology=None)
+_REGEX_AGENTS = {
+    "scout":    agent_scout.extract,
+    "receiver": agent_receiver.extract,
+    "auditor":  agent_auditor.extract,
+}
+
+
+def _union_agent(primary: dict, secondary: dict, allow_new_edges: bool = True) -> dict:
+    """Merge two agent graphs (primary wins on conflicts). Mirrors src/etl/run.py."""
+    nodes = {n["key"]: dict(n) for n in primary.get("nodes") or []}
+    for n in secondary.get("nodes") or []:
+        if n["key"] not in nodes:
+            nodes[n["key"]] = dict(n)
+        else:
+            existing = set(nodes[n["key"]].get("aliases", []))
+            existing.update(n.get("aliases", []))
+            nodes[n["key"]]["aliases"] = sorted(existing)
+
+    edges = {(e["source_key"], e["target_key"]): dict(e) for e in primary.get("edges") or []}
+    for e in secondary.get("edges") or []:
+        k = (e["source_key"], e["target_key"])
+        if k not in edges:
+            if allow_new_edges:
+                edges[k] = dict(e)
+        else:
+            ev = list(edges[k].get("evidence") or [])
+            for mid in e.get("evidence") or []:
+                if mid not in ev:
+                    ev.append(mid)
+            edges[k]["evidence"] = ev
+
+    constraints = list(primary.get("trusted_constraint_rows") or [])
+    seen_nodes = {c["node"] for c in constraints}
+    for c in secondary.get("trusted_constraint_rows") or []:
+        if c["node"] not in seen_nodes:
+            constraints.append(c)
+            seen_nodes.add(c["node"])
+
+    out = dict(primary)
+    out["nodes"] = list(nodes.values())
+    out["edges"] = list(edges.values())
+    out["trusted_constraint_rows"] = constraints
+    return out
+
+
+def _run_agent(agent_name: str, messages: list[dict],
+               api_key: str | None = None, cache=None) -> dict:
+    """Run regex extraction as baseline, optionally overlay LLM extraction."""
+    regex_graph = _REGEX_AGENTS[agent_name](messages, topology=None)
+
+    key = get_api_key(api_key)
+    if not key:
+        return regex_graph
+
+    # LLM extraction via extract_llm (builds prompt, calls API, parses JSON)
+    try:
+        llm_graph = extract_llm(agent_name, messages, api_key=key, topology=None)
+        if cache:
+            cache.llm_calls += 1  # track for reporting
+    except Exception as e:
+        print(f"  [warn] LLM call failed for {agent_name}: {e}", file=sys.stderr)
+        llm_graph = None
+
+    if llm_graph:
+        # Scout: regex gates topology (no new edges from LLM)
+        if agent_name == "scout":
+            return _union_agent(regex_graph, llm_graph, allow_new_edges=False)
+        return _union_agent(llm_graph, regex_graph)
+
+    return regex_graph
+
+
+def _collapse_node_aliases(graphs: dict[str, dict]) -> None:
+    """
+    Collapse node aliases across agent graphs by leading token.
+
+    Different agents may produce "Alpha depot" (key="alpha depot"),
+    "Alpha-1" (key="alpha 1"), "ALPHA" (key="alpha") — three distinct keys
+    that should merge to one node. Groups by the first word of the canon key
+    and rewrites all graphs in-place so merge() sees a single key per group.
+    """
+    # Collect all nodes across all agent graphs
+    all_nodes: list[dict] = []
+    for g in graphs.values():
+        all_nodes.extend(g.get("nodes") or [])
+
+    # Group by leading token of canon key
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for n in all_nodes:
+        leading = n["key"].split()[0] if n["key"].strip() else n["key"]
+        groups[leading].append(n)
+
+    # Build rewrite maps: old_key -> canonical_key, old_id -> canonical_id
+    key_map: dict[str, str] = {}   # old canon key → canonical canon key
+    id_map: dict[str, str] = {}    # old slug id → canonical slug id
+    id_display: dict[str, str] = {}  # old slug id → canonical display
+
+    for leading, members in groups.items():
+        unique_keys = {n["key"] for n in members}
+        if len(unique_keys) <= 1:
+            continue  # no aliasing needed
+
+        # Pick canonical = longest display name
+        canonical_node = max(members, key=lambda n: len(n.get("display", "")))
+        c_key = canonical_node["key"]
+        c_id = canonical_node["id"]
+        c_display = canonical_node["display"]
+
+        # Collect all aliases from the group
+        all_aliases: set[str] = set()
+        for n in members:
+            all_aliases.update(n.get("aliases", []))
+            all_aliases.add(n.get("display", ""))
+
+        for n in members:
+            if n["key"] != c_key:
+                key_map[n["key"]] = c_key
+                id_map[n["id"]] = c_id
+                id_display[n["id"]] = c_display
+
+        # Update canonical node's aliases to include all
+        canonical_node["aliases"] = sorted(all_aliases - {""})
+
+    if not key_map:
+        return
+
+    # Rewrite every graph in-place
+    for g in graphs.values():
+        # Rewrite nodes: merge aliased nodes into canonical
+        seen_keys: set[str] = set()
+        new_nodes = []
+        for n in (g.get("nodes") or []):
+            old_key = n["key"]
+            new_key = key_map.get(old_key, old_key)
+            if new_key in seen_keys:
+                # Already have canonical node; just merge aliases
+                existing = next(nn for nn in new_nodes if nn["key"] == new_key)
+                for a in n.get("aliases", []):
+                    if a not in existing["aliases"]:
+                        existing["aliases"].append(a)
+                existing["aliases"] = sorted(existing["aliases"])
+                continue
+            if old_key in key_map:
+                old_id = n["id"]
+                n["key"] = new_key
+                n["id"] = id_map.get(old_id, old_id)
+                n["display"] = id_display.get(old_id, n["display"])
+            seen_keys.add(new_key)
+            new_nodes.append(n)
+        g["nodes"] = new_nodes
+
+        # Rewrite edges
+        for e in (g.get("edges") or []):
+            e["source_key"] = key_map.get(e["source_key"], e["source_key"])
+            e["target_key"] = key_map.get(e["target_key"], e["target_key"])
+            e["source"] = id_map.get(e["source"], e["source"])
+            e["target"] = id_map.get(e["target"], e["target"])
+
+        # Rewrite trusted_constraint_rows
+        for c in (g.get("trusted_constraint_rows") or []):
+            old_id = c.get("node", "")
+            if old_id in id_map:
+                c["node"] = id_map[old_id]
+                c["display"] = id_display.get(old_id, c.get("display", ""))
 
 
 def extract_records(
@@ -171,7 +332,7 @@ def extract_records(
 ) -> tuple[list[dict], dict]:
     """
     Run 3-reader extraction on *records*.
-    Returns (claims, meta) where meta = {agent_values_per_edge}.
+    Returns (consensus, meta).
     Concurrency: 3 agent calls run concurrently inside this function;
     callers may call extract_records() concurrently for multiple batches
     (max_workers is forwarded from build_graph).
@@ -181,16 +342,20 @@ def extract_records(
 
     messages = records_to_messages(records)
 
-    # Run 3 agents concurrently (regex; LLM optional via cache)
+    # Run 3 agents concurrently (regex + LLM when api_key present)
     with ThreadPoolExecutor(max_workers=3) as pool:
         futs = {
-            pool.submit(_run_agent, name, messages): name
+            pool.submit(_run_agent, name, messages, api_key=api_key, cache=cache): name
             for name in ["scout", "receiver", "auditor"]
         }
         graphs = {}
         for fut in as_completed(futs):
             name = futs[fut]
             graphs[name] = fut.result()
+
+    # Collapse aliased node names (e.g. "Alpha depot" / "Alpha-1" / "ALPHA")
+    # before merge so consensus sees a single key per physical site.
+    _collapse_node_aliases(graphs)
 
     consensus = merge([graphs["scout"], graphs["receiver"], graphs["auditor"]])
     return consensus, {}
@@ -297,6 +462,45 @@ def run_record_mode(
         "records": report_records,
         "timestamp_buckets": [
             {"timestamp": ts_bucket, "n_claims": len(graph.get("claims", []))}
+        ],
+        "llm_calls": cache.llm_calls if cache else 0,
+    }
+    return graphs, report
+
+
+def run_record_mode_multi(
+    paths: list[Path],
+    api_key: str | None = None,
+    lambda_w: float = 1.0,
+    cache=None,
+    max_workers: int = 10,
+) -> tuple[list[dict], dict]:
+    """
+    RECORD mode for multiple files — reads each, concatenates records,
+    then runs a single extraction + consensus pipeline.
+    """
+    all_records: list[dict] = []
+    for p in paths:
+        text = p.read_text(encoding="utf-8", errors="replace")
+        all_records.extend(split_records(text, str(p)))
+
+    consensus, _ = extract_records(all_records, api_key=api_key, cache=cache, max_workers=max_workers)
+    graph = consensus_to_graph(consensus, lambda_w=lambda_w)
+
+    graphs = [graph] if (graph["nodes"] or graph["claims"]) else []
+
+    report_records = [
+        {"record_id": r["record_id"], "file": r["file"], "line": r["line"]}
+        for r in all_records
+    ]
+
+    report = {
+        "mode": "RECORD",
+        "source_files": [str(p) for p in paths],
+        "record_count": len(all_records),
+        "records": report_records,
+        "timestamp_buckets": [
+            {"timestamp": "all", "n_claims": len(graph.get("claims", []))}
         ],
         "llm_calls": cache.llm_calls if cache else 0,
     }

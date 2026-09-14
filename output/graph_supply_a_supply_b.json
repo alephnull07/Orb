@@ -1,0 +1,65 @@
+{
+  "nodes": [
+    {
+      "id": "ALPHA_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "BRAVO_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CHARLIE_OUTPOST",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "ALPHA_DEPOT",
+      "to": "BRAVO_CACHE"
+    },
+    {
+      "id": "e1",
+      "from": "ALPHA_DEPOT",
+      "to": "CHARLIE_OUTPOST"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 300.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 150.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c2",
+      "type": "node",
+      "ref": "BRAVO_CACHE",
+      "value": 300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "node",
+      "ref": "CHARLIE_OUTPOST",
+      "value": 500.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    }
+  ]
+}

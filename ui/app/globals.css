@@ -774,6 +774,163 @@ button, input { font: inherit; cursor: pointer; }
 .diff-content > div { color: var(--text3); }
 .diff-content b { font-size: 9px; }
 
+/* ── Mode badge ── */
+.mode-badge {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  background: rgba(79, 156, 249, 0.1);
+  border: 1px solid rgba(79, 156, 249, 0.25);
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+
+/* ── Mode info (column mapping / record info) ── */
+.mode-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mode-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+
+.mode-info-key {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--text3);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.mode-info-val {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--text2);
+  text-align: right;
+  word-break: break-all;
+  min-width: 0;
+}
+
+/* ── Identifiability card ── */
+.ident-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.ident-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ident-k {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.ident-k-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--text3);
+}
+
+.ident-k-value {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ident-k-value.green { color: var(--green); }
+.ident-k-value.red   { color: var(--red); }
+
+.ident-warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--amber);
+  background: rgba(232, 149, 42, 0.08);
+  border: 1px solid rgba(232, 149, 42, 0.2);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+}
+
+.ident-details {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--text3);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Result tables (decoded nodes/edges/sinks, claims) ── */
+.result-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 4px;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+  min-height: 28px;
+}
+
+.result-row.highlight {
+  background: rgba(232, 149, 42, 0.06);
+  border-left: 2px solid var(--amber);
+}
+
+.result-rank {
+  color: var(--text3);
+  width: 24px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.result-id {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.result-val {
+  flex-shrink: 0;
+  text-align: right;
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.result-val.amber { color: var(--amber); font-weight: 600; }
+
 /* ── Animations ── */
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin  { to { transform: rotate(360deg); } }

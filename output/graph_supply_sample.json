@@ -1,0 +1,91 @@
+{
+  "nodes": [
+    {
+      "id": "ALPHA_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "BRAVO_MAIN_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CHARLIE_OUTPOST",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "DELTA_FORWARD_BASE",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "ALPHA_DEPOT",
+      "to": "BRAVO_MAIN_CACHE"
+    },
+    {
+      "id": "e1",
+      "from": "ALPHA_DEPOT",
+      "to": "CHARLIE_OUTPOST"
+    },
+    {
+      "id": "e2",
+      "from": "ALPHA_DEPOT",
+      "to": "DELTA_FORWARD_BASE"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 75.0,
+      "source": "consensus",
+      "weight": 0.004442
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 150.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 40.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c3",
+      "type": "node",
+      "ref": "BRAVO_MAIN_CACHE",
+      "value": 300.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "node",
+      "ref": "CHARLIE_OUTPOST",
+      "value": 500.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "node",
+      "ref": "DELTA_FORWARD_BASE",
+      "value": 40.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    }
+  ]
+}

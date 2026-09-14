@@ -3,7 +3,7 @@ orb/decode.py
 -------------
 Convert L1 solver output (x_hat, residuals) into human-readable dicts.
 
-decode(x_hat, residuals, compiled, graph, threshold=0.5) -> dict
+decode(x_hat, residuals, compiled, graph, threshold=5.0) -> dict
   nodes    — [{id, qty}]
   edges    — [{id, from, to, flow}]
   sinks    — [{id, sink}]  (only nodes whose sink variable is in state vector)
@@ -19,7 +19,7 @@ def decode(
     residuals: np.ndarray,
     compiled: dict,
     graph: dict,
-    threshold: float = 0.5,
+    threshold: float = 5.0,
 ) -> dict:
     """
     Parameters

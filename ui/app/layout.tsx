@@ -17,8 +17,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ORB — Supply Chain Integrity Monitor',
-  description: 'Outlier-robust bridge for supply chain anomaly detection.',
+  title: 'ORB — Outlier-Robust Estimation',
+  description: 'L1 state estimation with identifiability reporting.',
 }
 export const viewport: Viewport = { colorScheme: 'dark', themeColor: '#07090d' }
 

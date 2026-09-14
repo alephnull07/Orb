@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import Dagre from '@dagrejs/dagre'
 import ReactFlow, {
   Background, Controls, MiniMap,
@@ -12,201 +12,201 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 import {
   Activity, AlertTriangle, ChevronDown, ChevronUp,
-  Ghost, Loader2, Network, Upload, X,
+  Loader2, Network, ShieldAlert, ShieldCheck, Upload, X,
 } from 'lucide-react'
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Types ──────────────────────────────────────────────────────────────────
 
-type EdgeStatus = 'MATCH' | 'CORRUPTED' | 'GHOST'
-type ViewMode   = 'ORIGINAL' | 'L1' | 'TRUTH'
+type ViewMode = 'REPORTED' | 'L1'
 
-interface RawNode { id: string; display?: string; type?: string }
-interface RawEdge {
-  source: string; target: string
-  source_display?: string; target_display?: string
-  source_name?: string;   target_name?: string
-  value_lb: number; method?: string
-  agent_values?: Record<string, number>
+interface DemoResult {
+  ingest_report: {
+    mode: 'TABULAR' | 'RECORD'
+    mapping?: Record<string, any>
+    exclusions?: string[]
+    record_count?: number
+  }
+  report: {
+    n_claims: number
+    n_vars: number
+    rank: number
+    identifiable: boolean
+    correctable_k: number
+  }
+  decoded: {
+    nodes: Array<{ id: string; qty: number }>
+    edges: Array<{ id: string; from: string; to: string; flow: number }>
+    sinks: Array<{ id: string; sink: number }>
+    flagged: Array<{ claim_id: string; residual: number; source: string; type: string }>
+  }
+  graph: {
+    nodes: Array<{ id: string; initial?: number; sinks?: string }>
+    edges: Array<{ id: string; from: string; to: string }>
+    claims: Array<{
+      id: string; type: string; ref?: string; refs?: string[]
+      value: any; source?: string; weight?: number
+    }>
+    lambda_sink?: number
+  }
+  error?: string
 }
-interface GraphData { nodes: RawNode[]; edges: RawEdge[] }
 
-interface EnrichedEdge {
-  id: string; source: string; target: string
-  srcDisplay: string; tgtDisplay: string
-  consensusVal: number; l1Val: number | null; truthVal: number | null
-  status: EdgeStatus
-  agentValues: Record<string, number>
-  method: string
-}
+// ─── Helpers ────────────────────────────────────────────────────────────────
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+const NODE_W = 120
+const NODE_H = 90
+const DELTA_THRESHOLD = 5.0
 
-const keyOf = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
-
-function short(s: string) {
-  const p = s.split(/\s+/)
-  return p.length <= 2 ? s : p.slice(0, 2).join(' ')
-}
-
-// ─── Dagre layout (LR hierarchical, auto-spaced) ─────────────────────────────
-
-const NODE_W = 110  // bounding box width  (orb + label)
-const NODE_H = 80   // bounding box height
-
-function computeLayout(nodes: RawNode[], edges: RawEdge[]): Map<string, { x: number; y: number }> {
+function computeLayout(
+  nodes: Array<{ id: string }>,
+  edges: Array<{ from: string; to: string }>,
+): Map<string, { x: number; y: number }> {
   const g = new Dagre.graphlib.Graph()
   g.setDefaultEdgeLabel(() => ({}))
-  g.setGraph({ rankdir: 'LR', nodesep: 60, ranksep: 160, edgesep: 20 })
-
+  g.setGraph({ rankdir: 'LR', nodesep: 60, ranksep: 140, edgesep: 20 })
   for (const n of nodes) g.setNode(n.id, { width: NODE_W, height: NODE_H })
-  // filter ghost-suppressed edges (value ~0) so they don't distort layout
-  for (const e of edges) if (e.value_lb >= 1) g.setEdge(e.source, e.target)
-
+  for (const e of edges) g.setEdge(e.from, e.to)
   Dagre.layout(g)
-
   return new Map(
     nodes.map(n => {
       const pos = g.node(n.id)
       return [n.id, { x: pos.x - NODE_W / 2, y: pos.y - NODE_H / 2 }]
-    })
+    }),
   )
 }
 
-// ─── Edge enrichment ─────────────────────────────────────────────────────────
-
-function enrichEdges(corrupted: GraphData, l1: GraphData | null, truth: GraphData | null): EnrichedEdge[] {
-  // l1 and corrupted share the same node IDs — match directly
-  const l1Map = new Map(l1?.edges.map(e => [`${e.source}|${e.target}`, e.value_lb]) ?? [])
-
-  // truth uses different IDs — match by display name
-  const truthMap = new Map(
-    truth?.edges.map(e => {
-      const src = keyOf(e.source_name || e.source_display || e.source)
-      const tgt = keyOf(e.target_name || e.target_display || e.target)
-      return [`${src}>>${tgt}`, e.value_lb]
-    }) ?? []
-  )
-
-  return corrupted.edges.map(e => {
-    const l1Val    = l1Map.get(`${e.source}|${e.target}`) ?? null
-    const dispKey  = `${keyOf(e.source_display || e.source)}>>${keyOf(e.target_display || e.target)}`
-    const truthVal = truthMap.get(dispKey) ?? null
-
-    let status: EdgeStatus = 'MATCH'
-    if (l1Val === null || Math.abs(l1Val) < 1)              status = 'GHOST'
-    else if (Math.abs(l1Val - e.value_lb) > 3)              status = 'CORRUPTED'
-
-    return {
-      id: `${e.source}|${e.target}`,
-      source: e.source, target: e.target,
-      srcDisplay: e.source_display || e.source,
-      tgtDisplay: e.target_display || e.target,
-      consensusVal: e.value_lb, l1Val, truthVal,
-      status,
-      agentValues: e.agent_values ?? {},
-      method: e.method ?? '',
-    }
-  })
+function inferNodeType(
+  nodeId: string,
+  edges: Array<{ from: string; to: string }>,
+  node: { sinks?: string },
+): string {
+  const hasIncoming = edges.some(e => e.to === nodeId)
+  if (!hasIncoming) return 'source'
+  if (node.sinks === 'unknown') return 'sink'
+  return 'junction'
 }
 
-// ─── Colors ──────────────────────────────────────────────────────────────────
+/** Average of all claims of a given type pointing at a given ref. */
+function buildClaimedMap(
+  claims: DemoResult['graph']['claims'],
+  type: string,
+): Map<string, number> {
+  const sums = new Map<string, { total: number; count: number }>()
+  for (const c of claims) {
+    if (c.type !== type || c.ref == null) continue
+    const v = Number(c.value)
+    if (isNaN(v)) continue
+    const prev = sums.get(c.ref) ?? { total: 0, count: 0 }
+    sums.set(c.ref, { total: prev.total + v, count: prev.count + 1 })
+  }
+  const out = new Map<string, number>()
+  for (const [ref, { total, count }] of sums) out.set(ref, total / count)
+  return out
+}
 
 const NODE_COLOR: Record<string, string> = {
-  source: '#5b8def', hub: '#5ec2b7', junction: '#5ec2b7', sink: '#d4a054', unknown: '#9aa3b5',
-}
-const EDGE_COLOR: Record<EdgeStatus, string> = {
-  MATCH: '#788395', CORRUPTED: '#e0a14a', GHOST: '#e05d5d',
+  source: '#5b8def', junction: '#5ec2b7', sink: '#5ec2b7', unknown: '#9aa3b5',
 }
 
-// ─── React Flow: Node (actual orb / circle) ───────────────────────────────────
+// ─── ReactFlow: Node ────────────────────────────────────────────────────────
 
 function OrbNode({ data }: NodeProps) {
-  const color  = NODE_COLOR[data.type] || NODE_COLOR.unknown
-  const size   = data.type === 'source' ? 48 : data.type === 'sink' ? 36 : 42
-  const glow   = data.flagged
-    ? `0 0 28px ${color}cc, 0 0 12px ${color}88`
-    : `0 0 16px ${color}55`
+  const color = NODE_COLOR[data.type] || NODE_COLOR.unknown
+  const size = data.type === 'source' ? 48 : 42
+
+  const isL1 = data.view === 'L1'
+  const hasSink = isL1 && data.sinkVal > 1.0
+  const hasDelta = isL1 && data.corrected
+  const glow = hasSink
+    ? '0 0 28px #e8952acc, 0 0 12px #e8952a88'
+    : hasDelta
+      ? '0 0 24px #e8952a99, 0 0 10px #e8952a66'
+      : `0 0 16px ${color}55`
+  const border = (hasSink || hasDelta) ? '#e8952a' : color
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 96 }}>
-      {/* Handles anchored to the orb centre, not the whole div */}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 110 }}>
       <Handle type="target" position={Position.Left}
         style={{ top: size / 2, opacity: 0, width: 6, height: 6 }} />
       <Handle type="source" position={Position.Right}
         style={{ top: size / 2, opacity: 0, width: 6, height: 6 }} />
-
-      {/* The orb */}
       <div style={{
         width: size, height: size, borderRadius: '50%',
-        background: `radial-gradient(circle at 35% 32%, ${color}44 0%, ${color}11 70%)`,
-        border: `2px solid ${color}`,
-        boxShadow: glow,
-        flexShrink: 0,
+        background: `radial-gradient(circle at 35% 32%, ${border}44 0%, ${border}11 70%)`,
+        border: `2px solid ${border}`, boxShadow: glow, flexShrink: 0,
       }} />
-
-      {/* Label below the orb */}
       <div style={{
-        marginTop: 7, fontSize: 10, fontFamily: 'var(--font-mono, ui-monospace, monospace)',
-        fontWeight: 600, color: data.flagged ? '#e0a14a' : '#c8d1dc',
+        marginTop: 6, fontSize: 10,
+        fontFamily: 'var(--font-mono, ui-monospace, monospace)',
+        fontWeight: 600,
+        color: (hasSink || hasDelta) ? '#e8952a' : '#c8d1dc',
         textAlign: 'center', lineHeight: 1.3, whiteSpace: 'nowrap',
-        maxWidth: 96, overflow: 'hidden', textOverflow: 'ellipsis',
+        maxWidth: 110, overflow: 'hidden', textOverflow: 'ellipsis',
       }}>
-        {data.shortLabel}
+        {data.label}
       </div>
-      <div style={{
-        fontSize: 8, color: '#3d4e60', textTransform: 'uppercase',
-        letterSpacing: '0.1em', marginTop: 2,
-      }}>
-        {data.type}
-      </div>
+      {/* Primary value line */}
+      {data.qtyLabel && (
+        <div style={{
+          fontSize: 9, color: hasDelta ? '#e8952a' : '#7a8a9a',
+          fontFamily: 'var(--font-mono, ui-monospace, monospace)',
+          marginTop: 2,
+        }}>
+          {data.qtyLabel}
+        </div>
+      )}
+      {/* "was X" line in L1 view when corrected */}
+      {data.wasLabel && (
+        <div style={{
+          fontSize: 8, color: '#9d6d42',
+          fontFamily: 'var(--font-mono, ui-monospace, monospace)',
+          marginTop: 1, textDecoration: 'line-through', opacity: 0.8,
+        }}>
+          {data.wasLabel}
+        </div>
+      )}
     </div>
   )
 }
 
-// ─── React Flow: Edge ────────────────────────────────────────────────────────
+// ─── ReactFlow: Edge ────────────────────────────────────────────────────────
 
-function OrbEdge({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data, selected }: EdgeProps) {
-  const [path, lx, ly] = getBezierPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition })
-  const color   = EDGE_COLOR[data.status as EdgeStatus]
-  const isDashed = data.status !== 'MATCH'
-
-  // ORIGINAL: show what was reported (wrong values highlighted)
-  // L1: show corrected values, still highlight flagged edges
-  // TRUTH: show truth, ghost edges are already filtered out upstream
-  const displayVal: number | null =
-    data.view === 'ORIGINAL' ? data.consensusVal :
-    data.view === 'L1'       ? data.l1Val :
-    data.truthVal
+function OrbEdge({
+  id, sourceX, sourceY, targetX, targetY,
+  sourcePosition, targetPosition, data, selected,
+}: EdgeProps) {
+  const [path, lx, ly] = getBezierPath({
+    sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition,
+  })
+  const isCorrected = data.view === 'L1' && data.corrected
+  const color = isCorrected ? '#e8952a' : '#788395'
 
   return (
     <>
       <BaseEdge id={id} path={path} style={{
         stroke: color,
-        strokeWidth: data.status === 'MATCH' ? 1.5 : 2.5,
-        strokeDasharray: isDashed ? '7 5' : undefined,
+        strokeWidth: isCorrected ? 2.5 : 1.5,
+        strokeDasharray: isCorrected ? '7 5' : undefined,
         filter: selected ? `drop-shadow(0 0 6px ${color})` : undefined,
-      }} className={isDashed ? 'edge-flow' : ''} />
-
-      <EdgeLabelRenderer>
-        <div className="edge-label" style={{
-          position: 'absolute',
-          transform: `translate(-50%,-50%) translate(${lx}px,${ly}px)`,
-          borderColor: color, cursor: 'pointer',
-          pointerEvents: 'all',
-        }}>
-          {data.status === 'GHOST' && <Ghost size={10} />}
-          {/* ORIGINAL: corrupted edge shows wrong value ~~X~~ → corrected value */}
-          {data.status === 'CORRUPTED' && data.view === 'ORIGINAL'
-            ? <>
-                <s style={{ color: '#9d6d42', marginRight: 2 }}>{data.consensusVal} lb</s>
-                <span style={{ color: '#f0b967' }}>→ {data.l1Val?.toFixed(0)} lb</span>
+      }} className={isCorrected ? 'edge-flow' : ''} />
+      {data.flowLabel && (
+        <EdgeLabelRenderer>
+          <div className="edge-label" style={{
+            position: 'absolute',
+            transform: `translate(-50%,-50%) translate(${lx}px,${ly}px)`,
+            borderColor: color, pointerEvents: 'all',
+          }}>
+            {isCorrected && data.wasFlow != null ? (
+              <>
+                <s style={{ color: '#9d6d42', marginRight: 3 }}>{data.wasFlow}</s>
+                <span style={{ color: '#f0b967' }}>{data.flowLabel}</span>
               </>
-            : displayVal != null
-              ? `${Number(displayVal).toFixed(0)} lb`
-              : null
-          }
-        </div>
-      </EdgeLabelRenderer>
+            ) : (
+              data.flowLabel
+            )}
+          </div>
+        </EdgeLabelRenderer>
+      )}
     </>
   )
 }
@@ -214,134 +214,134 @@ function OrbEdge({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targe
 const nodeTypes = { orb: OrbNode }
 const edgeTypes = { orb: OrbEdge }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
-interface LeakRun { id: string; mae: number | null; matched: number | null; total: number | null }
+// ─── Page ───────────────────────────────────────────────────────────────────
 
 export default function Page() {
-  const [appStatus, setAppStatus]   = useState<'IDLE' | 'RUNNING' | 'COMPLETE'>('IDLE')
-  const [view, setView]             = useState<ViewMode>('ORIGINAL')
+  const [status, setStatus]         = useState<'IDLE' | 'RUNNING' | 'DONE'>('IDLE')
+  const [view, setView]             = useState<ViewMode>('L1')
   const [rawFiles, setRawFiles]     = useState<File[]>([])
   const [isDragging, setIsDragging] = useState(false)
-  const [graphs, setGraphs]         = useState<{ corrupted: GraphData; l1: GraphData; truth: GraphData } | null>(null)
-  const [selected, setSelected]     = useState<EnrichedEdge | null>(null)
-  const [tableOpen, setTableOpen]   = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [result, setResult]         = useState<DemoResult | null>(null)
   const [runError, setRunError]     = useState<string | null>(null)
-  const [leakRuns, setLeakRuns]     = useState<LeakRun[]>([])
-  const [activeRun, setActiveRun]   = useState<string | null>(null)
+  const [claimsOpen, setClaimsOpen] = useState(false)
+  const [edgesOpen, setEdgesOpen]   = useState(false)
+  const [nodesOpen, setNodesOpen]   = useState(false)
   const fileInputRef                = useRef<HTMLInputElement>(null)
-
-  // Load leakdb run list on mount
-  useEffect(() => {
-    fetch('/api/runs').then(r => r.json()).then((runs: LeakRun[]) => {
-      setLeakRuns(runs)
-      if (runs.length > 0) loadLeakRun(runs[0].id)
-    }).catch(() => {})
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const acceptFiles = (list: FileList | null | undefined) => {
     if (!list) return
-    const valid = Array.from(list).filter(f => /\.(txt|jsonl|csv|json)$/i.test(f.name))
+    const valid = Array.from(list).filter(f => /\.(txt|csv|json|jsonl|tsv|xlsx)$/i.test(f.name))
     setRawFiles(prev => {
-      const seen = new Set(prev.map(f => f.name))
-      return [...prev, ...valid.filter(f => !seen.has(f.name))]
+      const names = new Set(prev.map(f => f.name))
+      const fresh = valid.filter(f => !names.has(f.name))
+      return [...prev, ...fresh]
     })
   }
 
-  const loadLeakRun = (runId: string) => {
-    setActiveRun(runId)
-    setAppStatus('RUNNING')
-    fetch(`/api/graphs?run=${runId}`)
-      .then(r => r.json())
-      .then(d => { setGraphs(d); setAppStatus('COMPLETE') })
-      .catch(() => setAppStatus('IDLE'))
-  }
-
-  const loadGraphs = () =>
-    fetch('/api/graphs').then(r => r.json()).then(d => { setGraphs(d); setAppStatus('COMPLETE') })
-
-  // Enriched edges: corrupted vs l1 vs truth
-  const enriched = useMemo(
-    () => graphs ? enrichEdges(graphs.corrupted, graphs.l1, graphs.truth) : [],
-    [graphs]
-  )
-
-  const flagged = useMemo(() => enriched.filter(e => e.status !== 'MATCH'), [enriched])
-
-  const stats = useMemo(() => {
-    const real   = enriched.filter(e => e.status !== 'GHOST' && e.truthVal !== null && e.l1Val !== null)
-    const errors = real.map(e => Math.abs((e.l1Val ?? 0) - (e.truthVal ?? 0)))
-    return {
-      meanErr:   errors.length ? errors.reduce((a, b) => a + b, 0) / errors.length : 0,
-      exact:     errors.filter(e => e < 1).length,
-      realEdges: enriched.filter(e => e.status !== 'GHOST').length,
-      corrupted: enriched.filter(e => e.status === 'CORRUPTED').length,
-      ghost:     enriched.filter(e => e.status === 'GHOST').length,
-    }
-  }, [enriched])
-
-  // Build react-flow nodes (layout computed once from corrupted graph)
-  const { flowNodes, baseEdges } = useMemo(() => {
-    if (!graphs) return { flowNodes: [], baseEdges: [] }
-    const pos         = computeLayout(graphs.corrupted.nodes, graphs.corrupted.edges)
-    const flaggedIds  = new Set(flagged.flatMap(e => [e.source, e.target]))
-
-    const flowNodes: Node[] = graphs.corrupted.nodes.map(n => ({
-      id: n.id, type: 'orb',
-      position: pos.get(n.id) ?? { x: 0, y: 0 },
-      data: { shortLabel: short(n.display || n.id), type: n.type || 'unknown', flagged: flaggedIds.has(n.id) },
-    }))
-
-    const baseEdges: Edge[] = enriched.map(e => ({
-      id: e.id, source: e.source, target: e.target, type: 'orb',
-      data: { ...e, view },
-    }))
-
-    return { flowNodes, baseEdges }
-  }, [graphs, enriched, flagged])
-
-  // Only flag nodes/edges in L1 view — ORIGINAL and TRUTH look clean
-  const viewNodes = useMemo(() => {
-    if (view === 'L1') return flowNodes
-    return flowNodes.map(n => ({ ...n, data: { ...n.data, flagged: false } }))
-  }, [flowNodes, view])
-
-  const viewEdges = useMemo(() => {
-    const neutralise = view === 'ORIGINAL' || view === 'TRUTH'
-    let edges = baseEdges.map(e => ({
-      ...e,
-      data: {
-        ...e.data,
-        view,
-        status: neutralise ? 'MATCH' : e.data.status,
-      },
-    }))
-    if (view === 'TRUTH') edges = edges.filter(e => e.data.truthVal !== null)
-    return edges
-  }, [baseEdges, view])
-
-  const allLoaded = rawFiles.length > 0
-
   const handleRun = async () => {
-    setAppStatus('RUNNING'); setRunError(null)
+    if (rawFiles.length === 0) return
+    setStatus('RUNNING'); setRunError(null); setResult(null)
     try {
       const form = new FormData()
-      for (const f of rawFiles) form.append('files', f)
-      const r = await fetch('/api/run', { method: 'POST', body: form })
+      for (const f of rawFiles) form.append('file', f)
+      const r = await fetch('/api/demo', { method: 'POST', body: form })
       const d = await r.json()
-      if (!d.ok) throw new Error(d.error)
-      await loadGraphs()
-    } catch (e) {
-      setRunError(String(e)); setAppStatus('IDLE')
+      if (d.error) throw new Error(d.error)
+      setResult(d); setStatus('DONE')
+    } catch (e: any) {
+      setRunError(String(e.message || e)); setStatus('IDLE')
     }
   }
 
+  // ── Claimed (reported) value maps ──
+  const { claimedNodeQty, claimedEdgeFlow } = useMemo(() => {
+    if (!result) return { claimedNodeQty: new Map(), claimedEdgeFlow: new Map() }
+    return {
+      claimedNodeQty:  buildClaimedMap(result.graph.claims, 'node'),
+      claimedEdgeFlow: buildClaimedMap(result.graph.claims, 'edge'),
+    }
+  }, [result])
+
+  // ── Build ReactFlow graph — depends on result AND view ──
+  const { flowNodes, flowEdges } = useMemo(() => {
+    if (!result) return { flowNodes: [] as Node[], flowEdges: [] as Edge[] }
+    const { graph, decoded } = result
+
+    const l1Qty   = new Map(decoded.nodes.map(n => [n.id, n.qty]))
+    const sinkMap = new Map(decoded.sinks.map(s => [s.id, s.sink]))
+    const l1Flow  = new Map(decoded.edges.map(e => [e.id, e.flow]))
+
+    const pos = computeLayout(graph.nodes, graph.edges)
+
+    const flowNodes: Node[] = graph.nodes.map(n => {
+      const reported = claimedNodeQty.get(n.id)
+      const l1       = l1Qty.get(n.id)
+      const sink     = sinkMap.get(n.id) ?? 0
+      const delta    = (reported != null && l1 != null) ? Math.abs(l1 - reported) : 0
+      const corrected = delta > DELTA_THRESHOLD
+
+      let qtyLabel: string | undefined
+      let wasLabel: string | undefined
+
+      if (view === 'REPORTED') {
+        qtyLabel = reported != null ? `qty ${reported.toFixed(1)}` : undefined
+      } else {
+        qtyLabel = l1 != null ? `qty ${l1.toFixed(1)}` : undefined
+        if (corrected) wasLabel = `was ${reported!.toFixed(1)}`
+      }
+
+      return {
+        id: n.id, type: 'orb',
+        position: pos.get(n.id) ?? { x: 0, y: 0 },
+        data: {
+          label: n.id,
+          type: inferNodeType(n.id, graph.edges, n),
+          sinkVal: sink,
+          view,
+          corrected,
+          qtyLabel,
+          wasLabel,
+        },
+      }
+    })
+
+    const flowEdges: Edge[] = graph.edges.map(e => {
+      const reported = claimedEdgeFlow.get(e.id)
+      const l1       = l1Flow.get(e.id)
+      const delta    = (reported != null && l1 != null) ? Math.abs(l1 - reported) : 0
+      const corrected = delta > DELTA_THRESHOLD
+
+      let flowLabel: string | undefined
+      let wasFlow: string | undefined
+
+      if (view === 'REPORTED') {
+        flowLabel = reported != null ? reported.toFixed(1) : (l1 != null ? l1.toFixed(1) : undefined)
+      } else {
+        flowLabel = l1 != null ? l1.toFixed(1) : undefined
+        if (corrected) wasFlow = reported!.toFixed(1)
+      }
+
+      return {
+        id: e.id, source: e.from, target: e.to, type: 'orb',
+        data: { flowLabel, wasFlow, view, corrected },
+      }
+    })
+
+    return { flowNodes, flowEdges }
+  }, [result, view, claimedNodeQty, claimedEdgeFlow])
+
+  const report  = result?.report
+  const decoded = result?.decoded
+  const ingest  = result?.ingest_report
+
+  const sinks = useMemo(
+    () => decoded?.sinks?.slice().sort((a, b) => Math.abs(b.sink) - Math.abs(a.sink)) ?? [],
+    [decoded],
+  )
+
   const VIEW_LABELS: Record<ViewMode, string> = {
-    ORIGINAL: 'Original',
-    L1:       'L1 minimized',
-    TRUTH:    'Ground truth',
+    REPORTED: 'Reported',
+    L1: 'L1 corrected',
   }
 
   return (
@@ -352,27 +352,15 @@ export default function Page() {
         <div className="brand">
           <span className="brand-name">ORB</span>
           <div className="brand-divider" />
-          <span className="brand-sub">supply chain integrity monitor</span>
+          <span className="brand-sub">outlier-robust estimation</span>
         </div>
-
-        {/* Status: no pill, just dot + text */}
         <div className="header-status">
-          {appStatus === 'IDLE' && (
-            <>
-              <span className="status-dot idle" />
-              awaiting data
-            </>
-          )}
-          {appStatus === 'RUNNING' && (
-            <>
-              <span className="status-dot running" />
-              computing flows
-            </>
-          )}
-          {appStatus === 'COMPLETE' && (
+          {status === 'IDLE' && <><span className="status-dot idle" /> awaiting data</>}
+          {status === 'RUNNING' && <><span className="status-dot running" /> estimating...</>}
+          {status === 'DONE' && (
             <>
               <span className="status-dot complete" />
-              {stats.realEdges} / {enriched.length} flows recovered
+              {ingest?.mode} · {report?.n_claims} claims · k={report?.correctable_k}
             </>
           )}
         </div>
@@ -380,34 +368,9 @@ export default function Page() {
 
       <section className="orb-workspace">
 
-        {/* ── Left: dataset selector + upload ── */}
+        {/* ── Left: upload + mode info ── */}
         <aside className="side-panel left-panel">
-
-          {/* LeakDB scenario list */}
-          {leakRuns.length > 0 && (
-            <>
-              <div className="section-label">leakdb scenarios</div>
-              <div className="run-list">
-                {leakRuns.map(r => (
-                  <button
-                    key={r.id}
-                    className={`run-item ${activeRun === r.id ? 'active' : ''}`}
-                    onClick={() => loadLeakRun(r.id)}
-                  >
-                    <span className="run-id">{r.id.replace('run_', 'run ')}</span>
-                    {r.mae !== null && (
-                      <span className={`run-mae ${r.mae < 1 ? 'green' : r.mae < 5 ? 'amber' : 'red'}`}>
-                        {r.mae.toFixed(1)} lb
-                      </span>
-                    )}
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
-
-          {/* Custom file upload */}
-          <div className="section-label" style={{ marginTop: 18 }}>custom data</div>
+          <div className="section-label">upload</div>
           <div
             className={`drop-zone ${isDragging ? 'dragging' : ''}`}
             onDragOver={e => { e.preventDefault(); setIsDragging(true) }}
@@ -415,39 +378,36 @@ export default function Page() {
             onDrop={e => { e.preventDefault(); setIsDragging(false); acceptFiles(e.dataTransfer.files) }}
             onClick={() => fileInputRef.current?.click()}
           >
-            <input
-              ref={fileInputRef}
-              type="file" accept=".txt,.jsonl,.csv,.json"
-              multiple style={{ display: 'none' }}
-              onChange={e => acceptFiles(e.target.files)}
-            />
+            <input ref={fileInputRef} type="file" multiple
+              accept=".txt,.csv,.json,.jsonl,.tsv,.xlsx"
+              style={{ display: 'none' }}
+              onChange={e => acceptFiles(e.target.files)} />
             <Upload size={16} style={{ color: 'var(--text3)', flexShrink: 0 }} />
-            <span className="drop-zone-hint">drop data files</span>
-            <span className="drop-zone-sub">graph.json  or  messages.jsonl</span>
+            <span className="drop-zone-hint">drop any data file</span>
+            <span className="drop-zone-sub">.csv  .txt  .json</span>
           </div>
 
           {rawFiles.length > 0 && (
             <div className="file-list">
-              {rawFiles.map(f => {
-                const ext = f.name.split('.').pop() ?? ''
-                return (
-                  <div key={f.name} className="file-item">
-                    <span className="file-ext">{ext}</span>
-                    <span className="file-name">{f.name}</span>
-                    <button
-                      className="file-remove"
-                      onClick={() => setRawFiles(p => p.filter(x => x.name !== f.name))}
-                    ><X size={10} /></button>
-                  </div>
-                )
-              })}
+              {rawFiles.map(f => (
+                <div key={f.name} className="file-item">
+                  <span className="file-ext">{f.name.split('.').pop()}</span>
+                  <span className="file-name">{f.name}</span>
+                  <button className="file-remove"
+                    onClick={() => setRawFiles(p => p.filter(x => x.name !== f.name))}
+                  ><X size={10} /></button>
+                </div>
+              ))}
             </div>
           )}
 
-          <button className="run-button" disabled={!allLoaded || appStatus === 'RUNNING'} onClick={handleRun}>
-            {appStatus === 'RUNNING'
-              ? <><Loader2 className="spin" size={15} /> estimating L1...</>
-              : <><Activity size={15} /> run L1 estimation</>}
+          <button className="run-button"
+            disabled={rawFiles.length === 0 || status === 'RUNNING'}
+            onClick={handleRun}
+          >
+            {status === 'RUNNING'
+              ? <><Loader2 className="spin" size={15} /> estimating...</>
+              : <><Activity size={15} /> run estimation</>}
           </button>
 
           {runError && (
@@ -459,42 +419,111 @@ export default function Page() {
               fontFamily: 'var(--font-mono), ui-monospace, monospace',
             }}>{runError}</pre>
           )}
+
+          {/* ── Mode-specific info ── */}
+          {result && ingest && (
+            <>
+              <div className="section-label" style={{ marginTop: 24 }}>
+                {ingest.mode === 'TABULAR' ? 'column mapping' : 'record info'}
+              </div>
+
+              {ingest.mode === 'TABULAR' && ingest.mapping && (
+                <div className="mode-info">
+                  {Object.entries(ingest.mapping)
+                    .filter(([, v]) => v != null && v !== '')
+                    .map(([k, v]) => (
+                      <div key={k} className="mode-info-row">
+                        <span className="mode-info-key">{k}</span>
+                        <span className="mode-info-val">
+                          {typeof v === 'object' ? JSON.stringify(v) : String(v)}
+                        </span>
+                      </div>
+                    ))}
+                  {ingest.exclusions && ingest.exclusions.length > 0 && (
+                    <div className="mode-info-row">
+                      <span className="mode-info-key">excluded</span>
+                      <span className="mode-info-val">{ingest.exclusions.join(', ')}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {ingest.mode === 'RECORD' && (
+                <div className="mode-info">
+                  <div className="mode-info-row">
+                    <span className="mode-info-key">records</span>
+                    <span className="mode-info-val">{ingest.record_count ?? '?'}</span>
+                  </div>
+                  <div className="mode-info-row">
+                    <span className="mode-info-key">edges</span>
+                    <span className="mode-info-val">{result.graph.edges.length}</span>
+                  </div>
+                  <div className="mode-info-row">
+                    <span className="mode-info-key">claims</span>
+                    <span className="mode-info-val">{result.graph.claims.length}</span>
+                  </div>
+                  {(() => {
+                    const ws = result.graph.claims.map(c => c.weight ?? 1)
+                    if (ws.length === 0) return null
+                    return (
+                      <div className="mode-info-row">
+                        <span className="mode-info-key">weight range</span>
+                        <span className="mode-info-val">
+                          {Math.min(...ws).toFixed(1)} – {Math.max(...ws).toFixed(1)}
+                        </span>
+                      </div>
+                    )
+                  })()}
+                </div>
+              )}
+            </>
+          )}
         </aside>
 
-        {/* ── Centre: graph canvas ── */}
+        {/* ── Centre: graph ── */}
         <section className="graph-panel">
           <div className="graph-toolbar">
             <div className="graph-toolbar-left">
-              <div className="graph-title">flow network</div>
-              {graphs && (
+              <div className="graph-title">network graph</div>
+              {result && (
                 <div className="graph-meta">
-                  {graphs.corrupted.nodes.length} nodes · {graphs.corrupted.edges.length} edges · {flagged.length} anomalies
+                  {result.graph.nodes.length} nodes · {result.graph.edges.length} edges ·{' '}
+                  {decoded?.flagged.length ?? 0} flagged
                 </div>
               )}
             </div>
-            <div className="view-toggle">
-              {(['ORIGINAL', 'L1', 'TRUTH'] as ViewMode[]).map(v => (
-                <button key={v} className={view === v ? 'active' : ''} onClick={() => setView(v)}>
-                  {VIEW_LABELS[v]}
-                </button>
-              ))}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              {result && (
+                <div className="view-toggle">
+                  {(['REPORTED', 'L1'] as ViewMode[]).map(v => (
+                    <button key={v}
+                      className={view === v ? 'active' : ''}
+                      onClick={() => setView(v)}
+                    >
+                      {VIEW_LABELS[v]}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {result && ingest && (
+                <span className="mode-badge">{ingest.mode}</span>
+              )}
             </div>
           </div>
 
           <div className="flow-wrap">
             {flowNodes.length > 0 ? (
               <ReactFlow
-                nodes={viewNodes} edges={viewEdges}
+                nodes={flowNodes} edges={flowEdges}
                 nodeTypes={nodeTypes} edgeTypes={edgeTypes}
                 fitView minZoom={0.25}
-                onEdgeClick={(_, edge) => setSelected(enriched.find(e => e.id === edge.id) ?? null)}
               >
                 <Background color="#1a2230" gap={24} size={1} />
                 <Controls showInteractive={false} />
                 <MiniMap
                   nodeColor={n =>
-                    n.data?.type === 'source' ? '#5b8def' :
-                    n.data?.type === 'sink'   ? '#d4a054' : '#5ec2b7'}
+                    n.data?.type === 'source' ? '#5b8def'
+                      : (n.data?.sinkVal ?? 0) > 1 ? '#e8952a' : '#5ec2b7'}
                   maskColor="rgba(7,9,13,.8)"
                 />
               </ReactFlow>
@@ -504,157 +533,210 @@ export default function Page() {
                 height: '100%', color: '#3d4e60', flexDirection: 'column', gap: 14,
               }}>
                 <Network size={36} strokeWidth={1} />
-                <span style={{ fontSize: 11, color: '#3d4e60' }}>Upload files and run, or use demo data</span>
+                <span style={{ fontSize: 11 }}>Upload a file and run estimation</span>
               </div>
             )}
           </div>
 
-          <div className="legend">
-            <span><i className="dot match" /> match</span>
-            <span><i className="dot corrupted" /> corrupted</span>
-            <span><i className="dot ghost" /> ghost</span>
-          </div>
+          {flowNodes.length > 0 && (
+            <div className="legend">
+              <span><i className="dot match" /> consistent</span>
+              <span><i className="dot corrupted" /> corrected / leak</span>
+            </div>
+          )}
         </section>
 
         {/* ── Right: results ── */}
         <aside className="side-panel right-panel">
-          <div className="section-label">analysis</div>
-
-          {/* Stats as key/value rows */}
-          <div className="stats-rows">
-            <div className="stat-row">
-              <span className="stat-row-label">mean error</span>
-              <span className={`stat-row-value ${stats.meanErr < 1 ? 'green' : stats.meanErr < 5 ? 'amber' : 'red'}`}>
-                {stats.meanErr.toFixed(1)}
-                <span style={{ fontSize: 11, fontWeight: 400, color: 'var(--text3)', marginLeft: 3 }}>lb</span>
-              </span>
+          {!result ? (
+            <div style={{
+              color: 'var(--text3)', fontSize: 11, textAlign: 'center', padding: '40px 10px',
+            }}>
+              Results will appear here after running estimation.
             </div>
-            <div className="stat-row">
-              <span className="stat-row-label">anomalies</span>
-              <span className={`stat-row-value ${(stats.corrupted + stats.ghost) > 0 ? 'amber' : 'green'}`}>
-                {stats.corrupted + stats.ghost}
-              </span>
-            </div>
-            <div className="stat-row">
-              <span className="stat-row-label">exact matches</span>
-              <span className={`stat-row-value ${stats.exact === stats.realEdges && stats.realEdges > 0 ? 'green' : 'amber'}`}>
-                {stats.exact}
-                <span style={{ fontSize: 11, fontWeight: 400, color: 'var(--text3)', marginLeft: 3 }}>/ {stats.realEdges}</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="anomalies-header">
-            <span className="anomalies-label">anomalies</span>
-            <span className="anomalies-count">{flagged.length}</span>
-          </div>
-
-          <div className="claims">
-            {flagged.map(e => (
-              <button
-                key={e.id}
-                className={`claim ${e.status === 'CORRUPTED' ? 'corrupted-border' : 'ghost-border'} ${selected?.id === e.id ? 'selected' : ''}`}
-                onClick={() => setSelected(e)}
-              >
-                <span className="claim-content">
-                  <span className="claim-edge">{short(e.srcDisplay)} → {short(e.tgtDisplay)}</span>
-                  <span className="claim-residual">
-                    {e.status === 'CORRUPTED'
-                      ? <>residual +{Math.round(Math.abs((e.l1Val ?? 0) - e.consensusVal))} lb</>
-                      : 'no matching true edge'}
+          ) : (
+            <>
+              {/* ── Identifiability card ── */}
+              <div className="ident-card">
+                <div className="ident-header">
+                  <span className="section-label" style={{ margin: 0 }}>identifiability</span>
+                  {report!.correctable_k > 0
+                    ? <ShieldCheck size={16} style={{ color: 'var(--green)' }} />
+                    : <ShieldAlert size={16} style={{ color: 'var(--amber)' }} />}
+                </div>
+                <div className="ident-k">
+                  <span className="ident-k-label">correctable_k</span>
+                  <span className={`ident-k-value ${report!.correctable_k > 0 ? 'green' : 'red'}`}>
+                    {report!.correctable_k}
                   </span>
-                </span>
-                <span className={`claim-tag ${e.status.toLowerCase()}`}>{e.status}</span>
-              </button>
-            ))}
-          </div>
-
-          <button className="table-toggle" onClick={() => setTableOpen(o => !o)}>
-            {tableOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-            raw edge table
-          </button>
-          {tableOpen && (
-            <div className="raw-table">
-              <div><span>edge</span><span>cons / L1 / truth</span></div>
-              {enriched.map(e => (
-                <p key={e.id} style={{ cursor: 'pointer' }} onClick={() => setSelected(e)}>
-                  <span style={{ color: EDGE_COLOR[e.status] }}>
-                    {short(e.srcDisplay)} → {short(e.tgtDisplay)}
-                  </span>
-                  <span>{e.consensusVal} / {e.l1Val?.toFixed(0) ?? '—'} / {e.truthVal ?? '?'}</span>
-                </p>
-              ))}
-            </div>
-          )}
-
-          {/* Selected edge detail */}
-          {selected && (
-            <div className="agent-detail">
-              <div className="agent-detail-subhead">
-                <span className="agent-detail-label">edge detail</span>
-                <span className={`agent-detail-status ${selected.status.toLowerCase()}`}>{selected.status}</span>
+                </div>
+                {report!.correctable_k === 0 && (
+                  <div className="ident-warning">
+                    <AlertTriangle size={11} />
+                    Cannot guarantee corruption detection
+                  </div>
+                )}
+                <div className="ident-details">
+                  <span>rank {report!.rank} / {report!.n_vars}</span>
+                  <span>{report!.identifiable ? 'full rank' : 'rank deficient'}</span>
+                </div>
               </div>
-              <span className="agent-detail-edge">
-                {short(selected.srcDisplay)} → {short(selected.tgtDisplay)}
-              </span>
-              <div className="agent-values">
-                {Object.entries(selected.agentValues).map(([agent, val]) => (
-                  <span key={agent}>
-                    {agent}
-                    <strong>{val} lb</strong>
-                  </span>
-                ))}
-                <span>
-                  L1 result
-                  <strong style={{ color: '#30c97e' }}>{selected.l1Val?.toFixed(0) ?? '—'} lb</strong>
-                </span>
-                <span>
-                  truth
-                  <strong style={{ color: '#7a8a9a' }}>{selected.truthVal ?? '?'} lb</strong>
-                </span>
-              </div>
-              {selected.method && (
-                <p style={{ color: '#3d4e60', marginTop: 10, fontSize: 10 }}>
-                  method: <strong style={{ color: '#7a8a9a', fontFamily: 'var(--font-mono, ui-monospace, monospace)' }}>{selected.method}</strong>
-                </p>
+
+              {/* ── Sinks (ranked by magnitude) ── */}
+              {sinks.length > 0 && (
+                <>
+                  <div className="section-label" style={{ marginTop: 18 }}>
+                    sinks (ranked)
+                    <span style={{
+                      float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
+                    }}>{sinks.length}</span>
+                  </div>
+                  <div className="result-table">
+                    {sinks.map((s, i) => {
+                      const isTop = i === 0 && Math.abs(s.sink) > 1
+                      return (
+                        <div key={s.id}
+                          className={`result-row ${isTop ? 'highlight' : ''}`}
+                        >
+                          <span className="result-rank">#{i + 1}</span>
+                          <span className="result-id">{s.id}</span>
+                          <span className={`result-val ${Math.abs(s.sink) > 1 ? 'amber' : ''}`}>
+                            {s.sink.toFixed(2)}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </>
               )}
-            </div>
+
+              {/* ── Flagged claims ── */}
+              <div className="section-label" style={{ marginTop: 18 }}>
+                flagged claims
+                <span style={{
+                  float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
+                }}>{decoded!.flagged.length}</span>
+              </div>
+              {decoded!.flagged.length > 0 ? (
+                <div className="claims">
+                  {decoded!.flagged.map(f => {
+                    const claim = result.graph.claims.find(c => c.id === f.claim_id)
+                    return (
+                      <div key={f.claim_id} className="claim corrupted-border">
+                        <span className="claim-content">
+                          <span className="claim-edge">
+                            {f.claim_id} ({f.type})
+                          </span>
+                          <span className="claim-residual">
+                            |r| = {Math.abs(f.residual).toFixed(2)} · source: {f.source}
+                          </span>
+                          {claim && (
+                            <span className="claim-residual">
+                              ref: {claim.ref ?? (claim.refs || []).join(', ')} · claimed: {claim.value}
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <div style={{
+                  color: 'var(--green)', fontSize: 10, padding: '8px 0',
+                  fontFamily: 'var(--font-mono)',
+                }}>
+                  No claims flagged — all consistent
+                </div>
+              )}
+
+              {/* ── Decoded nodes (collapsible) ── */}
+              <button className="table-toggle" onClick={() => setNodesOpen(o => !o)}>
+                {nodesOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                decoded nodes ({decoded!.nodes.length})
+              </button>
+              {nodesOpen && (
+                <div className="result-table">
+                  {decoded!.nodes.map(n => {
+                    const reported = claimedNodeQty.get(n.id)
+                    const delta = reported != null ? Math.abs(n.qty - reported) : 0
+                    return (
+                      <div key={n.id} className={`result-row ${delta > DELTA_THRESHOLD ? 'highlight' : ''}`}>
+                        <span className="result-id">{n.id}</span>
+                        <span className="result-val">{n.qty.toFixed(2)}</span>
+                        {delta > DELTA_THRESHOLD && (
+                          <span style={{ fontSize: 9, color: '#9d6d42', textDecoration: 'line-through', flexShrink: 0 }}>
+                            {reported!.toFixed(1)}
+                          </span>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+
+              {/* ── Decoded edges (collapsible) ── */}
+              <button className="table-toggle" onClick={() => setEdgesOpen(o => !o)}>
+                {edgesOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                decoded edges ({decoded!.edges.length})
+              </button>
+              {edgesOpen && (
+                <div className="result-table">
+                  {decoded!.edges.map(e => {
+                    const reported = claimedEdgeFlow.get(e.id)
+                    const delta = reported != null ? Math.abs(e.flow - reported) : 0
+                    return (
+                      <div key={e.id} className={`result-row ${delta > DELTA_THRESHOLD ? 'highlight' : ''}`}>
+                        <span className="result-id" style={{ flex: 2 }}>
+                          {e.from} → {e.to}
+                        </span>
+                        <span className="result-val">{e.flow.toFixed(2)}</span>
+                        {delta > DELTA_THRESHOLD && (
+                          <span style={{ fontSize: 9, color: '#9d6d42', textDecoration: 'line-through', flexShrink: 0 }}>
+                            {reported!.toFixed(1)}
+                          </span>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+
+              {/* ── All claims (collapsible) ── */}
+              <button className="table-toggle" onClick={() => setClaimsOpen(o => !o)}>
+                {claimsOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                all claims ({result.graph.claims.length})
+              </button>
+              {claimsOpen && (
+                <div className="result-table">
+                  {result.graph.claims.map(c => {
+                    const isFlagged = decoded!.flagged.some(f => f.claim_id === c.id)
+                    return (
+                      <div key={c.id}
+                        className={`result-row ${isFlagged ? 'highlight' : ''}`}
+                      >
+                        <span className="result-rank" style={{ width: 32 }}>{c.id}</span>
+                        <span className="result-id" style={{ width: 36 }}>{c.type}</span>
+                        <span className="result-id" style={{ flex: 1, minWidth: 0 }}>
+                          {c.ref ?? (c.refs || []).join(',')}
+                        </span>
+                        <span className="result-val" style={{ width: 54, textAlign: 'right' }}>
+                          {typeof c.value === 'number' ? c.value.toFixed(1) : c.value}
+                        </span>
+                        <span className="result-val"
+                          style={{ width: 36, textAlign: 'right', color: 'var(--text3)' }}
+                        >
+                          w{(c.weight ?? 1).toFixed(0)}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </>
           )}
         </aside>
-      </section>
 
-      {/* ── Bottom diff drawer ── */}
-      <button className="diff-drawer" onClick={() => setDrawerOpen(o => !o)}>
-        <span className="diff-drawer-left">
-          <AlertTriangle size={13} />
-          {enriched.length} edges · {flagged.length} anomalies
-        </span>
-        <span className="diff-drawer-chevron">
-          {drawerOpen ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
-        </span>
-      </button>
-      {drawerOpen && (
-        <div className="diff-content">
-          <div>
-            <span>status</span>
-            <span>from → to</span>
-            <span>consensus lb</span>
-            <span>L1 lb</span>
-            <span>delta</span>
-          </div>
-          {enriched.map(e => (
-            <p key={e.id} style={{ cursor: 'pointer' }} onClick={() => setSelected(e)}>
-              <b className={e.status.toLowerCase()}>{e.status}</b>
-              <span>{short(e.srcDisplay)} → {short(e.tgtDisplay)}</span>
-              <span>{e.consensusVal}</span>
-              <span>{e.l1Val?.toFixed(0) ?? '—'}</span>
-              <span style={{ color: e.status === 'MATCH' ? '#3d4e60' : EDGE_COLOR[e.status] }}>
-                {e.l1Val !== null ? Math.round(e.l1Val - e.consensusVal) : '—'}
-              </span>
-            </p>
-          ))}
-        </div>
-      )}
+      </section>
     </main>
   )
 }

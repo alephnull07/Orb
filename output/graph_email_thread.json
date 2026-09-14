@@ -1,0 +1,207 @@
+{
+  "nodes": [
+    {
+      "id": "ROMEO_FOB_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "UNIFORM_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "XRAY_JUNCTION",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "HARBOR_MOSQUE_COURTYARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "NOVEMBER_RIDGE_HUB",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "YANKEE_TRANSFER_YARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CEDAR_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OVERLOOK_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "TANGO_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WILLOW_WAREHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WHISKEY_CHECKPOINT",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "ROMEO_FOB_DEPOT",
+      "to": "UNIFORM_FORWARD_CACHE"
+    },
+    {
+      "id": "e1",
+      "from": "XRAY_JUNCTION",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e2",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e3",
+      "from": "YANKEE_TRANSFER_YARD",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e4",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e5",
+      "from": "TANGO_SCHOOLHOUSE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e6",
+      "from": "CEDAR_SCHOOLHOUSE",
+      "to": "WHISKEY_CHECKPOINT"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 130.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 140.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 60.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 1.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c7",
+      "type": "node",
+      "ref": "UNIFORM_FORWARD_CACHE",
+      "value": 130.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "node",
+      "ref": "HARBOR_MOSQUE_COURTYARD",
+      "value": 100.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "node",
+      "ref": "GOLF_ORCHARD",
+      "value": 140.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "node",
+      "ref": "CEDAR_SCHOOLHOUSE",
+      "value": 41.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "node",
+      "ref": "WILLOW_WAREHOUSE",
+      "value": 72.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "node",
+      "ref": "WHISKEY_CHECKPOINT",
+      "value": 20.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    }
+  ]
+}

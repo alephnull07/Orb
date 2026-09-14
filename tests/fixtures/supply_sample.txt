@@ -17,3 +17,15 @@ EOD Bravo cache: in 300 lb, out 0 lb, on-hand 300 lb
 
 [2026-09-12T17:05:00Z] (field_log) CPL Davis / Charlie-Actual -> HQ
 EOD Charlie outpost: in 150 lb, out 0 lb, on-hand 500 lb
+
+[2026-09-12T09:00:00Z] (radio) LT Johnson / Alpha-1 -> Delta-Actual
+Delta-Actual, Alpha-1. sending about 50 lb from Alpha depot to Delta forward base. over.
+
+[2026-09-12T09:10:00Z] (radio) PFC Rivera / Delta-Actual -> Alpha-1
+Alpha-1, Delta-Actual. got 40 pounds off Alpha depot here at Delta forward base. logged. rivera.
+
+[2026-09-12T09:30:00Z] (radio) LT Johnson / Alpha-1 -> Charlie-Actual
+Charlie-Actual, Alpha-1. sent the rest over to Charlie outpost from Alpha depot.
+
+[2026-09-12T10:00:00Z] (radio) SGT Chen / Bravo-Actual -> Alpha-1
+Alpha-1, Bravo-Actual. sending 75 lb from Alpha depot to Bravo main cache. over.

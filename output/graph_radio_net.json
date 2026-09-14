@@ -1,0 +1,389 @@
+{
+  "nodes": [
+    {
+      "id": "LIMA_CONVOY_ORIGIN",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "NOVEMBER_RIDGE_HUB",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "ROMEO_FOB_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "UNIFORM_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "SIERRA_FOB_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "YANKEE_TRANSFER_YARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "MIKE_JUNCTION",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "ALPHA_BRIDGE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "XRAY_JUNCTION",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "HARBOR_MOSQUE_COURTYARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "TANGO_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CEDAR_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WILLOW_WAREHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OVERLOOK_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WHISKEY_CHECKPOINT",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "LIMA_CONVOY_ORIGIN",
+      "to": "NOVEMBER_RIDGE_HUB"
+    },
+    {
+      "id": "e1",
+      "from": "ROMEO_FOB_DEPOT",
+      "to": "UNIFORM_FORWARD_CACHE"
+    },
+    {
+      "id": "e2",
+      "from": "SIERRA_FOB_DEPOT",
+      "to": "YANKEE_TRANSFER_YARD"
+    },
+    {
+      "id": "e3",
+      "from": "MIKE_JUNCTION",
+      "to": "ALPHA_BRIDGE"
+    },
+    {
+      "id": "e4",
+      "from": "XRAY_JUNCTION",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e5",
+      "from": "XRAY_JUNCTION",
+      "to": "TANGO_SCHOOLHOUSE"
+    },
+    {
+      "id": "e6",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e7",
+      "from": "YANKEE_TRANSFER_YARD",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e8",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "ALPHA_BRIDGE"
+    },
+    {
+      "id": "e9",
+      "from": "UNIFORM_FORWARD_CACHE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e10",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e11",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e12",
+      "from": "ALPHA_BRIDGE",
+      "to": "TANGO_SCHOOLHOUSE"
+    },
+    {
+      "id": "e13",
+      "from": "TANGO_SCHOOLHOUSE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e14",
+      "from": "WHISKEY_CHECKPOINT",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e15",
+      "from": "CEDAR_SCHOOLHOUSE",
+      "to": "WHISKEY_CHECKPOINT"
+    },
+    {
+      "id": "e16",
+      "from": "CEDAR_SCHOOLHOUSE",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 225.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 130.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 110.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 140.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": 115.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e7",
+      "value": 60.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e8",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e9",
+      "value": 10.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e10",
+      "value": 1.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e11",
+      "value": 2.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e12",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e13",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c14",
+      "type": "edge",
+      "ref": "e14",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c15",
+      "type": "edge",
+      "ref": "e15",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c16",
+      "type": "edge",
+      "ref": "e16",
+      "value": 25.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c17",
+      "type": "node",
+      "ref": "NOVEMBER_RIDGE_HUB",
+      "value": 90.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "node",
+      "ref": "UNIFORM_FORWARD_CACHE",
+      "value": 120.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "node",
+      "ref": "YANKEE_TRANSFER_YARD",
+      "value": 50.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "node",
+      "ref": "ALPHA_BRIDGE",
+      "value": 20.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "node",
+      "ref": "HARBOR_MOSQUE_COURTYARD",
+      "value": 40.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c22",
+      "type": "node",
+      "ref": "TANGO_SCHOOLHOUSE",
+      "value": 130.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c23",
+      "type": "node",
+      "ref": "GOLF_ORCHARD",
+      "value": 115.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "node",
+      "ref": "CEDAR_SCHOOLHOUSE",
+      "value": 61.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "node",
+      "ref": "WILLOW_WAREHOUSE",
+      "value": 27.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "node",
+      "ref": "WHISKEY_CHECKPOINT",
+      "value": -25.0,
+      "source": "consensus_flow",
+      "weight": 1.0
+    }
+  ]
+}

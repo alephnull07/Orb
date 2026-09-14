@@ -1,0 +1,636 @@
+{
+  "nodes": [
+    {
+      "id": "LIMA_CONVOY_ORIGIN",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "NOVEMBER_RIDGE_HUB",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "XRAY_JUNCTION",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "ROMEO_FOB_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "UNIFORM_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "YANKEE_TRANSFER_YARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "SIERRA_FOB_DEPOT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OVERLOOK_FORWARD_CACHE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "MIKE_JUNCTION",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WHISKEY_CHECKPOINT",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "ALPHA_BRIDGE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "HARBOR_MOSQUE_COURTYARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "TANGO_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WILLOW_WAREHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CEDAR_SCHOOLHOUSE",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CHARLIE_MILL",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "LIMA_CONVOY_ORIGIN",
+      "to": "NOVEMBER_RIDGE_HUB"
+    },
+    {
+      "id": "e1",
+      "from": "LIMA_CONVOY_ORIGIN",
+      "to": "XRAY_JUNCTION"
+    },
+    {
+      "id": "e2",
+      "from": "ROMEO_FOB_DEPOT",
+      "to": "UNIFORM_FORWARD_CACHE"
+    },
+    {
+      "id": "e3",
+      "from": "LIMA_CONVOY_ORIGIN",
+      "to": "YANKEE_TRANSFER_YARD"
+    },
+    {
+      "id": "e4",
+      "from": "SIERRA_FOB_DEPOT",
+      "to": "OVERLOOK_FORWARD_CACHE"
+    },
+    {
+      "id": "e5",
+      "from": "LIMA_CONVOY_ORIGIN",
+      "to": "MIKE_JUNCTION"
+    },
+    {
+      "id": "e6",
+      "from": "SIERRA_FOB_DEPOT",
+      "to": "YANKEE_TRANSFER_YARD"
+    },
+    {
+      "id": "e7",
+      "from": "MIKE_JUNCTION",
+      "to": "WHISKEY_CHECKPOINT"
+    },
+    {
+      "id": "e8",
+      "from": "MIKE_JUNCTION",
+      "to": "ALPHA_BRIDGE"
+    },
+    {
+      "id": "e9",
+      "from": "MIKE_JUNCTION",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e10",
+      "from": "XRAY_JUNCTION",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e11",
+      "from": "XRAY_JUNCTION",
+      "to": "ALPHA_BRIDGE"
+    },
+    {
+      "id": "e12",
+      "from": "XRAY_JUNCTION",
+      "to": "TANGO_SCHOOLHOUSE"
+    },
+    {
+      "id": "e13",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e14",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e15",
+      "from": "YANKEE_TRANSFER_YARD",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e16",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "CHARLIE_MILL"
+    },
+    {
+      "id": "e17",
+      "from": "YANKEE_TRANSFER_YARD",
+      "to": "WHISKEY_CHECKPOINT"
+    },
+    {
+      "id": "e18",
+      "from": "NOVEMBER_RIDGE_HUB",
+      "to": "ALPHA_BRIDGE"
+    },
+    {
+      "id": "e19",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e20",
+      "from": "UNIFORM_FORWARD_CACHE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e21",
+      "from": "UNIFORM_FORWARD_CACHE",
+      "to": "CHARLIE_MILL"
+    },
+    {
+      "id": "e22",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e23",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "WHISKEY_CHECKPOINT"
+    },
+    {
+      "id": "e24",
+      "from": "OVERLOOK_FORWARD_CACHE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e25",
+      "from": "ALPHA_BRIDGE",
+      "to": "TANGO_SCHOOLHOUSE"
+    },
+    {
+      "id": "e26",
+      "from": "TANGO_SCHOOLHOUSE",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e27",
+      "from": "TANGO_SCHOOLHOUSE",
+      "to": "WILLOW_WAREHOUSE"
+    },
+    {
+      "id": "e28",
+      "from": "ALPHA_BRIDGE",
+      "to": "CHARLIE_MILL"
+    },
+    {
+      "id": "e29",
+      "from": "CHARLIE_MILL",
+      "to": "GOLF_ORCHARD"
+    },
+    {
+      "id": "e30",
+      "from": "GOLF_ORCHARD",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e31",
+      "from": "WHISKEY_CHECKPOINT",
+      "to": "CEDAR_SCHOOLHOUSE"
+    },
+    {
+      "id": "e32",
+      "from": "CEDAR_SCHOOLHOUSE",
+      "to": "WHISKEY_CHECKPOINT"
+    },
+    {
+      "id": "e33",
+      "from": "CEDAR_SCHOOLHOUSE",
+      "to": "HARBOR_MOSQUE_COURTYARD"
+    },
+    {
+      "id": "e34",
+      "from": "GOLF_ORCHARD",
+      "to": "WHISKEY_CHECKPOINT"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 225.0,
+      "source": "consensus",
+      "weight": 0.039841
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 170.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e2",
+      "value": 130.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e3",
+      "value": 10.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e4",
+      "value": 25.0,
+      "source": "consensus",
+      "weight": 0.024938
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e5",
+      "value": 25.0,
+      "source": "consensus",
+      "weight": 0.024938
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e6",
+      "value": 110.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e7",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e8",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e9",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e10",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e11",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e12",
+      "value": 140.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e13",
+      "value": 60.0,
+      "source": "consensus",
+      "weight": 0.066225
+    },
+    {
+      "id": "c14",
+      "type": "edge",
+      "ref": "e14",
+      "value": 115.0,
+      "source": "consensus",
+      "weight": 0.039841
+    },
+    {
+      "id": "c15",
+      "type": "edge",
+      "ref": "e15",
+      "value": 60.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c16",
+      "type": "edge",
+      "ref": "e16",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c17",
+      "type": "edge",
+      "ref": "e17",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c18",
+      "type": "edge",
+      "ref": "e18",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c19",
+      "type": "edge",
+      "ref": "e19",
+      "value": 1.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c20",
+      "type": "edge",
+      "ref": "e20",
+      "value": 10.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c21",
+      "type": "edge",
+      "ref": "e21",
+      "value": 120.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c22",
+      "type": "edge",
+      "ref": "e22",
+      "value": 1.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c23",
+      "type": "edge",
+      "ref": "e23",
+      "value": 1.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c24",
+      "type": "edge",
+      "ref": "e24",
+      "value": 2.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c25",
+      "type": "edge",
+      "ref": "e25",
+      "value": 5.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c26",
+      "type": "edge",
+      "ref": "e26",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c27",
+      "type": "edge",
+      "ref": "e27",
+      "value": 15.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c28",
+      "type": "edge",
+      "ref": "e28",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 0.066225
+    },
+    {
+      "id": "c29",
+      "type": "edge",
+      "ref": "e29",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c30",
+      "type": "edge",
+      "ref": "e30",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c31",
+      "type": "edge",
+      "ref": "e31",
+      "value": 45.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c32",
+      "type": "edge",
+      "ref": "e32",
+      "value": 20.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c33",
+      "type": "edge",
+      "ref": "e33",
+      "value": 25.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c34",
+      "type": "edge",
+      "ref": "e34",
+      "value": 10.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c35",
+      "type": "node",
+      "ref": "YANKEE_TRANSFER_YARD",
+      "value": 15.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c36",
+      "type": "node",
+      "ref": "OVERLOOK_FORWARD_CACHE",
+      "value": 20.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c37",
+      "type": "node",
+      "ref": "MIKE_JUNCTION",
+      "value": 10.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c38",
+      "type": "node",
+      "ref": "WHISKEY_CHECKPOINT",
+      "value": 26.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c39",
+      "type": "node",
+      "ref": "ALPHA_BRIDGE",
+      "value": 5.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c40",
+      "type": "node",
+      "ref": "GOLF_ORCHARD",
+      "value": 121.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c41",
+      "type": "node",
+      "ref": "HARBOR_MOSQUE_COURTYARD",
+      "value": 100.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c42",
+      "type": "node",
+      "ref": "TANGO_SCHOOLHOUSE",
+      "value": 115.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c43",
+      "type": "node",
+      "ref": "WILLOW_WAREHOUSE",
+      "value": 72.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c44",
+      "type": "node",
+      "ref": "CEDAR_SCHOOLHOUSE",
+      "value": 61.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    },
+    {
+      "id": "c45",
+      "type": "node",
+      "ref": "CHARLIE_MILL",
+      "value": 125.0,
+      "source": "auditor_eod",
+      "weight": 1.0
+    }
+  ]
+}
