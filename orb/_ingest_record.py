@@ -212,19 +212,12 @@ def consensus_to_graph(consensus: dict, lambda_w: float = 1.0) -> dict:
     c_edges: list[dict] = []
     c_claims: list[dict] = []
 
-    # Build initial values from trusted_constraint_rows (EOD inventory)
-    eod_by_id: dict[str, float] = {}
-    for row in consensus.get("trusted_constraint_rows", []):
-        nid = row.get("node")
-        inv = row.get("inventory_eod_lb")
-        if nid and inv is not None:
-            eod_by_id[nid] = float(inv)
-
-    # Nodes
+    # Nodes — initial=0 for all (starting stock unknown);
+    # EOD inventory is used ONLY as a node claim, not as initial,
+    # to avoid double-counting in the balance constraint.
     node_ids = {n["id"] for n in consensus.get("nodes", [])}
     for n in consensus.get("nodes", []):
-        initial = eod_by_id.get(n["id"], 0.0)
-        c_nodes.append({"id": n["id"], "initial": initial, "sinks": "none"})
+        c_nodes.append({"id": n["id"], "initial": 0.0, "sinks": "none"})
 
     # Edges → edge claims
     claim_idx = 0

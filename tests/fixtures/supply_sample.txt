@@ -14,3 +14,6 @@ got 150 pounds off Alpha depot here at Charlie outpost. logged. davis.
 
 [2026-09-12T17:00:00Z] (field_log) SGT Chen / Bravo-Actual -> HQ
 EOD Bravo cache: in 300 lb, out 0 lb, on-hand 300 lb
+
+[2026-09-12T17:05:00Z] (field_log) CPL Davis / Charlie-Actual -> HQ
+EOD Charlie outpost: in 150 lb, out 0 lb, on-hand 500 lb

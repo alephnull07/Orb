@@ -51,9 +51,19 @@ def build_graph(
     api_key: str | None = None,
     lambda_w: float = 1.0,
     cache_dir: str | Path | None = None,
+    sinks: str | None = None,
+    column_mapping: dict | None = None,
 ) -> tuple[list[dict], dict]:
     """
     Convert *path* (any supported file) into one or more compile.py-format graphs.
+
+    Parameters
+    ----------
+    sinks : "unknown" | "none" | None
+        Override the default sinks setting on nodes.  When "unknown", nodes
+        that appear as claim targets get sinks="unknown" (leak search mode).
+    column_mapping : dict | None
+        Pre-supplied column mapping for TABULAR mode — skips the LLM call.
 
     Returns
     -------
@@ -70,7 +80,10 @@ def build_graph(
     mode  = _route(path)
 
     if mode == "TABULAR":
-        graphs, report = run_tabular_mode(path, api_key=api_key, lambda_w=lambda_w, cache=cache)
+        graphs, report = run_tabular_mode(
+            path, api_key=api_key, lambda_w=lambda_w, cache=cache,
+            sinks=sinks, column_mapping=column_mapping,
+        )
     else:
         graphs, report = run_record_mode(path, api_key=api_key, lambda_w=lambda_w, cache=cache)
 

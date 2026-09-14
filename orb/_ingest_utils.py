@@ -15,7 +15,7 @@ _LEAKAGE_RE = re.compile(
     re.I,
 )
 
-VALID_TYPES = {"node", "edge", "aggregate"}
+VALID_TYPES = {"node", "edge", "aggregate", "sink"}
 
 
 def leakage_guard(names: list[str]) -> tuple[list[str], list[dict]]:

@@ -182,6 +182,16 @@ def _apply_mapping(
                 "source": channel or entity_col,
                 "weight": 1.0,
             }
+        elif primitive == "sink":
+            nodes_seen.add(entity)
+            claim = {
+                "id": f"c{claim_idx}",
+                "type": "sink",
+                "ref": entity,
+                "value": value,
+                "source": channel or entity_col,
+                "weight": 1.0,
+            }
         else:
             nodes_seen.add(entity)
             claim = {
@@ -203,12 +213,24 @@ def _build_graphs(
     claims_by_ts: dict[str, list[dict]],
     nodes_seen: set[str],
     edges_seen: set[tuple],
+    sinks: str | None = None,
 ) -> list[dict]:
     """Build one compile.py-format graph per timestamp bucket."""
     # Include all edge endpoints as nodes so compile.py balance rows are valid
     endpoint_nodes = {n for pair in edges_seen for n in pair}
     all_nodes = nodes_seen | endpoint_nodes
-    graph_nodes = [{"id": nid, "initial": 0.0, "sinks": "none"} for nid in sorted(all_nodes)]
+
+    # When sinks="unknown", mark nodes that were direct claim targets
+    # (nodes_seen) as unknown; endpoint-only nodes stay "none".
+    def _sink_mode(nid: str) -> str:
+        if sinks == "unknown" and nid in nodes_seen:
+            return "unknown"
+        return "none"
+
+    graph_nodes = [
+        {"id": nid, "initial": 0.0, "sinks": _sink_mode(nid)}
+        for nid in sorted(all_nodes)
+    ]
     graph_edges = [
         {"id": f"e_{src}_{tgt}", "from": src, "to": tgt}
         for (src, tgt) in sorted(edges_seen)
@@ -229,10 +251,13 @@ def run_tabular_mode(
     api_key: str | None = None,
     lambda_w: float = 1.0,
     cache=None,
+    sinks: str | None = None,
+    column_mapping: dict | None = None,
 ) -> tuple[list[dict], dict]:
     """
     TABULAR mode for a single CSV/TSV/XLSX file.
-    Returns (graphs, report).  One LLM call total (cached).
+    Returns (graphs, report).  One LLM call total (cached), or zero if
+    *column_mapping* is pre-supplied.
     """
     if path.suffix.lower() == ".xlsx":
         try:
@@ -253,11 +278,13 @@ def run_tabular_mode(
     # ── leakage guard on column names ─────────────────────────────────────────
     _, col_exclusions = leakage_guard(headers)
 
-    # Build sample
-    sample = _sample_rows(headers, rows)
+    # Column mapping: use pre-supplied or call LLM once
+    if column_mapping is not None:
+        mapping = column_mapping
+    else:
+        sample = _sample_rows(headers, rows)
+        mapping = _get_mapping(sample, api_key, cache)
 
-    # ONE LLM call (or cache hit)
-    mapping = _get_mapping(sample, api_key, cache)
     print(f"\n[ingest] Column mapping:\n{json.dumps(mapping, indent=2)}\n")
 
     # Merge LLM-requested exclusions with leakage-guard exclusions
@@ -274,7 +301,7 @@ def run_tabular_mode(
     )
     validate_claims([c for cs in claims_by_ts.values() for c in cs])
 
-    graphs = _build_graphs(claims_by_ts, nodes_seen, edges_seen)
+    graphs = _build_graphs(claims_by_ts, nodes_seen, edges_seen, sinks=sinks)
 
     report = {
         "mode": "TABULAR",
@@ -285,6 +312,6 @@ def run_tabular_mode(
             {"timestamp": ts, "n_claims": len(cs)}
             for ts, cs in sorted(claims_by_ts.items())
         ],
-        "llm_calls": cache.llm_calls if cache else 1,
+        "llm_calls": cache.llm_calls if cache else (0 if column_mapping else 1),
     }
     return graphs, report
