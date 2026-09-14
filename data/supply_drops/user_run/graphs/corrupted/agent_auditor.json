@@ -1,0 +1,830 @@
+{
+  "agent": "auditor",
+  "role": "schema validator / conservation-law tagger",
+  "nodes": [
+    {
+      "id": "ROMEO_FOB_DEPOT",
+      "display": "Romeo FOB depot",
+      "aliases": [
+        "Romeo FOB depot"
+      ],
+      "key": "romeo fob depot"
+    },
+    {
+      "id": "UNIFORM_FORWARD_CACHE",
+      "display": "Uniform forward cache",
+      "aliases": [
+        "Uniform forward cache"
+      ],
+      "key": "uniform forward cache"
+    },
+    {
+      "id": "LIMA_CONVOY_ORIGIN",
+      "display": "Lima convoy origin",
+      "aliases": [
+        "Lima convoy origin"
+      ],
+      "key": "lima convoy origin"
+    },
+    {
+      "id": "NOVEMBER_RIDGE_HUB",
+      "display": "November ridge hub",
+      "aliases": [
+        "November ridge hub"
+      ],
+      "key": "november ridge hub"
+    },
+    {
+      "id": "XRAY_JUNCTION",
+      "display": "Xray junction",
+      "aliases": [
+        "Xray junction"
+      ],
+      "key": "xray junction"
+    },
+    {
+      "id": "YANKEE_TRANSFER_YARD",
+      "display": "Yankee transfer yard",
+      "aliases": [
+        "Yankee transfer yard"
+      ],
+      "key": "yankee transfer yard"
+    },
+    {
+      "id": "MIKE_JUNCTION",
+      "display": "Mike junction",
+      "aliases": [
+        "Mike junction"
+      ],
+      "key": "mike junction"
+    },
+    {
+      "id": "SIERRA_FOB_DEPOT",
+      "display": "Sierra FOB depot",
+      "aliases": [
+        "Sierra FOB depot"
+      ],
+      "key": "sierra fob depot"
+    },
+    {
+      "id": "OVERLOOK_FORWARD_CACHE",
+      "display": "Overlook forward cache",
+      "aliases": [
+        "Overlook forward cache"
+      ],
+      "key": "overlook forward cache"
+    },
+    {
+      "id": "ALPHA_BRIDGE",
+      "display": "Alpha bridge",
+      "aliases": [
+        "Alpha bridge"
+      ],
+      "key": "alpha bridge"
+    },
+    {
+      "id": "HARBOR_MOSQUE_COURTYARD",
+      "display": "Harbor mosque courtyard",
+      "aliases": [
+        "Harbor mosque courtyard"
+      ],
+      "key": "harbor mosque courtyard"
+    },
+    {
+      "id": "WHISKEY_CHECKPOINT",
+      "display": "Whiskey checkpoint",
+      "aliases": [
+        "Whiskey checkpoint"
+      ],
+      "key": "whiskey checkpoint"
+    },
+    {
+      "id": "GOLF_ORCHARD",
+      "display": "Golf orchard",
+      "aliases": [
+        "Golf orchard"
+      ],
+      "key": "golf orchard"
+    },
+    {
+      "id": "TANGO_SCHOOLHOUSE",
+      "display": "Tango schoolhouse",
+      "aliases": [
+        "Tango schoolhouse"
+      ],
+      "key": "tango schoolhouse"
+    },
+    {
+      "id": "WILLOW_WAREHOUSE",
+      "display": "Willow warehouse",
+      "aliases": [
+        "Willow warehouse"
+      ],
+      "key": "willow warehouse"
+    },
+    {
+      "id": "CEDAR_SCHOOLHOUSE",
+      "display": "Cedar schoolhouse",
+      "aliases": [
+        "Cedar schoolhouse"
+      ],
+      "key": "cedar schoolhouse"
+    },
+    {
+      "id": "CHARLIE_MILL",
+      "display": "Charlie mill",
+      "aliases": [
+        "Charlie mill"
+      ],
+      "key": "charlie mill"
+    }
+  ],
+  "edges": [
+    {
+      "source_key": "romeo fob depot",
+      "target_key": "uniform forward cache",
+      "source": "ROMEO_FOB_DEPOT",
+      "target": "UNIFORM_FORWARD_CACHE",
+      "source_display": "Romeo FOB depot",
+      "target_display": "Uniform forward cache",
+      "value_lb": 130,
+      "evidence": [
+        "MSG-001",
+        "MSG-005",
+        "MSG-005"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "lima convoy origin",
+      "target_key": "november ridge hub",
+      "source": "LIMA_CONVOY_ORIGIN",
+      "target": "NOVEMBER_RIDGE_HUB",
+      "source_display": "Lima convoy origin",
+      "target_display": "November ridge hub",
+      "value_lb": 225,
+      "evidence": [
+        "MSG-002",
+        "MSG-002",
+        "MSG-007"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "lima convoy origin",
+      "target_key": "xray junction",
+      "source": "LIMA_CONVOY_ORIGIN",
+      "target": "XRAY_JUNCTION",
+      "source_display": "Lima convoy origin",
+      "target_display": "Xray junction",
+      "value_lb": 170,
+      "evidence": [
+        "MSG-003",
+        "MSG-003",
+        "MSG-004"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "lima convoy origin",
+      "target_key": "yankee transfer yard",
+      "source": "LIMA_CONVOY_ORIGIN",
+      "target": "YANKEE_TRANSFER_YARD",
+      "source_display": "Lima convoy origin",
+      "target_display": "Yankee transfer yard",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-006",
+        "MSG-008",
+        "MSG-008"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "lima convoy origin",
+      "target_key": "mike junction",
+      "source": "LIMA_CONVOY_ORIGIN",
+      "target": "MIKE_JUNCTION",
+      "source_display": "Lima convoy origin",
+      "target_display": "Mike junction",
+      "value_lb": 65,
+      "evidence": [
+        "MSG-009",
+        "MSG-013",
+        "MSG-013"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "sierra fob depot",
+      "target_key": "overlook forward cache",
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "OVERLOOK_FORWARD_CACHE",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Overlook forward cache",
+      "value_lb": 65,
+      "evidence": [
+        "MSG-010",
+        "MSG-012",
+        "MSG-012"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "sierra fob depot",
+      "target_key": "yankee transfer yard",
+      "source": "SIERRA_FOB_DEPOT",
+      "target": "YANKEE_TRANSFER_YARD",
+      "source_display": "Sierra FOB depot",
+      "target_display": "Yankee transfer yard",
+      "value_lb": 110,
+      "evidence": [
+        "MSG-011",
+        "MSG-014",
+        "MSG-014"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "mike junction",
+      "target_key": "alpha bridge",
+      "source": "MIKE_JUNCTION",
+      "target": "ALPHA_BRIDGE",
+      "source_display": "Mike junction",
+      "target_display": "Alpha bridge",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-015",
+        "MSG-018",
+        "MSG-018"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "harbor mosque courtyard",
+      "source": "XRAY_JUNCTION",
+      "target": "HARBOR_MOSQUE_COURTYARD",
+      "source_display": "Xray junction",
+      "target_display": "Harbor mosque courtyard",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-016",
+        "MSG-022",
+        "MSG-022"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "mike junction",
+      "target_key": "whiskey checkpoint",
+      "source": "MIKE_JUNCTION",
+      "target": "WHISKEY_CHECKPOINT",
+      "source_display": "Mike junction",
+      "target_display": "Whiskey checkpoint",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-017",
+        "MSG-017",
+        "MSG-019"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "mike junction",
+      "target_key": "golf orchard",
+      "source": "MIKE_JUNCTION",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Mike junction",
+      "target_display": "Golf orchard",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-020",
+        "MSG-021",
+        "MSG-021"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "alpha bridge",
+      "source": "XRAY_JUNCTION",
+      "target": "ALPHA_BRIDGE",
+      "source_display": "Xray junction",
+      "target_display": "Alpha bridge",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-023",
+        "MSG-023",
+        "MSG-030"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "november ridge hub",
+      "target_key": "golf orchard",
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "GOLF_ORCHARD",
+      "source_display": "November ridge hub",
+      "target_display": "Golf orchard",
+      "value_lb": 140,
+      "evidence": [
+        "MSG-024",
+        "MSG-027",
+        "MSG-027"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "xray junction",
+      "target_key": "tango schoolhouse",
+      "source": "XRAY_JUNCTION",
+      "target": "TANGO_SCHOOLHOUSE",
+      "source_display": "Xray junction",
+      "target_display": "Tango schoolhouse",
+      "value_lb": 140,
+      "evidence": [
+        "MSG-025",
+        "MSG-025",
+        "MSG-029"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "november ridge hub",
+      "target_key": "willow warehouse",
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "WILLOW_WAREHOUSE",
+      "source_display": "November ridge hub",
+      "target_display": "Willow warehouse",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-026",
+        "MSG-026",
+        "MSG-028"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "yankee transfer yard",
+      "target_key": "cedar schoolhouse",
+      "source": "YANKEE_TRANSFER_YARD",
+      "target": "CEDAR_SCHOOLHOUSE",
+      "source_display": "Yankee transfer yard",
+      "target_display": "Cedar schoolhouse",
+      "value_lb": 60,
+      "evidence": [
+        "MSG-031",
+        "MSG-031",
+        "MSG-035"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "november ridge hub",
+      "target_key": "charlie mill",
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "CHARLIE_MILL",
+      "source_display": "November ridge hub",
+      "target_display": "Charlie mill",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-032",
+        "MSG-032",
+        "MSG-037"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "yankee transfer yard",
+      "target_key": "whiskey checkpoint",
+      "source": "YANKEE_TRANSFER_YARD",
+      "target": "WHISKEY_CHECKPOINT",
+      "source_display": "Yankee transfer yard",
+      "target_display": "Whiskey checkpoint",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-033",
+        "MSG-033",
+        "MSG-038"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "november ridge hub",
+      "target_key": "alpha bridge",
+      "source": "NOVEMBER_RIDGE_HUB",
+      "target": "ALPHA_BRIDGE",
+      "source_display": "November ridge hub",
+      "target_display": "Alpha bridge",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-034",
+        "MSG-034",
+        "MSG-036"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "overlook forward cache",
+      "target_key": "golf orchard",
+      "source": "OVERLOOK_FORWARD_CACHE",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Overlook forward cache",
+      "target_display": "Golf orchard",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-039",
+        "MSG-039",
+        "MSG-043"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "overlook forward cache",
+      "target_key": "cedar schoolhouse",
+      "source": "OVERLOOK_FORWARD_CACHE",
+      "target": "CEDAR_SCHOOLHOUSE",
+      "source_display": "Overlook forward cache",
+      "target_display": "Cedar schoolhouse",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-040",
+        "MSG-046",
+        "MSG-046"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "uniform forward cache",
+      "target_key": "charlie mill",
+      "source": "UNIFORM_FORWARD_CACHE",
+      "target": "CHARLIE_MILL",
+      "source_display": "Uniform forward cache",
+      "target_display": "Charlie mill",
+      "value_lb": 120,
+      "evidence": [
+        "MSG-041",
+        "MSG-045",
+        "MSG-045"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "uniform forward cache",
+      "target_key": "willow warehouse",
+      "source": "UNIFORM_FORWARD_CACHE",
+      "target": "WILLOW_WAREHOUSE",
+      "source_display": "Uniform forward cache",
+      "target_display": "Willow warehouse",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-042",
+        "MSG-042",
+        "MSG-044"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "overlook forward cache",
+      "target_key": "willow warehouse",
+      "source": "OVERLOOK_FORWARD_CACHE",
+      "target": "WILLOW_WAREHOUSE",
+      "source_display": "Overlook forward cache",
+      "target_display": "Willow warehouse",
+      "value_lb": 2,
+      "evidence": [
+        "MSG-047",
+        "MSG-050",
+        "MSG-050"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "overlook forward cache",
+      "target_key": "whiskey checkpoint",
+      "source": "OVERLOOK_FORWARD_CACHE",
+      "target": "WHISKEY_CHECKPOINT",
+      "source_display": "Overlook forward cache",
+      "target_display": "Whiskey checkpoint",
+      "value_lb": 1,
+      "evidence": [
+        "MSG-048",
+        "MSG-048",
+        "MSG-049"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "alpha bridge",
+      "target_key": "tango schoolhouse",
+      "source": "ALPHA_BRIDGE",
+      "target": "TANGO_SCHOOLHOUSE",
+      "source_display": "Alpha bridge",
+      "target_display": "Tango schoolhouse",
+      "value_lb": 5,
+      "evidence": [
+        "MSG-053",
+        "MSG-054",
+        "MSG-054"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "tango schoolhouse",
+      "target_key": "harbor mosque courtyard",
+      "source": "TANGO_SCHOOLHOUSE",
+      "target": "HARBOR_MOSQUE_COURTYARD",
+      "source_display": "Tango schoolhouse",
+      "target_display": "Harbor mosque courtyard",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-055",
+        "MSG-055",
+        "MSG-058"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "tango schoolhouse",
+      "target_key": "willow warehouse",
+      "source": "TANGO_SCHOOLHOUSE",
+      "target": "WILLOW_WAREHOUSE",
+      "source_display": "Tango schoolhouse",
+      "target_display": "Willow warehouse",
+      "value_lb": 15,
+      "evidence": [
+        "MSG-056",
+        "MSG-056",
+        "MSG-060"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "alpha bridge",
+      "target_key": "charlie mill",
+      "source": "ALPHA_BRIDGE",
+      "target": "CHARLIE_MILL",
+      "source_display": "Alpha bridge",
+      "target_display": "Charlie mill",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-057",
+        "MSG-057",
+        "MSG-059"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": true
+    },
+    {
+      "source_key": "charlie mill",
+      "target_key": "golf orchard",
+      "source": "CHARLIE_MILL",
+      "target": "GOLF_ORCHARD",
+      "source_display": "Charlie mill",
+      "target_display": "Golf orchard",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-061",
+        "MSG-062",
+        "MSG-062"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "whiskey checkpoint",
+      "target_key": "cedar schoolhouse",
+      "source": "WHISKEY_CHECKPOINT",
+      "target": "CEDAR_SCHOOLHOUSE",
+      "source_display": "Whiskey checkpoint",
+      "target_display": "Cedar schoolhouse",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-063",
+        "MSG-065",
+        "MSG-065"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "golf orchard",
+      "target_key": "harbor mosque courtyard",
+      "source": "GOLF_ORCHARD",
+      "target": "HARBOR_MOSQUE_COURTYARD",
+      "source_display": "Golf orchard",
+      "target_display": "Harbor mosque courtyard",
+      "value_lb": 45,
+      "evidence": [
+        "MSG-064",
+        "MSG-064",
+        "MSG-068"
+      ],
+      "channel_bias": "got",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "cedar schoolhouse",
+      "target_key": "whiskey checkpoint",
+      "source": "CEDAR_SCHOOLHOUSE",
+      "target": "WHISKEY_CHECKPOINT",
+      "source_display": "Cedar schoolhouse",
+      "target_display": "Whiskey checkpoint",
+      "value_lb": 20,
+      "evidence": [
+        "MSG-066",
+        "MSG-067",
+        "MSG-067"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "cedar schoolhouse",
+      "target_key": "harbor mosque courtyard",
+      "source": "CEDAR_SCHOOLHOUSE",
+      "target": "HARBOR_MOSQUE_COURTYARD",
+      "source_display": "Cedar schoolhouse",
+      "target_display": "Harbor mosque courtyard",
+      "value_lb": 25,
+      "evidence": [
+        "MSG-069",
+        "MSG-070",
+        "MSG-070"
+      ],
+      "channel_bias": "transfer",
+      "from_corrupted": false
+    },
+    {
+      "source_key": "golf orchard",
+      "target_key": "whiskey checkpoint",
+      "source": "GOLF_ORCHARD",
+      "target": "WHISKEY_CHECKPOINT",
+      "source_display": "Golf orchard",
+      "target_display": "Whiskey checkpoint",
+      "value_lb": 10,
+      "evidence": [
+        "MSG-C01"
+      ],
+      "channel_bias": "also_sent",
+      "from_corrupted": true
+    }
+  ],
+  "trusted_constraint_rows": [
+    {
+      "node": "UNIFORM_FORWARD_CACHE",
+      "display": "Uniform forward cache",
+      "law": "mass_balance",
+      "in_lb": 130,
+      "out_lb": 130,
+      "inventory_eod_lb": 0,
+      "evidence": "MSG-071"
+    },
+    {
+      "node": "MIKE_JUNCTION",
+      "display": "Mike junction",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 15,
+      "inventory_eod_lb": 10,
+      "evidence": "MSG-072"
+    },
+    {
+      "node": "YANKEE_TRANSFER_YARD",
+      "display": "Yankee transfer yard",
+      "law": "mass_balance",
+      "in_lb": 120,
+      "out_lb": 105,
+      "inventory_eod_lb": 15,
+      "evidence": "MSG-073"
+    },
+    {
+      "node": "NOVEMBER_RIDGE_HUB",
+      "display": "November ridge hub",
+      "law": "mass_balance",
+      "in_lb": 200,
+      "out_lb": 200,
+      "inventory_eod_lb": 0,
+      "evidence": "MSG-074"
+    },
+    {
+      "node": "XRAY_JUNCTION",
+      "display": "Xray junction",
+      "law": "mass_balance",
+      "in_lb": 170,
+      "out_lb": 170,
+      "inventory_eod_lb": 0,
+      "evidence": "MSG-075"
+    },
+    {
+      "node": "OVERLOOK_FORWARD_CACHE",
+      "display": "Overlook forward cache",
+      "law": "mass_balance",
+      "in_lb": 25,
+      "out_lb": 5,
+      "inventory_eod_lb": 20,
+      "evidence": "MSG-076"
+    },
+    {
+      "node": "HARBOR_MOSQUE_COURTYARD",
+      "display": "Harbor mosque courtyard",
+      "law": "mass_balance",
+      "in_lb": 100,
+      "out_lb": 0,
+      "inventory_eod_lb": 100,
+      "evidence": "MSG-077"
+    },
+    {
+      "node": "CEDAR_SCHOOLHOUSE",
+      "display": "Cedar schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 106,
+      "out_lb": 45,
+      "inventory_eod_lb": 61,
+      "evidence": "MSG-078"
+    },
+    {
+      "node": "ALPHA_BRIDGE",
+      "display": "Alpha bridge",
+      "law": "mass_balance",
+      "in_lb": 40,
+      "out_lb": 35,
+      "inventory_eod_lb": 5,
+      "evidence": "MSG-079"
+    },
+    {
+      "node": "GOLF_ORCHARD",
+      "display": "Golf orchard",
+      "law": "mass_balance",
+      "in_lb": 166,
+      "out_lb": 45,
+      "inventory_eod_lb": 121,
+      "evidence": "MSG-080"
+    },
+    {
+      "node": "CHARLIE_MILL",
+      "display": "Charlie mill",
+      "law": "mass_balance",
+      "in_lb": 170,
+      "out_lb": 45,
+      "inventory_eod_lb": 125,
+      "evidence": "MSG-081"
+    },
+    {
+      "node": "WHISKEY_CHECKPOINT",
+      "display": "Whiskey checkpoint",
+      "law": "mass_balance",
+      "in_lb": 71,
+      "out_lb": 45,
+      "inventory_eod_lb": 26,
+      "evidence": "MSG-082"
+    },
+    {
+      "node": "TANGO_SCHOOLHOUSE",
+      "display": "Tango schoolhouse",
+      "law": "mass_balance",
+      "in_lb": 145,
+      "out_lb": 30,
+      "inventory_eod_lb": 115,
+      "evidence": "MSG-083"
+    },
+    {
+      "node": "WILLOW_WAREHOUSE",
+      "display": "Willow warehouse",
+      "law": "mass_balance",
+      "in_lb": 72,
+      "out_lb": 0,
+      "inventory_eod_lb": 72,
+      "evidence": "MSG-084"
+    }
+  ]
+}

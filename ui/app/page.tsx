@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Dagre from '@dagrejs/dagre'
 import ReactFlow, {
   Background, Controls, MiniMap,
@@ -216,6 +216,8 @@ const edgeTypes = { orb: OrbEdge }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+interface LeakRun { id: string; mae: number | null; matched: number | null; total: number | null }
+
 export default function Page() {
   const [appStatus, setAppStatus]   = useState<'IDLE' | 'RUNNING' | 'COMPLETE'>('IDLE')
   const [view, setView]             = useState<ViewMode>('ORIGINAL')
@@ -226,7 +228,18 @@ export default function Page() {
   const [tableOpen, setTableOpen]   = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [runError, setRunError]     = useState<string | null>(null)
+  const [leakRuns, setLeakRuns]     = useState<LeakRun[]>([])
+  const [activeRun, setActiveRun]   = useState<string | null>(null)
   const fileInputRef                = useRef<HTMLInputElement>(null)
+
+  // Load leakdb run list on mount
+  useEffect(() => {
+    fetch('/api/runs').then(r => r.json()).then((runs: LeakRun[]) => {
+      setLeakRuns(runs)
+      if (runs.length > 0) loadLeakRun(runs[0].id)
+    }).catch(() => {})
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const acceptFiles = (list: FileList | null | undefined) => {
     if (!list) return
@@ -235,6 +248,15 @@ export default function Page() {
       const seen = new Set(prev.map(f => f.name))
       return [...prev, ...valid.filter(f => !seen.has(f.name))]
     })
+  }
+
+  const loadLeakRun = (runId: string) => {
+    setActiveRun(runId)
+    setAppStatus('RUNNING')
+    fetch(`/api/graphs?run=${runId}`)
+      .then(r => r.json())
+      .then(d => { setGraphs(d); setAppStatus('COMPLETE') })
+      .catch(() => setAppStatus('IDLE'))
   }
 
   const loadGraphs = () =>
@@ -358,11 +380,34 @@ export default function Page() {
 
       <section className="orb-workspace">
 
-        {/* ── Left: file upload ── */}
+        {/* ── Left: dataset selector + upload ── */}
         <aside className="side-panel left-panel">
-          <div className="section-label">data feeds</div>
 
-          {/* Multi-file drop zone for raw comms files */}
+          {/* LeakDB scenario list */}
+          {leakRuns.length > 0 && (
+            <>
+              <div className="section-label">leakdb scenarios</div>
+              <div className="run-list">
+                {leakRuns.map(r => (
+                  <button
+                    key={r.id}
+                    className={`run-item ${activeRun === r.id ? 'active' : ''}`}
+                    onClick={() => loadLeakRun(r.id)}
+                  >
+                    <span className="run-id">{r.id.replace('run_', 'run ')}</span>
+                    {r.mae !== null && (
+                      <span className={`run-mae ${r.mae < 1 ? 'green' : r.mae < 5 ? 'amber' : 'red'}`}>
+                        {r.mae.toFixed(1)} lb
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Custom file upload */}
+          <div className="section-label" style={{ marginTop: 18 }}>custom data</div>
           <div
             className={`drop-zone ${isDragging ? 'dragging' : ''}`}
             onDragOver={e => { e.preventDefault(); setIsDragging(true) }}
@@ -377,8 +422,8 @@ export default function Page() {
               onChange={e => acceptFiles(e.target.files)}
             />
             <Upload size={16} style={{ color: 'var(--text3)', flexShrink: 0 }} />
-            <span className="drop-zone-hint">drop comms files</span>
-            <span className="drop-zone-sub">.txt · .jsonl · .csv</span>
+            <span className="drop-zone-hint">drop data files</span>
+            <span className="drop-zone-sub">graph.json  or  messages.jsonl</span>
           </div>
 
           {rawFiles.length > 0 && (
@@ -406,12 +451,14 @@ export default function Page() {
           </button>
 
           {runError && (
-            <p style={{ color: '#e84040', fontSize: 10, marginTop: 8, lineHeight: 1.5 }}>{runError}</p>
+            <pre style={{
+              color: '#e84040', fontSize: 9, marginTop: 8, lineHeight: 1.5,
+              whiteSpace: 'pre-wrap', wordBreak: 'break-word',
+              background: 'rgba(232,64,64,0.06)', borderRadius: 4, padding: '6px 8px',
+              maxHeight: 120, overflow: 'auto',
+              fontFamily: 'var(--font-mono), ui-monospace, monospace',
+            }}>{runError}</pre>
           )}
-
-          <button className="demo-link" onClick={loadGraphs}>
-            {appStatus === 'COMPLETE' ? 'reload demo data' : 'use demo data'}
-          </button>
         </aside>
 
         {/* ── Centre: graph canvas ── */}

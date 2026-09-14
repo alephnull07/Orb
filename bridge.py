@@ -327,34 +327,50 @@ def save_l1_graph(recovered_flows, edges, nodes, out_path):
     print(f"\n  L1 graph saved -> {out_path}")
 
 
+def _try_load(path):
+    """Load JSON if it exists, else return None."""
+    try:
+        return load_json(path)
+    except Exception:
+        return None
+
+
 def main(run_dir=None):
     if run_dir:
         base = Path(run_dir)
     else:
         base = Path("data/supply_drops")
 
-    corrupted_graph  = load_json(base / "graphs/corrupted/graph.json")
-    true_graph       = load_json(base / "eval/true_graph.json")
-    corruption_labels = load_json(base / "eval/corruption_labels.json")
+    corrupted_graph = load_json(base / "graphs/corrupted/graph.json")
+
+    if not corrupted_graph.get("edges"):
+        print("ERROR: consensus graph has no edges — ETL produced empty output.")
+        sys.exit(1)
+
+    # Eval files are optional — without them L1 still runs, just no scoring
+    true_graph        = _try_load(base / "eval/true_graph.json")
+    corruption_labels = _try_load(base / "eval/corruption_labels.json")
+    have_eval         = true_graph is not None
 
     print("\n" + "="*60)
-    print("  ORB - READER PIPELINE + L1 INTEGRATION")
-    print(f"  {len(corrupted_graph['edges'])} consensus edges, "
-          f"{len(true_graph['edges'])} true edges")
+    print("  ORB — READER PIPELINE + L1 INTEGRATION")
+    print(f"  {len(corrupted_graph['edges'])} consensus edges"
+          + (f", {len(true_graph['edges'])} true edges" if have_eval else ""))
     print("="*60)
 
-    # Baseline: what does consensus give us (no L1)?
-    consensus_score = load_json(base / "graphs/corrupted/score_vs_truth.json")
-    print(f"\n  CONSENSUS BASELINE (voting only, no conservation):")
-    print(f"    Edges matched:     {consensus_score['matched_hops']} / {consensus_score['target_edges']}")
-    print(f"    Exact matches:     {consensus_score['exact_weight_matches']}")
-    print(f"    Mean weight error: {consensus_score['mean_abs_weight_error_on_matches']:.2f} lb")
-    print(f"    Extra hops vs hidden truth: {len(consensus_score['extra_hops'])}")
+    # Baseline score (optional)
+    consensus_score = _try_load(base / "graphs/corrupted/score_vs_truth.json")
+    if consensus_score:
+        print(f"\n  CONSENSUS BASELINE (voting only, no conservation):")
+        print(f"    Edges matched:     {consensus_score['matched_hops']} / {consensus_score['target_edges']}")
+        print(f"    Exact matches:     {consensus_score['exact_weight_matches']}")
+        print(f"    Mean weight error: {consensus_score['mean_abs_weight_error_on_matches']:.2f} lb")
+        print(f"    Extra hops vs hidden truth: {len(consensus_score['extra_hops'])}")
 
     # Supply drops already carry auditor EOD. LeakDB uses the nearby true
     # graph (hour before the leak) as the same kind of independent book.
     true_constraints = None
-    if not has_auditor_eod(corrupted_graph):
+    if have_eval and not has_auditor_eod(corrupted_graph):
         true_constraints = constraints_from_true_graph(
             true_graph, corrupted_graph.get("nodes") or []
         )
@@ -371,42 +387,22 @@ def main(run_dir=None):
     # --- Least squares ---
     x_ls, res_ls = least_squares(H, y)
     flagged_ls = flag_claims(claims, res_ls, threshold=8.0)
-    flow_results_ls = evaluate(x_ls, edges, true_graph)
-    print_results("LEAST SQUARES", flow_results_ls, flagged_ls, claims, edges, corruption_labels)
+    if have_eval:
+        flow_results_ls = evaluate(x_ls, edges, true_graph)
+        print_results("LEAST SQUARES", flow_results_ls, flagged_ls, claims, edges, corruption_labels)
 
     # --- L1 with confidence weights ---
     x_l1, res_l1 = l1_estimate(H, y, weights=weights)
     if x_l1 is not None:
         flagged_l1 = flag_claims(claims, res_l1, threshold=8.0)
-        flow_results_l1 = evaluate(x_l1, edges, true_graph)
-        print_results("L1 (confidence-weighted)", flow_results_l1, flagged_l1, claims, edges, corruption_labels)
+        if have_eval:
+            flow_results_l1 = evaluate(x_l1, edges, true_graph)
+            print_results("L1 (confidence-weighted)", flow_results_l1, flagged_l1, claims, edges, corruption_labels)
         save_l1_graph(x_l1, edges, corrupted_graph["nodes"],
                       base / "graphs/corrupted/l1_recovered.json")
     else:
         print("\nL1: solver failed")
-
-    # --- Summary comparison ---
-    print(f"\n{'='*60}")
-    print(f"  COMPARISON SUMMARY")
-    print(f"{'='*60}")
-    methods = [
-        ("Consensus (voting)", consensus_score["mean_abs_weight_error_on_matches"],
-         len(consensus_score["extra_hops"])),
-    ]
-    for label, flow_results in [("Least Squares", flow_results_ls),
-                                  ("L1 estimator",  flow_results_l1 if x_l1 is not None else [])]:
-        errors = [r["error"] for r in flow_results if r["error"] is not None]
-        ghosts_flagged = sum(
-            1 for r in flow_results
-            if r["ghost"] and r["estimated"] < 5.0  # ghost edge pushed near 0
-        )
-        mean_err = sum(errors)/len(errors) if errors else float('inf')
-        methods.append((label, mean_err, ghosts_flagged))
-
-    print(f"\n  {'Method':<28} {'MeanErr':>9} {'GhostsSuppressed':>18}")
-    print(f"  {'-'*55}")
-    for label, mean_err, ghosts in methods:
-        print(f"  {label:<28} {mean_err:>9.2f} {ghosts:>18}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

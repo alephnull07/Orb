@@ -212,6 +212,52 @@ button, input { font: inherit; cursor: pointer; }
 }
 .clear:hover { color: var(--red); }
 
+/* ── LeakDB run list ── */
+.run-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.run-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  padding: 7px 10px;
+  text-align: left;
+  color: var(--text2);
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.run-item:hover { background: var(--surface2); color: var(--text); }
+
+.run-item.active {
+  border-left-color: var(--blue);
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.run-id {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.run-mae {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+}
+.run-mae.green { color: var(--green); }
+.run-mae.amber { color: var(--amber); }
+.run-mae.red   { color: var(--red); }
+
 /* ── Drop zone ── */
 .drop-zone {
   min-height: 88px;

@@ -1,0 +1,126 @@
+{
+  "mutated_message_ids": [
+    "MSG-024",
+    "MSG-010",
+    "MSG-002",
+    "MSG-009",
+    "MSG-057",
+    "MSG-026"
+  ],
+  "injected_messages": [
+    "MSG-C01",
+    "MSG-C02",
+    "MSG-C03",
+    "MSG-C04"
+  ],
+  "attacks": [
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-024",
+      "true_lb": 115,
+      "reported_lb": 140,
+      "edge": [
+        "HUB_NOVEMBER",
+        "SITE_GOLF"
+      ],
+      "source_name": "November ridge hub",
+      "target_name": "Golf orchard",
+      "lie": "Report 140 lb instead of 115 lb on the move November ridge hub -> Golf orchard."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-010",
+      "true_lb": 25,
+      "reported_lb": 65,
+      "edge": [
+        "SRC_SIERRA",
+        "HUB_OVERLOOK"
+      ],
+      "source_name": "Sierra FOB depot",
+      "target_name": "Overlook forward cache",
+      "lie": "Report 65 lb instead of 25 lb on the move Sierra FOB depot -> Overlook forward cache."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-002",
+      "true_lb": 200,
+      "reported_lb": 225,
+      "edge": [
+        "SRC_LIMA",
+        "HUB_NOVEMBER"
+      ],
+      "source_name": "Lima convoy origin",
+      "target_name": "November ridge hub",
+      "lie": "Report 225 lb instead of 200 lb on the move Lima convoy origin -> November ridge hub."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-009",
+      "true_lb": 25,
+      "reported_lb": 65,
+      "edge": [
+        "SRC_LIMA",
+        "HUB_MIKE"
+      ],
+      "source_name": "Lima convoy origin",
+      "target_name": "Mike junction",
+      "lie": "Report 65 lb instead of 25 lb on the move Lima convoy origin -> Mike junction."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-057",
+      "true_lb": 30,
+      "reported_lb": 45,
+      "edge": [
+        "SITE_ALPHA",
+        "SITE_CHARLIE"
+      ],
+      "source_name": "Alpha bridge",
+      "target_name": "Charlie mill",
+      "lie": "Report 45 lb instead of 30 lb on the move Alpha bridge -> Charlie mill."
+    },
+    {
+      "id": "mutate_weight",
+      "message_id": "MSG-026",
+      "true_lb": 45,
+      "reported_lb": 60,
+      "edge": [
+        "HUB_NOVEMBER",
+        "SITE_WILLOW"
+      ],
+      "source_name": "November ridge hub",
+      "target_name": "Willow warehouse",
+      "lie": "Report 60 lb instead of 45 lb on the move November ridge hub -> Willow warehouse."
+    },
+    {
+      "id": "ghost_edge",
+      "message_id": "MSG-C01",
+      "source": "SITE_GOLF",
+      "target": "SITE_WHISKEY",
+      "source_name": "Golf orchard",
+      "target_name": "Whiskey checkpoint",
+      "reported_lb": 10,
+      "lie": "Golf orchard sent 10 lb to Whiskey checkpoint (no such edge)."
+    },
+    {
+      "id": "double_count_source",
+      "message_id": "MSG-C02",
+      "lie": "Second source drop that did not happen."
+    },
+    {
+      "id": "stale_prior_day",
+      "message_id": "MSG-C03",
+      "lie": "200 lb receipt from another day."
+    },
+    {
+      "id": "unit_swap_kg",
+      "message_id": "MSG-C04",
+      "lie": "kg vs lb on a runner."
+    }
+  ],
+  "true_message_count": 84,
+  "corrupted_message_count": 88,
+  "generator": "fallback",
+  "seed": 4618286,
+  "n_nodes": 17
+}

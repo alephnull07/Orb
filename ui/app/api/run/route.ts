@@ -7,49 +7,108 @@ import fs from 'fs'
 const execAsync = promisify(exec)
 const ORB = path.join(process.cwd(), '..')
 
+function execSafe(cmd: string, opts: { cwd: string; timeout?: number }) {
+  return execAsync(cmd, opts).catch((e: any) => {
+    const detail = (e.stderr || e.stdout || '').trim().slice(-3000)
+    throw new Error(detail || e.message)
+  })
+}
+
+/** Return true if the buffer looks like a valid consensus/flow graph JSON */
+function isGraphJson(buf: Buffer): boolean {
+  try {
+    const obj = JSON.parse(buf.toString('utf8'))
+    return Array.isArray(obj.nodes) && Array.isArray(obj.edges) && obj.edges.length > 0
+  } catch {
+    return false
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const form = await req.formData()
     const files = form.getAll('files') as File[]
 
-    if (files.length > 0) {
-      // Save uploaded files to user_run/corrupted/
-      const runDir = path.join(ORB, 'data', 'supply_drops', 'user_run')
-      const corruptedDir = path.join(runDir, 'corrupted')
-      fs.mkdirSync(corruptedDir, { recursive: true })
-
-      for (const file of files) {
-        const buf = Buffer.from(await file.arrayBuffer())
-        fs.writeFileSync(path.join(corruptedDir, file.name), buf)
-      }
-
-      // Copy eval dir so bridge.py can score against ground truth
-      const defaultEval = path.join(ORB, 'data', 'supply_drops', 'eval')
-      const userEval = path.join(runDir, 'eval')
-      fs.mkdirSync(userEval, { recursive: true })
-      for (const f of fs.readdirSync(defaultEval)) {
-        fs.copyFileSync(path.join(defaultEval, f), path.join(userEval, f))
-      }
-
-      // ETL: parse raw files → consensus graph
-      await execAsync(
-        `python3 -m src.etl.run --source corrupted --no-llm --data-root "${runDir}"`,
-        { cwd: ORB, timeout: 120_000 }
-      )
-
-      // L1: run bridge on the user run dir
-      await execAsync(`python3 bridge.py "${runDir}"`, { cwd: ORB, timeout: 60_000 })
-
-      // Tag this run so /api/graphs knows which dir to serve
-      fs.writeFileSync(path.join(ORB, 'data', 'supply_drops', '.last_run'), runDir)
-    } else {
-      // No files — run on default data
-      await execAsync('python3 bridge.py', { cwd: ORB, timeout: 60_000 })
+    if (files.length === 0) {
+      // No files — run L1 on default supply_drops data
+      await execSafe('python3 bridge.py', { cwd: ORB, timeout: 60_000 })
       fs.writeFileSync(
         path.join(ORB, 'data', 'supply_drops', '.last_run'),
         path.join(ORB, 'data', 'supply_drops')
       )
+      return NextResponse.json({ ok: true })
     }
+
+    const runDir = path.join(ORB, 'data', 'supply_drops', 'user_run')
+    fs.mkdirSync(path.join(runDir, 'corrupted'), { recursive: true })
+    fs.mkdirSync(path.join(runDir, 'graphs', 'corrupted'), { recursive: true })
+
+    // Read all file buffers
+    const fileMap: Record<string, Buffer> = {}
+    for (const file of files) {
+      fileMap[file.name] = Buffer.from(await file.arrayBuffer())
+    }
+
+    // ── Path A: direct graph JSON upload ──────────────────────────────────
+    // If any uploaded JSON file is already a valid graph (has nodes + edges),
+    // write it directly as the consensus graph — no ETL needed.
+    // Works with any domain: supply chain, SCADA, logistics, etc.
+    const graphFile = Object.entries(fileMap).find(
+      ([name, buf]) => name.endsWith('.json') && isGraphJson(buf)
+    )
+
+    if (graphFile) {
+      const [fname, buf] = graphFile
+      const dest = path.join(runDir, 'graphs', 'corrupted', 'graph.json')
+      fs.writeFileSync(dest, buf)
+      // Also write as consensus.json (what the UI reads)
+      fs.writeFileSync(path.join(runDir, 'graphs', 'corrupted', 'consensus.json'), buf)
+      console.log(`[run] Direct graph upload: ${fname} → skipping ETL`)
+
+    // ── Path B: raw comms files → ETL → graph ─────────────────────────────
+    } else {
+      const hasMessages = 'messages.jsonl' in fileMap
+      if (!hasMessages) {
+        return NextResponse.json({
+          ok: false,
+          error:
+            'Upload either:\n' +
+            '  • A graph JSON (nodes + edges already extracted) — runs L1 directly\n' +
+            '  • messages.jsonl (supply-chain comms) — runs full ETL → L1 pipeline\n\n' +
+            'Raw .txt / .csv files are not parsed directly. ' +
+            'They need to be converted to messages.jsonl format first.',
+        }, { status: 400 })
+      }
+
+      // Save all files to the corrupted dir
+      for (const [name, buf] of Object.entries(fileMap)) {
+        fs.writeFileSync(path.join(runDir, 'corrupted', name), buf)
+      }
+
+      // Copy eval dir (best-effort, bridge.py handles missing eval gracefully)
+      try {
+        const defaultEval = path.join(ORB, 'data', 'supply_drops', 'eval')
+        const userEval = path.join(runDir, 'eval')
+        fs.mkdirSync(userEval, { recursive: true })
+        for (const f of fs.readdirSync(defaultEval)) {
+          fs.copyFileSync(path.join(defaultEval, f), path.join(userEval, f))
+        }
+      } catch { /* optional */ }
+
+      // Detect API key → use LLM mode if available, else regex-only
+      const apiKey = process.env.ANTHROPIC_API_KEY || ''
+      const llmFlag = apiKey ? '' : '--no-llm'
+      await execSafe(
+        `python3 -m src.etl.run --source corrupted ${llmFlag} --data-root "${runDir}"`,
+        { cwd: ORB, timeout: 120_000 }
+      )
+    }
+
+    // Run L1 on whatever graph we now have
+    await execSafe(`python3 bridge.py "${runDir}"`, { cwd: ORB, timeout: 60_000 })
+
+    // Tag this run so /api/graphs knows which dir to serve
+    fs.writeFileSync(path.join(ORB, 'data', 'supply_drops', '.last_run'), runDir)
 
     return NextResponse.json({ ok: true })
   } catch (e: any) {

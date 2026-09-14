@@ -1,0 +1,16 @@
+=== SUPPLY NET LOG 12 SEP 26 ===
+
+[2026-09-12T08:00:00Z] (radio) LT Johnson / Alpha-1 -> Bravo-Actual
+Bravo-Actual, Alpha-1. sending 300 lb from Alpha depot to Bravo cache. count it on arrival. over.
+
+[2026-09-12T08:05:00Z] (radio) SGT Chen / Bravo-Actual -> Alpha-1
+Alpha-1, Bravo-Actual. got 300 pounds off Alpha depot here at Bravo cache. logged. chen.
+
+[2026-09-12T08:30:00Z] (radio) LT Johnson / Alpha-1 -> Charlie-Actual
+Charlie-Actual, Alpha-1. sending 150 lb from Alpha depot to Charlie outpost. over.
+
+[2026-09-12T08:35:00Z] (field_log) CPL Davis / Charlie-Actual -> HQ
+got 150 pounds off Alpha depot here at Charlie outpost. logged. davis.
+
+[2026-09-12T17:00:00Z] (field_log) SGT Chen / Bravo-Actual -> HQ
+EOD Bravo cache: in 300 lb, out 0 lb, on-hand 300 lb
