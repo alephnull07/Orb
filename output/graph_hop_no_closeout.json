@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "OP_GHOST",
+      "initial": 40.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WEST_YARD",
+      "initial": 1000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_WEST_YARD_OP_GHOST",
+      "from": "WEST_YARD",
+      "to": "OP_GHOST"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_WEST_YARD_OP_GHOST",
+      "value": 400.0,
+      "source": "shipment_sent",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T09:10:00Z"
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_WEST_YARD_OP_GHOST",
+      "value": 400.0,
+      "source": "shipment_received",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T09:10:00Z"
+    }
+  ]
+}

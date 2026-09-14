@@ -264,6 +264,11 @@ def test_sink_corruption_confusability():
     )
     # The inflated sink is the false certainty: the estimator is confident
     # but wrong about what is happening at BASE_B.
+    assert any(a["id"] == "BASE_B" for a in decoded["ambiguous"]), (
+        "Unmetered downward lie must be reported as {loss, downward_corruption}, "
+        f"got {decoded.get('ambiguous')}"
+    )
+    assert not any(s["id"] == "BASE_B" for s in decoded.get("loss") or [])
 
 
 # ---------------------------------------------------------------------------
@@ -675,3 +680,57 @@ def test_fuel_e_consumption_is_clean():
     assert abs(_qty(decoded, "OP_TALON") - 1750) < 1.0
     assert abs(_qty(decoded, "OP_VIPER") - 930) < 1.0
     assert abs(_qty(decoded, "PORT_HAVEN") - 11000) < 1.0
+
+
+def test_unmetered_leak_is_ambiguous():
+    """True leak at BASE_B cannot be named as loss without a meter (k=0)."""
+    result = _run("toy_water_sinks.json")
+    decoded = result["decoded"]
+    assert any(a["id"] == "BASE_B" for a in decoded["ambiguous"])
+    assert not decoded["loss"]
+    assert not decoded["flagged"]
+
+
+def test_metered_leak_is_named_loss():
+    """Drain meter + level sensor: BASE_B sink is identifiable loss."""
+    graph = _load("toy_water_metered.json")
+    compiled = compile_graph(graph)
+    x_hat, residuals = _l1_solve(compiled)
+    decoded = decode(x_hat, residuals, compiled, graph)
+    assert "BASE_B" in compiled["report"]["metered_sink_ids"]
+    assert any(s["id"] == "BASE_B" for s in decoded["loss"])
+    assert not decoded["ambiguous"]
+
+
+def test_mad_threshold_separates_noise_from_sparse_a():
+    from orb.decode import flag_threshold
+    r = np.array([0.1, -0.2, 0.15, -0.05, 0.0, 0.08, 80.0])
+    sigma, thresh = flag_threshold(r)
+    assert 80.0 > thresh
+    assert abs(0.2) <= thresh
+
+
+def test_half_and_half_residuals_still_flag():
+    """[0, 0, 320, 320] must not inflate σ until 320 looks like noise."""
+    from orb.decode import flag_threshold
+    sigma, thresh = flag_threshold(np.array([320.0, 320.0, 0.0, 0.0]))
+    assert 320.0 > thresh
+    assert thresh <= 0.5 or sigma < 1.0
+
+
+def test_blind_edge_without_third_channel():
+    graph = {
+        "nodes": [
+            {"id": "A", "initial": 0, "sinks": "none"},
+            {"id": "B", "initial": 0, "sinks": "none"},
+        ],
+        "edges": [{"id": "e_A_B", "from": "A", "to": "B"}],
+        "claims": [
+            {"id": "s", "type": "edge", "ref": "e_A_B", "value": 10, "source": "shipment_sent", "weight": 1},
+            {"id": "r", "type": "edge", "ref": "e_A_B", "value": 10, "source": "shipment_received", "weight": 1},
+        ],
+    }
+    compiled = compile_graph(graph)
+    assert compiled["report"]["blind_edges"]
+    decoded = decode(*_l1_solve(compiled), compiled, graph)
+    assert decoded["undetectable"]

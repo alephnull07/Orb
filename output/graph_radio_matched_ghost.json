@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "id": "WEST_YARD",
+      "initial": 1000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "GHOST_OP",
+      "initial": 40.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "WEST_YARD",
+      "to": "GHOST_OP"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 400.0,
+      "source": "consensus",
+      "weight": 10.0
+    }
+  ]
+}

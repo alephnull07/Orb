@@ -1,0 +1,49 @@
+{
+  "nodes": [
+    {
+      "id": "WEST_YARD",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "GHOST_OP",
+      "initial": 0.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CRATES_WEST_YARD",
+      "initial": 0.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "WEST_YARD",
+      "to": "GHOST_OP"
+    },
+    {
+      "id": "e1",
+      "from": "CRATES_WEST_YARD",
+      "to": "GHOST_OP"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 400.0,
+      "source": "consensus",
+      "weight": 10.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e1",
+      "value": 400.0,
+      "source": "consensus",
+      "weight": 10.0
+    }
+  ]
+}

@@ -90,7 +90,8 @@
       "ref": "J_01",
       "value": 112.09,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c1",
@@ -98,7 +99,8 @@
       "ref": "J_02",
       "value": 98.03,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c2",
@@ -106,7 +108,8 @@
       "ref": "J_03",
       "value": 113.48,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c3",
@@ -114,7 +117,8 @@
       "ref": "J_04",
       "value": 108.26,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c4",
@@ -122,7 +126,8 @@
       "ref": "J_05",
       "value": 82.81,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c5",
@@ -130,7 +135,8 @@
       "ref": "J_06",
       "value": 119.9,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c6",
@@ -138,7 +144,8 @@
       "ref": "e_J_01_J_02",
       "value": 210.09,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c7",
@@ -146,7 +153,8 @@
       "ref": "e_J_02_J_03",
       "value": 112.39,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c8",
@@ -154,7 +162,8 @@
       "ref": "e_J_03_J_04",
       "value": -302.45,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c9",
@@ -162,7 +171,8 @@
       "ref": "e_J_04_J_05",
       "value": 89.76,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c10",
@@ -170,7 +180,8 @@
       "ref": "e_J_05_J_06",
       "value": 4.61,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c11",
@@ -178,7 +189,8 @@
       "ref": "e_J_06_J_01",
       "value": -114.68,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c12",
@@ -186,7 +198,8 @@
       "ref": "e_J_01_J_04",
       "value": 20.6,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c13",
@@ -194,7 +207,8 @@
       "ref": "e_R_01_J_01",
       "value": 456.83,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c14",
@@ -202,7 +216,8 @@
       "ref": "e_R_01_J_04",
       "value": 477.61,
       "source": "flow",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c15",
@@ -210,7 +225,8 @@
       "ref": "J_03",
       "value": 113.53,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c16",
@@ -218,7 +234,8 @@
       "ref": "J_01",
       "value": 111.58,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c17",
@@ -226,7 +243,8 @@
       "ref": "J_06",
       "value": 120.15,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c18",
@@ -234,7 +252,8 @@
       "ref": "J_04",
       "value": 107.78,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c19",
@@ -242,7 +261,8 @@
       "ref": "J_02",
       "value": 96.72,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c20",
@@ -250,7 +270,8 @@
       "ref": "J_05",
       "value": 82.95,
       "source": "demand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c21",
@@ -258,7 +279,8 @@
       "ref": "J_01",
       "value": 0.65,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c22",
@@ -266,7 +288,8 @@
       "ref": "J_02",
       "value": 0.74,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c23",
@@ -274,7 +297,8 @@
       "ref": "J_03",
       "value": 300.54,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c24",
@@ -282,7 +306,8 @@
       "ref": "J_04",
       "value": 0.0,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c25",
@@ -290,7 +315,8 @@
       "ref": "J_05",
       "value": 0.23,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c26",
@@ -298,7 +324,8 @@
       "ref": "J_06",
       "value": 0.12,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c27",
@@ -306,7 +333,8 @@
       "ref": "J_01",
       "value": 0.22,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     },
     {
       "id": "c28",
@@ -314,7 +342,8 @@
       "ref": "J_04",
       "value": 0.87,
       "source": "sink_meter",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-01-01T00:00:00Z"
     }
   ]
 }

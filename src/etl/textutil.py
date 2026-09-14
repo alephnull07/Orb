@@ -59,6 +59,11 @@ EOD_ONHAND_RE = re.compile(
     r"(?:^|\n)(?:EOD\s+(.+?)\s+on hand\s+(\d+)|(.+?)\s+EOD(?:\s+on hand)?\s+(\d+)(?:\s+on hand)?)",
     re.IGNORECASE,
 )
+# "West Yard opening 1000 crates" / "Camp Kilo opening 200 crates on hand"
+OPENING_RE = re.compile(
+    r"([A-Za-z][\w ./-]{0,48}?)\s+opening(?:\s+(?:count|on[ -]?hand))?\s+(\d+(?:\.\d+)?)",
+    re.IGNORECASE,
+)
 SUSPICIOUS = re.compile(
     r"(yesterday|smudged|second drop|double it|\bkg\b|do not know if this is today)",
     re.IGNORECASE,

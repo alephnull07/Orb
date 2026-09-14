@@ -112,8 +112,11 @@ button, input { font: inherit; cursor: pointer; }
   flex-direction: column;
   gap: 0;
 }
-.left-panel  { border-right: 1px solid var(--border); }
-.right-panel { border-left:  1px solid var(--border); }
+.right-panel {
+  border-left: 1px solid var(--border);
+  min-width: 0;
+  overflow-x: hidden;
+}
 
 /* Section label — 9px uppercase, letter-spaced, muted */
 .section-label {
@@ -422,11 +425,19 @@ button, input { font: inherit; cursor: pointer; }
   line-height: 1;
 }
 
+.graph-toolbar-left {
+  min-width: 0;
+  flex: 1;
+}
 .graph-toolbar-left .graph-meta {
   font-size: 10px;
   color: var(--text3);
   margin-top: 5px;
   font-family: var(--font-inter), sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 52ch;
 }
 
 /* View toggle: plain text buttons, active = underline */
@@ -456,7 +467,7 @@ button, input { font: inherit; cursor: pointer; }
   border-bottom-color: var(--blue);
 }
 
-.flow-wrap { flex: 1; min-height: 0; }
+.flow-wrap { flex: 1; min-height: 0; overflow: auto; position: relative; }
 
 /* ReactFlow overrides */
 .react-flow { background-color: #0a0e14 !important; }
@@ -931,6 +942,208 @@ button, input { font: inherit; cursor: pointer; }
 
 .result-val.amber { color: var(--amber); font-weight: 600; }
 
+/* ── Ops dashboard ── */
+.ops-dash {
+  min-height: 100%;
+  overflow: visible;
+  padding: 16px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.ops-dash > * {
+  flex-shrink: 0;
+}
+.ops-hero {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+.ops-hero.critical { border-color: rgba(232, 64, 64, 0.35); }
+.ops-hero.watch    { border-color: rgba(232, 149, 42, 0.35); }
+.ops-hero.clear    { border-color: rgba(48, 201, 126, 0.28); }
+.ops-hero-kicker {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+.ops-hero-line {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  max-width: 62ch;
+}
+.ops-section { min-width: 0; }
+.ops-section > .section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ops-count {
+  margin-left: auto;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0;
+  color: var(--text3);
+}
+.ops-actions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ops-action {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.ops-action.p0 { border-left: 2px solid var(--red); }
+.ops-action.p1 { border-left: 2px solid var(--amber); }
+.ops-action.p2,
+.ops-action.p3 { border-left: 2px solid var(--border2); }
+.ops-action-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.ops-pri {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--text3);
+}
+.ops-kind {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+.ops-where {
+  margin-left: auto;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--blue);
+}
+.ops-action-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.ops-action-do {
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.45;
+}
+.ops-action-why {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--text3);
+  line-height: 1.4;
+}
+.ops-sensors { display: flex; flex-direction: column; gap: 8px; }
+.ops-sensor {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  overflow: hidden;
+}
+.ops-sensor-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.ops-sensor-at {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.ops-sensor-kind {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+.ops-sensor-do { font-size: 11px; color: var(--text2); line-height: 1.4; }
+.ops-sensor-effect { font-size: 11px; color: var(--text); margin-top: 4px; line-height: 1.4; }
+.ops-sensor-hops {
+  margin-top: 6px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--blue);
+}
+.ops-empty {
+  font-size: 11px;
+  color: var(--text3);
+  padding: 8px 0;
+}
+.ops-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.ops-row-note {
+  font-size: 9px;
+  color: var(--text3);
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+.ops-next {
+  text-align: left;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  color: inherit;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+.ops-next:hover { border-color: var(--border2); }
+.ops-next-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+.ops-next-line {
+  font-size: 11px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.ops-next-hint {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--blue);
+}
+.ops-pill {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ops-pill.critical { color: var(--red); }
+.ops-pill.watch { color: var(--amber); }
+.ops-pill.clear { color: var(--green); }
+
 /* ── Animations ── */
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin  { to { transform: rotate(360deg); } }
@@ -941,4 +1154,5 @@ button, input { font: inherit; cursor: pointer; }
 @media (max-width: 1100px) {
   .orb-workspace { grid-template-columns: 220px minmax(0, 1fr) 260px; }
   .view-toggle button { font-size: 10px; }
+  .ops-grid { grid-template-columns: 1fr; }
 }

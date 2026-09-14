@@ -1,0 +1,8 @@
+entity_id,channel,value,timestamp,from_node,to_node
+WEST_YARD,opening_on_hand,2000,2026-09-14T06:00:00Z,,
+MID_HUB,opening_on_hand,100,2026-09-14T06:00:00Z,,
+OP_RIDGE,opening_on_hand,20,2026-09-14T06:00:00Z,,
+WEST_YARD->MID_HUB,shipment_sent,600,2026-09-14T08:15:00Z,WEST_YARD,MID_HUB
+WEST_YARD->MID_HUB,shipment_received,600,2026-09-14T08:15:00Z,WEST_YARD,MID_HUB
+MID_HUB->OP_RIDGE,shipment_sent,500,2026-09-14T11:40:00Z,MID_HUB,OP_RIDGE
+MID_HUB->OP_RIDGE,shipment_received,500,2026-09-14T11:40:00Z,MID_HUB,OP_RIDGE

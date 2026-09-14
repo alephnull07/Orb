@@ -210,6 +210,14 @@ def _union_agent(primary: dict, secondary: dict, allow_new_edges: bool = True) -
     out["nodes"] = list(nodes.values())
     out["edges"] = list(edges.values())
     out["trusted_constraint_rows"] = constraints
+    openings = list(primary.get("openings") or [])
+    seen_open = {o.get("node") for o in openings}
+    for o in secondary.get("openings") or []:
+        if o.get("node") not in seen_open:
+            openings.append(o)
+            seen_open.add(o.get("node"))
+    if openings:
+        out["openings"] = openings
     return out
 
 
@@ -334,6 +342,11 @@ def _collapse_node_aliases(graphs: dict[str, dict]) -> None:
                 c["node"] = id_map[old_id]
                 c["display"] = id_display.get(old_id, c.get("display", ""))
 
+        for o in (g.get("openings") or []):
+            old_id = o.get("node", "")
+            if old_id in id_map:
+                o["node"] = id_map[old_id]
+
 
 def extract_records(
     records: list[dict],
@@ -397,7 +410,11 @@ def consensus_to_graph(consensus: dict, lambda_w: float = 1.0) -> dict:
     # to avoid double-counting in the balance constraint.
     node_ids = {n["id"] for n in consensus.get("nodes", [])}
     for n in consensus.get("nodes", []):
-        c_nodes.append({"id": n["id"], "initial": 0.0, "sinks": "none"})
+        c_nodes.append({
+            "id": n["id"],
+            "initial": float(n.get("initial", 0.0) or 0.0),
+            "sinks": "none",
+        })
 
     # Edges → edge claims
     claim_idx = 0
@@ -429,6 +446,8 @@ def consensus_to_graph(consensus: dict, lambda_w: float = 1.0) -> dict:
         nid = row.get("node")
         inv = row.get("inventory_eod_lb")
         if nid and inv and float(inv) != 0.0 and nid in node_ids:
+            if str(row.get("source") or "") == "consensus_flow":
+                continue
             c_claims.append({
                 "id": f"c{claim_idx}",
                 "type": "node",

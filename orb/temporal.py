@@ -239,6 +239,86 @@ def correctable_k_stacked(lp: LPProblem, max_k: int = 4) -> int:
 
 # ── high-level: localize ──────────────────────────────────────────────────────
 
+def snapshots_from_graph(graph: dict) -> list[Snapshot]:
+    """Group compile-format claims into per-timestamp Snapshot objects."""
+    from collections import defaultdict
+
+    buckets: dict[str, dict] = defaultdict(lambda: {"node": {}, "edge": {}})
+    for c in graph.get("claims") or []:
+        ts = c.get("timestamp") or "all"
+        ctype = c.get("type")
+        ref = c.get("ref")
+        if ref is None or not _finite_claim(c.get("value")):
+            continue
+        val = float(c["value"])
+        if ctype == "node":
+            prev = buckets[ts]["node"].get(ref)
+            buckets[ts]["node"][ref] = val if prev is None else 0.5 * (prev + val)
+        elif ctype == "edge":
+            prev = buckets[ts]["edge"].get(ref)
+            buckets[ts]["edge"][ref] = val if prev is None else 0.5 * (prev + val)
+    out = []
+    for ts in sorted(buckets):
+        if ts == "all" and len(buckets) > 1:
+            continue
+        b = buckets[ts]
+        if not b["node"] and not b["edge"]:
+            continue
+        out.append(Snapshot(timestamp=str(ts), node_obs=b["node"], edge_obs=b["edge"]))
+    return out
+
+
+def _finite_claim(value) -> bool:
+    try:
+        return bool(np.isfinite(float(value)))
+    except (TypeError, ValueError):
+        return False
+
+
+def try_stack_sinks(graph: dict, compiled: dict, x_hat: np.ndarray,
+                    lambda_sink: float = 0.01) -> np.ndarray:
+    """
+    If the graph has T>=3 snapshots and unknown sinks, re-estimate shared
+    sinks with the stacked LP and write them into x_hat.  Updates
+    compiled['report']['correctable_k'] / T when stacking raises k.
+    """
+    report = compiled.get("report") or {}
+    if not report.get("sink_node_ids"):
+        return x_hat
+    snaps = snapshots_from_graph(graph)
+    if len(snaps) < 3:
+        return x_hat
+    edges = graph.get("edges") or []
+    if not edges:
+        return x_hat
+    topo_links = {e["id"]: (e["from"], e["to"]) for e in edges}
+    topo_nodes = [n["id"] for n in (graph.get("nodes") or [])]
+    try:
+        lp = build_stacked_lp(snaps, topo_links, topo_nodes, lambda_sink)
+        xs, _ = solve_stacked(lp, lambda_sink=lambda_sink)
+        if lp.n_claims <= 40:
+            stacked_k = correctable_k_stacked(lp, max_k=2)
+        else:
+            stacked_k = 1
+        sink_start = lp.T * lp.n_nodes + lp.T * lp.n_edges
+        sinks = {
+            nid: float(xs[sink_start + i])
+            for i, nid in enumerate(lp.node_ids)
+        }
+    except Exception:
+        return x_hat
+    report["T"] = max(int(report.get("T") or 1), len(snaps))
+    report["correctable_k"] = max(int(report.get("correctable_k") or 0), stacked_k)
+    report["stacked"] = True
+    idx = compiled.get("index") or {}
+    x_hat = np.array(x_hat, dtype=float, copy=True)
+    for nid, val in sinks.items():
+        col = idx.get(f"sink_{nid}")
+        if col is not None and col < len(x_hat):
+            x_hat[col] = val
+    return x_hat
+
+
 def localize_leak(
     snapshots: list[Snapshot],
     topo_links: dict[str, tuple[str, str]],

@@ -301,3 +301,59 @@ def test_field_reports_keeps_six_sites():
     for token in ("ALPHA", "BRAVO", "CRESCENT", "DELTA", "ECHO", "DEPOT"):
         assert token in joined, f"missing {token} in {ids}"
     assert len(g["edges"]) >= 5, f"too few hops: {g['edges']}"
+
+
+def test_merge_does_not_invent_closeout_from_flow():
+    """Matched send/receive with no EOD must not grow a fake on-hand claim."""
+    from src.etl.consensus import merge
+
+    def agent(name):
+        return {
+            "agent": name,
+            "nodes": [
+                {"id": "west_yard", "key": "west yard", "display": "West Yard", "aliases": ["West Yard"]},
+                {"id": "ghost_op", "key": "ghost op", "display": "Ghost OP", "aliases": ["Ghost OP"]},
+            ],
+            "edges": [{
+                "source_key": "west yard", "target_key": "ghost op",
+                "source": "west_yard", "target": "ghost_op",
+                "source_display": "West Yard", "target_display": "Ghost OP",
+                "value_lb": 400, "evidence": ["m1"],
+            }],
+            "trusted_constraint_rows": [],
+            "openings": [
+                {"node": "west_yard", "value": 1000},
+                {"node": "ghost_op", "value": 40},
+            ],
+        }
+
+    consensus = merge([agent("scout"), agent("receiver"), agent("auditor")])
+    assert consensus["trusted_constraint_rows"] == []
+    by_id = {n["id"]: n for n in consensus["nodes"]}
+    assert by_id["west_yard"]["initial"] == 1000
+    assert by_id["ghost_op"]["initial"] == 40
+
+
+def test_radio_ghost_is_blind_hop():
+    """radio_matched_ghost.txt: 400/400, openings only, no EOD → undetectable."""
+    from orb.ingest import ingest_paths
+    from orb.compile import compile as compile_graph
+    from orb.decode import decode
+    from orb.run_graph import _l1_solve
+    from orb.advise import generate_advice
+
+    path = os.path.join(FIXTURES, "coordinated", "radio_matched_ghost.txt")
+    graph, report = ingest_paths([path])
+    assert graph and graph.get("claims"), report
+    assert not any(
+        "eod" in str(c.get("source") or "").lower()
+        for c in graph["claims"]
+    ), graph["claims"]
+    compiled = compile_graph(graph)
+    decoded = decode(*_l1_solve(compiled), compiled, graph)
+    assert decoded["undetectable"], decoded
+    assert not decoded["flagged"], decoded["flagged"]
+    advice = generate_advice(graph, compiled, decoded)
+    assert any(s["kind"] == "independent_count" for s in advice["sensors"])
+    assert not any(a["kind"] == "resupply" for a in advice["actions"])
+

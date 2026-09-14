@@ -1,0 +1,15 @@
+=== GHOST HOP NET 14 SEP 26 ===
+# Sender and receiver report the same false transfer (400). True lift was 80.
+# No EOD / closeout on either end — coordinated lie is invisible to L1.
+
+[2026-09-14T06:00:00Z] (radio) WO PARK / YARD-1 -> ALL
+West Yard opening 1000 crates. Ghost OP is on the board. Do not mix it with Ridge.
+
+[2026-09-14T06:08:00Z] (radio) CPL NASH / GHOST-3 -> YARD-1
+Ghost OP opening 40 crates. GHOST-3.
+
+[2026-09-14T09:10:00Z] (radio) WO PARK / YARD-1 -> GHOST-3
+GHOST-3 this is YARD-1. sending 400 crates from West Yard to Ghost OP. count it on arrival. over.
+
+[2026-09-14T09:40:00Z] (radio) CPL NASH / GHOST-3 -> YARD-1
+YARD-1, GHOST-3. got 400 crates off West Yard here at Ghost OP. logged. nash.

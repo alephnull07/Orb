@@ -233,6 +233,8 @@ def merge_graphs(graphs: list[dict]) -> dict:
                 nc["ref"] = id_map[nc["ref"]]
             if nc.get("type") == "sink" and nc.get("ref") in nodes:
                 nodes[nc["ref"]]["sinks"] = "unknown"
+            if not nc.get("timestamp") and g.get("_timestamp"):
+                nc["timestamp"] = g["_timestamp"]
             claims.append(nc)
             cid += 1
 

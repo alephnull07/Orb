@@ -1,0 +1,8 @@
+SMS backup — same coordinated lie as radio_matched_ghost.txt
+Both ends confirm 400. No closeout. True lift was 80.
+
+[2026-09-14T09:12:00Z] (sms) WO PARK / YARD-1 -> TOC
+pushed 400 crates West Yard -> Ghost OP. count matches the truck.
+
+[2026-09-14T09:42:00Z] (sms) CPL NASH / GHOST-3 -> TOC
+got 400 crates off West Yard here at Ghost OP. logged. nash

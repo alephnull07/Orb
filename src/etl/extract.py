@@ -15,6 +15,7 @@ from .textutil import (
     EOD_RE,
     FLOW_ARROW_RE,
     GOT_RE,
+    OPENING_RE,
     RECEIVED_FROM_RE,
     ROLLING_RE,
     SEND_RE,
@@ -36,6 +37,7 @@ class GraphBuilder:
         self.nodes: dict[str, dict] = {}
         self.edges: dict[tuple[str, str], dict] = {}
         self.eod: dict[str, dict] = {}
+        self.openings: dict[str, float] = {}
 
     def touch(self, raw: str) -> str:
         key = canon(raw)
@@ -86,6 +88,12 @@ class GraphBuilder:
             flagged = bool(m.get("corrupted"))
             if skip_suspicious and SUSPICIOUS.search(text):
                 continue
+            for match in OPENING_RE.finditer(text):
+                place = match.group(1).strip()
+                qty = as_number(match.group(2))
+                if place and qty is not None and is_site_name(place):
+                    key = self.touch(place)
+                    self.openings[key] = float(qty)
             if eod:
                 for match in EOD_RE.finditer(text):
                     place = match.group(1).strip()
@@ -206,4 +214,10 @@ class GraphBuilder:
         }
         if constraints:
             out["trusted_constraint_rows"] = constraints
+        if self.openings:
+            out["openings"] = [
+                {"node": self.nodes[k]["id"], "value": v}
+                for k, v in self.openings.items()
+                if k in self.nodes
+            ]
         return out

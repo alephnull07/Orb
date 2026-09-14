@@ -35,6 +35,7 @@ from scipy.optimize import linprog
 
 from .compile import compile as compile_graph
 from .decode  import decode
+from .temporal import try_stack_sinks
 
 
 # ---------------------------------------------------------------------------
@@ -61,6 +62,7 @@ def run_graph(graph_path: str) -> dict:
 
     compiled  = compile_graph(graph)
     x_hat, residuals = _l1_solve(compiled)
+    x_hat = try_stack_sinks(graph, compiled, x_hat, lambda_sink=float(graph.get("lambda_sink", 0.01) or 0.01))
     decoded   = decode(x_hat, residuals, compiled, graph)
 
     return {

@@ -49,6 +49,7 @@ Returns dict:
 import itertools
 import math
 import re
+from collections import Counter
 
 import numpy as np
 
@@ -350,14 +351,45 @@ def compile(graph: dict) -> dict:  # noqa: A001
     identifiable   = rank_HA >= n_vars
     correctable_k  = _correctable_k(H, A_eq, n_vars)
 
+    qty_obs_counts = dict(Counter(
+        str(c["ref"]) for c in claims if c.get("type") == "node" and c.get("ref")
+    ))
+    metered_sink_ids = sorted({
+        str(c["ref"]) for c in claims if c.get("type") == "sink" and c.get("ref")
+    })
+    node_obs = set(qty_obs_counts)
+    blind_edges = []
+    for e in edges:
+        ecs = [c for c in claims if c.get("type") == "edge" and c.get("ref") == e["id"]]
+        if not ecs:
+            continue
+        if e.get("from") not in node_obs and e.get("to") not in node_obs:
+            blind_edges.append({
+                "id": e["id"],
+                "from": e.get("from"),
+                "to": e.get("to"),
+                "reason": "no independent stock claim on either endpoint; "
+                          "a coordinated sender/receiver lie is undetectable",
+            })
+
+    ts_vals = {
+        c.get("timestamp") for c in raw_claims
+        if c.get("timestamp") and c.get("timestamp") != "all"
+    }
+    T = max(1, len(ts_vals))
+
     report = {
-        "n_vars":         n_vars,
-        "n_claims":       m,
-        "rank":           rank_HA,
-        "identifiable":   identifiable,
-        "correctable_k":  correctable_k,
-        "sink_node_ids":  list(sink_cols.keys()),
-        "known_sinks":    known_offsets,
+        "n_vars":            n_vars,
+        "n_claims":          m,
+        "rank":              rank_HA,
+        "identifiable":      identifiable,
+        "correctable_k":     correctable_k,
+        "sink_node_ids":     list(sink_cols.keys()),
+        "known_sinks":       known_offsets,
+        "metered_sink_ids":  metered_sink_ids,
+        "qty_obs_counts":    qty_obs_counts,
+        "blind_edges":       blind_edges,
+        "T":                 T,
     }
 
     return {

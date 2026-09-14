@@ -53,7 +53,10 @@ _SITE_IDENTITY = (
     "- Aliases of the SAME place may merge: 'FOB Alpha', 'Alpha-1', 'Alpha depot' → one node.\n"
     "- People, callsigns, convoys, and vehicles are not nodes. Use the places they travel between.\n"
     "- Prefer the full site name from the log header (the token after the timestamp).\n"
-    "- Opening counts and EOD on-hand are inventory at that site, not edges.\n"
+    "- Opening counts are STARTING stock, not closeout. They are not EOD.\n"
+    "- EOD / closeout / end-of-day on-hand is a separate measurement. Do not "
+    "compute implied on-hand as opening minus shipments. If the log has no "
+    "EOD or closeout, do not emit eod rows.\n"
 )
 
 PERSONAS = {
@@ -152,10 +155,13 @@ Read these observations and output ONLY valid JSON adhering to this schema:
 {{
   "nodes": [{{"display": "Full Site Name", "type": "source|junction|hub|sink|unknown"}}],
   "edges": [{{"source": "Full Source Name", "target": "Full Target Name", "value_lb": 123, "evidence": ["MSG-001"]}}],
-  "eod": [{{"display": "Full Site Name", "in_lb": 100, "out_lb": 50, "inventory_eod_lb": 50, "evidence": "MSG-010"}}]
+  "eod": [{{"display": "Full Site Name", "in_lb": 100, "out_lb": 50, "inventory_eod_lb": 50, "evidence": "MSG-010"}}],
+  "opening": [{{"display": "Full Site Name", "value_lb": 1000}}]
 }}
 value_lb is the numeric quantity in whatever unit the observations use (pounds, m3/h, etc.).
 If a network schema is listed, bind link/flow sensors to those endpoints. Do not invent extra hops.
+eod is ONLY an explicit closeout / EOD / end-of-day on-hand. Never invent it from opening minus flow.
+opening is start-of-day / opening count. Omit eod entirely when the log has no closeout.
 
 Observations:
 {text}
@@ -223,32 +229,57 @@ Observations:
         )
 
     constraints = []
-    for row in data.get("eod") or []:
+    body = "\n".join(
+        ln for ln in text.splitlines() if not ln.strip().startswith("#")
+    )
+    has_closeout = bool(re.search(
+        r"\beod\b|close[- ]?out|end of (the )?day|eod_on_hand",
+        body,
+        re.I,
+    ))
+    if has_closeout:
+        for row in data.get("eod") or []:
+            place = (row.get("display") or row.get("node") or "").strip()
+            if not place:
+                continue
+            pk = canon(place)
+            if pk not in nodes:
+                nodes[pk] = {"id": slug(place), "display": place, "aliases": [place], "key": pk}
+            try:
+                constraints.append(
+                    {
+                        "node": nodes[pk]["id"],
+                        "display": nodes[pk]["display"],
+                        "law": "mass_balance",
+                        "in_lb": int(row.get("in_lb", 0)),
+                        "out_lb": int(row.get("out_lb", 0)),
+                        "inventory_eod_lb": int(row.get("inventory_eod_lb", row.get("on_hand_lb", 0))),
+                        "evidence": row.get("evidence", ""),
+                    }
+                )
+            except (ValueError, TypeError):
+                continue
+
+    openings = []
+    for row in data.get("opening") or []:
         place = (row.get("display") or row.get("node") or "").strip()
         if not place:
+            continue
+        lb = as_number(row.get("value_lb", row.get("value")))
+        if lb is None:
             continue
         pk = canon(place)
         if pk not in nodes:
             nodes[pk] = {"id": slug(place), "display": place, "aliases": [place], "key": pk}
-        try:
-            constraints.append(
-                {
-                    "node": nodes[pk]["id"],
-                    "display": nodes[pk]["display"],
-                    "law": "mass_balance",
-                    "in_lb": int(row.get("in_lb", 0)),
-                    "out_lb": int(row.get("out_lb", 0)),
-                    "inventory_eod_lb": int(row.get("inventory_eod_lb", row.get("on_hand_lb", 0))),
-                    "evidence": row.get("evidence", ""),
-                }
-            )
-        except (ValueError, TypeError):
-            continue
+        openings.append({"node": nodes[pk]["id"], "value": float(lb)})
 
-    return {
+    out = {
         "agent": agent,
         "role": f"claude:{agent}",
         "nodes": list(nodes.values()),
         "edges": edges,
         "trusted_constraint_rows": constraints,
     }
+    if openings:
+        out["openings"] = openings
+    return out

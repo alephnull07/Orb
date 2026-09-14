@@ -14,10 +14,12 @@ import {
   Activity, AlertTriangle, ChevronDown, ChevronUp,
   Loader2, Network, ShieldAlert, ShieldCheck, Upload, X,
 } from 'lucide-react'
+import { NextActions, OpsDashboard, type Advice } from './OpsDashboard'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 type ViewMode = 'REPORTED' | 'L1'
+type CenterTab = 'GRAPH' | 'OPS'
 
 interface DemoResult {
   ingest_report: {
@@ -32,12 +34,21 @@ interface DemoResult {
     rank: number
     identifiable: boolean
     correctable_k: number
+    T?: number
+    metered_sink_ids?: string[]
+    blind_edges?: Array<{ id: string; from: string; to: string; reason: string }>
   }
   decoded: {
     nodes: Array<{ id: string; qty: number }>
     edges: Array<{ id: string; from: string; to: string; flow: number }>
-    sinks: Array<{ id: string; sink: number }>
-    flagged: Array<{ claim_id: string; residual: number; source: string; type: string }>
+    sinks: Array<{ id: string; sink: number; status?: string }>
+    loss?: Array<{ id: string; sink: number; status?: string }>
+    ambiguous?: Array<{ id: string; sink: number; status?: string; hypotheses?: string[]; reason?: string }>
+    flagged: Array<{ claim_id: string; residual: number; source: string; type: string; kind?: string }>
+    noise?: Array<{ claim_id: string; residual: number }>
+    sigma?: number
+    threshold?: number
+    undetectable?: Array<{ id: string; from: string; to: string; reason: string }>
   }
   graph: {
     nodes: Array<{ id: string; initial?: number; sinks?: string }>
@@ -48,6 +59,7 @@ interface DemoResult {
     }>
     lambda_sink?: number
   }
+  advice?: Advice
   error?: string
 }
 
@@ -222,6 +234,7 @@ const edgeTypes = { orb: OrbEdge }
 export default function Page() {
   const [status, setStatus]         = useState<'IDLE' | 'RUNNING' | 'DONE'>('IDLE')
   const [view, setView]             = useState<ViewMode>('L1')
+  const [centerTab, setCenterTab]   = useState<CenterTab>('GRAPH')
   const [rawFiles, setRawFiles]     = useState<File[]>([])
   const [isDragging, setIsDragging] = useState(false)
   const [result, setResult]         = useState<DemoResult | null>(null)
@@ -250,7 +263,7 @@ export default function Page() {
       const r = await fetch('/api/demo', { method: 'POST', body: form })
       const d = await r.json()
       if (d.error) throw new Error(d.error)
-      setResult(d); setStatus('DONE')
+      setResult(d); setStatus('DONE'); setCenterTab('OPS')
     } catch (e: any) {
       setRunError(String(e.message || e)); setStatus('IDLE')
     }
@@ -271,7 +284,6 @@ export default function Page() {
     const { graph, decoded } = result
 
     const l1Qty   = new Map(decoded.nodes.map(n => [n.id, n.qty]))
-    const sinkMap = new Map(decoded.sinks.map(s => [s.id, s.sink]))
     const l1Flow  = new Map(decoded.edges.map(e => [e.id, e.flow]))
 
     const pos = computeLayout(graph.nodes, graph.edges)
@@ -279,9 +291,11 @@ export default function Page() {
     const flowNodes: Node[] = graph.nodes.map(n => {
       const reported = claimedNodeQty.get(n.id)
       const l1       = l1Qty.get(n.id)
-      const sink     = sinkMap.get(n.id) ?? 0
+      const sinkRow = (decoded.loss || []).find(s => s.id === n.id)
+      const sink     = sinkRow?.sink ?? 0
       const delta    = (reported != null && l1 != null) ? Math.abs(l1 - reported) : 0
-      const corrected = delta > DELTA_THRESHOLD
+      const paintThresh = decoded.threshold ?? DELTA_THRESHOLD
+      const corrected = delta > paintThresh
 
       let qtyLabel: string | undefined
       let wasLabel: string | undefined
@@ -311,8 +325,9 @@ export default function Page() {
     const flowEdges: Edge[] = graph.edges.map(e => {
       const reported = claimedEdgeFlow.get(e.id)
       const l1       = l1Flow.get(e.id)
+      const paintThresh = result.decoded.threshold ?? DELTA_THRESHOLD
       const delta    = (reported != null && l1 != null) ? Math.abs(l1 - reported) : 0
-      const corrected = delta > DELTA_THRESHOLD
+      const corrected = delta > paintThresh
 
       let flowLabel: string | undefined
       let wasFlow: string | undefined
@@ -336,11 +351,6 @@ export default function Page() {
   const report  = result?.report
   const decoded = result?.decoded
   const ingest  = result?.ingest_report
-
-  const sinks = useMemo(
-    () => decoded?.sinks?.slice().sort((a, b) => Math.abs(b.sink) - Math.abs(a.sink)) ?? [],
-    [decoded],
-  )
 
   const VIEW_LABELS: Record<ViewMode, string> = {
     REPORTED: 'Reported',
@@ -487,16 +497,31 @@ export default function Page() {
         <section className="graph-panel">
           <div className="graph-toolbar">
             <div className="graph-toolbar-left">
-              <div className="graph-title">network graph</div>
+              <div className="graph-title">
+                {centerTab === 'OPS' ? 'ops board' : 'network graph'}
+              </div>
               {result && (
                 <div className="graph-meta">
-                  {result.graph.nodes.length} nodes · {result.graph.edges.length} edges ·{' '}
-                  {decoded?.flagged.length ?? 0} flagged
+                  {centerTab === 'OPS'
+                    ? `${result.advice?.sensors?.length ?? 0} sensor${(result.advice?.sensors?.length ?? 0) === 1 ? '' : 's'} · ${result.advice?.actions?.length ?? 0} actions`
+                    : `${result.graph.nodes.length} nodes · ${result.graph.edges.length} edges · ${decoded?.flagged.length ?? 0} flagged`}
                 </div>
               )}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               {result && (
+                <div className="view-toggle">
+                  {(['GRAPH', 'OPS'] as CenterTab[]).map(t => (
+                    <button key={t}
+                      className={centerTab === t ? 'active' : ''}
+                      onClick={() => setCenterTab(t)}
+                    >
+                      {t === 'GRAPH' ? 'Network' : 'Ops'}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {result && centerTab === 'GRAPH' && (
                 <div className="view-toggle">
                   {(['REPORTED', 'L1'] as ViewMode[]).map(v => (
                     <button key={v}
@@ -515,7 +540,18 @@ export default function Page() {
           </div>
 
           <div className="flow-wrap">
-            {flowNodes.length > 0 ? (
+            {centerTab === 'OPS' && result ? (
+              result.advice ? (
+                <OpsDashboard advice={result.advice} />
+              ) : (
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  height: '100%', color: '#3d4e60', fontSize: 11,
+                }}>
+                  No playbook for this run.
+                </div>
+              )
+            ) : flowNodes.length > 0 ? (
               <ReactFlow
                 nodes={flowNodes} edges={flowEdges}
                 nodeTypes={nodeTypes} edgeTypes={edgeTypes}
@@ -541,7 +577,7 @@ export default function Page() {
             )}
           </div>
 
-          {flowNodes.length > 0 && (
+          {flowNodes.length > 0 && centerTab === 'GRAPH' && (
             <div className="legend">
               <span><i className="dot match" /> consistent</span>
               <span><i className="dot corrupted" /> corrected / leak</span>
@@ -559,6 +595,13 @@ export default function Page() {
             </div>
           ) : (
             <>
+              {result.advice && centerTab !== 'OPS' && (
+                <NextActions
+                  advice={result.advice}
+                  onOpen={() => setCenterTab('OPS')}
+                />
+              )}
+
               {/* ── Identifiability card ── */}
               <div className="ident-card">
                 <div className="ident-header">
@@ -576,46 +619,68 @@ export default function Page() {
                 {report!.correctable_k === 0 && (
                   <div className="ident-warning">
                     <AlertTriangle size={11} />
-                    Cannot guarantee corruption detection
+                    {(decoded!.ambiguous?.length ?? 0) > 0
+                      ? 'Cannot tell loss from downward corruption — returning the set'
+                      : (decoded!.undetectable?.length ?? 0) > 0
+                        ? 'Unmetered hops: a matched send/receive lie is undetectable'
+                        : 'correctable_k is 0 — this snapshot is not uniquely recoverable'}
                   </div>
                 )}
                 <div className="ident-details">
                   <span>rank {report!.rank} / {report!.n_vars}</span>
                   <span>{report!.identifiable ? 'full rank' : 'rank deficient'}</span>
                 </div>
+                {decoded?.sigma != null && (
+                  <div className="ident-details">
+                    <span>σ {decoded.sigma.toFixed(3)}</span>
+                    <span>flag |r| &gt; {(decoded.threshold ?? 0).toFixed(2)}</span>
+                  </div>
+                )}
               </div>
 
-              {/* ── Sinks (ranked by magnitude) ── */}
-              {sinks.length > 0 && (
+              {/* ── Named loss ── */}
+              {(decoded!.loss?.length ?? 0) > 0 && (
                 <>
                   <div className="section-label" style={{ marginTop: 18 }}>
-                    sinks (ranked)
+                    named loss
                     <span style={{
                       float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
-                    }}>{sinks.length}</span>
+                    }}>{decoded!.loss!.length}</span>
                   </div>
                   <div className="result-table">
-                    {sinks.map((s, i) => {
-                      const isTop = i === 0 && Math.abs(s.sink) > 1
-                      return (
-                        <div key={s.id}
-                          className={`result-row ${isTop ? 'highlight' : ''}`}
-                        >
-                          <span className="result-rank">#{i + 1}</span>
-                          <span className="result-id">{s.id}</span>
-                          <span className={`result-val ${Math.abs(s.sink) > 1 ? 'amber' : ''}`}>
-                            {s.sink.toFixed(2)}
-                          </span>
-                        </div>
-                      )
-                    })}
+                    {decoded!.loss!.map((s, i) => (
+                      <div key={s.id} className={`result-row ${i === 0 ? 'highlight' : ''}`}>
+                        <span className="result-rank">#{i + 1}</span>
+                        <span className="result-id">{s.id}</span>
+                        <span className="result-val amber">{s.sink.toFixed(2)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {(decoded!.ambiguous?.length ?? 0) > 0 && (
+                <>
+                  <div className="section-label" style={{ marginTop: 18 }}>
+                    ambiguous (loss or downward lie)
+                    <span style={{
+                      float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
+                    }}>{decoded!.ambiguous!.length}</span>
+                  </div>
+                  <div className="result-table">
+                    {decoded!.ambiguous!.map(s => (
+                      <div key={s.id} className="result-row">
+                        <span className="result-id">{s.id}</span>
+                        <span className="result-val">{s.sink.toFixed(2)}</span>
+                      </div>
+                    ))}
                   </div>
                 </>
               )}
 
               {/* ── Flagged claims ── */}
               <div className="section-label" style={{ marginTop: 18 }}>
-                flagged claims
+                corruption
                 <span style={{
                   float: 'right', fontFamily: 'var(--font-mono)', letterSpacing: 0,
                 }}>{decoded!.flagged.length}</span>
@@ -662,11 +727,12 @@ export default function Page() {
                   {decoded!.nodes.map(n => {
                     const reported = claimedNodeQty.get(n.id)
                     const delta = reported != null ? Math.abs(n.qty - reported) : 0
+                    const paintThresh = decoded!.threshold ?? DELTA_THRESHOLD
                     return (
-                      <div key={n.id} className={`result-row ${delta > DELTA_THRESHOLD ? 'highlight' : ''}`}>
+                      <div key={n.id} className={`result-row ${delta > paintThresh ? 'highlight' : ''}`}>
                         <span className="result-id">{n.id}</span>
                         <span className="result-val">{n.qty.toFixed(2)}</span>
-                        {delta > DELTA_THRESHOLD && (
+                        {delta > paintThresh && (
                           <span style={{ fontSize: 9, color: '#9d6d42', textDecoration: 'line-through', flexShrink: 0 }}>
                             {reported!.toFixed(1)}
                           </span>
@@ -687,13 +753,14 @@ export default function Page() {
                   {decoded!.edges.map(e => {
                     const reported = claimedEdgeFlow.get(e.id)
                     const delta = reported != null ? Math.abs(e.flow - reported) : 0
+                    const paintThresh = decoded!.threshold ?? DELTA_THRESHOLD
                     return (
-                      <div key={e.id} className={`result-row ${delta > DELTA_THRESHOLD ? 'highlight' : ''}`}>
+                      <div key={e.id} className={`result-row ${delta > paintThresh ? 'highlight' : ''}`}>
                         <span className="result-id" style={{ flex: 2 }}>
                           {e.from} → {e.to}
                         </span>
                         <span className="result-val">{e.flow.toFixed(2)}</span>
-                        {delta > DELTA_THRESHOLD && (
+                        {delta > paintThresh && (
                           <span style={{ fontSize: 9, color: '#9d6d42', textDecoration: 'line-through', flexShrink: 0 }}>
                             {reported!.toFixed(1)}
                           </span>

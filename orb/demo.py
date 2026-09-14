@@ -14,10 +14,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from .advise    import generate_advice
 from .compile   import compile as compile_graph
 from .decode    import decode
 from .ingest    import ingest_paths
 from .run_graph import _l1_solve
+from .temporal  import try_stack_sinks
 
 
 def run_demo_multi(paths: list[str | Path]) -> dict:
@@ -52,8 +54,10 @@ def run_demo(path: str | Path | list[str | Path], truth_path: str | Path | None 
     # ── compile → L1 → decode (SAME path for both) ───────────────────────────
     compiled  = compile_graph(graph)
     x_hat, residuals = _l1_solve(compiled)
+    x_hat = try_stack_sinks(graph, compiled, x_hat, lambda_sink=float(graph.get("lambda_sink", 0.01) or 0.01))
     decoded   = decode(x_hat, residuals, compiled, graph)
     report    = compiled["report"]
+    advice    = generate_advice(graph, compiled, decoded)
 
     # ── write graph.json ────────────────────────────────────────────────────
     out_dir = Path("output")
@@ -77,7 +81,7 @@ def run_demo(path: str | Path | list[str | Path], truth_path: str | Path | None 
         _print_record_header(ingest_report, graph)
 
     # Shared sections: claims, identifiability, decoded result, flagged
-    _print_common(report, decoded, graph)
+    _print_common(report, decoded, graph, advice)
 
     # Truth scoring (water CSV only)
     if truth_path and Path(truth_path).exists():
@@ -91,6 +95,7 @@ def run_demo(path: str | Path | list[str | Path], truth_path: str | Path | None 
         "compiled":      compiled,
         "decoded":       decoded,
         "report":        report,
+        "advice":        advice,
         "ingest_report": ingest_report,
     }
 
@@ -120,7 +125,7 @@ def _print_record_header(ingest_report, graph):
     print(f"  Reader agreement: {len(edges)} edges extracted")
 
 
-def _print_common(report, decoded, graph):
+def _print_common(report, decoded, graph, advice=None):
     """Sections printed for every file type."""
     claims = graph.get("claims", [])
 
@@ -136,6 +141,10 @@ def _print_common(report, decoded, graph):
     print(f"    rank:           {report['rank']} / {report['n_vars']}")
     print(f"    identifiable:   {report['identifiable']}")
     print(f"    correctable_k:  {report['correctable_k']}")
+    if decoded.get("sigma") is not None:
+        print(f"    sigma (MAD):    {decoded['sigma']:.4f}   flag |r| > {decoded.get('threshold', 0):.2f}")
+    if report.get("T"):
+        print(f"    snapshots T:    {report['T']}")
 
     # Decoded nodes
     print(f"\n  Decoded nodes:")
@@ -155,11 +164,27 @@ def _print_common(report, decoded, graph):
         print(f"\n  Sinks (ranked by magnitude):")
         for i, s in enumerate(sinks):
             marker = " ◄" if i == 0 and abs(s["sink"]) > 1.0 else ""
-            print(f"    #{i+1}  {s['id']:<16}  sink = {s['sink']:.2f}{marker}")
+            status = s.get("status") or ""
+            print(f"    #{i+1}  {s['id']:<16}  sink = {s['sink']:.2f}  {status}{marker}")
+
+    if decoded.get("loss"):
+        print(f"\n  Named loss ({len(decoded['loss'])}):")
+        for s in decoded["loss"]:
+            print(f"    {s['id']:<16}  sink = {s['sink']:.2f}")
+
+    if decoded.get("ambiguous"):
+        print(f"\n  Ambiguous (cannot tell loss from downward corruption):")
+        for a in decoded["ambiguous"]:
+            print(f"    {a['id']:<16}  sink = {a['sink']:.2f}  {a.get('reason','')}")
+
+    if decoded.get("undetectable"):
+        print(f"\n  Coordinated-lie blind hops (no third channel):")
+        for b in decoded["undetectable"]:
+            print(f"    {b.get('from')} → {b.get('to')}  {b.get('reason')}")
 
     # Flagged claims
     if decoded["flagged"]:
-        print(f"\n  Flagged claims ({len(decoded['flagged'])}):")
+        print(f"\n  Flagged claims / corruption ({len(decoded['flagged'])}):")
         for f in decoded["flagged"]:
             claim = next((c for c in claims if c["id"] == f["claim_id"]), {})
             source = claim.get("source", "?")
@@ -167,6 +192,19 @@ def _print_common(report, decoded, graph):
                   f"source={source}  type={f['type']}")
     else:
         print("\n  No claims flagged.")
+
+    if advice:
+        print(f"\n  Ops ({advice.get('severity')}): {advice.get('headline')}")
+        for i, a in enumerate(advice.get("actions") or [], 1):
+            print(f"    {i}. [{a.get('kind')}] {a.get('do')}")
+        sensors = advice.get("sensors") or []
+        if sensors:
+            print("\n  Sensor placement:")
+            for s in sensors:
+                hops = s.get("covers_hops") or []
+                hop_txt = ", ".join(f"{h.get('from')}→{h.get('to')}" for h in hops) or "—"
+                print(f"    {s.get('at')}: {s.get('kind')}  covers {hop_txt}")
+                print(f"      {s.get('effect')}")
 
 
 def _print_truth_scoring(decoded, truth_path):

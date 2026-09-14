@@ -19,6 +19,7 @@ from pathlib import Path
 import numpy as np
 
 from .compile   import compile as compile_graph
+from .decode    import flag_threshold
 from .run_graph import _l1_solve
 
 
@@ -78,7 +79,7 @@ def compute_metrics(
     compiled: dict,
     true_state: np.ndarray,
     corrupt_mask: list[bool],
-    threshold: float = 5.0,
+    threshold: float | None = None,
 ) -> dict:
     """
     Compute all metrics for a single run.
@@ -103,6 +104,8 @@ def compute_metrics(
     exact_recovery = 1 if state_error_max < 5.0 else 0
 
     # ── detection metrics ───────────────────────────────────────────────────
+    if threshold is None:
+        _, threshold = flag_threshold(residuals)
     flagged = np.abs(residuals) > threshold
     n_claims = len(corrupt_mask)
 

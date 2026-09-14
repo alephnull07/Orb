@@ -1,0 +1,7 @@
+entity_id,channel,value,timestamp,from_node,to_node
+WEST_YARD,opening_on_hand,1000,2026-09-14T06:00:00Z,,
+OP_GHOST,opening_on_hand,40,2026-09-14T06:00:00Z,,
+WEST_YARD->OP_GHOST,shipment_sent,400,2026-09-14T09:10:00Z,WEST_YARD,OP_GHOST
+WEST_YARD->OP_GHOST,shipment_received,400,2026-09-14T09:10:00Z,WEST_YARD,OP_GHOST
+WEST_YARD,eod_on_hand,920,2026-09-14T17:30:00Z,,
+OP_GHOST,eod_on_hand,120,2026-09-14T17:30:00Z,,

@@ -106,41 +106,48 @@ def merge(agent_graphs: list[dict]) -> dict:
         outgoing[e["source"]] += e["value_lb"]
 
     eod_by_display = {}
+    eod_by_node = {}
     for row in constraints:
-        eod_by_display[row["display"].strip().lower()] = row
+        if row.get("display"):
+            eod_by_display[row["display"].strip().lower()] = row
+        if row.get("node"):
+            eod_by_node[row["node"]] = row
 
     trusted = []
     for n in nodes:
-        eod = eod_by_display.get(n["display"].strip().lower())
-        inn = incoming[n["id"]]
-        out = outgoing[n["id"]]
-        if n["type"] == "source":
-            inn = max(inn, out)
-        inv = inn - out
-        if eod:
-            trusted.append(
-                {
-                    "node": n["id"],
-                    "display": n["display"],
-                    "law": "mass_balance",
-                    "in_lb": eod["in_lb"],
-                    "out_lb": eod["out_lb"],
-                    "inventory_eod_lb": eod["inventory_eod_lb"],
-                    "source": "auditor_eod",
-                }
-            )
-        else:
-            trusted.append(
-                {
-                    "node": n["id"],
-                    "display": n["display"],
-                    "law": "mass_balance",
-                    "in_lb": inn,
-                    "out_lb": out,
-                    "inventory_eod_lb": inv,
-                    "source": "consensus_flow",
-                }
-            )
+        eod = eod_by_node.get(n["id"]) or eod_by_display.get(n["display"].strip().lower())
+        if not eod:
+            # Do not invent closeout = in − out. That fabricates a third
+            # channel and makes a coordinated send/receive lie look like EOD.
+            continue
+        inv = eod.get("inventory_eod_lb")
+        if inv is None:
+            continue
+        trusted.append(
+            {
+                "node": n["id"],
+                "display": n["display"],
+                "law": "mass_balance",
+                "in_lb": eod.get("in_lb"),
+                "out_lb": eod.get("out_lb"),
+                "inventory_eod_lb": inv,
+                "source": "auditor_eod",
+            }
+        )
+
+    opening_by_id: dict[str, float] = {}
+    for g in agent_graphs:
+        for o in g.get("openings") or []:
+            nid = o.get("node")
+            try:
+                val = float(o.get("value"))
+            except (TypeError, ValueError):
+                continue
+            if nid:
+                opening_by_id[nid] = val
+    for n in nodes:
+        if n["id"] in opening_by_id:
+            n["initial"] = opening_by_id[n["id"]]
 
     return {
         "scenario": "supply_drops_people_as_sensors",

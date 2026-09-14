@@ -60,7 +60,8 @@
       "ref": "e_PORT_HAVEN_FOB_IRONSIDE",
       "value": 5000.0,
       "source": "shipment_sent",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T06:30:00Z"
     },
     {
       "id": "c1",
@@ -68,7 +69,8 @@
       "ref": "e_PORT_HAVEN_FOB_IRONSIDE",
       "value": 5000.0,
       "source": "shipment_received",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T06:30:00Z"
     },
     {
       "id": "c2",
@@ -76,7 +78,8 @@
       "ref": "e_PORT_HAVEN_FOB_KESTREL",
       "value": 4000.0,
       "source": "shipment_sent",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T07:10:00Z"
     },
     {
       "id": "c3",
@@ -84,7 +87,8 @@
       "ref": "e_PORT_HAVEN_FOB_KESTREL",
       "value": 4000.0,
       "source": "shipment_received",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T07:10:00Z"
     },
     {
       "id": "c4",
@@ -92,7 +96,8 @@
       "ref": "e_FOB_IRONSIDE_OP_TALON",
       "value": 900.0,
       "source": "shipment_sent",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T10:05:00Z"
     },
     {
       "id": "c5",
@@ -100,7 +105,8 @@
       "ref": "e_FOB_IRONSIDE_OP_TALON",
       "value": 900.0,
       "source": "shipment_received",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T10:05:00Z"
     },
     {
       "id": "c6",
@@ -108,7 +114,8 @@
       "ref": "e_FOB_KESTREL_OP_TALON",
       "value": 480.0,
       "source": "shipment_sent",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T11:40:00Z"
     },
     {
       "id": "c7",
@@ -116,7 +123,8 @@
       "ref": "e_FOB_KESTREL_OP_TALON",
       "value": 600.0,
       "source": "shipment_received",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T11:40:00Z"
     },
     {
       "id": "c8",
@@ -124,7 +132,8 @@
       "ref": "e_FOB_KESTREL_OP_VIPER",
       "value": 580.0,
       "source": "shipment_sent",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T13:15:00Z"
     },
     {
       "id": "c9",
@@ -132,7 +141,8 @@
       "ref": "e_FOB_KESTREL_OP_VIPER",
       "value": 700.0,
       "source": "shipment_received",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T13:15:00Z"
     },
     {
       "id": "c10",
@@ -140,7 +150,8 @@
       "ref": "PORT_HAVEN",
       "value": 11000.0,
       "source": "eod_on_hand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
     },
     {
       "id": "c11",
@@ -148,7 +159,8 @@
       "ref": "FOB_IRONSIDE",
       "value": 7100.0,
       "source": "eod_on_hand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
     },
     {
       "id": "c12",
@@ -156,7 +168,8 @@
       "ref": "FOB_KESTREL",
       "value": 5080.0,
       "source": "eod_on_hand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
     },
     {
       "id": "c13",
@@ -164,7 +177,8 @@
       "ref": "OP_TALON",
       "value": 1900.0,
       "source": "eod_on_hand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
     },
     {
       "id": "c14",
@@ -172,7 +186,8 @@
       "ref": "OP_VIPER",
       "value": 1050.0,
       "source": "eod_on_hand",
-      "weight": 1.0
+      "weight": 1.0,
+      "timestamp": "2026-09-15T17:30:00Z"
     }
   ]
 }

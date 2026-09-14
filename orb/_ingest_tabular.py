@@ -376,6 +376,7 @@ def _apply_mapping(
                 "value": value,
                 "source": channel or entity_col,
                 "weight": 1.0,
+                "timestamp": None if ts == "all" else ts,
             }
         elif primitive == "sink":
             nodes_seen.add(entity)
@@ -386,6 +387,7 @@ def _apply_mapping(
                 "value": value,
                 "source": channel or entity_col,
                 "weight": 1.0,
+                "timestamp": None if ts == "all" else ts,
             }
         else:
             nodes_seen.add(entity)
@@ -396,6 +398,7 @@ def _apply_mapping(
                 "value": value,
                 "source": channel or entity_col,
                 "weight": 1.0,
+                "timestamp": None if ts == "all" else ts,
             }
 
         claims_by_ts.setdefault(ts, []).append(claim)

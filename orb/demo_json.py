@@ -66,6 +66,7 @@ def _result_to_dict(result: dict) -> dict:
         "ingest_report": result["ingest_report"],
         "report": result["report"],
         "decoded": result["decoded"],
+        "advice": result.get("advice") or {},
         "graph": {
             "nodes": result["graph"]["nodes"],
             "edges": result["graph"]["edges"],

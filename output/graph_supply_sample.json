@@ -45,7 +45,7 @@
       "ref": "e0",
       "value": 75.0,
       "source": "consensus",
-      "weight": 10.0
+      "weight": 0.004442
     },
     {
       "id": "c1",
@@ -53,7 +53,7 @@
       "ref": "e1",
       "value": 150.0,
       "source": "consensus",
-      "weight": 10.0
+      "weight": 0.007138
     },
     {
       "id": "c2",
@@ -77,14 +77,6 @@
       "ref": "CHARLIE_OUTPOST",
       "value": 500.0,
       "source": "auditor_eod",
-      "weight": 1.0
-    },
-    {
-      "id": "c5",
-      "type": "node",
-      "ref": "DELTA_FORWARD_BASE",
-      "value": 40.0,
-      "source": "consensus_flow",
       "weight": 1.0
     }
   ]

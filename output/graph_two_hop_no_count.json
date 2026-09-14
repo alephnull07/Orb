@@ -1,0 +1,69 @@
+{
+  "nodes": [
+    {
+      "id": "MID_HUB",
+      "initial": 100.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_RIDGE",
+      "initial": 20.0,
+      "sinks": "none"
+    },
+    {
+      "id": "WEST_YARD",
+      "initial": 2000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_MID_HUB_OP_RIDGE",
+      "from": "MID_HUB",
+      "to": "OP_RIDGE"
+    },
+    {
+      "id": "e_WEST_YARD_MID_HUB",
+      "from": "WEST_YARD",
+      "to": "MID_HUB"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e_WEST_YARD_MID_HUB",
+      "value": 600.0,
+      "source": "shipment_sent",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T08:15:00Z"
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e_WEST_YARD_MID_HUB",
+      "value": 600.0,
+      "source": "shipment_received",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T08:15:00Z"
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e_MID_HUB_OP_RIDGE",
+      "value": 500.0,
+      "source": "shipment_sent",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T11:40:00Z"
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e_MID_HUB_OP_RIDGE",
+      "value": 500.0,
+      "source": "shipment_received",
+      "weight": 1.0,
+      "timestamp": "2026-09-14T11:40:00Z"
+    }
+  ]
+}
