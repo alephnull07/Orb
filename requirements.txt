@@ -1,0 +1,6 @@
+numpy
+scipy
+openpyxl        # .xlsx input
+pytest          # test suite
+playwright      # optional: docs/build_architecture.py renders the diagram
+matplotlib      # optional: scripts/benchmark_chart.py

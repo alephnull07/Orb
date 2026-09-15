@@ -252,9 +252,15 @@ def _print_truth_scoring(decoded, truth_path):
 
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python -m orb.demo <file> [truth.json]", file=sys.stderr)
-        sys.exit(1)
-    truth = sys.argv[2] if len(sys.argv) > 2 else None
-    run_demo(sys.argv[1], truth_path=truth)
+    import argparse
+    ap = argparse.ArgumentParser(description="Run the ORB pipeline on one or more files and print the report.")
+    ap.add_argument("files", nargs="+", help="input files (.csv .tsv .xlsx .txt .log .md .jsonl); several files are merged")
+    ap.add_argument("--sinks", default="none", choices=["none", "known", "unknown"],
+                    help="losses mode: none = strict conservation, known = metered draws become claims, "
+                         "unknown = free sink per node (leak search). Default none.")
+    ap.add_argument("--truth", default=None, help="optional truth JSON for scoring (single file only)")
+    args = ap.parse_args()
+    if len(args.files) == 1:
+        run_demo(args.files[0], truth_path=args.truth, sinks=args.sinks)
+    else:
+        run_demo_multi(args.files, sinks=args.sinks)

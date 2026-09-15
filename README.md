@@ -114,8 +114,9 @@ files (.csv .tsv .xlsx | .txt .log .md | .jsonl)
                 independently → spread across readers sets claim weight
    │
    ▼
-merge   canonicalize node names across files, dedupe the same event,
-        sum distinct events on the same edge
+merge   canonicalize node names across files; sum separate events on one
+        edge within an observer stream (file, channel); every independent
+        observation — sender vs receiver, file A vs file B — stays its own row
    ▼
 compile build H, balance rows, weights; run the identifiability check
    ▼
@@ -150,19 +151,64 @@ Scenario B recovers two corruptions on a graph whose guarantee is k = 1. The `2k
 
 ---
 
-## Reproduce
+## Running ORB
+
+### Requirements
+
+- Python 3.11+ with `numpy`, `scipy`, `openpyxl` (for `.xlsx`) and `pytest`
+- Node 18+ for the web UI
+- An Anthropic API key. Text files are read by model-backed extractors and tables get one column-mapping call; without a key, text falls back to narrow regex readers.
 
 ```bash
-pip install numpy scipy
-export ANTHROPIC_API_KEY=...        # or set it in .env
+git clone https://github.com/alephnull07/orb-.git && cd orb-
+pip install -r requirements.txt
+cp .env.example .env               # then paste your key after ANTHROPIC_API_KEY=
+cd ui && npm install && cd ..
+```
 
-python -m orb.demo tests/fixtures/fuel_B_two_corruptions.csv
-python -m orb.metrics                # full sweep -> results/sweep.json
-python -m orb.summarize              # markdown table from the sweep
-pytest                               # full suite
+### The web app
+
+```bash
+cd ui && npm run dev               # http://localhost:3000
+```
+
+- **Try a demo.** The left panel lists eleven preset scenarios. Each one loads its fixture files, sets its own losses mode, and runs the full pipeline. "View files" shows the raw input before you run it. The five-channel supply set takes 1–2 minutes the first time; everything else is seconds.
+- **Upload your own.** Drop any mix of `.csv .tsv .xlsx .txt .log .md .jsonl`. Several files are merged into one network. Tables need a column that names the site or link, a numeric value column, and ideally a timestamp and a channel column; text just needs messages with a place, a quantity, and a direction.
+- **Losses.** Pick `none` (strict conservation), `known` (consumption channels become metered sink claims), or `unknown` (free sink per node, for leak search). This is a modeling choice and is never detected from the data.
+- **Read the result.** The graph shows reported versus corrected values. The right panel gives identifiability (`correctable_k`), flagged claims with their source file, and ranked losses in `unknown` mode.
+- **Insights.** Click *view insights* for a model-written briefing and a chat that answers next-step questions from the recovered graph. It only runs when you click it.
+
+### Command line
+
+```bash
+python -m orb.demo tests/fixtures/fuel/fuel_B_two_corruptions.csv                 # one file
+python -m orb.demo tests/fixtures/medical/*.csv tests/fixtures/medical/*.txt \
+                   tests/fixtures/medical/*.jsonl                                  # merge several
+python -m orb.demo tests/fixtures/water/water_A_leak_only.csv --sinks unknown      # leak search
+python -m orb.demo_json --preset water-lie-or-leak                                 # any preset, as JSON
+python -m orb.presets --json                                                       # list presets
+```
+
+### Reproduce the numbers
+
+```bash
+pytest                                     # full suite, includes double-run checks on every preset
+python -m orb.presets --table              # nodes / edges / claims / k / flags for every preset
+python scripts/verify_fixtures.py          # every fixture set against its documented truth
+python scripts/benchmark_estimators.py --chart   # least squares vs ORB, writes docs/benchmark.png
+python -m orb.metrics                      # full synthetic sweep -> results/sweep.json
+python -m orb.summarize                    # markdown table from the sweep
 ```
 
 Every run is seeded and deterministic. `results/sweep.json` records the git commit hash, seed list, and timestamp in its meta block.
+
+### Cache
+
+Model responses are cached on disk by prompt hash in `~/.cache/orb_ingest`, so identical input never triggers a second API call. The merge, compile, and solve steps always run in full. To force cold extraction:
+
+```bash
+rm -rf ~/.cache/orb_ingest
+```
 
 ---
 
