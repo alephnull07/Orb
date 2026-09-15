@@ -1,0 +1,58 @@
+=== ANCHOR NET TRANSCRIPT 12 SEP 26 ===
+
+[2026-09-12T06:15:47Z] (radio) LT Elena Okonkwo / Wagon-3 -> November-Actual
+November-Actual this is Wagon-3. sending 225 lb from Lima convoy origin to November ridge hub. count it on arrival. over
+
+[2026-09-12T06:18:08Z] (radio) SPC Hana Rahman / Wagon-5 -> Uniform-Actual
+Uniform-Actual this is Wagon-5. sending 130 lb from Romeo FOB depot to Uniform forward cache. count it on arrival. over
+
+[2026-09-12T06:38:55Z] (radio) PVT Greta Ortiz / Wagon-6 -> Yankee-Actual
+Yankee-Actual this is Wagon-6. sending 110 lb from Sierra FOB depot to Yankee transfer yard. count it on arrival. over
+
+[2026-09-12T07:40:00Z] (radio) LT Elena Okonkwo / Wagon-3 -> Watchtower
+Watchtower, second drop, another 405 pounds from Lima convoy origin. Double it on the board. Over.
+
+[2026-09-12T09:02:21Z] (radio) PFC Amelia Diaz / Mike-Actual -> Anchor-A7
+Anchor-A7 this is Mike-Actual. sending 5 lb from Mike junction to Alpha bridge. count it on arrival. over
+
+[2026-09-12T09:05:29Z] (radio) SPC Sam Singh / Xray-Actual -> Anchor-H1
+Anchor-H1 this is Xray-Actual. sending 15 lb from Xray junction to Harbor mosque courtyard. count it on arrival. over
+
+[2026-09-12T09:21:34Z] (radio) SPC Sam Singh / Xray-Actual -> Anchor-T9
+Anchor-T9 this is Xray-Actual. sending 140 lb from Xray junction to Tango schoolhouse. count it on arrival. over
+
+[2026-09-12T09:23:08Z] (radio) CPL Leo Khan / November-Actual -> Anchor-G7
+Anchor-G7 this is November-Actual. sending 115 lb from November ridge hub to Golf orchard. count it on arrival. over
+
+[2026-09-12T09:40:00Z] (radio) PFC Noah Ruiz / Yankee-Actual -> Anchor-C3
+Anchor-C3 this is Yankee-Actual. sending 60 lb from Yankee transfer yard to Cedar schoolhouse. count it on arrival. over
+
+[2026-09-12T09:42:21Z] (radio) CPL Leo Khan / November-Actual -> Anchor-A7
+Anchor-A7 this is November-Actual. sending 20 lb from November ridge hub to Alpha bridge. count it on arrival. over
+
+[2026-09-12T10:02:21Z] (radio) CPT Hana Khan / Uniform-Actual -> Anchor-W3
+Anchor-W3 this is Uniform-Actual. sending 10 lb from Uniform forward cache to Willow warehouse. count it on arrival. over
+
+[2026-09-12T10:05:29Z] (radio) SSG Aisha Hale / Overlook-Actual -> Anchor-C3
+Anchor-C3 this is Overlook-Actual. sending 1 lb from Overlook forward cache to Cedar schoolhouse. count it on arrival. over
+
+[2026-09-12T10:22:21Z] (radio) SSG Aisha Hale / Overlook-Actual -> Anchor-W3
+Anchor-W3 this is Overlook-Actual. sending 2 lb from Overlook forward cache to Willow warehouse. count it on arrival. over
+
+[2026-09-12T12:40:00Z] (radio) SFC Hana Nair / Spare-2 -> ALL
+uh ignore, stepped on the net. dusty at November ridge hub. no extra pallets, just looking for the toyota.
+
+[2026-09-12T13:00:47Z] (radio) SFC Victor Nguyen / Anchor-A7 -> Anchor-T9
+Anchor-T9 this is Anchor-A7. sending 5 lb from Alpha bridge to Tango schoolhouse. count it on arrival. over
+
+[2026-09-12T13:02:21Z] (radio) SPC Riley Rahman / Anchor-T9 -> Anchor-W3
+Anchor-W3 this is Anchor-T9. sending 15 lb from Tango schoolhouse to Willow warehouse. count it on arrival. over
+
+[2026-09-12T13:23:08Z] (radio) CPL Hana Hale / Anchor-W5 -> Anchor-C3
+Anchor-C3 this is Anchor-W5. sending 45 lb from Whiskey checkpoint to Cedar schoolhouse. count it on arrival. over
+
+[2026-09-12T13:24:42Z] (radio) PVT Maya Ortiz / Anchor-C3 -> Anchor-W5
+Anchor-W5 this is Anchor-C3. sending 20 lb from Cedar schoolhouse to Whiskey checkpoint. count it on arrival. over
+
+[2026-09-12T13:40:47Z] (radio) PVT Maya Ortiz / Anchor-C3 -> Anchor-H1
+Anchor-H1 this is Anchor-C3. sending 25 lb from Cedar schoolhouse to Harbor mosque courtyard. count it on arrival. over

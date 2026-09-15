@@ -27,6 +27,7 @@ export interface Preset {
   tag: string
   kind: PresetKind
   caption: string
+  warning?: string | null
   sinks: SinksMode
   files: string[]
   paths?: string[]

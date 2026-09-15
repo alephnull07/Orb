@@ -463,3 +463,8 @@ a.sys-contact-line:hover { color: var(--blue); }
   color: var(--text); font-family: var(--font-mono), ui-monospace, monospace; font-size: 11px; line-height: 1.55;
   white-space: pre; tab-size: 4;
 }
+
+.preset-warning {
+  display: inline-block; margin-top: 4px;
+  color: var(--amber); font-size: 9.5px; font-weight: 600; letter-spacing: 0.04em;
+}

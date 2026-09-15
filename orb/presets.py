@@ -46,6 +46,17 @@ PRESETS: list[dict] = [
         "caption": "Three file formats describing one network. One false end-of-day count.",
     },
     {
+        "id": "supply-five-channels",
+        "tag": "five channels, one day",
+        "kind": "merge",
+        "name": "Supply drop — five channels",
+        "files": ["supply_large/radio_net.txt", "supply_large/email_thread.txt", "supply_large/sms_export.txt",
+                  "supply_large/whatsapp_export.txt", "supply_large/field_logs.txt"],
+        "sinks": "none",
+        "caption": "Radio, email, SMS, WhatsApp and photographed notebooks from one day: 88 messages, 17 sites, six altered figures and four fabricated messages planted across the channels.",
+        "warning": "warning — long run, 1-2 min",
+    },
+    {
         "id": "medical-four-sources",
         "tag": "cross-source detection",
         "kind": "merge",
@@ -179,6 +190,7 @@ def run_preset(preset_id: str) -> dict:
         "tag": preset["tag"],
         "kind": preset["kind"],
         "caption": preset["caption"],
+        "warning": preset.get("warning"),
         "sinks": preset["sinks"],
         "files": [Path(f).name for f in preset["files"]],
     }
@@ -222,7 +234,7 @@ if __name__ == "__main__":
 
     if args.json:
         json.dump([{k: p[k] for k in ("id", "name", "sinks", "caption", "tag", "kind")}
-                   | {"files": [Path(f).name for f in p["files"]], "paths": list(p["files"])}
+                   | {"warning": p.get("warning"), "files": [Path(f).name for f in p["files"]], "paths": list(p["files"])}
                    for p in PRESETS], sys.stdout, ensure_ascii=False)
         print()
     elif args.table:

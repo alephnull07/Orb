@@ -570,7 +570,7 @@ export default function Page() {
             onClick={handleRun}
           >
             {status === 'RUNNING'
-              ? <><Loader2 className="spin" size={15} /> estimating...</>
+              ? <><Loader2 className="spin" size={15} /> {activePreset?.warning ? 'estimating… (long run)' : 'estimating...'}</>
               : <><Activity size={15} /> run estimation</>}
           </button>
 
@@ -609,6 +609,7 @@ export default function Page() {
                       </span>
                     </span>
                     <span className="preset-caption">{p.caption}</span>
+                    {p.warning && <span className="preset-warning">⚠ {p.warning}</span>}
                   </button>
                 ))}
               </div>
@@ -785,6 +786,7 @@ export default function Page() {
                     {result.preset.tag}
                   </div>
                   <div className="scenario-caption">{result.preset.caption}</div>
+                  {result.preset.warning && <div className="preset-warning">⚠ {result.preset.warning}</div>}
                   <div className="scenario-files">
                     {result.preset.files.join(' · ')} · losses <b>{result.preset.sinks}</b>
                   </div>

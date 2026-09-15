@@ -1,0 +1,856 @@
+{
+  "nodes": [
+    {
+      "id": "CAMP_DUNE",
+      "initial": 580.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_HOLLOW",
+      "initial": 540.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_MARSH",
+      "initial": 600.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_RIDGE",
+      "initial": 620.0,
+      "sinks": "none"
+    },
+    {
+      "id": "CAMP_SABLE",
+      "initial": 550.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_ANVIL",
+      "initial": 3500.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_IRONSIDE",
+      "initial": 4000.0,
+      "sinks": "none"
+    },
+    {
+      "id": "FOB_KESTREL",
+      "initial": 3800.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_DRAKE",
+      "initial": 510.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_LYNX",
+      "initial": 480.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_QUILL",
+      "initial": 470.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_TALON",
+      "initial": 500.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_VIPER",
+      "initial": 450.0,
+      "sinks": "none"
+    },
+    {
+      "id": "OP_WREN",
+      "initial": 520.0,
+      "sinks": "none"
+    },
+    {
+      "id": "PORT_ALDER",
+      "initial": 60000.0,
+      "sinks": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "FOB_ANVIL",
+      "to": "CAMP_HOLLOW"
+    },
+    {
+      "id": "e1",
+      "from": "FOB_ANVIL",
+      "to": "CAMP_RIDGE"
+    },
+    {
+      "id": "e2",
+      "from": "FOB_ANVIL",
+      "to": "OP_DRAKE"
+    },
+    {
+      "id": "e3",
+      "from": "FOB_ANVIL",
+      "to": "OP_QUILL"
+    },
+    {
+      "id": "e4",
+      "from": "FOB_IRONSIDE",
+      "to": "CAMP_MARSH"
+    },
+    {
+      "id": "e5",
+      "from": "FOB_IRONSIDE",
+      "to": "CAMP_SABLE"
+    },
+    {
+      "id": "e6",
+      "from": "FOB_IRONSIDE",
+      "to": "OP_TALON"
+    },
+    {
+      "id": "e7",
+      "from": "FOB_IRONSIDE",
+      "to": "OP_VIPER"
+    },
+    {
+      "id": "e8",
+      "from": "FOB_KESTREL",
+      "to": "CAMP_DUNE"
+    },
+    {
+      "id": "e9",
+      "from": "FOB_KESTREL",
+      "to": "CAMP_HOLLOW"
+    },
+    {
+      "id": "e10",
+      "from": "FOB_KESTREL",
+      "to": "CAMP_SABLE"
+    },
+    {
+      "id": "e11",
+      "from": "FOB_KESTREL",
+      "to": "OP_LYNX"
+    },
+    {
+      "id": "e12",
+      "from": "FOB_KESTREL",
+      "to": "OP_WREN"
+    },
+    {
+      "id": "e13",
+      "from": "PORT_ALDER",
+      "to": "FOB_ANVIL"
+    },
+    {
+      "id": "e14",
+      "from": "PORT_ALDER",
+      "to": "FOB_IRONSIDE"
+    },
+    {
+      "id": "e15",
+      "from": "PORT_ALDER",
+      "to": "FOB_KESTREL"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0",
+      "type": "edge",
+      "ref": "e0",
+      "value": 950.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T14:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c1",
+      "type": "edge",
+      "ref": "e0",
+      "value": 950.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T14:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c2",
+      "type": "edge",
+      "ref": "e0",
+      "value": 950.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T14:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c3",
+      "type": "edge",
+      "ref": "e1",
+      "value": 1550.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T12:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c4",
+      "type": "edge",
+      "ref": "e1",
+      "value": 1550.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T12:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c5",
+      "type": "edge",
+      "ref": "e1",
+      "value": 1130.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T12:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c6",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1450.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T11:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c7",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1450.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T11:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c8",
+      "type": "edge",
+      "ref": "e2",
+      "value": 1450.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T11:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c9",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T11:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c10",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T11:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c11",
+      "type": "edge",
+      "ref": "e3",
+      "value": 1250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T11:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c12",
+      "type": "edge",
+      "ref": "e4",
+      "value": 1600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T09:10:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c13",
+      "type": "edge",
+      "ref": "e4",
+      "value": 1600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T09:10:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c14",
+      "type": "edge",
+      "ref": "e4",
+      "value": 1600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T09:10:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c15",
+      "type": "edge",
+      "ref": "e5",
+      "value": 900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T13:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c16",
+      "type": "edge",
+      "ref": "e5",
+      "value": 900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T13:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c17",
+      "type": "edge",
+      "ref": "e5",
+      "value": 900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T13:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c18",
+      "type": "edge",
+      "ref": "e6",
+      "value": 1400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T08:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c19",
+      "type": "edge",
+      "ref": "e6",
+      "value": 1400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T08:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c20",
+      "type": "edge",
+      "ref": "e6",
+      "value": 1400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T08:15:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c21",
+      "type": "edge",
+      "ref": "e7",
+      "value": 1200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T08:45:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c22",
+      "type": "edge",
+      "ref": "e7",
+      "value": 1200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T08:45:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c23",
+      "type": "edge",
+      "ref": "e7",
+      "value": 1200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T08:45:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c24",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T10:35:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c25",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T10:35:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c26",
+      "type": "edge",
+      "ref": "e8",
+      "value": 1700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T10:35:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c27",
+      "type": "edge",
+      "ref": "e9",
+      "value": 700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T14:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c28",
+      "type": "edge",
+      "ref": "e9",
+      "value": 700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T14:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c29",
+      "type": "edge",
+      "ref": "e9",
+      "value": 700.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T14:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c30",
+      "type": "edge",
+      "ref": "e10",
+      "value": 800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T13:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c31",
+      "type": "edge",
+      "ref": "e10",
+      "value": 800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T13:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c32",
+      "type": "edge",
+      "ref": "e10",
+      "value": 800.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T13:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c33",
+      "type": "edge",
+      "ref": "e11",
+      "value": 1300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T10:05:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c34",
+      "type": "edge",
+      "ref": "e11",
+      "value": 1300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T10:05:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c35",
+      "type": "edge",
+      "ref": "e11",
+      "value": 1300.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T10:05:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c36",
+      "type": "edge",
+      "ref": "e12",
+      "value": 1500.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T09:40:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c37",
+      "type": "edge",
+      "ref": "e12",
+      "value": 1500.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T09:40:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c38",
+      "type": "edge",
+      "ref": "e12",
+      "value": 1500.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T09:40:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c39",
+      "type": "edge",
+      "ref": "e13",
+      "value": 7600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T06:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c40",
+      "type": "edge",
+      "ref": "e13",
+      "value": 7600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T06:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c41",
+      "type": "edge",
+      "ref": "e13",
+      "value": 7600.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T06:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c42",
+      "type": "edge",
+      "ref": "e14",
+      "value": 9000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T05:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c43",
+      "type": "edge",
+      "ref": "e14",
+      "value": 9000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T05:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c44",
+      "type": "edge",
+      "ref": "e14",
+      "value": 9000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T05:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c45",
+      "type": "edge",
+      "ref": "e15",
+      "value": 8200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "escort_verified",
+      "timestamp": "2026-09-14T06:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c46",
+      "type": "edge",
+      "ref": "e15",
+      "value": 8200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_received",
+      "timestamp": "2026-09-14T06:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c47",
+      "type": "edge",
+      "ref": "e15",
+      "value": 8200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "shipment_sent",
+      "timestamp": "2026-09-14T06:00:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c48",
+      "type": "node",
+      "ref": "CAMP_DUNE",
+      "value": 2280.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c49",
+      "type": "node",
+      "ref": "CAMP_HOLLOW",
+      "value": 2190.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c50",
+      "type": "node",
+      "ref": "CAMP_MARSH",
+      "value": 2200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c51",
+      "type": "node",
+      "ref": "CAMP_RIDGE",
+      "value": 2170.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c52",
+      "type": "node",
+      "ref": "CAMP_SABLE",
+      "value": 2250.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c53",
+      "type": "node",
+      "ref": "FOB_ANVIL",
+      "value": 5900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c54",
+      "type": "node",
+      "ref": "FOB_IRONSIDE",
+      "value": 7900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c55",
+      "type": "node",
+      "ref": "FOB_KESTREL",
+      "value": 6000.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c56",
+      "type": "node",
+      "ref": "OP_DRAKE",
+      "value": 1960.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c57",
+      "type": "node",
+      "ref": "OP_LYNX",
+      "value": 2400.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c58",
+      "type": "node",
+      "ref": "OP_QUILL",
+      "value": 1720.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c59",
+      "type": "node",
+      "ref": "OP_TALON",
+      "value": 1900.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c60",
+      "type": "node",
+      "ref": "OP_VIPER",
+      "value": 1650.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c61",
+      "type": "node",
+      "ref": "OP_WREN",
+      "value": 2020.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "c62",
+      "type": "node",
+      "ref": "PORT_ALDER",
+      "value": 35200.0,
+      "source": "/var/folders/m7/psggrrw13m578tgqmg0ytx000000gn/T/orb-Ur7XQg/theater_15node.csv",
+      "channel": "eod_on_hand",
+      "timestamp": "2026-09-14T17:30:00Z",
+      "n_events": 1,
+      "weight": 1.0
+    }
+  ]
+}

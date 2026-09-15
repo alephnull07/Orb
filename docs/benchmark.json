@@ -1,0 +1,446 @@
+{
+ "scenarios": [
+  {
+   "id": "fuel-two-false-reports",
+   "label": "Fuel: 2 independent lies",
+   "m_claims": 15,
+   "n_vars": 10,
+   "k": 1,
+   "n_planted": 2,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 108.43023255813796,
+     "precision": 0.13333333333333333,
+     "recall": 1.0,
+     "f1": 0.23529411764705882,
+     "false_flags": 13,
+     "n_flagged": 15,
+     "seconds": 8.150003850460052e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 2,
+     "seconds": 0.0008220419986173511,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 2,
+     "seconds": 0.052910457947291434,
+     "finished": true,
+     "evals": 121
+    }
+   }
+  },
+  {
+   "id": "fuel-one-bad-reporter",
+   "label": "Fuel: 1 correlated reporter",
+   "m_claims": 15,
+   "n_vars": 10,
+   "k": 1,
+   "n_planted": 3,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 26.16279069767552,
+     "precision": 0.25,
+     "recall": 1.0,
+     "f1": 0.4,
+     "false_flags": 9,
+     "n_flagged": 12,
+     "seconds": 8.31669894978404e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 3,
+     "seconds": 0.0009326670551672578,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 3,
+     "seconds": 0.24508799996692687,
+     "finished": true,
+     "evals": 576
+    }
+   }
+  },
+  {
+   "id": "fuel-consumption",
+   "label": "Fuel: known burn + 1 lie",
+   "m_claims": 10,
+   "n_vars": 10,
+   "k": 1,
+   "n_planted": 1,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 20.270270270272135,
+     "precision": 0.2,
+     "recall": 1.0,
+     "f1": 0.33333333333333337,
+     "false_flags": 4,
+     "n_flagged": 5,
+     "seconds": 6.895908154547215e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 1,
+     "seconds": 0.0007192919729277492,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 1,
+     "seconds": 0.004914875025860965,
+     "finished": true,
+     "evals": 11
+    }
+   }
+  },
+  {
+   "id": "fuel-past-guarantee",
+   "label": "Fuel: 4 lies (past k=1)",
+   "m_claims": 15,
+   "n_vars": 10,
+   "k": 1,
+   "n_planted": 4,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 180.23255813952346,
+     "precision": 0.26666666666666666,
+     "recall": 1.0,
+     "f1": 0.4210526315789474,
+     "false_flags": 11,
+     "n_flagged": 15,
+     "seconds": 6.499991286545992e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 350.0,
+     "precision": 0.5,
+     "recall": 0.5,
+     "f1": 0.5,
+     "false_flags": 2,
+     "n_flagged": 4,
+     "seconds": 0.0006289579905569553,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 350.0,
+     "precision": 0.5,
+     "recall": 0.5,
+     "f1": 0.5,
+     "false_flags": 2,
+     "n_flagged": 4,
+     "seconds": 0.838177458033897,
+     "finished": true,
+     "evals": 1941
+    }
+   }
+  },
+  {
+   "id": "supply-three-formats",
+   "label": "Supply: 3 formats, 1 lie \u00d73",
+   "m_claims": 48,
+   "n_vars": 11,
+   "k": 5,
+   "n_planted": 3,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 69.824561403509,
+     "precision": 0.1,
+     "recall": 1.0,
+     "f1": 0.18181818181818182,
+     "false_flags": 27,
+     "n_flagged": 30,
+     "seconds": 8.512497879564762e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 3,
+     "seconds": 0.0009096249705180526,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 3,
+     "seconds": 8.26624337490648,
+     "finished": true,
+     "evals": 18473
+    }
+   }
+  },
+  {
+   "id": "medical-four-sources",
+   "label": "Medical: 4 sources, 2 lies",
+   "m_claims": 18,
+   "n_vars": 14,
+   "k": 1,
+   "n_planted": 2,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 89.97901364112988,
+     "precision": 0.14285714285714285,
+     "recall": 1.0,
+     "f1": 0.25,
+     "false_flags": 12,
+     "n_flagged": 14,
+     "seconds": 9.495799895375967e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 2,
+     "seconds": 0.0007638750830665231,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 2,
+     "seconds": 0.07363750005606562,
+     "finished": true,
+     "evals": 172
+    }
+   }
+  },
+  {
+   "id": "water-find-the-loss",
+   "label": "Water: leak, no lies",
+   "m_claims": 29,
+   "n_vars": 28,
+   "k": 0,
+   "n_planted": 0,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 5.093170329928398e-11,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.0020269579254090786,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.0008349999552592635,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.0005902920383960009,
+     "finished": true,
+     "evals": 1
+    }
+   }
+  },
+  {
+   "id": "water-lie-or-leak",
+   "label": "Water: leak + 1 lie",
+   "m_claims": 29,
+   "n_vars": 28,
+   "k": 0,
+   "n_planted": 1,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 599.9999999999982,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.00014695897698402405,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 1,
+     "seconds": 0.0007711660582572222,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 1,
+     "seconds": 0.013813041965477169,
+     "finished": true,
+     "evals": 30
+    }
+   }
+  },
+  {
+   "id": "large-network",
+   "label": "15-node network, clean",
+   "m_claims": 58,
+   "n_vars": 29,
+   "k": 2,
+   "n_planted": 0,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 0.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.00013104209210723639,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 2.864908310584724e-11,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.0009094169363379478,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 2.864908310584724e-11,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "false_flags": 0,
+     "n_flagged": 0,
+     "seconds": 0.0006286250427365303,
+     "finished": true,
+     "evals": 1
+    }
+   }
+  },
+  {
+   "id": "fuel-audit-meters",
+   "label": "Fuel: metered sinks + 1 lie",
+   "m_claims": 14,
+   "n_vars": 14,
+   "k": 0,
+   "n_planted": 1,
+   "methods": {
+    "least_squares": {
+     "max_node_error": 31.938775510206142,
+     "precision": 0.3333333333333333,
+     "recall": 1.0,
+     "f1": 0.5,
+     "false_flags": 2,
+     "n_flagged": 3,
+     "seconds": 5.949998740106821e-05,
+     "finished": true
+    },
+    "orb_l1": {
+     "max_node_error": 50.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "false_flags": 1,
+     "n_flagged": 1,
+     "seconds": 0.0006940000457689166,
+     "finished": true
+    },
+    "brute_force": {
+     "max_node_error": 50.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "false_flags": 1,
+     "n_flagged": 1,
+     "seconds": 0.0069282089825719595,
+     "finished": true,
+     "evals": 15
+    }
+   }
+  }
+ ],
+ "summary": {
+  "least_squares": {
+   "mean_max_node_error": 112.68382022205033,
+   "median_max_node_error": 50.88166845685757,
+   "exact_recovery_rate": 0.2,
+   "mean_f1": 0.4321498264377522,
+   "mean_false_flags": 7.8,
+   "mean_seconds": 0.0002843167982064188,
+   "finished": 10,
+   "n": 10
+  },
+  "orb_l1": {
+   "mean_max_node_error": 40.00000000000286,
+   "median_max_node_error": 0.0,
+   "exact_recovery_rate": 0.8,
+   "mean_f1": 0.85,
+   "mean_false_flags": 0.3,
+   "mean_seconds": 0.000798604206647724,
+   "finished": 10,
+   "n": 10
+  },
+  "brute_force": {
+   "mean_max_node_error": 40.00000000000286,
+   "median_max_node_error": 0.0,
+   "exact_recovery_rate": 0.8,
+   "mean_f1": 0.85,
+   "mean_false_flags": 0.3,
+   "mean_seconds": 0.9502931833965704,
+   "finished": 10,
+   "n": 10
+  }
+ }
+}
